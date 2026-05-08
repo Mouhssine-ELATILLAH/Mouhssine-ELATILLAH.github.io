@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Learning | Plateforme Universitaire</title>
+    <!-- Google Fonts pour un look premium -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --accent: #3b82f6;
+            --footer-bg: #0f172a;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            margin: 0;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Header Moderne avec dégradé */
+        header {
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            padding: 80px 10%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+        }
+
+        .hero-text { flex: 1; max-width: 600px; }
+        .hero-text h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .hero-text p { font-size: 1.1rem; opacity: 0.9; font-weight: 300; }
+
+        .profile-img {
+            width: 220px;
+            height: 220px;
+            border-radius: 24px;
+            object-fit: cover;
+            border: 8px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        .profile-img:hover { transform: scale(1.05); }
+
+        /* Grille de Cours */
+        .main-container {
+            max-width: 1200px;
+            margin: -50px auto 50px;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            flex: 1;
+        }
+
+        .level-column {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            border-top: 6px solid var(--primary);
+        }
+
+        .level-column h2 {
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .course-card {
+            background: #f1f5f9;
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+            text-decoration: none;
+            display: block;
+        }
+
+        .course-card:hover {
+            background: white;
+            border-color: var(--primary);
+            box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .course-card h3 { margin: 0; font-size: 1rem; color: var(--primary); }
+        .course-tag {
+            font-size: 0.75rem;
+            background: #cbd5e1;
+            padding: 2px 8px;
+            border-radius: 20px;
+            font-weight: bold;
+            color: var(--dark);
+        }
+
+        /* Pied de page */
+        footer {
+            background-color: var(--footer-bg);
+            color: #94a3b8;
+            padding: 50px 10% 20px;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            border-left: 3px solid var(--primary);
+            padding-left: 10px;
+        }
+
+        .footer-section p { font-size: 0.9rem; margin: 10px 0; }
+        
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.8rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            header { flex-direction: column-reverse; text-align: center; padding-bottom: 100px; }
+            .hero-text { padding-right: 0; margin-top: 30px; }
+            .main-container { grid-template-columns: 1fr; margin-top: -30px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="hero-text">
+        <h1>Prof. [Votre Nom]</h1>
+        <p>Enseignant-Chercheur en Informatique<br>
+        Spécialiste en IA et Reconnaissance de Manuscrits.<br>
+        Faculté des Lettres et des Sciences Humaines, Agadir.</p>
+    </div>
+    <img src="votre-photo.jpg" alt="Professeur" class="profile-img">
+</header>
+
+<div class="main-container">
+    <!-- LICENCE -->
+    <section class="level-column">
+        <h2>🎓 Licence</h2>
+        <a href="#" class="course-card">
+            <span class="course-tag">S2</span>
+            <h3>Culture Digitale</h3>
+            <p style="font-size: 0.8rem; color: #64748b;">Outils bureautiques et culture numérique.</p>
+        </a>
+		
+		<!-- Nouveau cours ajouté ici -->
+        <a href="#" class="course-card">
+            <span class="course-tag">S3/S4</span>
+            <h3>Excel Avancé</h3>
+            <p style="font-size: 0.8rem; color: #64748b;">Analyse de données, fonctions complexes et tableaux croisés dynamiques.</p>
+        </a>
+		
+        <a href="#" class="course-card">
+            <span class="course-tag">S5</span>
+            <h3>Initiation à l'IA</h3>
+            <p style="font-size: 0.8rem; color: #64748b;">Fondamentaux du Machine Learning.</p>
+        </a>
+    </section>
+
+    <!-- MASTER -->
+    <section class="level-column" style="border-top-color: #8b5cf6;">
+        <h2>📚 Master</h2>
+        <a href="#" class="course-card">
+            <span class="course-tag">M1/M2</span>
+            <h3>Initiation à l'IA</h3>
+            <p style="font-size: 0.8rem; color: #64748b;">Approches avancées et recherche appliquée.</p>
+        </a>
+    </section>
+
+    <!-- DOCTORAT -->
+    <section class="level-column" style="border-top-color: #10b981;">
+        <h2>🔬 Doctorat</h2>
+        <a href="#" class="course-card">
+            <span class="course-tag">Recherche</span>
+            <h3>Digitalisation</h3>
+            <p style="font-size: 0.8rem; color: #64748b;">Transformation digitale et patrimoine.</p>
+        </a>
+    </section>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>Coordonnées</h4>
+            <p>📧 Email : votre.nom@uiz.ac.ma</p>
+            <p>📍 Bureau : Département d'Informatique</p>
+            <p>🏛️ FLSH, Université Ibn Zohr, Agadir</p>
+        </div>
+        <div class="footer-section">
+            <h4>Expertises Recherche</h4>
+            <p>• Reconnaissance de manuscrits arabes</p>
+            <p>• Intelligence Artificielle appliquée</p>
+            <p>• Humanités Numériques (Digital Humanities)</p>
+        </div>
+        <div class="footer-section">
+            <h4>Liens Externes</h4>
+            <p><a href="#" style="color: inherit; text-decoration: none;">Google Scholar</a></p>
+            <p><a href="#" style="color: inherit; text-decoration: none;">Laboratoire de Recherche</a></p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2026 - Plateforme de Cours de [Votre Nom] - Faculté des Lettres et des Sciences Humaines d'Agadir
+    </div>
+</footer>
+
+</body>
+</html>
