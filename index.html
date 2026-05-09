@@ -63,12 +63,11 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: 0.3s;
-            margin-right: 20px; /* Ajoute l'espace souhaité ici */
         }
         .nav-links a:not(:last-child) { margin-right: 20px; }
         .nav-links a:hover { color: var(--accent); }
 
-        /* --- Hero Section & Nouveau Cadre --- */
+        /* --- Hero Section --- */
         .hero {
             background: var(--dark);
             color: white;
@@ -76,17 +75,23 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 100px;
+            gap: 60px; /* Réduit l'espace pour mieux équilibrer avec l'image */
         }
 
-        .hero-info h1 { font-family: 'Lexend', sans-serif; font-size: 3rem; line-height: 1; margin-bottom: 30px; font-weight: 800; }
-        .hero-info p { font-size: 1.25rem; color: #94a3b8; max-width: 600px; font-weight: 300; }
+        .hero-info h1 { 
+            font-family: 'Lexend', sans-serif; 
+            font-size: 3.5rem; /* Taille ajustée pour ne pas écraser l'image */
+            line-height: 1.2; 
+            margin-bottom: 20px; 
+            font-weight: 800; 
+            white-space: nowrap; 
+        }
+        .hero-info p { font-size: 1.15rem; color: #94a3b8; max-width: 550px; font-weight: 300; }
 
-        /* Le Cadre Géométrique Moderne */
         .profile-frame {
             position: relative;
-            width: 320px;
-            height: 320px;
+            width: 300px;
+            height: 300px;
             flex-shrink: 0;
         }
 
@@ -105,20 +110,16 @@
             object-fit: cover;
             clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
             border: 5px solid rgba(255,255,255,0.1);
-            filter: grayscale(20%);
-            transition: 0.5s ease;
         }
         
-        .profile-frame:hover .profile-img { filter: grayscale(0%); transform: scale(1.02); }
-
         @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.3; } 50% { transform: scale(1.05); opacity: 0.6; } }
 
         /* --- Section Nos Cours --- */
         .container { max-width: 1400px; margin: 120px auto; padding: 0 5%; }
-        .main-title { font-family: 'Lexend', sans-serif; font-size: 3.5rem; font-weight: 800; margin-bottom: 80px; letter-spacing: -2px; }
+        .main-title { font-family: 'Lexend', sans-serif; font-size: 3rem; font-weight: 800; margin-bottom: 80px; }
 
         .section-header { display: flex; align-items: center; gap: 20px; margin: 80px 0 40px; }
-        .section-header h2 { font-family: 'Lexend', sans-serif; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); }
+        .section-header h2 { font-family: 'Lexend', sans-serif; font-size: 1.3rem; text-transform: uppercase; color: var(--text-muted); }
         .line { flex-grow: 1; height: 1px; background: #e2e8f0; }
 
         .course-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 40px; }
@@ -126,60 +127,74 @@
         .course-card {
             background: white;
             border: 1px solid #edf2f7;
-            padding: 50px 40px;
-            border-radius: 4px; /* Style plus carré/professionnel */
+            padding: 40px;
+            border-radius: 4px;
             text-decoration: none;
             color: inherit;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
+        .course-card:hover { background: #f8fafc; transform: translateY(-5px); border-color: var(--accent); }
 
-        .course-card::before { content: ""; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent); transform: scaleY(0); transition: 0.3s; }
-        .course-card:hover::before { transform: scaleY(1); }
-        .course-card:hover { background: #f8fafc; transform: translateX(10px); }
-
-        .course-card h3 { font-family: 'Lexend', sans-serif; font-size: 1.5rem; margin-bottom: 15px; }
-        .course-card p { color: var(--text-muted); }
-
-        /* --- Pied de Page (Horizontalement Dominant) --- */
+        /* --- Pied de Page (Centré) --- */
         footer {
             background: var(--dark);
             color: white;
-            padding: 100px 5% 50px;
+            padding: 80px 5% 40px;
+            text-align: center; /* Centre le texte globalement */
         }
 
         .footer-wide-wrapper {
             display: flex;
-            justify-content: space-between; /* Écarte les éléments au maximum */
+            justify-content: center;
             align-items: flex-start;
-            max-width: 100%; /* Utilise toute la largeur */
-            gap: 40px;
+            gap: 80px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-        .footer-col { flex: 1; }
-        .footer-col.brand { max-width: 400px; }
-        .footer-col.center { text-align: center; }
-        .footer-col.right { text-align: right; }
+        .footer-col { 
+            flex: 1; 
+            min-width: 250px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centre les éléments à l'intérieur de la colonne */
+        }
 
-        .footer-col h4 { font-family: 'Lexend', sans-serif; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 3px; color: var(--accent); margin-bottom: 30px; }
-        .footer-col p, .footer-col a { color: #94a3b8; text-decoration: none; margin-bottom: 15px; display: block; font-size: 1rem; }
+        .footer-col h4 { 
+            font-family: 'Lexend', sans-serif; 
+            font-size: 0.9rem; 
+            text-transform: uppercase; 
+            letter-spacing: 2px; 
+            color: var(--accent); 
+            margin-bottom: 25px; 
+        }
+        
+        .footer-col p, .footer-col a { 
+            color: #94a3b8; 
+            text-decoration: none; 
+            margin-bottom: 12px; 
+            font-size: 0.95rem; 
+            max-width: 300px;
+        }
         .footer-col a:hover { color: white; }
 
         .bottom-copyright {
-            margin-top: 100px;
-            padding-top: 40px;
+            margin-top: 60px;
+            padding-top: 30px;
             border-top: 1px solid rgba(255,255,255,0.05);
             display: flex;
             justify-content: space-between;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             color: #475569;
         }
 
         @media (max-width: 1100px) {
-            .hero { flex-direction: column-reverse; text-align: center; padding-top: 180px; }
-            .footer-wide-wrapper { flex-direction: column; text-align: center; align-items: center; }
-            .footer-col.right, .footer-col.center { text-align: center; }
+            .hero { flex-direction: column-reverse; text-align: center; gap: 40px; }
+            .hero-info h1 { font-size: 2.5rem; white-space: normal; }
+            .hero-info p { margin: 0 auto; }
+            .footer-wide-wrapper { flex-direction: column; gap: 50px; }
+            .bottom-copyright { flex-direction: column; gap: 10px; }
         }
     </style>
 </head>
@@ -191,7 +206,7 @@
         <input type="text" id="siteSearch" placeholder="Rechercher..." class="search-input">
         <div class="nav-links">
             <a href="#">Accueil</a>
-            <a href="publications.html">  Publications</a>
+            <a href="publications.html">Publications</a>
         </div>
     </div>
 </nav>
@@ -199,7 +214,7 @@
 <header class="hero">
     <div class="hero-info">
         <h1>Savoir Digital & <span style="color: var(--accent);">IA</span></h1>
-        <p>Espace de Cours du Mouhssine EL ATILLAH. Professeur de Cutlure Digital à la faculté des lettres et sciences humaines d'Agadir à l'Université Ibnou Zohr.</p>
+        <p>Espace de Cours du Mouhssine EL ATILLAH. Professeur de Culture Digitale à la faculté des lettres et sciences humaines d'Agadir (UIZ).</p>
     </div>
     <div class="profile-frame">
         <div class="frame-border"></div>
@@ -242,19 +257,19 @@
 </main>
 
 <footer>
-    <div class="footer-col left">
-        <div class="footer-col brand">
+    <div class="footer-wide-wrapper">
+        <div class="footer-col">
             <h4>DigitalSkills</h4>
-            <p>Développement des compétences technologiques et recherche appliquée en IA. Faculté des Lettres et des Sciences Humaines, Agadir.</p>
+            <p>Développement des compétences technologiques et recherche appliquée en IA. Faculté des Lettres, Agadir.</p>
         </div>
         
-        <div class="footer-col center">
+        <div class="footer-col">
             <h4>Contact Académique</h4>
             <p>📧 m.elatillah@uiz.ac.ma</p>
             <p>📍 Université Ibn Zohr, Agadir, Maroc</p>
         </div>
 
-        <div class="footer-col right">
+        <div class="footer-col">
             <h4>Index Scientifique</h4>
             <a href="https://scholar.google.com/citations?user=Mc6chlYAAAAJ" target="_blank">Google Scholar</a>
             <a href="https://www.researchgate.net/profile/Mouhssine-El-Atillah-2" target="_blank">ResearchGate</a>
