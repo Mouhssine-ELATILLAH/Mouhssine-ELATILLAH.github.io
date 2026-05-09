@@ -79,7 +79,13 @@
             gap: 100px;
         }
 
-        .hero-info h1 { font-family: 'Lexend', sans-serif; font-size: clamp(2rem, 4vw, 3rem); line-height: 1; margin-bottom: 30px; font-weight: 800; }
+        .hero-info h1 { 
+    font-size: clamp(2.2rem, 5vw, 3.2rem); /* Augmente la taille minimale et maximale */
+    white-space: nowrap; /* Force le texte à rester sur une seule ligne */
+    line-height: 1.1; 
+    margin-bottom: 25px; 
+    font-weight: 800; 
+}
         .hero-info p { font-size: 1.25rem; color: #94a3b8; max-width: 600px; font-weight: 300; }
 
         /* Le Cadre Géométrique Moderne */
@@ -242,7 +248,7 @@
 </main>
 
 <footer>
-    <div class="footer-wide-wrapper">
+    <div class="footer-col center">
         <div class="footer-col brand">
             <h4>DigitalSkills</h4>
             <p>Développement des compétences technologiques et recherche appliquée en IA. Faculté des Lettres et des Sciences Humaines, Agadir.</p>
