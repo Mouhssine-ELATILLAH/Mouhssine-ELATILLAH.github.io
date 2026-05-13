@@ -1,1 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Initiation à l'IA | Prof. Mouhssine EL ATILLAH</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark: #020617;
+            --surface: #ffffff;
+            --accent: #f59e0b; 
+            --primary: #6366f1; 
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+        }
 
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfcfd;
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            background: rgba(2, 6, 23, 0.98);
+            backdrop-filter: blur(15px);
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            position: fixed;
+            top: 0; width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-logo { font-family: 'Lexend', sans-serif; font-weight: 800; font-size: 1.8rem; color: #fff; letter-spacing: -1.5px; text-decoration: none; }
+        .nav-logo span { color: var(--accent); }
+
+        .nav-links a { 
+            text-decoration: none; 
+            color: rgba(255,255,255,0.7); 
+            font-weight: 600; 
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: 0.3s;
+        }
+        /* Conservation de l'espace de 20px entre Accueil et Publications */
+        .nav-links a:not(:last-child) { margin-right: 20px; }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* --- Header --- */
+        .course-header {
+            background: var(--dark);
+            color: white;
+            padding: 160px 5% 60px;
+        }
+
+        .breadcrumb { font-size: 0.85rem; color: var(--accent); margin-bottom: 15px; text-transform: uppercase; }
+        .breadcrumb a { color: #94a3b8; text-decoration: none; }
+        .course-header h1 { font-family: 'Lexend', sans-serif; font-size: 2.8rem; font-weight: 800; }
+
+        /* --- Layout --- */
+        .course-container {
+            max-width: 1600px;
+            margin: 40px auto;
+            padding: 0 3%;
+            display: grid;
+            grid-template-columns: 220px 1fr 280px;
+            gap: 40px;
+        }
+
+        /* Colonne Sommaire (Gauche) */
+        .course-nav { position: sticky; top: 120px; height: fit-content; }
+        /* Ajout du titre au dessus du sommaire */
+        .course-nav h3 { 
+            font-family: 'Lexend', sans-serif; 
+            font-size: 0.9rem; 
+            text-transform: uppercase; 
+            color: var(--text-main); 
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+        .course-nav ul { list-style: none; border-left: 1px solid #e2e8f0; }
+        .course-nav li a { display: block; padding: 8px 15px; text-decoration: none; color: var(--text-muted); font-size: 0.9rem; transition: 0.2s; }
+        .course-nav li a:hover { color: var(--accent); border-left: 2px solid var(--accent); margin-left: -1px; }
+
+        /* Colonne Contenu (Centre - Largeur augmentée) */
+        .course-content { 
+            background: white; 
+            padding: 50px; 
+            border-radius: 12px; 
+            border: 1px solid #edf2f7;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .course-content h2 { font-family: 'Lexend', sans-serif; margin-bottom: 20px; color: var(--dark); border-bottom: 2px solid #f1f5f9; padding-bottom: 10px; }
+        .course-content p { margin-bottom: 20px; color: #334155; }
+
+        /* Colonne Ressources (Droite) */
+        .course-sidebar { position: sticky; top: 120px; height: fit-content; display: flex; flex-direction: column; gap: 20px; }
+        
+        .resource-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .resource-box.dark { background: var(--dark); color: white; border: none; }
+        
+        .resource-box h4 { font-family: 'Lexend', sans-serif; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 15px; color: var(--accent); }
+        
+        .btn-action {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+        .btn-pdf { background: var(--accent); color: var(--dark); }
+        .btn-tp { background: white; color: var(--dark); border: 1px solid #e2e8f0; }
+        .btn-action:hover { transform: translateY(-2px); filter: brightness(1.1); }
+
+        footer { background: var(--dark); color: white; padding: 60px 5%; text-align: center; margin-top: 80px; }
+
+        @media (max-width: 1200px) {
+            .course-container { grid-template-columns: 1fr; }
+            .course-nav, .course-sidebar { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="../../index.html" class="nav-logo">Digital<span>Skills</span></a>
+    <div class="nav-right" style="display: flex; align-items: center; gap: 40px;">
+        <div class="nav-links">
+            <a href="../../index.html">Accueil</a>
+            <a href="../../publications.html">Publications</a>
+        </div>
+    </div>
+</nav>
+
+<header class="course-header">
+    <div class="breadcrumb"><a href="../../index.html">Accueil</a> / Licence / Initiation IA</div>
+    <h1>Initiation à l'Intelligence Artificielle</h1>
+</header>
+
+<main class="course-container">
+    <!-- SOMMAIRE AVEC TITRE AJOUTÉ -->
+    <aside class="course-nav">
+        <h3>Contenu du cours</h3>
+        <ul>
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#histoire">Histoire de l'IA</a></li>
+            <li><a href="#concept">Concepts fondamentaux</a></li>
+            <li><a href="#applications">Applications pratiques</a></li>
+        </ul>
+    </aside>
+
+    <!-- CONTENU LARGE -->
+    <article class="course-content">
+        <section id="intro">
+            <h2>Introduction</h2>
+            <p>Ce module présente l'intelligence artificielle comme un moteur de changement dans nos sociétés numériques. Pour vos étudiants, il s'agit de comprendre comment passer de la simple culture digitale à une maîtrise des outils intelligents.</p>
+        </section>
+        
+        <section id="histoire" style="margin-top: 40px;">
+            <h2>Histoire de l'IA</h2>
+            <p>L'évolution de l'IA est une succession de percées mathématiques et technologiques, allant des premiers algorithmes de logique aux réseaux de neurones profonds utilisés pour la reconnaissance de manuscrits.</p>
+        </section>
+    </article>
+
+    <!-- SUPPORTS ET TPS -->
+    <aside class="course-sidebar">
+        <div class="resource-box dark">
+            <h4>Support de Cours</h4>
+            <a href="ia-cours.pdf" class="btn-action btn-pdf">Télécharger PDF</a>
+        </div>
+
+        <div class="resource-box">
+            <h4>Travaux Pratiques</h4>
+            <a href="tp1-ia.pdf" class="btn-action btn-tp">📄 TP 1 : Introduction</a>
+            <a href="tp2-ia.pdf" class="btn-action btn-tp">📄 TP 2 : Analyse de cas</a>
+            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 10px; text-align: center;">
+                Supports pour vos 30 étudiants.
+            </p>
+        </div>
+    </aside>
+</main>
+
+<footer>
+    <p>© 2026 — Prof. Mouhssine EL ATILLAH | Université Ibn Zohr</p>
+</footer>
+
+</body>
+</html>
