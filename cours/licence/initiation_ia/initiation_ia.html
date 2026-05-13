@@ -68,12 +68,13 @@
 
         /* --- Layout --- */
         .course-container {
-            max-width: 1600px;
+            max-width: 1500px; /* Largeur maximale totale */
             margin: 40px auto;
-            padding: 0 3%;
+            padding: 0 2%;
             display: grid;
-            grid-template-columns: 150px 1fr 150px;
-            gap: 40px;
+            /* Fixe les côtés à 150px et laisse le centre (1fr) prendre le reste */
+            grid-template-columns: 150px 1fr 150px; 
+            gap: 30px; /* Espacement légèrement réduit pour gagner de la place */
         }
 
         /* Colonne Sommaire (Gauche) */
@@ -88,13 +89,21 @@
             letter-spacing: 0.5px;
         }
         .course-nav ul { list-style: none; border-left: 1px solid #e2e8f0; }
-        .course-nav li a { display: block; padding: 8px 15px; text-decoration: none; color: var(--text-muted); font-size: 0.9rem; transition: 0.2s; }
+        .course-nav li a { 
+        display: block; 
+        padding: 6px 10px; /* Padding réduit */
+        text-decoration: none; 
+        color: var(--text-muted); 
+        font-size: 0.85rem; /* Police plus petite pour éviter les retours à la ligne */
+        line-height: 1.3;
+        transition: 0.2s; 
+        }
         .course-nav li a:hover { color: var(--accent); border-left: 2px solid var(--accent); margin-left: -1px; }
 
         /* Colonne Contenu (Centre - Largeur augmentée) */
         .course-content { 
             background: white; 
-            padding: 50px; 
+            padding: 40px; /* Un peu moins de padding pour laisser plus de place au texte */
             border-radius: 12px; 
             border: 1px solid #edf2f7;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
@@ -108,7 +117,7 @@
         .resource-box {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
-            padding: 20px;
+            padding: 12px; /* Padding réduit de 20px à 12px */
             border-radius: 10px;
         }
         .resource-box.dark { background: var(--dark); color: white; border: none; }
@@ -119,12 +128,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 10px;
+            padding: 8px 5px; /* Boutons plus compacts */
             border-radius: 6px;
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.8rem; /* Police réduite */
             font-weight: 600;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             transition: 0.3s;
         }
         .btn-pdf { background: var(--accent); color: var(--dark); }
