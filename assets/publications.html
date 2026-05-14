@@ -1,15 +1,193 @@
-<!-- Dans la zone centrale de votre page publications.html -->
-<article class="course-content">
-    <header style="margin-bottom: 40px;">
-        <h2 style="font-family: 'Lexend', sans-serif; color: var(--dark);">Publications Scientifiques</h2>
-        <p style="color: var(--text-muted);">
-            Travaux de recherche sur la reconnaissance de l'écriture arabe, le Deep Learning 
-            et le traitement d'images satellites au Maroc.
-        </p>
-    </header>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications | Prof. Mouhssine EL ATILLAH</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark: #020617;
+            --surface: #ffffff;
+            --accent: #f59e0b; 
+            --primary: #6366f1; 
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+        }
 
-    <!-- Intégration automatique via BibBase -->
-    <div id="bibbase_container">
-        <script src="https://bibbase.org/show?bib=https://raw.githubusercontent.com/Mouhssine-ELATILLAH/Mouhssine-ELATILLAH.github.io/refs/heads/main/assets/publications.bib&jsonp=1&groupby=year&theme=simple"></script>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfcfd;
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            background: rgba(2, 6, 23, 0.98);
+            backdrop-filter: blur(15px);
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            position: fixed;
+            top: 0; width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-logo { font-family: 'Lexend', sans-serif; font-weight: 800; font-size: 1.8rem; color: #fff; letter-spacing: -1.5px; text-decoration: none; }
+        .nav-logo span { color: var(--accent); }
+
+        .nav-links a { 
+            text-decoration: none; 
+            color: rgba(255,255,255,0.7); 
+            font-weight: 600; 
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .nav-links a:not(:last-child) { margin-right: 20px; }
+        .nav-links a:hover { color: var(--accent); }
+
+        /* --- Header --- */
+        .page-header {
+            background: var(--dark);
+            color: white;
+            padding: 160px 5% 60px;
+        }
+
+        .breadcrumb { font-size: 0.85rem; color: var(--accent); margin-bottom: 15px; text-transform: uppercase; }
+        .breadcrumb a { color: #94a3b8; text-decoration: none; }
+        .page-header h1 { font-family: 'Lexend', sans-serif; font-size: 2.8rem; font-weight: 800; }
+
+        /* --- Layout --- */
+        .course-container {
+            max-width: 1500px;
+            margin: 40px auto;
+            padding: 0 3%;
+            display: grid;
+            grid-template-columns: 150px 1fr 150px;
+            gap: 40px;
+        }
+
+        /* Colonnes latérales fixes à 150px */
+        .side-col { position: sticky; top: 120px; height: fit-content; }
+        
+        .course-nav h3 { 
+            font-family: 'Lexend', sans-serif; 
+            font-size: 0.85rem; 
+            text-transform: uppercase; 
+            color: var(--text-main); 
+            margin-bottom: 15px;
+        }
+        
+        /* Contenu Central */
+        .course-content { 
+            background: white; 
+            padding: 40px; 
+            border-radius: 12px; 
+            border: 1px solid #edf2f7;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Ajustements pour BibBase */
+        #bibbase_container { font-size: 0.95rem; }
+        .bibbase_group_title { 
+            font-family: 'Lexend', sans-serif !important; 
+            font-size: 1.4rem !important; 
+            border-bottom: 2px solid var(--accent) !important;
+            margin-top: 30px !important;
+            display: block;
+        }
+
+        /* Colonne Droite */
+        .resource-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 15px;
+            border-radius: 10px;
+        }
+        .resource-box.dark { background: var(--dark); color: white; border: none; }
+        .resource-box h4 { font-family: 'Lexend', sans-serif; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 10px; color: var(--accent); }
+        
+        .btn-scholar {
+            display: block;
+            text-align: center;
+            padding: 10px;
+            background: var(--accent);
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        footer { background: var(--dark); color: white; padding: 60px 5%; text-align: center; margin-top: 80px; }
+
+        @media (max-width: 1100px) {
+            .course-container { grid-template-columns: 1fr; }
+            .side-col { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="nav-logo">Digital<span>Skills</span></a>
+    <div class="nav-right" style="display: flex; align-items: center; gap: 40px;">
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="publications.html" style="color: var(--accent);">Publications</a>
+        </div>
     </div>
-</article>
+</nav>
+
+<header class="page-header">
+    <div class="breadcrumb"><a href="index.html">Accueil</a> / Recherche</div>
+    <h1>Publications Scientifiques</h1>
+</header>
+
+<main class="course-container">
+    <!-- Barre Gauche (150px) -->
+    <aside class="side-col course-nav">
+        <h3>Navigation</h3>
+        <ul style="list-style: none; border-left: 1px solid #e2e8f0;">
+            <li><a href="#bibbase_container" style="display: block; padding: 8px 15px; text-decoration: none; color: var(--text-muted); font-size: 0.85rem;">Par année</a></li>
+        </ul>
+    </aside>
+
+    <!-- Contenu Central -->
+    <article class="course-content">
+        <header style="margin-bottom: 40px;">
+            <h2 style="font-family: 'Lexend', sans-serif; color: var(--dark);">Travaux de Recherche</h2>
+            <p style="color: var(--text-muted);">
+                Mes contributions scientifiques se concentrent sur l'intelligence artificielle appliquée à la reconnaissance des manuscrits arabes et l'analyse de données géospatiales Sentinel-2A.
+            </p>
+        </header>
+
+        <!-- Intégration automatique via BibBase -->
+        <div id="bibbase_container">
+            <script src="https://bibbase.org/show?bib=https://raw.githubusercontent.com/Mouhssine-ELATILLAH/Mouhssine-ELATILLAH.github.io/refs/heads/main/assets/publications.bib&jsonp=1&groupby=year&theme=simple"></script>
+        </div>
+    </article>
+
+    <!-- Barre Droite (150px) -->
+    <aside class="side-col">
+        <div class="resource-box dark">
+            <h4>Profils</h4>
+            <a href="#" class="btn-scholar">Google Scholar</a>
+            <p style="font-size: 0.7rem; color: #94a3b8; margin-top: 10px; text-align: center;">Suivez mes citations en temps réel.</p>
+        </div>
+    </aside>
+</main>
+
+<footer>
+    <p>© 2026 — Prof. Mouhssine EL ATILLAH | Université Ibn Zohr</p>
+</footer>
+
+</body>
+</html>
