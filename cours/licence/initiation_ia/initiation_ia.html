@@ -191,120 +191,148 @@
             <h2>Section I : Introduction à l’intelligence artificielle : définitions, historique, domaines d’application</h2>
             <p><!-- Début du contenu détaillé de la Section I -->
 
-<!-- 1. Définitions et Comparaison -->
-<div class="content-block" style="margin-top: 30px;">
-    <div class="definition-card" style="background: #f8fafc; padding: 25px; border-radius: 12px; border-left: 5px solid #f59e0b; margin-bottom: 30px;">
-        <h3 style="margin-top: 0; color: #1e293b;">1. Qu’est-ce que l’IA ?</h3>
-        <p>C'est un domaine de l’informatique visant à créer des systèmes capables de réaliser des tâches exigeant normalement l’intelligence humaine (analyse, apprentissage, décision). Elle simule des capacités cognitives sans pour autant ressentir d'émotions.</p>
-    </div>
+<p><strong>Introduction</strong><br>
+L'intelligence artificielle est en train de changer le monde, mais elle reste pourtant incomprise par de nombreuses personnes. Cette section a pour objectif de donner une petite introduction au fonctionnement de l'intelligence artificielle. Principalement : quelques définitions, les concepts de base, les cas d'usage et les applications de l'IA.</p>
 
-    <div class="comparison-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-        <div class="comp-box" style="padding: 20px; border: 1px solid #e2e8f0; border-radius: 10px;">
-            <h4 style="color: #6366f1;">Intelligence Naturelle</h4>
-            <ul style="font-size: 0.95rem; color: #475569;">
-                <li>Raisonnement, créativité et émotions.</li>
-                <li>Résolution de problèmes inédits et complexes.</li>
-                <li><strong>Exemple :</strong> Un humain apprend une langue par l'interaction sociale.</li>
-            </ul>
-        </div>
-        <div class="comp-box" style="padding: 20px; border: 1px solid #e2e8f0; border-radius: 10px;">
-            <h4 style="color: #f59e0b;">Intelligence Artificielle</h4>
-            <ul style="font-size: 0.95rem; color: #475569;">
-                <li>Programmes de simulation de l'intelligence.</li>
-                <li>Analyse massive de données et génération de contenu.</li>
-                <li><strong>Exemple :</strong> L'IA apprend une langue en analysant des millions de phrases.</li>
-            </ul>
-        </div>
-    </div>
-</div>
+<p><strong>Définitions</strong></p>
 
-<!-- 2. Sous-domaines (Architecture en couches) -->
-<div class="content-block" style="margin-top: 50px;">
-    <h3>2. Les sous-domaines de l'IA</h3>
-    <div class="subdomains-container" style="background: #0f172a; color: white; padding: 30px; border-radius: 15px; text-align: center;">
-        <div class="sd-layer" style="border: 1px solid rgba(255,255,255,0.2); padding: 10px; margin-bottom: 10px; border-radius: 5px;"><strong>IA :</strong> Concept général des systèmes intelligents</div>
-        <div class="sd-layer" style="border: 1px solid #6366f1; padding: 10px; margin-bottom: 10px; border-radius: 5px; background: rgba(99, 102, 241, 0.1);"><strong>Machine Learning :</strong> Apprendre à partir de données</div>
-        <div class="sd-layer" style="border: 1px solid #f59e0b; padding: 10px; margin-bottom: 10px; border-radius: 5px; background: rgba(245, 158, 11, 0.1);"><strong>Deep Learning :</strong> Réseaux de neurones profonds</div>
-        <div class="sd-layer" style="border: 1px solid #10b981; padding: 10px; border-radius: 5px; background: rgba(16, 185, 129, 0.1);"><strong>IA Générative :</strong> Création de contenu (ChatGPT, DALL-E)</div>
-    </div>
-</div>
+<p><strong>Qu'est-ce que l'Intelligence Artificielle (IA) ?</strong><br>
+L'intelligence artificielle est un domaine de l'informatique qui cherche à créer des systèmes capables de réaliser des tâches demandant normalement l'intelligence humaine. L'IA peut analyser des informations, apprendre de l'expérience et parfois prendre des décisions. Elle simule certaines capacités humaines mais ne pense pas ni ne ressent.</p>
 
-<!-- 3. Le Cycle Intelligent (Exemple Voiture Autonome) -->
-<div class="content-block" style="margin-top: 50px;">
-    <h3>3. Fonctionnement d’un système intelligent</h3>
-    <p>Un système intelligent suit un cycle itératif pour interagir avec son environnement :</p>
-    <div class="process-steps" style="display: flex; justify-content: space-between; gap: 15px; margin-top: 20px; flex-wrap: wrap;">
-        <div class="step" style="flex: 1; min-width: 150px; text-align: center;">
-            <div style="width: 40px; height: 40px; background: #f59e0b; color: white; border-radius: 50%; line-height: 40px; margin: 0 auto 10px; font-weight: bold;">1</div>
-            <strong>Percevoir</strong><br><small>Captation des données (Caméras/Capteurs)</small>
-        </div>
-        <div class="step" style="flex: 1; min-width: 150px; text-align: center;">
-            <div style="width: 40px; height: 40px; background: #f59e0b; color: white; border-radius: 50%; line-height: 40px; margin: 0 auto 10px; font-weight: bold;">2</div>
-            <strong>Analyser</strong><br><small>Compréhension (Reconnaissance d'objets)</small>
-        </div>
-        <div class="step" style="flex: 1; min-width: 150px; text-align: center;">
-            <div style="width: 40px; height: 40px; background: #f59e0b; color: white; border-radius: 50%; line-height: 40px; margin: 0 auto 10px; font-weight: bold;">3</div>
-            <strong>Décider</strong><br><small>Choix de l'action (Freiner/Accélérer)</small>
-        </div>
-        <div class="step" style="flex: 1; min-width: 150px; text-align: center;">
-            <div style="width: 40px; height: 40px; background: #f59e0b; color: white; border-radius: 50%; line-height: 40px; margin: 0 auto 10px; font-weight: bold;">4</div>
-            <strong>Apprendre</strong><br><small>Amélioration par l'expérience</small>
-        </div>
-    </div>
-</div>
+<p><strong>Intelligence naturelle et intelligence artificielle</strong></p>
 
-<!-- 4. Chronologie Historique -->
-<div class="content-block" style="margin-top: 50px;">
-    <h3>4. Moments clés de l'histoire</h3>
-    <div class="timeline" style="border-left: 3px solid #e2e8f0; padding-left: 20px; margin-left: 10px;">
-        <div class="tl-item" style="margin-bottom: 20px; position: relative;">
-            <div style="position: absolute; left: -27px; top: 5px; width: 12px; height: 12px; background: #f59e0b; border-radius: 50%;"></div>
-            <strong>1936 - 1950 :</strong> Alan Turing et le concept de machine pensante (Test de Turing).
-        </div>
-        <div class="tl-item" style="margin-bottom: 20px; position: relative;">
-            <div style="position: absolute; left: -27px; top: 5px; width: 12px; height: 12px; background: #6366f1; border-radius: 50%;"></div>
-            <strong>1980 - 1997 :</strong> Essor du Machine Learning. Deep Blue bat Kasparov aux échecs.
-        </div>
-        <div class="tl-item" style="margin-bottom: 20px; position: relative;">
-            <div style="position: absolute; left: -27px; top: 5px; width: 12px; height: 12px; background: #10b981; border-radius: 50%;"></div>
-            <strong>2016 - 2020 :</strong> AlphaGo bat le champion de Go. Ère du Big Data et du GPU.
-        </div>
-        <div class="tl-item" style="position: relative;">
-            <div style="position: absolute; left: -27px; top: 5px; width: 12px; height: 12px; background: #ef4444; border-radius: 50%;"></div>
-            <strong>2022+ :</strong> Explosion de l'IA Générative et modèles de langage massifs.
-        </div>
-    </div>
-</div>
+<p><strong>Intelligence naturelle :</strong></p>
+<ul>
+<li>Capacité à penser, raisonner, créer et ressentir des émotions.</li>
+<li>Aptitude à résoudre des problèmes nouveaux et complexes.</li>
+</ul>
 
-<!-- 5. Domaines d'application -->
-<div class="content-block" style="margin-top: 50px;">
-    <h3>5. Domaines d’application</h3>
-    <div class="app-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
-        <div style="background: #fff; border: 1px solid #f1f5f9; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
-            <div style="font-size: 1.5rem; margin-bottom: 10px;">🏥</div>
-            <strong>Santé</strong><br><small>Diagnostic assisté par imagerie</small>
-        </div>
-        <div style="background: #fff; border: 1px solid #f1f5f9; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
-            <div style="font-size: 1.5rem; margin-bottom: 10px;">🎓</div>
-            <strong>Éducation</strong><br><small>Parcours d'apprentissage personnalisés</small>
-        </div>
-        <div style="background: #fff; border: 1px solid #f1f5f9; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
-            <div style="font-size: 1.5rem; margin-bottom: 10px;">🚗</div>
-            <strong>Transport</strong><br><small>Véhicules autonomes et logistique</small>
-        </div>
-        <div style="background: #fff; border: 1px solid #f1f5f9; padding: 20px; border-radius: 10px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
-            <div style="font-size: 1.5rem; margin-bottom: 10px;">🎨</div>
-            <strong>Création</strong><br><small>Génération de texte, images et musiques</small>
-        </div>
-    </div>
-</div>
+<p><strong>Intelligence artificielle :</strong></p>
+<ul>
+<li>Programmes informatiques capables d'accomplir certaines tâches nécessitant l'intelligence humaine.</li>
+<li>Analyse de données, apprentissage automatique, génération de contenu (texte, image, audio).</li>
+</ul>
 
-<!-- Bouton vers le QCM (Aligné à droite) -->
-<div style="display: flex; justify-content: flex-end; margin-top: 60px;">
-    <a href="quiz-section-1.html" class="btn-quiz" style="background: #f59e0b; color: white; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);">
-        Accéder au QCM de la Section I →
-    </a>
-</div></p>
+<p><strong>Exemple concret :</strong></p>
+<ul>
+<li>Humain : apprend une langue en parlant et en interagissant.</li>
+<li>IA : apprend une langue en analysant des millions de phrases.</li>
+</ul>
+
+<p><strong>Les sous-domaines de l'intelligence artificielle</strong></p>
+
+<p><strong>Intelligence artificielle (IA) :</strong> Concept général désignant les systèmes capables d'accomplir des tâches nécessitant l'intelligence humaine.</p>
+
+<p><strong>Machine Learning (Apprentissage automatique) :</strong> L'IA apprend à partir de données sans être explicitement programmée pour chaque tâche.<br>
+Exemples : détection de spams, recommandations personnalisées.</p>
+
+<p><strong>Deep Learning (Apprentissage profond) :</strong> Méthode de machine learning utilisant des réseaux de neurones artificiels à plusieurs couches.<br>
+Exemples : reconnaissance faciale, traduction automatique, diagnostic médical.</p>
+
+<p><strong>IA générative :</strong> Capable de créer du contenu nouveau (texte, image, audio) à partir de modèles entraînés.<br>
+Exemples : ChatGPT (texte), DALL·E ou MidJourney (images), outils de génération audio.</p>
+
+<p><strong>Systèmes intelligents</strong></p>
+
+<p>Un système intelligent est un système capable de percevoir son environnement, de traiter l'information, de prendre des décisions et de s'améliorer au fil du temps.</p>
+
+<p><strong>Étapes clés d'un système d'IA :</strong></p>
+
+<p><strong>Percevoir → capter des données</strong><br>
+Le système recueille des informations provenant de son environnement.<br>
+Exemples de données : Images (caméras, capteurs), Sons (microphones), Textes (documents, messages)<br>
+Objectif : fournir une base d'information pour les étapes suivantes.</p>
+
+<p><strong>Analyser → comprendre la situation</strong><br>
+Le système traite les données pour extraire des informations pertinentes.<br>
+Exemple : reconnaître une route, identifier un obstacle ou lire un panneau.<br>
+Techniques utilisées : reconnaissance d'image, traitement du langage naturel, analyse de signaux.</p>
+
+<p><strong>Décider → choisir une action</strong><br>
+Après avoir compris la situation, le système décide de l'action à entreprendre.<br>
+Exemple : freiner, tourner, accélérer.<br>
+Cette étape peut se baser sur des règles prédéfinies ou des modèles d'apprentissage automatique.</p>
+
+<p><strong>Apprendre → s'améliorer avec l'expérience</strong><br>
+Le système utilise les retours de ses actions pour améliorer ses futures décisions.<br>
+Exemple : une voiture autonome ajuste sa conduite en fonction des erreurs passées ou des nouvelles conditions de route.<br>
+Méthodes : apprentissage supervisé, apprentissage par renforcement, mise à jour de modèles.</p>
+
+<p><strong>Exemple concret : voiture autonome 🚗</strong></p>
+<ul>
+<li>Percevoir : caméras et capteurs détectent la route, les véhicules et les piétons.</li>
+<li>Analyser : l'IA interprète les informations pour savoir où se trouvent les obstacles.</li>
+<li>Décider : le système choisit de freiner, tourner ou accélérer.</li>
+<li>Apprendre : le véhicule améliore ses décisions grâce aux expériences passées et aux données collectées.</li>
+</ul>
+
+<p><strong>Histoire de l'Intelligence Artificielle</strong></p>
+
+<p>Nous allons explorer les moments clés qui ont marqué l'évolution de l'intelligence artificielle tout au long de l'histoire.</p>
+
+<p><strong>Les prémices de l'intelligence artificielle (1940-1970)</strong></p>
+
+<p>À l'aube de la Seconde Guerre mondiale, les Allemands utilisent une machine qui s'appelle « ENIGMA » et qui ressemble à une machine à écrire pour protéger leurs messages secrets. Le principe est simple : Lorsqu'un opérateur appuie sur une touche, une diode va éclairer une autre lettre. Ceci donnera alors des milliards de combinaisons possibles. Il est donc impossible de décoder le message sans disposer de la même machine avec de bons paramètres. Entre temps, les équipes britanniques continuent à analyser quotidiennement des dizaines de messages codés et interceptés du côté allemand.</p>
+
+<p>En 1936, ALAN TURING a publié un article fondateur du concept de machine de Turing. Elle a mis rapidement en évidence deux failles majeures dans le fonctionnement d'Enigma.</p>
+
+<p>En 1942, environ 40.000 messages sont interceptés et décryptés chaque mois par les Britanniques. L'année suivante, près de 80.000 communications sont déchiffrées tous les mois.</p>
+
+<p>Dans les années 50 : Alan Turing va se demander si une machine peut penser ? Ceci a donné lieu au Test De Turing. Ce test avait pour but de vérifier si une intelligence artificielle est capable d'imiter une conversation humaine.</p>
+
+<p>Dans les années 60 : Arthur Samuel a développé une intelligence artificielle capable de jouer au jeu de dames en auto apprentissage.</p>
+
+<p>Dans les années 70 : Cette période est connue aussi sous le nom de : l'hiver de l'intelligence artificielle.</p>
+
+<p><strong>La seconde vague d'évolution de l'intelligence artificielle (1980-2010)</strong></p>
+
+<p>Dans les années 80 : Il y avait la naissance du concept de Machine Learning. Cette technique de programmation utilise des probabilités statistiques pour donner aux ordinateurs la capacité d'apprendre par eux-mêmes sans programmation explicite.</p>
+
+<p>Dans les années 90 : IBM conçoit à l'aide du concept de Machine Learning, le logiciel DEEP BLUE qui a battu KASPAROV le champion du monde des échecs. Avec la victoire de Deep Blue, l'intelligence artificielle semble rattraper l'esprit humain dans un jeu considéré depuis toujours comme exigeant de hautes capacités intellectuelles.</p>
+
+<p>Dans les années 2000-2010 : Des nouveaux concepts de type « Learning » ont été dérivés du concept Machine Learning mais beaucoup plus profonds avec la mise en place de réseaux de neurones.</p>
+
+<p>Dans les années 2010, l'entreprise DeepMind (rattachée plus tard en 2014 à Google) a développé son logiciel ALPHA GO. Ce programme a pu battre le champion du monde du jeu "Goban".</p>
+
+<p><strong>La troisième vague d'évolution de l'intelligence artificielle (2020~)</strong></p>
+
+<p>Durant cette phase, il y avait une explosion des technologies qui ont contribué à l'émergence de l'intelligence artificielle. On parle alors de la troisième phase de l'évolution de l'intelligence artificielle ou encore l'ère de : Big Data, le Cloud et le GPU.</p>
+
+<p>Ainsi, le concept du BIG DATA va fournir les mécanismes nécessaires à la récolte des données massives, le GPU aidera à répartir la puissance de calcul et le Cloud permettra de mutualiser l'ensemble des ressources.</p>
+
+<p><strong>Domaines d'application de l'IA</strong></p>
+
+<p>L'intelligence artificielle est présente dans de nombreux secteurs et transforme la façon dont nous travaillons, apprenons et communiquons.</p>
+
+<p><strong>Santé</strong></p>
+<ul>
+<li>Applications : diagnostic médical assisté, imagerie médicale, suivi des patients.</li>
+<li>Exemples concrets : Détection de tumeurs dans les radiographies grâce à des algorithmes de vision par ordinateur. Analyse des données médicales pour prédire certaines maladies ou recommander un traitement.</li>
+<li>Avantage : précision accrue, gain de temps pour les professionnels de santé, amélioration des diagnostics.</li>
+</ul>
+
+<p><strong>Éducation</strong></p>
+<ul>
+<li>Applications : tutoriels intelligents, correction automatique, personnalisation des parcours d'apprentissage.</li>
+<li>Exemples concrets : Plateformes adaptatives qui ajustent le niveau des exercices selon la progression de l'étudiant. Correction automatique des devoirs ou des tests avec des retours détaillés.</li>
+<li>Avantage : apprentissage personnalisé, meilleure efficacité pédagogique, suivi précis des performances.</li>
+</ul>
+
+<p><strong>Industrie et transport</strong></p>
+<ul>
+<li>Applications : robots industriels, véhicules autonomes, optimisation des chaînes de production.</li>
+<li>Exemples concrets : Robots effectuant des tâches répétitives ou dangereuses dans les usines. Voitures autonomes qui perçoivent la route et prennent des décisions en temps réel.</li>
+<li>Avantage : sécurité accrue, réduction des erreurs humaines, productivité améliorée.</li>
+</ul>
+
+<p><strong>Communication et création</strong></p>
+<ul>
+<li>Applications : assistants virtuels, chatbots, IA générative pour le texte, les images, la musique.</li>
+<li>Exemples concrets : Assistants vocaux (Cortana, Siri, Alexa) capables de comprendre et répondre aux demandes. Création d'images ou de musiques à partir de simples instructions textuelles.</li>
+<li>Avantage : gain de temps, créativité augmentée, interaction plus naturelle avec les technologies.</li>
+</ul>
+
+<!-- Fin du contenu détaillé de la Section I --></p>
         </section>
         
         <section id="section2" style="margin-top: 40px;">
