@@ -473,7 +473,123 @@
 
         <section id="section4" style="margin-top: 40px;">
             <h2>Section IV : Éthique et IA : biais, responsabilité, transparence, impact sur la société et le monde du travail</h2>
-            <p>L'évolution de l'IA est une succession de percées mathématiques et technologiques, allant des premiers algorithmes de logique aux réseaux de neurones profonds utilisés pour la reconnaissance de manuscrits.</p>
+            <p><div class="cours-ia-container" style="font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #2c3e50; line-height: 1.8; max-width: 950px; margin: auto; padding: 20px;">
+
+    <!-- INTRODUCTION -->
+    <div style="margin-bottom: 30px;">
+        <h4 style="color: #34495e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-size: 1.1em; font-weight: bold;">Introduction</h4>
+        <p>L'intelligence artificielle (IA) occupe une place centrale dans nos sociétés modernes. Elle influence nos choix de consommation, nos loisirs, nos soins de santé et même des décisions administratives ou judiciaires. Cette présence soulève une question majeure : comment l'utiliser de manière éthique ?</p>
+        <ul>
+            <li style="margin-bottom: 5px;">L'IA n'est pas neutre : elle dépend des données, des algorithmes et des concepteurs.</li>
+            <li style="margin-bottom: 5px;">Mal encadrée, elle peut amplifier les discriminations.</li>
+            <li style="margin-bottom: 5px;">Bien utilisée, elle devient un outil de progrès et de justice.</li>
+        </ul>
+    </div>
+
+    <!-- RISQUES UE -->
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Les risques de l'IA selon l'Union Européenne</h3>
+
+    <p>L'UE a classé les systèmes d'IA en quatre niveaux de risque :</p>
+
+    <div style="margin-bottom: 20px;">
+        <p><strong>Risque inacceptable :</strong> ce sont les IA considérées comme un réel danger car elles vont à l'encontre des droits fondamentaux des personnes.</p>
+        <ul style="margin-top: -10px;">
+            <li>Exemple : manipulation du comportement, notation sociale par un État (comme le crédit social en Chine).</li>
+            <li>Ces systèmes sont interdits en Europe.</li>
+        </ul>
+
+        <p><strong>Risque élevé :</strong> il concerne les IA utilisées dans des domaines sensibles comme l'éducation, la sécurité, la santé, la justice ou la démocratie. Elles sont autorisées uniquement si elles respectent des règles strictes et subissent des contrôles.</p>
+        <ul style="margin-top: -10px;">
+            <li>Exemples : tri automatique de CV, évaluation de risque de crédit, chirurgie assistée par robot.</li>
+        </ul>
+
+        <p><strong>Risque limité :</strong> ici, l'obligation principale est la transparence. L'utilisateur doit être informé qu'il interagit avec une IA.</p>
+        <ul style="margin-top: -10px;">
+            <li>Exemple : les chatbots qui répondent automatiquement en ligne.</li>
+        </ul>
+
+        <p><strong>Risque minime :</strong> ces IA ne posent pas de problème majeur et n'exigent pas de réglementation particulière.</p>
+        <ul style="margin-top: -10px;">
+            <li>Exemples : filtres anti-spam, jeux vidéo.</li>
+        </ul>
+    </div>
+
+    <!-- LES BIAIS -->
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Les biais en intelligence artificielle</h3>
+
+    <div style="background: #fff9db; padding: 15px; border-radius: 8px; border-left: 5px solid #fab005; margin-bottom: 20px;">
+        <strong>Idée principale :</strong> Les IA ne sont pas parfaites, elles héritent de nos erreurs.
+    </div>
+
+    <ul style="margin-bottom: 20px;">
+        <li style="margin-bottom: 10px;">On présente souvent l'IA comme un outil "magique" capable de résoudre des problèmes complexes instantanément.</li>
+        <li style="margin-bottom: 10px;">En réalité, elle reste un produit humain, et donc imparfait.</li>
+        <li style="margin-bottom: 10px;">Les biais apparaissent principalement lors de l'entraînement :
+            <ul style="margin-top: 5px;">
+                <li>Si les données sont incomplètes ou non représentatives, l'IA généralise mal.</li>
+                <li>Exemple : une IA entraînée uniquement sur des images de voitures et motos sera incapable de reconnaître correctement un vélo ou un quad.</li>
+                <li>Conséquence : ces biais peuvent avoir un impact éthique majeur (discriminations en santé, justice, sécurité, emploi…).</li>
+            </ul>
+        </li>
+    </ul>
+
+    <p><strong>Types de biais :</strong></p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px;">
+        <div style="background: #fdfdfd; padding: 15px; border: 1px solid #eee; border-radius: 8px; border-top: 4px solid #2980b9;">
+            <ul style="margin: 0; padding-left: 20px;">
+                <li><strong>Biais de données :</strong> base d'apprentissage inégale.</li>
+                <li><strong>Biais de conception :</strong> préjugés intégrés par les concepteurs.</li>
+                <li><strong>Biais de confirmation :</strong> les algorithmes renforcent nos préférences.</li>
+            </ul>
+        </div>
+        <div style="background: #fdfdfd; padding: 15px; border: 1px solid #eee; border-radius: 8px; border-top: 4px solid #27ae60;">
+            <ul style="margin: 0; padding-left: 20px;">
+                <li><strong>Biais d'échantillonnage :</strong> données trop restreintes à un groupe.</li>
+                <li><strong>Biais d'automatisation :</strong> confiance excessive dans la machine.</li>
+                <li><strong>Biais temporel :</strong> IA limitée par la date de ses données.</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 10px; margin-bottom: 20px; font-size: 1.4em;">Comment limiter les biais IA ?</h3>
+    
+    <p><strong>Améliorer les données :</strong> Recueillir des ensembles diversifiés et inclusifs ; s'assurer que toutes les catégories (genre, origine, contexte social…) soient représentées.</p>
+    <p><strong>Maintenir une supervision humaine :</strong> Ne pas accorder une confiance aveugle ; toujours prévoir une validation par des experts humains dans les domaines sensibles.</p>
+    <p><strong>Adopter un cadre éthique et juridique :</strong> Mise en place de lois internationales ; promouvoir des bonnes pratiques de transparence.</p>
+
+    <div style="background: #f1f2f6; padding: 15px; border-radius: 8px; margin-bottom: 30px;">
+        <strong>Conclusion :</strong> les biais ne sont pas inévitables si l'on combine qualité des données, contrôle humain et régulation éthique.
+    </div>
+
+    <!-- RESPONSABILITÉ -->
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">La Responsabilité face à l'IA</h3>
+
+    <p><strong>Les enjeux :</strong> L'IA peut causer des dommages non intentionnels. Qui doit répondre ? Le développeur ? L'entreprise ? L'utilisateur ? Ou une responsabilité partagée ?</p>
+    <p><strong>Défis :</strong> Complexité des systèmes (difficile d'identifier la "cause") et risque de dilution de la responsabilité.</p>
+    <p><strong>Pistes de solution :</strong> Cadres juridiques clairs (AI Act), assurances obligatoires, responsabilité graduée et comités d'éthique.</p>
+
+    <!-- TRANSPARENCE -->
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">La Transparence de l’IA</h3>
+
+    <p><strong>Problème de la "boîte noire" :</strong> Les modèles (Deep Learning) fonctionnent avec des millions de paramètres, rendant leurs décisions difficiles à expliquer (ex: IA médicale).</p>
+    <p><strong>Importance :</strong> Sans transparence, pas de confiance. Les citoyens doivent pouvoir auditer les systèmes pour réduire les risques de manipulation.</p>
+    <p><strong>Solutions :</strong> IA explicable (XAI), documentation des datasets, rapports d'impact et labels de confiance.</p>
+
+    <!-- IMPACT SOCIÉTÉ -->
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Impact de l'IA sur la société</h3>
+
+    <p><strong>Points positifs :</strong> Santé (diagnostic précoce), Environnement (climat), Accessibilité (handicap) et accélération de l'Innovation scientifique.</p>
+    <p><strong>Points négatifs / risques :</strong> Inégalités (fracture numérique), Surveillance (reconnaissance faciale), Manipulation (désinformation) et perte de lien social.</p>
+    <p><strong>Enjeux :</strong> Garantir que l'IA serve l'intérêt général via une gouvernance mondiale (ONU, UNESCO, UE).</p>
+
+    <!-- IMPACT TRAVAIL -->
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Impact de l'IA sur le monde du travail</h3>
+
+    <p><strong>Transformations :</strong> Automatisation des tâches répétitives, Augmentation de l'humain (assistance) et création de Nouveaux métiers (Data Scientist, Éthicien).</p>
+    <p><strong>Risques :</strong> Destruction d'emplois menacés (chauffeurs, traducteurs), Polarisation du marché et Précarisation via les plateformes numériques.</p>
+    <p><strong>Enjeux pour l'avenir :</strong> Formation continue, politiques sociales (revenu universel ?) et dialogue social avec les employés.</p>
+
+</div></p>
         </section>
 
         <section id="section5" style="margin-top: 40px;">
