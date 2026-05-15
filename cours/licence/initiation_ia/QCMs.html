@@ -74,20 +74,15 @@
 
         .progress-bar { font-size: 0.9rem; color: #7f8c8d; }
 
+        /* Zone de retour au cours */
+        .back-home-zone { text-align: center; padding: 20px; background: #fafbfc; border-top: 1px solid #eee; }
+        .btn-back-home { display: inline-flex; align-items: center; gap: 8px; padding: 10px 25px; background-color: var(--primary); color: white; text-decoration: none; border-radius: 6px; font-weight: 600; font-size: 0.95rem; transition: background 0.2s; }
+        .btn-back-home:hover { background-color: #1a252f; }
+
         /* Animations */
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        
-        @keyframes successPop { 
-            0% { transform: scale(1); } 
-            50% { transform: scale(1.02); } 
-            100% { transform: scale(1); } 
-        }
-
-        @keyframes shake {
-            0%, 100% { transform: translateX(0); }
-            25% { transform: translateX(-5px); }
-            75% { transform: translateX(5px); }
-        }
+        @keyframes successPop { 0% { transform: scale(1); } 50% { transform: scale(1.02); } 100% { transform: scale(1); } }
+        @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px); } 75% { transform: translateX(5px); } }
 
         .feedback-icon { margin-left: auto; font-size: 1.2em; font-weight: bold; }
     </style>
@@ -100,7 +95,7 @@
         <p style="opacity: 0.8; margin: 5px 0 0 0;">Sélectionnez une section pour commencer</p>
     </div>
 
-    <!-- Sélecteur de Section (Premier style conservé) -->
+    <!-- Sélecteur de Section -->
     <div class="section-nav">
         <button class="btn-section active" onclick="loadSection(1)">Section I</button>
         <button class="btn-section" onclick="loadSection(2)">Section II</button>
@@ -120,14 +115,21 @@
             <button id="retry-btn" class="btn-retry" onclick="resetCurrentQuestion()">Réessayer</button>
             <button class="btn-nav btn-next" onclick="changeQuestion(1)">Suivant</button>
         </div>
+        
         <div style="text-align: center; margin-top: 15px;" class="progress-bar" id="progress-text">
             Question 1 sur 20
         </div>
     </div>
+
+    <!-- NOUVEAU : Bouton de retour en bas de page pour casser la page morte -->
+    <div class="back-home-zone">
+        <a href="LIEN_DE_VOTRE_PAGE_DE_COURS.html" class="btn-back-home">
+            <span>🏠</span> Retour à la page du Cours principale
+        </a>
+    </div>
 </div>
 
 <script>
-    // Vos données de questions de haute qualité (Multi-choix gérés)
     const quizData = {
         1: [
             {
@@ -268,7 +270,6 @@
         renderQuestion();
     }
 
-    // Premier chargement automatique
     renderQuestion();
 </script>
 
