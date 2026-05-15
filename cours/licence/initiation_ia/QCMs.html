@@ -1,1 +1,276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interface QCM Interactive - Haute Qualité</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --success: #27ae60;
+            --error: #e74c3c;
+            --accent: #3498db;
+            --bg: #f4f7f6;
+            --warning: #f39c12;
+        }
 
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: var(--bg); color: var(--primary); margin: 0; padding: 20px; }
+
+        .qcm-container { max-width: 1000px; margin: auto; background: white; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); overflow: hidden; }
+
+        /* Header & Section Selector */
+        .qcm-header { background: var(--primary); color: white; padding: 25px; text-align: center; }
+        
+        .section-nav { background: #ecf0f1; padding: 15px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; border-bottom: 2px solid #ddd; }
+        
+        .btn-section { padding: 10px 20px; border: none; background: white; color: var(--primary); border-radius: 20px; cursor: pointer; font-weight: 600; transition: all 0.3s; border: 1px solid #ccc; }
+        .btn-section.active { background: var(--accent); color: white; border-color: var(--accent); transform: translateY(-2px); }
+
+        /* Quiz Area */
+        .quiz-frame { padding: 30px; min-height: 400px; }
+        
+        .question-card { display: none; animation: fadeIn 0.5s ease; }
+        .question-card.active { display: block; }
+
+        .question-text { font-size: 1.25rem; margin-bottom: 20px; font-weight: bold; color: var(--secondary); }
+
+        /* Options Style avec Case à cocher */
+        .options-grid { display: grid; gap: 12px; margin-bottom: 25px; }
+        
+        .option { 
+            padding: 15px; border: 2px solid #edeff0; border-radius: 8px; cursor: pointer; 
+            transition: all 0.2s; display: flex; align-items: center; position: relative;
+        }
+        .option:hover { background: #f8f9fa; border-color: var(--accent); }
+        
+        /* Style de la case carrée */
+        .checkbox { 
+            width: 20px; height: 20px; border: 2px solid #bdc3c7; margin-right: 15px; border-radius: 4px; 
+            display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 0.8em;
+            color: transparent; transition: all 0.2s; background: white; flex-shrink: 0;
+        }
+
+        /* État Sélectionné : Ajout de la croix */
+        .option.selected { border-color: var(--accent); background: #ebf5fb; }
+        .option.selected .checkbox { border-color: var(--accent); color: var(--accent); }
+        
+        /* Animations et styles de correction */
+        .option.correct { background: #d4edda !important; border-color: var(--success) !important; animation: successPop 0.4s ease; cursor: default; }
+        .option.correct .checkbox { border-color: var(--success) !important; color: var(--success) !important; }
+        
+        .option.wrong { background: #f8d7da !important; border-color: var(--error) !important; animation: shake 0.4s ease; }
+        .option.wrong .checkbox { border-color: var(--error) !important; color: var(--error) !important; }
+
+        /* Navigation entre questions */
+        .quiz-footer { display: flex; justify-content: space-between; align-items: center; padding-top: 20px; border-top: 1px solid #eee; gap: 10px; }
+        
+        .btn-nav { padding: 12px 25px; border-radius: 5px; border: none; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        .btn-prev { background: #95a5a6; color: white; }
+        .btn-next { background: var(--accent); color: white; }
+        
+        .btn-check { background: var(--primary); color: white; padding: 12px 30px; font-size: 1rem; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; flex-grow: 2; transition: 0.3s; }
+        .btn-retry { background: var(--warning); color: white; padding: 12px 30px; font-size: 1rem; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; flex-grow: 2; display: none; transition: 0.3s; }
+
+        .progress-bar { font-size: 0.9rem; color: #7f8c8d; }
+
+        /* Animations */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        @keyframes successPop { 
+            0% { transform: scale(1); } 
+            50% { transform: scale(1.02); } 
+            100% { transform: scale(1); } 
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        .feedback-icon { margin-left: auto; font-size: 1.2em; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="qcm-container">
+    <div class="qcm-header">
+        <h1 style="margin:0;">Auto-Évaluation Interactive</h1>
+        <p style="opacity: 0.8; margin: 5px 0 0 0;">Sélectionnez une section pour commencer</p>
+    </div>
+
+    <!-- Sélecteur de Section (Premier style conservé) -->
+    <div class="section-nav">
+        <button class="btn-section active" onclick="loadSection(1)">Section I</button>
+        <button class="btn-section" onclick="loadSection(2)">Section II</button>
+        <button class="btn-section" onclick="loadSection(3)">Section III</button>
+        <button class="btn-section" onclick="loadSection(6)">Section VI</button>
+    </div>
+
+    <!-- Frame des Questions -->
+    <div class="quiz-frame" id="quiz-content">
+        <div id="question-container">
+            <!-- Injecté par JS -->
+        </div>
+
+        <div class="quiz-footer">
+            <button class="btn-nav btn-prev" onclick="changeQuestion(-1)">Précédent</button>
+            <button id="check-btn" class="btn-check" onclick="validateAnswer()">Vérifier la réponse</button>
+            <button id="retry-btn" class="btn-retry" onclick="resetCurrentQuestion()">Réessayer</button>
+            <button class="btn-nav btn-next" onclick="changeQuestion(1)">Suivant</button>
+        </div>
+        <div style="text-align: center; margin-top: 15px;" class="progress-bar" id="progress-text">
+            Question 1 sur 20
+        </div>
+    </div>
+</div>
+
+<script>
+    // Vos données de questions de haute qualité (Multi-choix gérés)
+    const quizData = {
+        1: [
+            {
+                q: "Quelles sont les caractéristiques de l'IA forte ?",
+                options: ["Conscience propre", "Limitée à une tâche précise", "Capacité de raisonnement humain", "Exécute uniquement des règles fixes"],
+                correct: [0, 2]
+            }
+        ],
+        2: [
+            {
+                q: "Exemple de question pour la Section II...",
+                options: ["Option A", "Option B", "Option C", "Option D"],
+                correct: [1]
+            }
+        ],
+        3: [
+            {
+                q: "Exemple de question pour la Section III...",
+                options: ["Option A", "Option B", "Option C", "Option D"],
+                correct: [0, 3]
+            }
+        ],
+        6: [
+            {
+                q: "Quels outils reposent sur l'architecture de réseau de neurones appelée Transformer ?",
+                options: ["DeepL", "ChatGPT", "QuillBot", "Les anciens traducteurs (PROMT)"],
+                correct: [0, 1, 2]
+            },
+            {
+                q: "Sélectionnez les affirmations correctes concernant QuillBot :",
+                options: ["Il invente de nouvelles données", "Il restructure et améliore le texte", "Il utilise des modèles NLP", "Il ne permet pas de changer le ton"],
+                correct: [1, 2]
+            }
+        ]
+    };
+
+    let currentSection = 1;
+    let currentQuestionIdx = 0;
+    let isLocked = false;
+
+    function loadSection(id) {
+        currentSection = id;
+        currentQuestionIdx = 0;
+        
+        document.querySelectorAll('.btn-section').forEach(btn => {
+            btn.classList.remove('active');
+            if(btn.innerText.includes(id)) btn.classList.add('active');
+        });
+
+        renderQuestion();
+    }
+
+    function renderQuestion() {
+        isLocked = false;
+        document.getElementById('retry-btn').style.display = 'none';
+        document.getElementById('check-btn').style.display = 'block';
+
+        const container = document.getElementById('question-container');
+        const data = quizData[currentSection][currentQuestionIdx];
+        
+        if(!data) {
+            container.innerHTML = "<h3 style='text-align:center; color:var(--success);'>Bravo ! Vous avez validé toutes les questions de cette section.</h3>";
+            document.getElementById('check-btn').style.display = 'none';
+            return;
+        }
+
+        let html = `
+            <div class="question-card active">
+                <div class="question-text">${data.q}</div>
+                <div class="options-grid">
+                    ${data.options.map((opt, i) => `
+                        <div class="option" onclick="toggleOption(this, ${i})">
+                            <div class="checkbox">✕</div>
+                            <span>${opt}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+        
+        container.innerHTML = html;
+        document.getElementById('progress-text').innerText = `Question ${currentQuestionIdx + 1} sur ${quizData[currentSection].length}`;
+    }
+
+    function toggleOption(el, idx) {
+        if(isLocked) return;
+        el.classList.toggle('selected');
+    }
+
+    function validateAnswer() {
+        if(isLocked) return;
+        
+        const data = quizData[currentSection][currentQuestionIdx];
+        const options = document.querySelectorAll('.option');
+        let allCorrect = true;
+        let selectedAny = false;
+
+        options.forEach((opt, i) => {
+            const isSelected = opt.classList.contains('selected');
+            const isCorrect = data.correct.includes(i);
+
+            if (isSelected) selectedAny = true;
+
+            if (isCorrect) {
+                opt.classList.add('correct');
+                opt.classList.remove('selected');
+                opt.innerHTML += '<span class="feedback-icon" style="color:var(--success);">✔</span>';
+            } else if (isSelected && !isCorrect) {
+                opt.classList.add('wrong');
+                opt.innerHTML += '<span class="feedback-icon" style="color:var(--error);">✕</span>';
+                allCorrect = false;
+            } else if (!isSelected && isCorrect) {
+                allCorrect = false; 
+            }
+        });
+
+        if (!selectedAny) {
+            alert("Veuillez cocher au moins une case avant de vérifier.");
+            return;
+        }
+
+        isLocked = true;
+        document.getElementById('check-btn').style.display = 'none';
+        
+        if (!allCorrect) {
+            document.getElementById('retry-btn').style.display = 'block';
+        }
+    }
+
+    function resetCurrentQuestion() {
+        renderQuestion();
+    }
+
+    function changeQuestion(step) {
+        currentQuestionIdx += step;
+        if(currentQuestionIdx < 0) currentQuestionIdx = 0;
+        if(currentQuestionIdx >= quizData[currentSection].length) currentQuestionIdx = quizData[currentSection].length - 1;
+        renderQuestion();
+    }
+
+    // Premier chargement automatique
+    renderQuestion();
+</script>
+
+</body>
+</html>
