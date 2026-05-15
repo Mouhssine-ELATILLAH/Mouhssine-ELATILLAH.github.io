@@ -594,7 +594,158 @@
 
         <section id="section5" style="margin-top: 40px;">
             <h2>Section V : L’ingénierie des requêtes (Prompt Engineering) : stratégies pour formuler des requêtes adaptées aux outils d’IA</h2>
-            <p>L'évolution de l'IA est une succession de percées mathématiques et technologiques, allant des premiers algorithmes de logique aux réseaux de neurones profonds utilisés pour la reconnaissance de manuscrits.</p>
+            <p><div class="cours-ia-container" style="font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #2c3e50; line-height: 1.8; max-width: 950px; margin: auto; padding: 20px;">
+
+    <!-- INTRODUCTION -->
+    <div style="margin-bottom: 30px;">
+        <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 10px; margin-bottom: 20px; font-size: 1.4em;">Introduction</h3>
+        <p><strong>Pourquoi apprendre à parler à une IA ?</strong></p>
+        <ul>
+            <li>L'IA répond exactement à ce qu'on lui demande.</li>
+            <li>Formuler un bon prompt = penser et s'exprimer avec précision.</li>
+            <li>L'ingénierie des requêtes permet de maximiser la pertinence et la qualité des réponses.</li>
+        </ul>
+
+        <p><strong>Exemple concret :</strong></p>
+        <ul>
+            <li><span style="color: #c0392b;">❌ "Talk about Shakespeare."</span></li>
+            <li><span style="color: #27ae60;">✅ "Explain in about 200 words the main events of Shakespeare's life and how his experiences influenced his writing."</span></li>
+        </ul>
+    </div>
+
+    <!-- DEFINITION INGENIERIE -->
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 10px; margin-bottom: 20px; font-size: 1.4em;">Qu'est-ce que l'ingénierie des requêtes ?</h3>
+
+    <p><strong>Définition :</strong><br>
+    L'art de concevoir des instructions claires et efficaces pour guider un modèle d'IA.</p>
+
+    <p><strong>Objectifs :</strong></p>
+    <ul>
+        <li>Guider le modèle vers une réponse utile.</li>
+        <li>Réduire l'ambigüité.</li>
+        <li>Structurer la réflexion.</li>
+    </ul>
+
+    <div style="background: #f1f2f6; padding: 15px; border-radius: 8px; margin-bottom: 30px;">
+        <strong>Exemple :</strong><br>
+        "Describe in 200 words how artificial intelligence can be used to improve healthcare systems."
+    </div>
+
+    <!-- QU'EST-CE QU'UN PROMPT -->
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 10px; margin-bottom: 20px; font-size: 1.4em;">Qu'est-ce qu'un "prompt" ?</h3>
+
+    <p><strong>Définition</strong><br>
+    Un prompt est l'instruction ou la question que l'on donne à un modèle d'IA pour générer une réponse.</p>
+    <ul>
+        <li>Plus le prompt est clair et précis, meilleure sera la réponse.</li>
+        <li>C'est la clé de l'efficacité de l'interaction avec l'IA.</li>
+    </ul>
+
+    <p><strong>Formes de base</strong></p>
+    <ul>
+        <li style="margin-bottom: 10px;"><strong>Question simple :</strong> demande directe de réponse. Exemple : "What is the main theme of this poem?"</li>
+        <li style="margin-bottom: 10px;"><strong>Instruction :</strong> consigne spécifique sur un texte. Exemple : "Rewrite this paragraph in formal English."</li>
+        <li style="margin-bottom: 10px;"><strong>Texte à compléter / transformer :</strong> l'IA continue ou modifie le texte fourni. Exemple : "Complete the following story with a twist ending."</li>
+        <li style="margin-bottom: 10px;"><strong>Exemple guidé :</strong> fournir un ou plusieurs exemples avant la réponse. Exemple : "Here are two examples of comparisons. Now identify one in this text."</li>
+    </ul>
+
+    <!-- TYPES DE PROMPTS -->
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Les principaux types de prompts</h3>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+        <div style="background: #fdfdfd; padding: 15px; border: 1px solid #eee; border-radius: 8px; border-top: 4px solid #2980b9;">
+            <strong>Zero-shot :</strong> Aucune indication ou exemple. Exemple : "Summarize this text."
+        </div>
+        <div style="background: #fdfdfd; padding: 15px; border: 1px solid #eee; border-radius: 8px; border-top: 4px solid #27ae60;">
+            <strong>Few-shot :</strong> Fournir des exemples-guides. Exemple : "Example: 'metaphor' → 'comparison without like/as'. Now find one in this text."
+        </div>
+        <div style="background: #fdfdfd; padding: 15px; border: 1px solid #eee; border-radius: 8px; border-top: 4px solid #e67e22;">
+            <strong>Role prompting :</strong> Donner un rôle à l'IA. Exemple : "You are a teacher correcting an essay."
+        </div>
+        <div style="background: #fdfdfd; padding: 15px; border: 1px solid #eee; border-radius: 8px; border-top: 4px solid #9b59b6;">
+            <strong>Chain-of-thought :</strong> Demander un raisonnement étape par étape. Exemple : "Explain step by step how the narrator's attitude evolves."
+        </div>
+    </div>
+
+    <p style="margin-bottom: 10px;"><strong>Iterative prompting :</strong> Ajuster la requête après une première réponse. Exemple : "Rewrite the previous answer using simpler words."</p>
+
+    <p><strong>Applications pratiques</strong></p>
+    <ul>
+        <li><strong>Résumé :</strong> "Summarize this article in 5 lines." → Objectif : Synthèse d'information</li>
+        <li><strong>Analyse de texte :</strong> "Identify the tone and mood of the narrator." → Objectif : Lecture analytique</li>
+        <li><strong>Traduction :</strong> "Translate this sentence keeping the original style." → Objectif : Sens et reformulation</li>
+        <li><strong>Réécriture :</strong> "Rewrite this paragraph in simpler English." → Objectif : Clarté et reformulation</li>
+        <li><strong>Production écrite :</strong> "Write an introduction for an essay on identity." → Objectif : Expression structurée</li>
+    </ul>
+
+    <!-- CAS D'UTILISATION -->
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Cas d'utilisation et exemples d'ingénierie des requêtes</h3>
+
+    <p><strong>Génération de texte</strong></p>
+    <ul>
+        <li><strong>Expression écrite :</strong> Préciser genre, ton, style et intrigue pour guider l'IA. Exemple : "Écris une nouvelle sur une jeune femme qui découvre un portail magique."</li>
+        <li><strong>Synthèse :</strong> Fournir du texte et demander un résumé concis des informations clés. Exemple : "Résume les principaux points de cet article sur le changement climatique."</li>
+        <li><strong>Traduction :</strong> Indiquer langue source et cible pour traduire correctement. Exemple : "Traduis le texte suivant du français vers l'anglais : 'Le renard brun vif saute par-dessus le chien paresseux'."</li>
+        <li><strong>Dialogue :</strong> Simuler une conversation pour obtenir une réponse contextuelle. Exemple : "Tu es un chatbot qui aide les utilisateurs. Réponds : 'Mon ordinateur ne s'allume pas'."</li>
+    </ul>
+
+    <p><strong>Systèmes de questions-réponses</strong></p>
+    <ul>
+        <li><strong>Questions ouvertes :</strong> Encourager une réponse complète et informative. Exemple : "Explique le concept de l'informatique quantique et son impact."</li>
+        <li><strong>Questions spécifiques :</strong> Cibler une information précise à partir d'un contexte ou de la base de connaissances. Exemple : "Quelle est la capitale de la France ?"</li>
+        <li><strong>QCM :</strong> Fournir des options pour choisir la réponse la plus appropriée. Exemple : "Qui a écrit Harry Potter ? A) Tolkien B) Rowling C) King"</li>
+        <li><strong>Questions hypothétiques :</strong> Explorer des situations imaginaires pour raisonner ou spéculer. Exemple : "Que se passerait-il si les humains pouvaient voyager à la vitesse de la lumière ?"</li>
+        <li><strong>Questions d'opinion :</strong> Demander un point de vue et le raisonnement de l'IA. Exemple : "L'IA surpassera-t-elle l'intelligence humaine ? Pourquoi ?"</li>
+    </ul>
+
+    <p><strong>Génération et manipulation de code</strong></p>
+    <ul>
+        <li><strong>Complétion :</strong> Fournir un code partiel et demander de le compléter. Exemple : "Écris une fonction Python pour calculer la factorielle d'un nombre."</li>
+        <li><strong>Traduction :</strong> Indiquer le langage source et cible. Exemple : "Traduis ce code Python en JavaScript : def greet(name): print('Hello,', name)"</li>
+        <li><strong>Optimisation :</strong> Analyser le code existant pour améliorer efficacité, lisibilité ou performance. Exemple : "Optimise ce code Python pour réduire son temps d'exécution."</li>
+        <li><strong>Débogage :</strong> Identifier les erreurs et proposer des solutions. Exemple : "Débogue ce code Java et explique l'exception NullPointerException."</li>
+    </ul>
+
+    <p><strong>Génération et édition d'images</strong></p>
+    <ul>
+        <li><strong>Images photoréalistes :</strong> Décrire en détail objets, paysage, lumière et style. Exemple : "Coucher de soleil sur l'océan avec palmiers."</li>
+        <li><strong>Images artistiques :</strong> Préciser style artistique, technique ou émotion. Exemple : "Rue animée sous la pluie, style impressionniste."</li>
+        <li><strong>Images abstraites :</strong> Décrire formes, couleurs et concepts pour interprétation libre. Exemple : "Image abstraite illustrant l'espoir, couleurs vives."</li>
+        <li><strong>Édition :</strong> Fournir image existante et indiquer modifications souhaitées. Exemple : "Remplace l'arrière-plan par un ciel étoilé et ajoute la lune."</li>
+    </ul>
+
+    <!-- COMPOSANTES -->
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Les composantes d'un bon prompt</h3>
+
+    <div style="background: #fff9db; padding: 15px; border-radius: 8px; border-left: 5px solid #fab005; margin-bottom: 30px;">
+        <ul style="margin: 0; padding-left: 20px;">
+            <li><strong>Rôle :</strong> Indiquer le rôle attendu de l'IA. Exemple : "You are a writing assistant."</li>
+            <li><strong>Contexte :</strong> Situer la tâche. Exemple : "For a student preparing an English exam."</li>
+            <li><strong>Tâche :</strong> Dire ce qu'il faut faire. Exemple : "Summarize the following passage."</li>
+            <li><strong>Format :</strong> Spécifier la forme du résultat. Exemple : "Write one paragraph of about 100 words."</li>
+            <li><strong>Style ou contrainte :</strong> Donner des indications stylistiques. Exemple : "Use academic English."</li>
+            <li><strong>Exemple :</strong> Ajouter un exemple de sortie dans un prompt est facultatif, mais cela aide à clarifier le format et le style de réponse attendu, renforçant ainsi la précision des résultats.</li>
+        </ul>
+    </div>
+
+    <!-- AVANTAGES -->
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 10px; margin-bottom: 20px; font-size: 1.4em;">Avantages de l'ingénierie des requêtes</h3>
+
+    <p>Une ingénierie des requêtes efficace offre de nombreux avantages, et améliore les capacités et la facilité d'utilisation des modèles d'IA :</p>
+
+    <p><strong>Amélioration des performances du modèle :</strong><br>
+    Des requêtes bien conçues génèrent des résultats plus précis, pertinents et informatifs issus de modèles d'IA, car elles fournissent des instructions et un contexte clairs.</p>
+
+    <p><strong>Réduction des réponses biaisées et potentiellement néfastes :</strong><br>
+    En contrôlant soigneusement les entrées et en guidant l'attention de l'IA, l'ingénierie des requêtes permet d'atténuer les biais et de réduire le risque de générer des contenus inappropriés ou choquants.</p>
+
+    <p><strong>Contrôle et prévisibilité accrues :</strong><br>
+    L'ingénierie des requêtes vous permet d'influencer le comportement de l'IA et de garantir des réponses cohérentes et prévisibles, correspondant aux résultats souhaités.</p>
+
+    <p><strong>Expérience utilisateur améliorée :</strong><br>
+    Des requêtes claires et concises permettent aux utilisateurs d'interagir plus facilement et efficacement avec les modèles d'IA, ce qui se traduit par des expériences plus intuitives et satisfaisantes.</p>
+
+</div></p>
         </section>
 
         <section id="section6" style="margin-top: 40px;">
