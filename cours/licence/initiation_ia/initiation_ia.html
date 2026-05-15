@@ -298,7 +298,104 @@
         
         <section id="section2" style="margin-top: 40px;">
             <h2>Section II : Fonctionnement de base des systèmes d’IA : données, algorithmes, types d’apprentissage automatique</h2>
-            <p>L'évolution de l'IA est une succession de percées mathématiques et technologiques, allant des premiers algorithmes de logique aux réseaux de neurones profonds utilisés pour la reconnaissance de manuscrits.</p>
+            <p><div class="cours-ia-container" style="font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #2c3e50; line-height: 1.8; max-width: 950px; margin: auto; padding: 20px;">
+
+    <div style="margin-bottom: 30px;">
+        <h4 style="color: #34495e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-size: 1.1em; font-weight: bold;">Introduction</h4>
+        <p><strong>L'IA repose sur trois piliers :</strong></p>
+        <ul>
+            <li><strong>Les données</strong> — La matière première.</li>
+            <li><strong>Les algorithmes</strong> — Les règles, les recettes.</li>
+            <li><strong>L'apprentissage</strong> — La manière dont l'IA améliore ses performances.</li>
+        </ul>
+    </div>
+
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Les données : le carburant de l’IA</h3>
+    
+    <p><strong>Les données : indispensables</strong><br>
+    Plus elles sont nombreuses et variées, plus l'IA est efficace.</p>
+
+    <p><strong>Types de données :</strong></p>
+    <ul>
+        <li>Images (photos, vidéos)</li>
+        <li>Textes (SMS, articles)</li>
+        <li>Sons (voix, musique)</li>
+        <li>Données numériques (capteurs, météo, trafic)</li>
+    </ul>
+
+    <div style="background: #fff9db; padding: 15px; border-radius: 8px; border-left: 5px solid #fab005; margin-bottom: 30px;">
+        <strong>Exemple simple :</strong><br>
+        Pour apprendre à reconnaître une pomme, il faut montrer à l'IA des centaines d'images de pommes sous différents angles.
+    </div>
+
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Les algorithmes : les recettes de l'IA</h3>
+
+    <p><strong>Définition :</strong><br>
+    Un algorithme est une suite d'instructions logiques et précises qui permettent de résoudre un problème. Dans l'IA, l'algorithme sert à transformer des données en résultats exploitables.</p>
+
+    <p><strong>Métaphore simple : la recette de cuisine</strong></p>
+    <ul>
+        <li>Recette = suite d'étapes à suivre</li>
+        <li>Ingrédients = données (images, textes, sons)</li>
+        <li>Plat final = résultat (classification, décision, prédiction)</li>
+    </ul>
+
+    <p><strong>Exemple :</strong></p>
+    <ul>
+        <li>Ingrédients = images de fruits</li>
+        <li>Recette = règles qui comparent la couleur, la taille, la forme, etc.</li>
+        <li>Plat final = reconnaissance "pomme", "banane", "orange"</li>
+    </ul>
+
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Types d'interactions dans le domaine de l'IA</h3>
+
+    <p><strong>Premier type d'interaction :</strong><br>
+    Interaction avec une base de données (exemple : images). Un serveur envoie les données à l'IA (appelée agent) et l'agent restitue des résultats. Cela crée ainsi une boucle.</p>
+
+    <p style="margin-bottom: 30px;"><strong>Deuxième type d'interaction :</strong><br>
+    Interaction avec un environnement (exemple : machine de production ou jeu vidéo). L'environnement renseigne l'agent sur l'état du jeu. L'agent répond par une action à effectuer sur cet environnement.</p>
+
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Types d’apprentissage automatique</h3>
+    
+    <p><strong>Les trois grands types d'apprentissage automatique</strong></p>
+
+    <ol>
+        <li style="margin-bottom: 10px;"><strong>Apprentissage supervisé :</strong> L'IA apprend avec des exemples étiquetés (on connaît la bonne réponse).</li>
+        <li style="margin-bottom: 10px;"><strong>Apprentissage non supervisé :</strong> L'IA apprend sans étiquette, elle cherche seule des structures ou des groupes dans les données.</li>
+        <li style="margin-bottom: 20px;"><strong>Apprentissage par renforcement :</strong> L'IA apprend par essais-erreurs, en recevant des récompenses ou punitions selon ses actions.</li>
+    </ol>
+
+    <p><strong>Détail : Apprentissage supervisé</strong></p>
+    <p>Le machine learning supervisé est un type d'apprentissage automatique dans lequel le modèle est entraîné sur un ensemble de données étiqueté (c'est-à-dire que la variable cible ou de sortie est connue).</p>
+
+    <div style="background: #f1f2f6; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+        <strong>Exemple :</strong><br>
+        Dans le cas d'un modèle de prévision des tornades sur une période donnée, un data scientist inclut dans les variables d'entrée la date, le lieu, la température, les schémas de flux de vent, etc., et la sortie correspond à l'activité réelle des tornades enregistrée ces jours-là.
+    </div>
+
+    <p>L'apprentissage supervisé est généralement utilisé pour l'évaluation des risques, la reconnaissance d'images, l'analyse prédictive et la détection des fraudes, et comprend plusieurs types d'algorithmes.</p>
+
+    <p><em>Algorithmes de classification :</em><br>
+    Ils prédisent les variables de sortie catégorielles (par exemple, « indésirables » ou « pas indésirables ») en étiquetant les données d'entrée. Les algorithmes de classification incluent, entre autres, la régression logistique, les k-plus proches voisins et les machines à vecteurs de support (SVM).</p>
+
+    <p style="margin-bottom: 30px;"><em>Algorithmes de régression :</em><br>
+    Ils prédisent les valeurs de sortie en identifiant des relations linéaires entre des valeurs réelles ou continues (par exemple, la température, le salaire). Les algorithmes de régression comprennent la régression linéaire, la forêt d'arbres décisionnels et l'optimisation de gradient, ainsi que d'autres sous-types.</p>
+
+    <p><strong>Détail : Apprentissage non supervisé</strong></p>
+    <p style="margin-bottom: 15px;">Les algorithmes d'apprentissage non supervisé, tels que Apriori, GMM (modèles de mélange gaussien) et PCA (analyse en composantes principales), tirent des conclusions à partir d'ensembles de données non étiquetés, facilitant ainsi l'analyse exploratoire des données et permettant la reconnaissance de formes et la modélisation prédictive.</p>
+
+    <p style="margin-bottom: 30px;">La méthode d'apprentissage non supervisé la plus courante est l'analyse de cluster, qui utilise des algorithmes de clustering pour catégoriser les points de données en fonction de la similarité des valeurs (comme dans la segmentation des clients ou la détection d'anomalies). Les algorithmes d'association permettent aux data scientists d'identifyer les associations entre les objets de données au sein de grandes bases de données, ce qui facilite la visualisation des données et la réduction de la dimensionnalité.</p>
+
+    <p><strong>Détail : Apprentissage par renforcement</strong></p>
+    <p>L'apprentissage par renforcement, également appelé apprentissage par renforcement basé sur les commentaires humains (RLHF), est un type de programmation dynamique qui entraîne des algorithmes à l'aide d'un système de récompense et de punition.</p>
+
+    <div style="background: #e7f5ff; padding: 20px; border-radius: 10px; border: 1px dashed #228be6; margin-bottom: 15px;">
+        Pour déployer l'apprentissage par renforcement, un agent effectue des actions dans un environnement spécifique pour atteindre un objectif prédéterminé. L'agent est récompensé ou pénalisé pour ses actions en fonction d'un indicateur établi (généralement des points), ce qui l'encourage à poursuivre les bonnes pratiques et à éliminer les mauvaises. À force de répétition, l'agent apprend les meilleures stratégies.
+    </div>
+
+    <p>Les algorithmes d'apprentissage par renforcement sont courants dans le développement de jeux vidéo et sont fréquemment utilisés pour apprendre aux robots à reproduire des tâches humaines.</p>
+
+</div></p>
         </section>
 
         <section id="section3" style="margin-top: 40px;">
