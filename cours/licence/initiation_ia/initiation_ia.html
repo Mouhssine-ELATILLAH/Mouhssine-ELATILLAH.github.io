@@ -51,7 +51,6 @@
             letter-spacing: 1px;
             transition: 0.3s;
         }
-        /* Conservation de l'espace de 20px entre Accueil et Publications */
         .nav-links a:not(:last-child) { margin-right: 20px; }
         .nav-links a:hover { color: var(--accent); }
 
@@ -68,18 +67,16 @@
 
         /* --- Layout --- */
         .course-container {
-            max-width: 1500px; /* Largeur maximale totale */
+            max-width: 1500px;
             margin: 40px auto;
             padding: 0 2%;
             display: grid;
-            /* Fixe les côtés à 150px et laisse le centre (1fr) prendre le reste */
             grid-template-columns: 120px 1fr 200px; 
-            gap: 30px; /* Espacement légèrement réduit pour gagner de la place */
+            gap: 30px;
         }
 
         /* Colonne Sommaire (Gauche) */
         .course-nav { position: sticky; top: 120px; height: fit-content; }
-        /* Ajout du titre au dessus du sommaire */
         .course-nav h3 { 
             font-family: 'Lexend', sans-serif; 
             font-size: 0.9rem; 
@@ -90,20 +87,20 @@
         }
         .course-nav ul { list-style: none; border-left: 1px solid #e2e8f0; }
         .course-nav li a { 
-        display: block; 
-        padding: 6px 10px; /* Padding réduit */
-        text-decoration: none; 
-        color: var(--text-muted); 
-        font-size: 0.85rem; /* Police plus petite pour éviter les retours à la ligne */
-        line-height: 1.3;
-        transition: 0.2s; 
+            display: block; 
+            padding: 6px 10px; 
+            text-decoration: none; 
+            color: var(--text-muted); 
+            font-size: 0.85rem; 
+            line-height: 1.3;
+            transition: 0.2s; 
         }
         .course-nav li a:hover { color: var(--accent); border-left: 2px solid var(--accent); margin-left: -1px; }
 
-        /* Colonne Contenu (Centre - Largeur augmentée) */
+        /* Colonne Contenu (Centre) */
         .course-content { 
             background: white; 
-            padding: 40px; /* Un peu moins de padding pour laisser plus de place au texte */
+            padding: 40px; 
             border-radius: 12px; 
             border: 1px solid #edf2f7;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
@@ -117,7 +114,7 @@
         .resource-box {
             background: #f8fafc;
             border: 1px solid #e2e8f0;
-            padding: 12px; /* Padding réduit de 20px à 12px */
+            padding: 12px; 
             border-radius: 10px;
         }
         .resource-box.dark { background: var(--dark); color: white; border: none; }
@@ -128,10 +125,10 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 8px 5px; /* Boutons plus compacts */
+            padding: 8px 5px; 
             border-radius: 6px;
             text-decoration: none;
-            font-size: 0.8rem; /* Police réduite */
+            font-size: 0.8rem; 
             font-weight: 600;
             margin-bottom: 8px;
             transition: 0.3s;
@@ -142,9 +139,68 @@
 
         footer { background: var(--dark); color: white; padding: 60px 5%; text-align: center; margin-top: 80px; }
 
+        /* ==========================================================================
+           --- SOLUTIONS ET CORRECTIONS POUR TÉLÉPHONES ET TABLETTES ---
+           ========================================================================== */
         @media (max-width: 1200px) {
-            .course-container { grid-template-columns: 1fr; }
-            .course-nav, .course-sidebar { display: none; }
+            /* 1. On casse la grille 3 colonnes pour tout empiler verticalement */
+            .course-container { 
+                grid-template-columns: 1fr; 
+                padding: 0 4%;
+                margin: 20px auto;
+            }
+            
+            /* 2. On libère le mode "sticky" pour que le contenu défile normalement */
+            .course-nav, .course-sidebar { 
+                position: static; 
+                width: 100%; 
+            }
+
+            /* 3. Le sommaire de gauche se transforme en boutons horizontaux */
+            .course-nav ul {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                border-left: none;
+                background: #f1f5f9;
+                padding: 12px;
+                border-radius: 8px;
+            }
+            .course-nav li a {
+                background: white;
+                border: 1px solid #cbd5e1;
+                border-radius: 6px;
+                padding: 8px 12px;
+            }
+            .course-nav li a:hover {
+                border-left: none;
+                margin-left: 0;
+                background: var(--accent);
+                color: var(--dark);
+            }
+
+            /* 4. Les blocs de téléchargement se mettent côte à côte en bas */
+            .course-sidebar {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 15px;
+                margin-top: 30px;
+            }
+
+            /* 5. Réduction des tailles de texte globales pour écran mobile */
+            .course-header { padding: 130px 5% 40px; }
+            .course-header h1 { font-size: 2rem; }
+            .course-content { padding: 20px; }
+        }
+
+        /* Ajustement spécial pour les très petits écrans (téléphones < 480px) */
+        @media (max-width: 480px) {
+            nav { height: 75px; padding: 0 4%; }
+            .nav-logo { font-size: 1.4rem; }
+            .nav-right { gap: 15px !important; }
+            .nav-links a { font-size: 0.75rem; }
+            .nav-links a:not(:last-child) { margin-right: 10px; }
+            .course-header h1 { font-size: 1.6rem; }
         }
     </style>
 </head>
