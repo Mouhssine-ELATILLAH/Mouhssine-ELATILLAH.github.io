@@ -73,7 +73,7 @@
             padding: 0 2%;
             display: grid;
             /* Fixe les côtés à 150px et laisse le centre (1fr) prendre le reste */
-            grid-template-columns: 150px 1fr 200px; 
+            grid-template-columns: 120px 1fr 200px; 
             gap: 30px; /* Espacement légèrement réduit pour gagner de la place */
         }
 
@@ -896,6 +896,14 @@
 
     <!-- SUPPORTS ET TPS -->
     <aside class="course-sidebar">
+	<!-- Nouveau Bloc QCM -->
+    <div class="resource-box" style="border-top: 4px solid #f39c12; background: #fffdf5;">
+        <h4>Évaluation</h4>
+        <a href="votre-page-qcm.html" class="btn-action" style="background-color: #f39c12; color: white; display: flex; align-items: center; justify-content: center; text-decoration: none; padding: 10px; border-radius: 5px; font-weight: bold; transition: background 0.3s;">
+            <span style="margin-right: 8px;">📝</span> Testez vos connaissances (QCM)
+        </a>
+    </div>
+		
         <div class="resource-box dark">
             <h4>Support de Cours</h4>
             <a href="ia-cours.pdf" class="btn-action btn-pdf">Télécharger PDF</a>
