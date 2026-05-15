@@ -287,28 +287,562 @@
         ],
         2: [
             {
-                q: "Exemple de question pour la Section II...",
-                options: ["Option A", "Option B", "Option C", "Option D"],
+                q: "Les trois piliers fondamentaux de l’intelligence artificielle sont :",
+                options: ["Les données", "Les algorithmes", "L’apprentissage", "Le matériel informatique"],
+                correct: [0, 1, 2]
+            },
+            {
+                q: "Le rôle principal des données dans l’IA est :",
+                options: ["Servir de matière première pour l’apprentissage", "Remplacer les algorithmes", "Créer des images aléatoires", "Exécuter les programmes"],
+                correct: [0]
+            },
+            {
+                q: "Quels types de données peuvent être utilisés par une IA ?",
+                options: ["Images et vidéos", "Textes et sons", "Données numériques issues de capteurs", "Seulement des chiffres"],
+                correct: [0, 1, 2]
+            },
+            {
+                q: "Dans l’exemple d’apprentissage d’une IA à reconnaître une pomme, que représente « l’image de la pomme » ?",
+                options: ["Une donnée d’entraînement", "Un algorithme", "Une récompense", "Une action"],
+                correct: [0]
+            },
+            {
+                q: "Qu’est-ce qu’un algorithme dans le contexte de l’IA ?",
+                options: ["Une suite d’instructions logiques permettant de résoudre un problème", "Une base de données d’images", "Un ensemble de capteurs matériels", "Un langage de programmation"],
+                correct: [0]
+            },
+            {
+                q: "Dans la métaphore de la cuisine, que représentent les « ingrédients » ?",
+                options: ["Les données utilisées par l’IA", "Les algorithmes", "Les résultats", "Le matériel informatique"],
+                correct: [0]
+            },
+            {
+                q: "Dans la métaphore de la cuisine, le « plat final » correspond à :",
+                options: ["Le résultat produit par l’IA", "L’algorithme utilisé", "Les données d’entrée", "Les paramètres du modèle"],
+                correct: [0]
+            },
+            {
+                q: "Dans le machine learning, l’« apprentissage supervisé » signifie que :",
+                options: ["Les données d’entraînement sont étiquetées", "Les données sont aléatoires", "L’IA apprend sans connaître la bonne réponse", "Le modèle ne reçoit jamais de feedback"],
+                correct: [0]
+            },
+            {
+                q: "L’apprentissage non supervisé est utilisé pour :",
+                options: ["Découvrir des structures ou des groupes dans les données", "Prédire une valeur connue", "Explorer des données non étiquetées", "Fournir une récompense à l’agent"],
+                correct: [0, 2]
+            },
+            {
+                q: "L’apprentissage par renforcement repose sur :",
+                options: ["Le système de récompense et de punition", "Les interactions entre un agent et un environnement", "Des données étiquetées fixes", "Un modèle sans retour d’expérience"],
+                correct: [0, 1]
+            },
+            {
+                q: "Dans un apprentissage supervisé, un « label » (étiquette) représente :",
+                options: ["La bonne réponse associée à une donnée d’entrée", "Le nom du fichier image", "Le code source du modèle", "Le poids du réseau neuronal"],
+                correct: [0]
+            },
+            {
+                q: "Un exemple typique d’apprentissage supervisé est :",
+                options: ["La classification d’images comme « chat » ou « chien »", "La détection automatique de groupes sans étiquettes", "L’exploration de données non structurées", "Le renforcement d’un agent par essais-erreurs"],
+                correct: [0]
+            },
+            {
+                q: "Quels sont des algorithmes utilisés dans l’apprentissage supervisé ?",
+                options: ["Régression logistique", "Machines à vecteurs de support (SVM)", "Analyse en composantes principales (PCA)", "K-means clustering"],
+                correct: [0, 1]
+            },
+            {
+                q: "L’apprentissage non supervisé permet notamment :",
+                options: ["La découverte automatique de structures dans les données", "La détection d’anomalies", "La prédiction de labels connus", "La correction automatique des erreurs d’étiquetage"],
+                correct: [0, 1]
+            },
+            {
+                q: "L’analyse en composantes principales (PCA) est utilisée pour :",
+                options: ["Réduire la dimensionnalité des données", "Visualiser des données complexes", "Classer les données en catégories connues", "Corriger les biais des algorithmes"],
+                correct: [0, 1]
+            },
+            {
+                q: "L’apprentissage par renforcement implique :",
+                options: ["Un agent qui agit dans un environnement", "Des récompenses ou punitions selon les actions", "Des étiquettes fixes pour chaque donnée", "Une absence de retour d’expérience"],
+                correct: [0, 1]
+            },
+            {
+                q: "L’apprentissage par renforcement est particulièrement utilisé pour :",
+                options: ["Les jeux vidéo", "La robotique", "La segmentation d’images médicales", "L’analyse statistique descriptive"],
+                correct: [0, 1]
+            },
+            {
+                q: "Quelle affirmation décrit le mieux un agent intelligent ?",
+                options: ["Il perçoit son environnement et agit pour atteindre un objectif", "Il exécute uniquement des instructions prédéfinies", "Il se limite à l’analyse statistique", "Il agit sans retour d’expérience"],
+                correct: [0]
+            },
+            {
+                q: "Dans le contexte d’une IA, qu’est-ce qu’un environnement ?",
+                options: ["L’espace dans lequel l’agent interagit et agit", "Le code source de l’algorithme", "Les données d’entraînement", "L’interface utilisateur"],
+                correct: [0]
+            },
+            {
+                q: "Quel type d’interaction correspond à une IA qui contrôle un robot dans une usine ?",
+                options: ["Interaction avec une base de données", "Interaction avec un environnement physique", "Interaction sans apprentissage", "Interaction uniquement textuelle"],
                 correct: [1]
+            },
+            {
+                q: "Un algorithme de classification sert à :",
+                options: ["Prédire des catégories (par exemple “chat” ou “chien”)", "Créer des associations entre objets", "Réduire la dimension des données", "Explorer des données non étiquetées"],
+                correct: [0]
+            },
+            {
+                q: "Un algorithme de régression sert à :",
+                options: ["Prédire des valeurs continues comme la température ou un salaire", "Identifier des classes discrètes", "Classer des images", "Détecter des anomalies dans des groupes"],
+                correct: [0]
+            },
+            {
+                q: "Les algorithmes non supervisés comme K-means ou GMM servent à :",
+                options: ["Regrouper des données selon leur similarité", "Explorer des ensembles non étiquetés", "Calculer la probabilité d’un événement", "Déterminer des valeurs de sortie connues"],
+                correct: [0, 1]
+            },
+            {
+                q: "Dans le RLHF (Reinforcement Learning with Human Feedback), le rôle du retour humain est :",
+                options: ["Aider à orienter l’apprentissage par récompense/punition", "Corriger les comportements indésirables de l’agent", "Fournir des étiquettes fixes", "Supprimer les données non pertinentes"],
+                correct: [0, 1]
+            },
+            {
+                q: "Quelle phrase résume le mieux le rôle global de l’apprentissage en IA ?",
+                options: ["Il permet à l’IA d’améliorer ses performances à partir de l’expérience", "Il consiste à stocker plus de données", "Il remplace les algorithmes", "Il rend l’IA consciente"],
+                correct: [0]
             }
         ],
         3: [
             {
-                q: "Exemple de question pour la Section III...",
-                options: ["Option A", "Option B", "Option C", "Option D"],
+                q: "Qu’est-ce que l’IA générative ?",
+                options: ["Une branche de l’IA capable de créer de nouveaux contenus à partir de données existantes", "Une méthode classique de calcul de probabilités", "Une technologie basée sur des réseaux neuronaux profonds", "Une base de données de textes et d’images"],
+                correct: [0, 2]
+            },
+            {
+                q: "Quelle différence principale distingue un modèle génératif d’un modèle discriminant ?",
+                options: ["Le modèle génératif peut créer de nouvelles données similaires à celles apprises", "Le modèle discriminant classe ou prédit à partir de données existantes", "Le modèle génératif ne peut pas produire d’images", "Les deux modèles fonctionnent de manière identique"],
+                correct: [0, 1]
+            },
+            {
+                q: "Quel événement Bill Gates a-t-il décrit comme la troisième grande transformation informatique ?",
+                options: ["L’arrivée des réseaux sociaux", "L’essor de l’IA générative", "La création du cloud computing", "La sortie de Windows 10"],
+                correct: [1]
+            },
+            {
+                q: "L’IA générative repose principalement sur :",
+                options: ["Les réseaux neuronaux profonds", "Des programmes codés à la main", "Des modèles statistiques entraînés sur de grandes quantités de données", "Des règles logiques fixes"],
+                correct: [0, 2]
+            },
+            {
+                q: "Quelle phrase décrit correctement la notion de “modèle de fondation” ?",
+                options: ["Un modèle entraîné sur de vastes données et adaptable à plusieurs tâches", "Un modèle spécialisé sur une seule tâche précise", "Un modèle utilisé uniquement dans la finance", "Un modèle sur lequel s’appuient les modèles génératifs comme GPT"],
                 correct: [0, 3]
+            },
+            {
+                q: "Quels sont les domaines couverts par l’IA générative ?",
+                options: ["Texte", "Image", "Audio", "Température atmosphérique"],
+                correct: [0, 1, 2]
+            },
+            {
+                q: "Quel type de résultat indique qu’un modèle est génératif ?",
+                options: ["Une valeur numérique comme une probabilité", "Un texte, une image ou un son généré", "Une simple étiquette de classe", "Une matrice de confusion"],
+                correct: [1]
+            },
+            {
+                q: "Quel est un exemple de modèle de langage génératif ?",
+                options: ["GPT", "SVM", "K-Means", "PaLM"],
+                correct: [0, 3]
+            },
+            {
+                q: "Quel modèle est capable de générer des images à partir de texte ?",
+                options: ["DALL-E", "ChatGPT", "Midjourney", "Excel AI"],
+                correct: [0, 2]
+            },
+            {
+                q: "Que signifie la multimodalité dans l’IA générative ?",
+                options: ["La capacité à combiner plusieurs types de données (texte, image, son…)", "L’utilisation d’un seul type de données", "La possibilité de transformer un texte en image ou en vidéo", "Un mode d’affichage spécifique"],
+                correct: [0, 2]
+            },
+            {
+                q: "Quelle tâche un modèle génératif d’images comme CoModGAN peut-il accomplir ?",
+                options: ["Compléter une image endommagée", "Générer une image réaliste à partir d’un texte", "Classer des images par catégories", "Traduire un texte en plusieurs langues"],
+                correct: [0, 1]
+            },
+            {
+                q: "Qu’est-ce qu’un modèle discriminant fait typiquement ?",
+                options: ["Il classe ou prédit une étiquette à partir de données existantes", "Il crée de nouvelles images ou sons", "Il traduit automatiquement les langues", "Il génère des vidéos à partir de texte"],
+                correct: [0]
+            },
+            {
+                q: "Quels sont des exemples de modèles d’IA générative textuelle ?",
+                options: ["GPT", "PaLM", "Random Forest", "CNN classique"],
+                correct: [0, 1]
+            },
+            {
+                q: "Quelle phrase résume correctement le rôle du Machine Learning dans l’IA générative ?",
+                options: ["Il permet à un système d’apprendre à partir de données sans programmation explicite", "Il consiste à stocker des données dans des bases fixes", "Il n’utilise pas d’algorithmes", "Il est à la base de l’apprentissage profond et génératif"],
+                correct: [0, 3]
+            },
+            {
+                q: "Quelle est une caractéristique clé de l’apprentissage profond ?",
+                options: ["L’usage de réseaux de neurones pour traiter des problèmes complexes", "La dépendance à des instructions manuelles", "Le stockage de texte dans des bases simples", "L’autonomie dans la détection de motifs et structures de données"],
+                correct: [0, 3]
+            },
+            {
+                q: "Quelle tâche illustre un modèle génératif multimodal ?",
+                options: ["Transformer un texte en vidéo", "Générer des diapositives à partir d’un fichier audio", "Classer des emails en spam ou non-spam", "Calculer la moyenne d’un ensemble de données"],
+                correct: [0, 1]
+            },
+            {
+                q: "Quelle est la différence entre la programmation classique et l’IA générative ?",
+                options: ["La programmation classique repose sur des règles codées manuellement", "L’IA générative apprend à partir des données et crée du contenu nouveau", "Elles fonctionnent de la même manière", "L’IA générative ne dépend pas de données d’entraînement"],
+                correct: [0, 1]
+            },
+            {
+                q: "Dans la vague générative, l’utilisateur peut :",
+                options: ["Générer du contenu en posant simplement une question", "Devoir coder manuellement chaque règle", "Produire des textes, images ou vidéos en langage naturel", "Fournir uniquement des nombres en entrée"],
+                correct: [0, 2]
+            },
+            {
+                q: "Quelles sont les applications concrètes de l’IA générative ?",
+                options: ["Création de contenu textuel et visuel", "Synthèse vocale et génération musicale", "Calcul de statistiques financières uniquement", "Sauvegarde de bases de données"],
+                correct: [0, 1]
+            },
+            {
+                q: "Pourquoi l’IA générative est-elle considérée comme une révolution ?",
+                options: ["Elle permet aux machines de produire des créations inédites", "Elle relie plusieurs domaines comme texte, image et son", "Elle ne fonctionne qu’en laboratoire", "Elle supprime complètement le besoin d’humains"],
+                correct: [0, 1]
+            },
+            {
+                q: "Quel est l’un des avantages majeurs des modèles de fondation ?",
+                options: ["Leur adaptabilité à plusieurs tâches sans réentraînement complet", "Leur dépendance à des petites bases locales", "Leur incapacité à apprendre de nouveaux domaines", "Leur entraînement sur des données diversifiées à grande échelle"],
+                correct: [0, 3]
+            },
+            {
+                q: "Quelle est la contribution des réseaux de neurones à l’IA générative ?",
+                options: ["Ils permettent d’apprendre des structures et des motifs complexes", "Ils sont la base de l’apprentissage profond", "Ils remplacent entièrement les algorithmes classiques", "Ils servent uniquement à calculer des moyennes"],
+                correct: [0, 1]
+            },
+            {
+                q: "Quelles sont les limites actuelles de l’IA générative ?",
+                options: ["Elle peut produire des contenus incorrects ou biaisés", "Elle nécessite des ressources matérielles importantes", "Elle garantit toujours la véracité des informations", "Elle fonctionne sans données d’entraînement"],
+                correct: [0, 1]
+            },
+            {
+                q: "Quelle est une problématique éthique de l’IA générative ?",
+                options: ["Le risque de désinformation et de deepfakes", "Les questions de droit d’auteur sur les données d’entraînement", "L’amélioration des diagnostics médicaux", "L’automatisation de la traduction"],
+                correct: [0, 1]
+            },
+            {
+                q: "Quelle compétence devient essentielle à l’ère de l’IA générative ?",
+                options: ["La capacité à formuler des requêtes (prompting) efficaces", "L’esprit critique face aux productions automatiques", "La mémorisation de règles de programmation basiques", "L’exécution manuelle d’algorithmes sur papier"],
+                correct: [0, 1]
+            },
+            {
+                q: "Quelles sont les opportunités de l’IA générative pour l’éducation ?",
+                options: ["Génération de supports pédagogiques interactifs", "Aide à la personnalisation des apprentissages", "Suppression du rôle des enseignants", "Évaluation uniquement automatique des élèves"],
+                correct: [0, 1]
+            },
+            {
+                q: "Dans quel domaine l’IA générative est-elle déjà utilisée efficacement ?",
+                options: ["Création artistique et design", "Rédaction assistée et traduction automatique", "Pilotage manuel d’engins lourds", "Réparation mécanique sans capteurs"],
+                correct: [0, 1]
+            },
+            {
+                q: "Quel est le rôle du “fine-tuning” dans l’IA générative ?",
+                options: ["Adapter un modèle pré-entraîné à un domaine spécifique", "Améliorer la précision sur des tâches ciblées", "Réinitialiser complètement l’apprentissage", "Supprimer les données d’origine du modèle"],
+                correct: [0, 1]
+            },
+            {
+                q: "Quelle est une tendance récente dans l’évolution des modèles génératifs ?",
+                options: ["L’émergence de modèles multimodaux (texte, image, audio, vidéo)", "L’intégration dans des outils quotidiens (bureautique, communication, etc.)", "La disparition des réseaux neuronaux", "La restriction des usages créatifs"],
+                correct: [0, 1]
+            },
+            {
+                q: "Quelle est une perspective future de l’IA générative ?",
+                options: ["La création d’assistants intelligents multimodaux", "Le développement d’IA collaboratives et explicables", "Le retour à une IA purement symbolique", "La suppression totale du Deep Learning"],
+                correct: [0, 1]
+            }
+        ],
+        4: [
+            {
+                q: "Qu’est-ce qu’un biais en intelligence artificielle ?",
+                options: ["Une déformation ou une erreur systématique dans les résultats d’un modèle", "Une erreur volontaire ajoutée par les concepteurs", "Une mise à jour du modèle", "Une forme d’optimisation du code"],
+                correct: [0]
+            },
+            {
+                q: "Parmi les exemples suivants, lesquels illustrent un biais de données ?",
+                options: ["Une IA de reconnaissance faciale moins précise pour certains groupes ethniques", "Un modèle médical entraîné sur une population limitée géographiquement", "Un modèle transparent et bien documenté", "Un algorithme capable d’expliquer ses décisions"],
+                correct: [0, 1]
+            },
+            {
+                q: "Que signifie le terme “IA explicable” (XAI) ?",
+                options: ["Une IA dont les décisions peuvent être comprises et justifiées", "Une IA qui apprend sans données", "Une IA qui cache ses calculs", "Une IA qui imite le cerveau humain"],
+                correct: [0]
+            },
+            {
+                q: "Quels sont les principaux types de biais en IA ?",
+                options: ["Biais de données", "Biais de conception", "Biais de confirmation", "Biais d’apprentissage automatique"],
+                correct: [0, 1, 2]
+            },
+            {
+                q: "Pourquoi la transparence est-elle essentielle dans les systèmes d’IA ?",
+                options: ["Elle permet de comprendre et d’auditer les décisions de l’IA", "Elle renforce la confiance des utilisateurs", "Elle augmente automatiquement la vitesse du modèle", "Elle réduit les coûts de maintenance"],
+                correct: [0, 1]
+            },
+            {
+                q: "Quels sont les niveaux de risque identifiés par l’Union Européenne pour les IA ?",
+                options: ["Risque inacceptable", "Risque élevé", "Risque limité", "Risque minime"],
+                correct: [0, 1, 2, 3]
+            },
+            {
+                q: "Quelle est la conséquence d’un biais algorithmique en santé ?",
+                options: ["Risque de diagnostic erroné", "Accélération automatique de la guérison", "Diminution du coût des soins", "Discrimination entre patients selon les données"],
+                correct: [0, 4]
+            },
+            {
+                q: "Qui peut être responsable en cas d’erreur grave commise par une IA ?",
+                options: ["Le concepteur de l’algorithme", "L’entreprise qui l’utilise", "L’utilisateur final", "Le système d’exploitation"],
+                correct: [0, 1, 2]
+            },
+            {
+                q: "Quelle mesure aide à limiter les biais d’entraînement ?",
+                options: ["Utiliser des données diversifiées et inclusives", "Réduire la taille du dataset", "Vérifier la représentativité des catégories", "Supprimer la supervision humaine"],
+                correct: [0, 2]
+            },
+            {
+                q: "Qu’est-ce qu’un risque inacceptable selon l’Union Européenne ?",
+                options: ["Une IA qui viole les droits fondamentaux", "Une IA utilisée pour recommander des films", "Un système de filtrage anti-spam", "Une IA de notation sociale par un État"],
+                correct: [0, 3]
+            },
+            {
+                q: "Quels sont les impacts positifs de l’IA sur la société ?",
+                options: ["Amélioration du diagnostic médical", "Optimisation de la consommation d’énergie", "Augmentation des inégalités sociales", "Soutien à la recherche scientifique"],
+                correct: [0, 1, 3]
+            },
+            {
+                q: "Quels sont les risques sociétaux associés à l’IA ?",
+                options: ["Surveillance et perte de vie privée", "Manipulation de l’opinion publique", "Réduction automatique de la pauvreté", "Fracture numérique entre pays riches et pauvres"],
+                correct: [0, 1, 3]
+            },
+            {
+                q: "Quelle est la différence entre automatisation et augmentation par l’IA ?",
+                options: ["L’automatisation remplace des tâches humaines", "L’augmentation assiste et complète l’humain", "Les deux suppriment les emplois créatifs", "L’automatisation concerne uniquement les métiers du numérique"],
+                correct: [0, 1]
+            },
+            {
+                q: "Quels domaines nécessitent une supervision humaine obligatoire pour l’IA ?",
+                options: ["Santé", "Justice", "Finance", "Jeux vidéo"],
+                correct: [0, 1, 2]
+            },
+            {
+                q: "Que cherche à garantir la transparence algorithmique ?",
+                options: ["Une compréhension des décisions prises par l’IA", "Une meilleure confiance du public", "Une réduction automatique des coûts", "L’élimination de tout biais"],
+                correct: [0, 1]
+            },
+            {
+                q: "Quels biais peuvent être intégrés par les concepteurs eux-mêmes ?",
+                options: ["Biais de conception", "Biais de données", "Biais temporel", "Biais de confirmation"],
+                correct: [0]
+            },
+            {
+                q: "Quels métiers risquent d’être fortement impactés par l’automatisation ?",
+                options: ["Chauffeurs routiers", "Caissiers", "Chercheurs en IA", "Artistes numériques"],
+                correct: [0, 1]
+            },
+            {
+                q: "Quelles mesures peuvent aider à garantir une IA plus éthique ?",
+                options: ["L’adoption de cadres juridiques clairs", "La supervision humaine dans les décisions sensibles", "L’élimination de la transparence", "La diversification des données d’entraînement"],
+                correct: [0, 1, 3]
+            },
+            {
+                q: "Quels sont les nouveaux métiers créés par l’essor de l’IA ?",
+                options: ["Data scientist", "Ingénieur en IA", "Éthicien numérique", "Standardiste téléphonique"],
+                correct: [0, 1, 2]
+            },
+            {
+                q: "Quelle approche permet de réduire la précarisation liée à l’automatisation ?",
+                options: ["Favoriser la formation continue et la reconversion", "Mettre en place des politiques sociales adaptées", "Supprimer les emplois manuels", "Déléguer toutes les décisions à des IA"],
+                correct: [0, 1]
+            }
+        ],
+        5: [
+            {
+                q: "Quels objectifs peut-on atteindre avec un prompt bien conçu ?",
+                options: ["Réduire l’ambiguïté", "Obtenir des réponses plus précises et cohérentes", "Structurer la réflexion du modèle", "Modifier automatiquement les paramètres internes de l’IA"],
+                correct: [0, 1, 2]
+            },
+            {
+                q: "Quelles formes de prompts peut-on utiliser ?",
+                options: ["Question simple", "Instruction", "Texte à compléter ou transformer", "Exemple guidé"],
+                correct: [0, 1, 2, 3]
+            },
+            {
+                q: "Dans quel cas utilise-t-on un prompt “iterative prompting” ?",
+                options: ["Pour ajuster la requête après une première réponse", "Pour améliorer progressivement la qualité de la réponse", "Pour fournir uniquement des exemples sans instruction", "Pour demander une réponse aléatoire"],
+                correct: [0, 1]
+            },
+            {
+                q: "Quels types d’activités peuvent bénéficier d’un prompt clair ?",
+                options: ["Résumé", "Analyse de texte", "Traduction", "Production écrite"],
+                correct: [0, 1, 2, 3]
+            },
+            {
+                q: "Quels sont les avantages principaux de l’ingénierie des requêtes ?",
+                options: ["Amélioration des performances du modèle", "Réduction des réponses biaisées", "Contrôle et prévisibilité accrus", "Expérience utilisateur améliorée"],
+                correct: [0, 1, 2, 3]
+            },
+            {
+                q: "Quelles pratiques peuvent améliorer l’efficacité d’un prompt pour la génération de texte ?",
+                options: ["Préciser le genre et le style", "Donner des instructions claires et détaillées", "Fournir un exemple concret de sortie attendue", "Laisser le prompt vague pour plus de créativité"],
+                correct: [0, 1, 2]
+            },
+            {
+                q: "Dans quels cas l’ingénierie des requêtes est-elle utile pour la traduction ?",
+                options: ["Indiquer la langue source et cible", "Maintenir le style et le ton du texte original", "Fournir uniquement des instructions vagues", "Ignorer le contexte du texte"],
+                correct: [0, 1]
+            },
+            {
+                q: "Quels avantages l’utilisateur obtient-il d’une bonne ingénierie des requêtes ?",
+                options: ["Interaction plus facile avec le modèle", "Réponses plus précises et cohérentes", "Moins de contenu inapproprié ou biaisé", "Accélération automatique du temps de calcul"],
+                correct: [0, 1, 2]
+            },
+            {
+                q: "Quels types d’activités peuvent être améliorées par l’ingénierie des requêtes ?",
+                options: ["Résumé d’articles", "Analyse de texte", "Réécriture et clarification", "Production écrite structurée"],
+                correct: [0, 1, 2, 3]
+            },
+            {
+                q: "Quels types de prompts sont utilisés pour la génération et l’édition de code ?",
+                options: ["Complétion de code partiel", "Débogage", "Traduction entre langages de programmation", "Création automatique de documentation sans instructions"],
+                correct: [0, 1, 2]
+            },
+            {
+                q: "Dans la génération d’images, quelles indications peuvent améliorer le résultat ?",
+                options: ["Décrire les objets et le paysage en détail", "Indiquer le style artistique et l’émotion", "Fournir l’image de référence pour modification", "Laisser uniquement des mots-clés vagues"],
+                correct: [0, 1, 2]
+            },
+            {
+                q: "Quels types de questions peuvent être posées avec un prompt en système de questions-réponses ?",
+                options: ["Questions ouvertes", "Questions spécifiques", "QCM", "Questions hypothétiques ou d’opinion"],
+                correct: [0, 1, 2, 3]
+            },
+            {
+                q: "Quelles sont les étapes de l’itération d’un prompt efficace ?",
+                options: ["Tester la première version de la requête", "Ajuster la consigne selon les résultats", "Fournir des exemples supplémentaires si nécessaire", "Supprimer complètement la consigne initiale"],
+                correct: [0, 1, 2]
+            },
+            {
+                q: "Quels avantages apporte l’ingénierie des requêtes aux modèles IA ?",
+                options: ["Réponses plus informatives et précises", "Réduction du risque de contenus inappropriés", "Réponses cohérentes et prévisibles", "Augmentation automatique de la vitesse du modèle"],
+                correct: [0, 1, 2]
+            },
+            {
+                q: "Quels éléments d’un prompt contribuent à l’expérience utilisateur ?",
+                options: ["Clarté des instructions", "Précision dans le contexte et la tâche", "Indication du style et du format souhaités", "Utilisation de prompts très longs sans structure"],
+                correct: [0, 1, 2]
             }
         ],
         6: [
             {
-                q: "Quels outils reposent sur l'architecture de réseau de neurones appelée Transformer ?",
-                options: ["DeepL", "ChatGPT", "QuillBot", "Les anciens traducteurs (PROMT)"],
+                q: "Que signifie le terme \"prompt\" dans l’usage d’une IA comme ChatGPT ?",
+                options: ["L'instruction ou question donnée à l'IA", "Un élément essentiel pour guider la réponse", "Un type de modèle d’intelligence artificielle", "Un filtre automatique de sécurité"],
+                correct: [0, 1]
+            },
+            {
+                q: "Quels éléments améliorent la qualité d’un prompt pour ChatGPT ?",
+                options: ["Donner un rôle clair à l’IA", "Fournir un contexte précis", "Indiquer un format de réponse attendu", "Laisser l’IA deviner la tâche toute seule"],
                 correct: [0, 1, 2]
             },
             {
-                q: "Sélectionnez les affirmations correctes concernant QuillBot :",
-                options: ["Il invente de nouvelles données", "Il restructure et améliore le texte", "Il utilise des modèles NLP", "Il ne permet pas de changer le ton"],
-                correct: [1, 2]
+                q: "Quelles sont les caractéristiques d’un bon modèle de traduction comme DeepL ?",
+                options: ["Capacité à comprendre le contexte global", "Production de phrases idiomatiques et naturelles", "Traduction strictement mot à mot", "Traduction sans tenir compte du style"],
+                correct: [0, 1]
+            },
+            {
+                q: "À quoi sert un outil de reformulation comme QuillBot ?",
+                options: ["Améliorer la clarté d’un texte", "Modifier la structure des phrases tout en gardant le sens", "Traduire un texte d’une langue à une autre", "Générer des images réalistes"],
+                correct: [0, 1]
+            },
+            {
+                q: "Quels types de tâches peuvent être effectuées par ChatGPT ?",
+                options: ["Résumer un texte", "Générer du code", "Répondre à des questions complexes", "Exécuter directement des programmes sur l’ordinateur"],
+                correct: [0, 1, 2]
+            },
+            {
+                q: "Pourquoi définir un rôle (“You are…”) dans un prompt ?",
+                options: ["Pour orienter le ton et le style de la réponse", "Pour améliorer la précision de l’IA", "Pour limiter la longueur des réponses", "Pour empêcher l’IA de générer des exemples"],
+                correct: [0, 1]
+            },
+            {
+                q: "Qu’est-ce qui distingue un modèle de langage performant ?",
+                options: ["Comprendre le contexte large", "Fournir des réponses cohérentes", "Répondre uniquement par des mots isolés", "Ne jamais réviser sa réponse"],
+                correct: [0, 1]
+            },
+            {
+                q: "Quels sont les avantages d’un traducteur basé sur les Transformers comme DeepL ?",
+                options: ["Meilleure compréhension du contexte", "Adaptation au ton du texte", "Traduction rigide sans nuance", "Ignorer les expressions idiomatiques"],
+                correct: [0, 1]
+            },
+            {
+                q: "Quels bénéfices un outil de reformulation peut-il offrir ?",
+                options: ["Améliorer la lisibilité du texte", "Corriger certaines erreurs grammaticales", "Proposer plusieurs styles d’écriture", "Traduire automatiquement en plusieurs langues"],
+                correct: [0, 1, 2]
+            },
+            {
+                q: "Quelles sont les caractéristiques d’un prompt “bien structuré” ?",
+                options: ["Un rôle défini", "Un contexte clair", "Une tâche précise", "Un format attendu"],
+                correct: [0, 1, 2, 3]
+            },
+            {
+                q: "Pourquoi l’ingénierie des requêtes est-elle importante ?",
+                options: ["Pour obtenir des réponses plus pertinentes", "Pour réduire l’ambiguïté", "Pour contrôler le style de la réponse", "Pour empêcher l’IA de répondre trop rapidement"],
+                correct: [0, 1, 2]
+            },
+            {
+                q: "Quelles sont les fonctions courantes offertes par ChatGPT ?",
+                options: ["Explications de concepts", "Génération de texte", "Analyse de texte", "Évaluation automatique de traductions humaines"],
+                correct: [0, 1, 2]
+            },
+            {
+                q: "Quels critères permettent d’évaluer la qualité d’une traduction ?",
+                options: ["La fluidité", "La fidélité au sens", "L’adaptation culturelle", "La vitesse d’exécution uniquement"],
+                correct: [0, 1, 2]
+            },
+            {
+                q: "Quels avantages apporte un outil comme QuillBot pour l’écriture académique ?",
+                options: ["Améliorer le style", "Éviter la répétition excessive", "Faciliter la reformulation d’idées", "Traduire automatiquement les citations"],
+                correct: [0, 1, 2]
+            },
+            {
+                q: "Quelles sont les limites possibles d’un modèle comme ChatGPT ?",
+                options: ["Il peut manquer de précision factuelle", "Il peut interpréter un prompt ambigu de manière incorrecte", "Il ne peut jamais se tromper", "Il fait de la lecture de pensées humaines"],
+                correct: [0, 1]
+            },
+            {
+                q: "Quels sont les avantages des modèles GPT ?",
+                options: ["Adaptabilité à de nombreuses tâches", "Compréhension contextuelle avancée", "Production de traduction uniquement", "Limitation à des réponses courtes"],
+                correct: [0, 1]
+            },
+            {
+                q: "Quelles tâches un traducteur moderne comme DeepL accomplit-il bien ?",
+                options: ["Traduire avec nuance", "Comprendre des phrases longues et complexes", "Générer du code informatique", "Réécrire un texte en gardant la même langue"],
+                correct: [0, 1]
+            },
+            {
+                q: "Pourquoi la reformulation automatique est-elle utile ?",
+                options: ["Pour éviter le plagiat involontaire", "Pour diversifier le style d’écriture", "Pour traduire automatiquement en plusieurs langues", "Pour corriger uniquement les fautes d’orthographe"],
+                correct: [0, 1]
+            },
+            {
+                q: "Quels éléments ChatGPT utilise-t-il pour produire une réponse cohérente ?",
+                options: ["Le contexte du prompt", "Les connaissances apprises lors de l’entraînement", "Les préférences personnelles de l’utilisateur", "Des informations en temps réel provenant d’Internet"],
+                correct: [0, 1]
+            },
+            {
+                q: "Quels outils facilitent la rédaction grâce à l’IA ?",
+                options: ["ChatGPT pour générer et expliquer des idées", "DeepL pour traduire avec précision", "QuillBot pour reformuler et clarifier", "Un tableur pour effectuer des calculs"],
+                correct: [0, 1, 2]
             }
         ]
     };
