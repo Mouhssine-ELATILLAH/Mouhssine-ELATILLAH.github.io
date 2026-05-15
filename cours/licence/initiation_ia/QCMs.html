@@ -851,17 +851,24 @@
     let currentQuestionIdx = 0;
     let isLocked = false;
 
-    function loadSection(id) {
-        currentSection = id;
-        currentQuestionIdx = 0;
-        
-        document.querySelectorAll('.btn-section').forEach(btn => {
-            btn.classList.remove('active');
-            if(btn.innerText.includes(id)) btn.classList.add('active');
-        });
-
-        renderQuestion();
+function loadSection(id) {
+    currentSection = id;
+    currentQuestionIdx = 0;
+    
+    // On récupère tous les boutons de section
+    const buttons = document.querySelectorAll('.btn-section');
+    
+    // 1. On retire d'abord la classe 'active' de TOUS les boutons
+    buttons.forEach(btn => btn.classList.remove('active'));
+    
+    // 2. On active le bon bouton en se basant sur l'id (ex: id = 1 correspond au bouton 0)
+    // Le (id - 1) permet de lier la Section 1 à l'index 0, la Section 2 à l'index 1, etc.
+    if (buttons[id - 1]) {
+        buttons[id - 1].classList.add('active');
     }
+
+    renderQuestion();
+}
 
     function renderQuestion() {
         isLocked = false;
