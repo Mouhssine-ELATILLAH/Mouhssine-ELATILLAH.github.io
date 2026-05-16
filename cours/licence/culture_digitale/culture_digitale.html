@@ -1,1 +1,1055 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Initiation à l'IA | Prof. Mouhssine EL ATILLAH</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark: #020617;
+            --surface: #ffffff;
+            --accent: #f59e0b; 
+            --primary: #6366f1; 
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+        }
 
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfcfd;
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            background: rgba(2, 6, 23, 0.98);
+            backdrop-filter: blur(15px);
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            position: fixed;
+            top: 0; width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-logo { font-family: 'Lexend', sans-serif; font-weight: 800; font-size: 1.8rem; color: #fff; letter-spacing: -1.5px; text-decoration: none; }
+        .nav-logo span { color: var(--accent); }
+
+		.nav-links a { 
+		    text-decoration: none; 
+		    color: rgba(255,255,255,0.7); 
+		    font-weight: 600; 
+		    font-size: 0.85rem;
+		    text-transform: uppercase;
+		    letter-spacing: 1px;
+		    transition: 0.3s;
+		    /* AJOUTEZ CES DEUX LIGNES */
+		    display: inline-block;
+		    vertical-align: middle;
+		}
+		
+        .nav-links a:not(:last-child) {margin-right: 15px;}
+        .nav-links a:hover { color: var(--accent); }
+
+        /* --- Header --- */
+        .course-header {
+            background: var(--dark);
+            color: white;
+            padding: 160px 5% 60px;
+        }
+
+        .breadcrumb { font-size: 0.85rem; color: var(--accent); margin-bottom: 15px; text-transform: uppercase; }
+        .breadcrumb a { color: #94a3b8; text-decoration: none; }
+        .course-header h1 { font-family: 'Lexend', sans-serif; font-size: 2.8rem; font-weight: 800; }
+
+        /* --- Layout --- */
+        .course-container {
+            max-width: 1500px;
+            margin: 40px auto;
+            padding: 0 2%;
+            display: grid;
+            grid-template-columns: 120px 1fr 200px; 
+            gap: 30px;
+        }
+
+        /* Colonne Sommaire (Gauche) */
+        .course-nav { position: sticky; top: 120px; height: fit-content; }
+        .course-nav h3 { 
+            font-family: 'Lexend', sans-serif; 
+            font-size: 0.9rem; 
+            text-transform: uppercase; 
+            color: var(--text-main); 
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+        .course-nav ul { list-style: none; border-left: 1px solid #e2e8f0; }
+        .course-nav li a { 
+            display: block; 
+            padding: 6px 10px; 
+            text-decoration: none; 
+            color: var(--text-muted); 
+            font-size: 0.85rem; 
+            line-height: 1.3;
+            transition: 0.2s; 
+        }
+        .course-nav li a:hover { color: var(--accent); border-left: 2px solid var(--accent); margin-left: -1px; }
+
+        /* Colonne Contenu (Centre) */
+        .course-content { 
+            background: white; 
+            padding: 40px; 
+            border-radius: 12px; 
+            border: 1px solid #edf2f7;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .course-content h2 { font-family: 'Lexend', sans-serif; margin-bottom: 20px; color: var(--dark); border-bottom: 2px solid #f1f5f9; padding-bottom: 10px; }
+        .course-content p { margin-bottom: 20px; color: #334155; }
+
+        /* Colonne Ressources (Droite) */
+        .course-sidebar { position: sticky; top: 120px; height: fit-content; display: flex; flex-direction: column; gap: 20px; }
+        
+        .resource-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 12px; 
+            border-radius: 10px;
+        }
+        .resource-box.dark { background: var(--dark); color: white; border: none; }
+        
+        .resource-box h4 { font-family: 'Lexend', sans-serif; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 15px; color: var(--accent); }
+        
+        .btn-action {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 5px; 
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.8rem; 
+            font-weight: 600;
+            margin-bottom: 8px;
+            transition: 0.3s;
+        }
+        .btn-pdf { background: var(--accent); color: var(--dark); }
+        .btn-tp { background: white; color: var(--dark); border: 1px solid #e2e8f0; }
+        .btn-action:hover { transform: translateY(-2px); filter: brightness(1.1); }
+
+        footer { background: var(--dark); color: white; padding: 60px 5%; text-align: center; margin-top: 80px; }
+
+        /* ==========================================================================
+           --- SOLUTIONS ET CORRECTIONS POUR TÉLÉPHONES ET TABLETTES ---
+           ========================================================================== */
+        @media (max-width: 1200px) {
+            /* 1. On casse la grille 3 colonnes pour tout empiler verticalement */
+            .course-container { 
+                grid-template-columns: 1fr; 
+                padding: 0 4%;
+                margin: 20px auto;
+            }
+            
+            /* 2. On libère le mode "sticky" pour que le contenu défile normalement */
+            .course-nav, .course-sidebar { 
+                position: static; 
+                width: 100%; 
+            }
+
+            /* 3. Le sommaire de gauche se transforme en boutons horizontaux */
+            .course-nav ul {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                border-left: none;
+                background: #f1f5f9;
+                padding: 12px;
+                border-radius: 8px;
+            }
+            .course-nav li a {
+                background: white;
+                border: 1px solid #cbd5e1;
+                border-radius: 6px;
+                padding: 8px 12px;
+            }
+            .course-nav li a:hover {
+                border-left: none;
+                margin-left: 0;
+                background: var(--accent);
+                color: var(--dark);
+            }
+
+            /* 4. Les blocs de téléchargement se mettent côte à côte en bas */
+            .course-sidebar {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 15px;
+                margin-top: 30px;
+            }
+
+            /* 5. Réduction des tailles de texte globales pour écran mobile */
+            .course-header { padding: 130px 5% 40px; }
+            .course-header h1 { font-size: 2rem; }
+            .course-content { padding: 20px; }
+        }
+
+        /* Ajustement spécial pour les très petits écrans (téléphones < 480px) */
+        @media (max-width: 480px) {
+            nav { height: 75px; padding: 0 4%; }
+            .nav-logo { font-size: 1.4rem; }
+            .nav-right { gap: 15px !important; }
+            .nav-links a { font-size: 0.75rem; }
+            .nav-links a:not(:last-child) { margin-right: 10px; }
+            .course-header h1 { font-size: 1.6rem; }
+        }
+/* --- Menu Déroulant "Cours" --- */
+        .dropdown { position: relative; display: inline-block; vertical-align: middle; margin-right: 15px;}
+        .dropdown-trigger { cursor: pointer; }
+        .dropdown .arrow { font-size: 0.65rem; margin-left: 4px; transition: transform 0.3s ease; display: inline-block; }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%; left: 50%;
+            transform: translateX(-50%) translateY(15px);
+            background: var(--dark);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            gap: 35px;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+            z-index: 2000;
+            min-width: 460px;
+        }
+
+        .dropdown:hover .dropdown-menu { visibility: visible; opacity: 1; transform: translateX(-50%) translateY(5px); }
+        .dropdown:hover .arrow { transform: rotate(180deg); color: var(--accent); }
+
+        .dropdown-column { display: flex; flex-direction: column; width: 200px; }
+        .column-title { font-family: 'Lexend', sans-serif; font-size: 0.8rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 800; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        
+        .dropdown-column a { margin-right: 0 !important; padding: 6px 0 !important; color: rgba(255, 255, 255, 0.75) !important; font-size: 0.82rem !important; text-transform: none !important; font-weight: 400 !important; letter-spacing: 0px !important; transition: all 0.2s ease; }
+        .dropdown-column a:hover { color: #ffffff !important; padding-left: 6px !important; }
+
+        /* --- Adaptation Responsive Mobiles --- */
+        @media (max-width: 1200px) {
+            nav { height: auto; padding: 20px 5%; flex-direction: column; gap: 15px; }
+            .nav-right { flex-direction: column; gap: 15px; width: 100%; }
+            .nav-links { justify-content: center; width: 100%; }
+            .dropdown { position: static; }
+            .dropdown-menu {
+                position: absolute;
+                top: 100%; left: 0;
+                transform: none !important;
+                width: 100%; min-width: 100%;
+                flex-direction: column; gap: 20px;
+                background: #090f24; padding: 20px;
+                border-radius: 0 0 8px 8px;
+            }
+            .dropdown:hover .dropdown-menu { transform: none; }
+            .dropdown-column { width: 100%; }
+        }
+		
+    </style>
+</head>
+<body>
+<nav>
+    <a href="../../../index.html" class="nav-logo">Digital<span>Skills</span></a>
+    <div class="nav-right">
+        <div class="nav-links">
+            <a href="../../../index.html">Accueil</a>
+            <div class="dropdown">
+                <a href="#" class="dropdown-trigger" onclick="return false;">Cours <span class="arrow">▼</span></a>
+                <div class="dropdown-menu">
+                    <div class="dropdown-column">
+                        <span class="column-title">Licence</span>
+                        <a href="../../culture-digitale.pdf">Culture Digitale (S2)</a>
+                        <a href="../../excel.pdf">Excel Avancé (S5)</a>
+                        <a href="initiation_ia.html">Initiation à l'IA (S5)</a>
+                    </div>
+                    <div class="dropdown-column">
+                        <span class="column-title">Master & Doctorat</span>
+                        <a href="initiation_ia.html">Initiation à l'IA</a>
+                        <a href="../../doctorat.pdf">Digitalisation</a>
+                    </div>
+                </div>
+            </div>    
+            <a href="assets/../../../publications.html">Publications</a>
+        </div>
+    </div>
+</nav>
+	
+<header class="course-header">
+    <div class="breadcrumb"><a href="../../../index.html">Accueil</a> / Licence / Initiation à l'IA</div>
+    <h1>Initiation à l'Intelligence Artificielle</h1>
+</header>
+
+<main class="course-container">
+    <!-- SOMMAIRE AVEC TITRE AJOUTÉ -->
+    <aside class="course-nav">
+        <h3>Sommaire</h3>
+        <ul>
+            <li><a href="#introCours">Présentation du Cours</a></li>
+            <li><a href="#section1">Section I</a></li>
+            <li><a href="#section2">Section II</a></li>
+            <li><a href="#section3">Section III</a></li>
+            <li><a href="#section4">Section IV</a></li>
+            <li><a href="#section5">Section V</a></li>
+            <li><a href="#section6">Section VI</a></li>
+        </ul>
+    </aside>
+
+    <!-- CONTENU LARGE -->
+    <article class="course-content">
+        <section id="introCours">
+            <h2>Présentation du Cours</h2>
+            <p>Ce Le but principal de ce module est d’amener l’apprenant à comprendre les fondements de l’intelligence artificielle et à se familiariser avec ses principaux domaines d’application. À travers des notions de base, des démonstrations et des ateliers pratiques, l’étudiant sera initié aux mécanismes de fonctionnement de l’IA, à l’usage des outils génératifs (textes, images, audio) et aux techniques simples d’interaction par prompts. L’objectif est de développer une culture générale en intelligence artificielle permettant de réaliser des tâches courantes avec ces outils tout en adoptant une approche critique et éthique.</p>
+        </section>
+        
+        <section id="section1" style="margin-top: 40px;">
+            <h2>Section I : Introduction à l’intelligence artificielle : définitions, historique, domaines d’application</h2>
+            <p><div class="cours-ia-container" style="font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #2c3e50; line-height: 1.8; max-width: 950px; margin: auto; padding: 20px;">
+
+    <div style="margin-bottom: 30px;">
+        <h4 style="color: #34495e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px;">Introduction</h4>
+        <p>L'intelligence artificielle est en train de changer le monde, mais elle reste pourtant incomprise par de nombreuses personnes. Cette section a pour objectif de donner une petite introduction au fonctionnement de l'intelligence artificielle. Principalement : quelques définitions, les concepts de base, les cas d'usage et les applications de l'IA.</p>
+    </div>
+
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px;">Définitions</h3>
+    
+    <p><strong>Qu'est-ce que l'Intelligence Artificielle (IA) ?</strong><br>
+    L'intelligence artificielle est un domaine de l'informatique qui cherche à créer des systèmes capables de réaliser des tâches demandant normalement l'intelligence humaine. L'IA peut analyser des informations, apprendre de l'expérience et parfois prendre des décisions. Elle simule certaines capacités humaines mais ne pense pas ni ne ressent.</p>
+
+    <p><strong>Intelligence naturelle et intelligence artificielle</strong></p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+        <div style="background: #fdfdfd; padding: 15px; border: 1px solid #eee; border-radius: 8px;">
+            <strong style="color: #27ae60;">Intelligence naturelle :</strong><br>
+            Capacité à penser, raisonner, créer et ressentir des émotions. Aptitude à résoudre des problèmes nouveaux et complexes.
+        </div>
+        <div style="background: #fdfdfd; padding: 15px; border: 1px solid #eee; border-radius: 8px;">
+            <strong style="color: #2980b9;">Intelligence artificielle :</strong><br>
+            Programmes informatiques capables d’accomplir certaines tâches nécessitant l’intelligence humaine. Analyse de données, apprentissage automatique, génération de contenu (texte, image, audio).
+        </div>
+    </div>
+
+    <div style="background: #fff9db; padding: 15px; border-radius: 8px; border-left: 5px solid #fab005; margin-bottom: 30px;">
+        <strong>Exemple concret :</strong><br>
+        • <strong>Humain :</strong> apprend une langue en parlant et en interagissant.<br>
+        • <strong>IA :</strong> apprend une langue en analysant des millions de phrases.
+    </div>
+
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px;">Les sous-domaines de l'intelligence artificielle</h3>
+    
+    <ul style="list-style-type: none; padding-left: 0;">
+        <li style="margin-bottom: 15px; padding-left: 15px; border-left: 3px solid #3498db;"><strong>Intelligence artificielle (IA) :</strong> Concept général désignant les systèmes capables d'accomplir des tâches nécessitant l'intelligence humaine.</li>
+        <li style="margin-bottom: 15px; padding-left: 15px; border-left: 3px solid #3498db;"><strong>Machine Learning (Apprentissage automatique) :</strong> L'IA apprend à partir de données sans être explicitement programmée pour chaque tâche (ex: détection de spams).</li>
+        <li style="margin-bottom: 15px; padding-left: 15px; border-left: 3px solid #3498db;"><strong>Deep Learning (Apprentissage profond) :</strong> Méthode utilisant des réseaux de neurones artificiels à plusieurs couches (ex: reconnaissance faciale, diagnostic médical).</li>
+        <li style="margin-bottom: 15px; padding-left: 15px; border-left: 3px solid #3498db;"><strong>IA générative :</strong> Capable de créer du contenu nouveau (texte, image, audio) à partir de modèles entraînés (ex: ChatGPT (texte), DALL·E ou MidJourney (images), outils de génération audio).</li>
+    </ul>
+
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px;">Systèmes intelligents</h3>
+    <p>Un système intelligent est un système capable de percevoir son environnement, de traiter l'information, de prendre des décisions et de s'améliorer au fil du temps.</p>
+    
+    <p><strong>Étapes clés d'un système d'IA :</strong></p>
+    <div style="display: flex; flex-direction: column; gap: 10px; margin-bottom: 20px;">
+        <div style="padding: 10px 20px; background: #e9ecef; border-radius: 5px;"><strong>1. Percevoir → capter des données :</strong> Le système recueille des informations provenant de son environnement. Exemples de données : Images (caméras, capteurs), Sons (microphones), Textes (documents, messages). Objectif : fournir une base d’information pour les étapes suivantes.</div>
+        <div style="padding: 10px 20px; background: #dee2e6; border-radius: 5px;"><strong>2. Analyser → comprendre la situation :</strong> Le système traite les données pour extraire des informations pertinentes. Exemple : reconnaître une route, identifier un obstacle ou lire un panneau. Techniques utilisées : reconnaissance d'image, traitement du langage naturel, analyse de signaux.</div>
+        <div style="padding: 10px 20px; background: #ced4da; border-radius: 5px;"><strong>3. Décider → choisir une action :</strong> Après avoir compris la situation, le système décide de l'action à entreprendre. Exemple : freiner, tourner, accélérer. Cette étape peut se baser sur des règles prédéfinies ou des modèles d'apprentissage automatique.</div>
+        <div style="padding: 10px 20px; background: #adb5bd; border-radius: 5px; color: white;"><strong>4. Apprendre → s'améliorer avec l'expérience :</strong> Le système utilise les retours de ses actions pour améliorer ses futures décisions. Exemple : une voiture autonome ajuste sa conduite en fonction des erreurs passées ou des nouvelles conditions de route. Méthodes : apprentissage supervisé, apprentissage par renforcement, mise à jour de modèles.</div>
+    </div>
+
+    <div style="background: #e7f5ff; padding: 20px; border-radius: 10px; border: 1px dashed #228be6;">
+        <strong>Exemple concret : voiture autonome 🚗</strong><br>
+        <strong>Percevoir : </strong>caméras et capteurs détectent la route, les véhicules et les piétons.<br>
+        <strong>Analyser : </strong>l'IA interprète les informations pour savoir où se trouvent les obstacles.<br>
+        <strong>Décider : </strong>le système choisit de freiner, tourner ou accélérer.<br>
+        <strong>Apprendre : </strong>le véhicule améliore ses décisions grâce aux expériences passées et aux données collectées.
+    </div>
+
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 40px; margin-bottom: 20px;">Histoire de l'Intelligence Artificielle</h3>
+    <p>Nous allons explorer les moments clés qui ont marqué l'évolution de l'intelligence artificielle tout au long de l'histoire.</p>
+    <div style="border-left: 4px solid #1a5f7a; padding-left: 20px; margin-top: 10px;">
+        <p><strong>Les prémices (1940-1970) :</strong><br>
+        À l'aube de la Seconde Guerre mondiale, les Allemands utilisent une machine qui s'appelle « ENIGMA » et qui ressemble à une machine à écrire pour protéger leurs messages secrets. Le principe est simple : Lorsqu'un opérateur appuie sur une touche, une diode va éclairer une autre lettre. Ceci donnera alors des milliards de combinaisons possibles. Il est donc impossible de décoder le message sans disposer de la même machine avec de bons paramètres. Entre temps, les équipes britanniques continuent à analyser quotidiennement des dizaines de messages codés et interceptés du côté allemand.<br>
+<strong>En 1936</strong>, ALAN TURING a publié un article fondateur du concept de machine de Turing. Elle a mis rapidement en évidence deux failles majeures dans le fonctionnement d'Enigma.
+<br><strong>En 1942</strong>, environ 40.000 messages sont interceptés et décryptés chaque mois par les Britanniques. L'année suivante, près de 80.000 communications sont déchiffrées tous les mois.
+<br><strong>Dans les années 50</strong> : Alan Turing va se demander si une machine peut penser ? Ceci a donné lieu au Test De Turing. Ce test avait pour but de vérifier si une intelligence artificielle est capable d'imiter une conversation humaine.
+<br><strong>Dans les années 60</strong> : Arthur Samuel a développé une intelligence artificielle capable de jouer au jeu de dames en auto apprentissage.
+<br><strong>Dans les années 70</strong> : Cette période est connue aussi sous le nom de : l'hiver de l'intelligence artificielle.</p>
+
+        <p><strong>La seconde vague (1980-2010) :</strong><br>
+<strong>Dans les années 80</strong> : Il y avait la naissance du concept de Machine Learning. Cette technique de programmation utilise des probabilités statistiques pour donner aux ordinateurs la capacité d'apprendre par eux-mêmes sans programmation explicite.
+<br><strong>Dans les années 90</strong> : IBM conçoit à l'aide du concept de Machine Learning, le logiciel DEEP BLUE qui a battu KASPAROV le champion du monde des échecs. Avec la victoire de Deep Blue, l'intelligence artificielle semble rattraper l'esprit humain dans un jeu considéré depuis toujours comme exigeant de hautes capacités intellectuelles.
+<br><strong>Dans les années 2000-2010</strong> : Des nouveaux concepts de type « Learning » ont été dérivés du concept Machine Learning mais beaucoup plus profonds avec la mise en place de réseaux de neurones.
+<br><strong>Dans les années 2010</strong>, l'entreprise DeepMind (rattachée plus tard en 2014 à Google) a développé son logiciel ALPHA GO. Ce programme a pu battre le champion du monde du jeu "Goban".</p>
+
+        <p><strong>La troisième vague (2020~) :</strong><br>
+        Durant cette phase, il y avait une explosion des technologies qui ont contribué à l'émergence de l'intelligence artificielle. On parle alors de la troisième phase de l'évolution de l'intelligence artificielle ou encore l'ère de : Big Data, le Cloud et le GPU. Ainsi, le concept du BIG DATA va fournir les mécanismes nécessaires à la récolte des données massives, le GPU aidera à répartir la puissance de calcul et le Cloud permettra de mutualiser l'ensemble des ressources.</p>
+    </div>
+
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 40px; margin-bottom: 20px;">Domaines d'application de l'IA</h3>
+    <p>L'intelligence artificielle est présente dans de nombreux secteurs et transforme la façon dont nous travaillons, apprenons et communiquons.</p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+        <div style="padding: 15px; background: #f8f9fa; border-radius: 8px;">
+            <strong style="color: #c0392b;">🏥 Santé : </strong>Diagnostic médical assisté, imagerie médicale, suivi des patients.
+<br><strong>Exemples concrets</strong> : Détection de tumeurs dans les radiographies grâce à des algorithmes de vision par ordinateur. Analyse des données médicales pour prédire certaines maladies ou recommander un traitement.
+<br><strong>Avantage</strong> : précision accrue, gain de temps pour les professionnels de santé, amélioration des diagnostics.
+        </div>
+        <div style="padding: 15px; background: #f8f9fa; border-radius: 8px;">
+            <strong style="color: #c0392b;">🎓 Éducation :</strong> Tutoriels intelligents, correction automatique, personnalisation des parcours d'apprentissage.
+<br><strong>Exemples concrets</strong> : Plateformes adaptatives qui ajustent le niveau des exercices selon la progression de l'étudiant. Correction automatique des devoirs ou des tests avec des retours détaillés.
+<br><strong>Avantage</strong> : apprentissage personnalisé, meilleure efficacité pédagogique, suivi précis des performances.
+        </div>
+        <div style="padding: 15px; background: #f8f9fa; border-radius: 8px;">
+            <strong style="color: #c0392b;">🏗️ Industrie :</strong> Robots industriels, véhicules autonomes, optimisation des chaînes de production.
+<br><strong>Exemples concrets</strong> : Robots effectuant des tâches répétitives ou dangereuses dans les usines. Voitures autonomes qui perçoivent la route et prennent des décisions en temps réel.
+<br><strong>Avantage</strong> : sécurité accrue, réduction des erreurs humaines, productivité améliorée.
+        </div>
+        <div style="padding: 15px; background: #f8f9fa; border-radius: 8px;">
+            <strong style="color: #c0392b;">🎨 Création :</strong> Assistants virtuels, chatbots, IA générative pour le texte, les images, la musique.
+<br><strong>Exemples concrets</strong> : Assistants vocaux (Cortana, Siri, Alexa) capables de comprendre et répondre aux demandes. Création d'images ou de musiques à partir de simples instructions textuelles.
+<br><strong>Avantage</strong> : gain de temps, créativité augmentée, interaction plus naturelle avec les technologies.
+        </div>
+    </div>
+
+</div></p>
+        </section>
+        
+        <section id="section2" style="margin-top: 40px;">
+            <h2>Section II : Fonctionnement de base des systèmes d’IA : données, algorithmes, types d’apprentissage automatique</h2>
+            <p><div class="cours-ia-container" style="font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #2c3e50; line-height: 1.8; max-width: 950px; margin: auto; padding: 20px;">
+
+    <div style="margin-bottom: 30px;">
+        <h4 style="color: #34495e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-size: 1.1em; font-weight: bold;">Introduction</h4>
+        <p><strong>L'IA repose sur trois piliers :</strong>
+        <ul>
+            <li><strong>Les données</strong> — La matière première.</li>
+            <li><strong>Les algorithmes</strong> — Les règles, les recettes.</li>
+            <li><strong>L'apprentissage</strong> — La manière dont l'IA améliore ses performances.</li>
+        </ul></p>
+    </div>
+
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Les données : le carburant de l’IA</h3>
+    
+    <p><strong>Les données : indispensables</strong><br>
+    Plus elles sont nombreuses et variées, plus l'IA est efficace.</p>
+
+    <p><strong>Types de données :</strong><br>
+    <ul>
+        <li>Images (photos, vidéos)</li>
+        <li>Textes (SMS, articles)</li>
+        <li>Sons (voix, musique)</li>
+        <li>Données numériques (capteurs, météo, trafic)</li>
+    </ul></p>
+
+    <div style="background: #fff9db; padding: 15px; border-radius: 8px; border-left: 5px solid #fab005; margin-bottom: 30px;">
+        <strong>Exemple simple :</strong><br>
+        Pour apprendre à reconnaître une pomme, il faut montrer à l'IA des centaines d'images de pommes sous différents angles.
+    </div>
+
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Les algorithmes : les recettes de l'IA</h3>
+
+    <p><strong>Définition :</strong><br>
+    Un algorithme est une suite d'instructions logiques et précises qui permettent de résoudre un problème. Dans l'IA, l'algorithme sert à transformer des données en résultats exploitables.</p>
+
+    <p><strong>Métaphore simple : la recette de cuisine</strong><br>
+    <ul>
+        <li>Recette = suite d'étapes à suivre</li>
+        <li>Ingrédients = données (images, textes, sons)</li>
+        <li>Plat final = résultat (classification, décision, prédiction)</li>
+    </ul></p>
+
+    <p><strong>Exemple :</strong><br>
+    <ul>
+        <li>Ingrédients = images de fruits</li>
+        <li>Recette = règles qui comparent la couleur, la taille, la forme, etc.</li>
+        <li>Plat final = reconnaissance "pomme", "banane", "orange"</li>
+    </ul></p>
+
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Types d'interactions dans le domaine de l'IA</h3>
+
+    <p><strong>Premier type d'interaction :</strong><br>
+    Interaction avec une base de données (exemple : images). Un serveur envoie les données à l'IA (appelée agent) et l'agent restitue des résultats. Cela crée ainsi une boucle.</p>
+
+    <p style="margin-bottom: 30px;"><strong>Deuxième type d'interaction :</strong><br>
+    Interaction avec un environnement (exemple : machine de production ou jeu vidéo). L'environnement renseigne l'agent sur l'état du jeu. L'agent répond par une action à effectuer sur cet environnement.</p>
+
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Types d’apprentissage automatique</h3>
+    
+    <p><strong>Les trois grands types d'apprentissage automatique</strong></p>
+
+    <ol>
+        <li style="margin-bottom: 10px;"><strong>Apprentissage supervisé :</strong> L'IA apprend avec des exemples étiquetés (on connaît la bonne réponse).</li>
+        <li style="margin-bottom: 10px;"><strong>Apprentissage non supervisé :</strong> L'IA apprend sans étiquette, elle cherche seule des structures ou des groupes dans les données.</li>
+        <li style="margin-bottom: 20px;"><strong>Apprentissage par renforcement :</strong> L'IA apprend par essais-erreurs, en recevant des récompenses ou punitions selon ses actions.</li>
+    </ol>
+
+    <p><strong>Apprentissage supervisé</strong></p>
+    <p>Le machine learning supervisé est un type d'apprentissage automatique dans lequel le modèle est entraîné sur un ensemble de données étiqueté (c'est-à-dire que la variable cible ou de sortie est connue).</p>
+
+    <div style="background: #f1f2f6; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+        <strong>Exemple :</strong><br>
+        Dans le cas d'un modèle de prévision des tornades sur une période donnée, un data scientist inclut dans les variables d'entrée la date, le lieu, la température, les schémas de flux de vent, etc., et la sortie correspond à l'activité réelle des tornades enregistrée ces jours-là.
+    </div>
+
+    <p>L'apprentissage supervisé est généralement utilisé pour l'évaluation des risques, la reconnaissance d'images, l'analyse prédictive et la détection des fraudes, et comprend plusieurs types d'algorithmes.</p>
+
+    <p><em>Algorithmes de classification :</em><br>
+    Ils prédisent les variables de sortie catégorielles (par exemple, « indésirables » ou « pas indésirables ») en étiquetant les données d'entrée. Les algorithmes de classification incluent, entre autres, la régression logistique, les k-plus proches voisins et les machines à vecteurs de support (SVM).</p>
+
+    <p style="margin-bottom: 30px;"><em>Algorithmes de régression :</em><br>
+    Ils prédisent les valeurs de sortie en identifiant des relations linéaires entre des valeurs réelles ou continues (par exemple, la température, le salaire). Les algorithmes de régression comprennent la régression linéaire, la forêt d'arbres décisionnels et l'optimisation de gradient, ainsi que d'autres sous-types.</p>
+
+    <p><strong>Apprentissage non supervisé</strong></p>
+    <p style="margin-bottom: 15px;">Les algorithmes d'apprentissage non supervisé, tels que Apriori, GMM (modèles de mélange gaussien) et PCA (analyse en composantes principales), tirent des conclusions à partir d'ensembles de données non étiquetés, facilitant ainsi l'analyse exploratoire des données et permettant la reconnaissance de formes et la modélisation prédictive.</p>
+
+    <p style="margin-bottom: 30px;">La méthode d'apprentissage non supervisé la plus courante est l'analyse de cluster, qui utilise des algorithmes de clustering pour catégoriser les points de données en fonction de la similarité des valeurs (comme dans la segmentation des clients ou la détection d'anomalies). Les algorithmes d'association permettent aux data scientists d'identifyer les associations entre les objets de données au sein de grandes bases de données, ce qui facilite la visualisation des données et la réduction de la dimensionnalité.</p>
+
+    <p><strong>Apprentissage par renforcement</strong></p>
+    <p>L'apprentissage par renforcement, également appelé apprentissage par renforcement basé sur les commentaires humains (RLHF), est un type de programmation dynamique qui entraîne des algorithmes à l'aide d'un système de récompense et de punition.</p>
+
+    <div style="background: #e7f5ff; padding: 20px; border-radius: 10px; border: 1px dashed #228be6; margin-bottom: 15px;">
+        Pour déployer l'apprentissage par renforcement, un agent effectue des actions dans un environnement spécifique pour atteindre un objectif prédéterminé. L'agent est récompensé ou pénalisé pour ses actions en fonction d'un indicateur établi (généralement des points), ce qui l'encourage à poursuivre les bonnes pratiques et à éliminer les mauvaises. À force de répétition, l'agent apprend les meilleures stratégies.
+    </div>
+
+    <p>Les algorithmes d'apprentissage par renforcement sont courants dans le développement de jeux vidéo et sont fréquemment utilisés pour apprendre aux robots à reproduire des tâches humaines.</p>
+
+</div></p>
+        </section>
+
+        <section id="section3" style="margin-top: 40px;">
+            <h2>Section III : Découverte de l’IA générative : textes, images, audio – fonctionnement et exemples</h2>
+            <p><div class="cours-ia-container" style="font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #2c3e50; line-height: 1.8; max-width: 950px; margin: auto; padding: 20px;">
+
+    <div style="margin-bottom: 30px;">
+        <h4 style="color: #34495e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-size: 1.1em; font-weight: bold;">Introduction</h4>
+        <p>En Mars 2023, Bill Gates le cofondateur de la fameuse société Microsoft, a posté sur son blog le message suivant : il y a trois grands temps dans la transformation informatique. Il y a eu le temps de l'Internet, le temps du mobile et aujourd'hui, le temps de l'IA générative.</p>
+        <p>Mais pour expliquer ce que c'est que l'IA générative qui fait parler le monde aujourd'hui, nous commençons tout d'abord par rappeler quelques concepts de l'IA Classique. L'IA est une discipline de l'informatique qui existe depuis les années 50 et qui a connu des grandes avancées technologiques et scientifiques. On parle de : Machine Learning, des réseaux de neurones artificiels, Deep Learning pour arriver aujourd'hui à l'IA générative.</p>
+    </div>
+
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Modèles discriminants vs. Modèles génératifs</h3>
+
+    <p>L'apprentissage automatique ou Machine Learning est un sous-domaine de l'IA. Il s'agit d'un programme ou d'un système qui crée un modèle à partir de données existantes. Plus précisément, l'apprentissage automatique donne à l'ordinateur la capacité d'apprendre sans programmation explicite.</p>
+
+    <p>Si l'apprentissage automatique touche un vaste domaine et englobe de nombreuses techniques, l'apprentissage profond est un type d'apprentissage automatique qui permet de traiter des problèmes beaucoup plus complexes que ceux abordés par l'apprentissage automatique. Ceci est dû à l'usage des réseaux de neurones artificiels. Les modèles d'apprentissage profond peuvent être divisés en deux types : les modèles génératifs et les modèles discriminatifs.</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+        <div style="background: #fdfdfd; padding: 15px; border: 1px solid #eee; border-radius: 8px; border-top: 4px solid #2980b9;">
+            <strong style="color: #2980b9;">Modèle discriminant :</strong><br>
+            C'est un type de modèle qui est utilisé pour classer ou prédire les étiquettes des données. Dans cet exemple, le modèle arrive à prédire l'image en entrée en tant qu'un chien et le classe tel quel et non pas comme un chat.
+        </div>
+        <div style="background: #fdfdfd; padding: 15px; border: 1px solid #eee; border-radius: 8px; border-top: 4px solid #27ae60;">
+            <strong style="color: #27ae60;">Modèle génératif :</strong><br>
+            En plus de sa capacité de prédire que c'est un chien, il peut également générer une nouvelle image d'un chien d'où le nom modèle génératif.
+        </div>
+    </div>
+
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Evolution de l'intelligence artificielle générative</h3>
+
+    <p>Dans la programmation traditionnelle, nous devons coder en dur les règles permettant de distinguer un chien en définissant ses caractéristiques en détail - Son type ; sa couleur ; le nombre de pattes, … etc.</p>
+
+    <p>Nous avons parcouru un long chemin depuis la programmation traditionnelle jusqu'aux modèles génératifs en passant par le concept de réseaux de neurones. Nous allons résumer par la suite le processus de cette remarquable évolution.</p>
+
+    <p><strong>Dans la vague des réseaux de neurones :</strong><br>
+    Nous avons pu donner au réseau des images de chats et de chiens et lui demander s'il s'agit d'un chien, et il arrive à prédire que c'était un chien sans avoir à programmer auparavant ses caractéristiques en détail.</p>
+
+    <p><strong>Enfin, dans la vague générative :</strong><br>
+    Nous pouvons, en tant qu'utilisateurs, générer notre propre contenu en posant simplement une question dans l'invite.</p>
+
+    <div style="background: #fff9db; padding: 15px; border-radius: 8px; border-left: 5px solid #fab005; margin-bottom: 30px;">
+        Ainsi, lorsque vous demandez à un modèle comme GPT ou Palm qu'est-ce qu'est un chien, il peut vous donner tout ce qu'il a appris sur un chien ainsi que ses caractéristiques.
+    </div>
+
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">L'intelligence artificielle générative</h3>
+
+    <p>L'IA Générative est alors un sous domaine de l'apprentissage profond qui crée de nouveaux contenus à base de ce qu'elle a appris du contenu existant. Pour ce faire, L'IA générative uses des réseaux neuronaux artificiels et plus précisément un modèle génératif pour traiter des vastes données non structurées.</p>
+
+    <p>Dans ce cas, Le processus d'apprentissage de l'IA Générative permet la création d'un modèle statistique en tentant d'apprendre des motifs structurés à partir d'un contenu non structuré.</p>
+
+    <p>Une deuxième caractéristique de L'IA générative par rapport à l'IA classique c'est qu'elle permet de créer des ponts entre les différents domaines tels que : le traitement du langage naturel ou le domaine de l'imagerie. On part d'un texte pour faire une vidéo, d'une vidéo pour faire un podcast ou bien faire des slides à partir d'un fichier audio. Ce qui crée donc des liens multimodaux.</p>
+
+    <p>Une bonne façon de distinguer ce qui relève de l'IA générative et ce qui n'en relève pas est illustré sur le schéma suivant :</p>
+    
+    <ul>
+        <li style="margin-bottom: 10px;"><strong>Il ne s'agit pas d'IA générative</strong> lorsque la sortie est un nombre, une probabilité ou une classe, par exemple : spam ou non-spam, …etc.</li>
+        <li style="margin-bottom: 20px;"><strong>Il s'agit d'IA générative</strong> lorsque le résultat est du langage naturel, de la parole ou, une image par exemple.</li>
+    </ul>
+
+    <div style="background: #f1f2f6; padding: 15px; border-radius: 8px; margin-bottom: 30px;">
+        <p>Nous soulignons que les modèles d'IA générative sont un sous-ensemble de modèles de fondation. Les modèles de fondation sont entraînés sur des données à grande échelle et diversifiées et peuvent être utilisés ou adaptés pour un large éventail de tâches en aval. Au cours des dernières années, plusieurs dizaines de ces modèles de fondation ont été développés, par exemple des modèles de texte à texte comme (GPT) ou de texte à image comme (DALL-E).</p>
+    </div>
+
+    <p><strong>On distingue deux types de modèles de l'IA générative selon la nature des données :</strong></p>
+
+    <p><em>Les modèles de langues génératifs :</em><br>
+    Ces modèles apprennent à reconnaître les schémas linguistiques grâce à des données d'entraînement. Puis, à partir d'un texte, ils prédisent le texte qui va suivre comme étant le cas de GPT ou générer des images et vidéos comme par exemple DALL-E.</p>
+
+    <p style="margin-bottom: 30px;"><em>Les modèles d’images génératifs :</em><br>
+    Les modèles d’images génératifs produisent de nouvelles images. Ils peuvent aussi générer la légende de l’image, effectuer une recherche par image comme étant le cas de CLIP. Ils peuvent aussi générer la complétion d’une image abimée comme le cas de CoModGAN.</p>
+
+</div></p>
+        </section>
+
+        <section id="section4" style="margin-top: 40px;">
+            <h2>Section IV : Éthique et IA : biais, responsabilité, transparence, impact sur la société et le monde du travail</h2>
+            <p><div class="cours-ia-container" style="font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #2c3e50; line-height: 1.8; max-width: 950px; margin: auto; padding: 20px;">
+
+    <!-- INTRODUCTION -->
+    <div style="margin-bottom: 30px;">
+        <h4 style="color: #34495e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-size: 1.1em; font-weight: bold;">Introduction</h4>
+        <p>L'intelligence artificielle (IA) occupe une place centrale dans nos sociétés modernes. Elle influence nos choix de consommation, nos loisirs, nos soins de santé et même des décisions administratives ou judiciaires. Cette présence soulève une question majeure : comment l'utiliser de manière éthique ?</p>
+        <ul>
+            <li style="margin-bottom: 5px;">L'IA n'est pas neutre : elle dépend des données, des algorithmes et des concepteurs.</li>
+            <li style="margin-bottom: 5px;">Mal encadrée, elle peut amplifier les discriminations.</li>
+            <li style="margin-bottom: 5px;">Bien utilisée, elle devient un outil de progrès et de justice.</li>
+        </ul>
+    </div>
+
+    <!-- RISQUES UE -->
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Les risques de l'IA selon l'Union Européenne</h3>
+
+    <p>L'UE a classé les systèmes d'IA en quatre niveaux de risque :</p>
+
+    <div style="margin-bottom: 20px;">
+        <p><strong>Risque inacceptable :</strong> ce sont les IA considérées comme un réel danger car elles vont à l'encontre des droits fondamentaux des personnes.</p>
+        <ul style="margin-top: -10px;">
+            <li>Exemple : manipulation du comportement, notation sociale par un État (comme le crédit social en Chine).</li>
+            <li>Ces systèmes sont interdits en Europe.</li>
+        </ul>
+
+        <p><strong>Risque élevé :</strong> il concerne les IA utilisées dans des domaines sensibles comme l'éducation, la sécurité, la santé, la justice ou la démocratie. Elles sont autorisées uniquement si elles respectent des règles strictes et subissent des contrôles.</p>
+        <ul style="margin-top: -10px;">
+            <li>Exemples : tri automatique de CV, évaluation de risque de crédit, chirurgie assistée par robot.</li>
+        </ul>
+
+        <p><strong>Risque limité :</strong> ici, l'obligation principale est la transparence. L'utilisateur doit être informé qu'il interagit avec une IA.</p>
+        <ul style="margin-top: -10px;">
+            <li>Exemple : les chatbots qui répondent automatiquement en ligne.</li>
+        </ul>
+
+        <p><strong>Risque minime :</strong> ces IA ne posent pas de problème majeur et n'exigent pas de réglementation particulière.</p>
+        <ul style="margin-top: -10px;">
+            <li>Exemples : filtres anti-spam, jeux vidéo.</li>
+        </ul>
+    </div>
+
+    <!-- LES BIAIS -->
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Les biais en intelligence artificielle</h3>
+
+    <div style="background: #fff9db; padding: 15px; border-radius: 8px; border-left: 5px solid #fab005; margin-bottom: 20px;">
+        <strong>Idée principale :</strong> Les IA ne sont pas parfaites, elles héritent de nos erreurs.
+    </div>
+
+    <ul style="margin-bottom: 20px;">
+        <li style="margin-bottom: 10px;">On présente souvent l'IA comme un outil "magique" capable de résoudre des problèmes complexes instantanément.</li>
+        <li style="margin-bottom: 10px;">En réalité, elle reste un produit humain, et donc imparfait.</li>
+        <li style="margin-bottom: 10px;">Les biais apparaissent principalement lors de l'entraînement :
+            <ul style="margin-top: 5px;">
+                <li>Si les données sont incomplètes ou non représentatives, l'IA généralise mal.</li>
+                <li>Exemple : une IA entraînée uniquement sur des images de voitures et motos sera incapable de reconnaître correctement un vélo ou un quad.</li>
+                <li>Conséquence : ces biais peuvent avoir un impact éthique majeur (discriminations en santé, justice, sécurité, emploi…).</li>
+            </ul>
+        </li>
+    </ul>
+
+    <p><strong>Types de biais :</strong></p>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px;">
+        <div style="background: #fdfdfd; padding: 15px; border: 1px solid #eee; border-radius: 8px; border-top: 4px solid #2980b9;">
+            <ul style="margin: 0; padding-left: 20px;">
+                <li><strong>Biais de données :</strong> base d'apprentissage inégale.</li>
+                <li><strong>Biais de conception :</strong> préjugés intégrés par les concepteurs.</li>
+                <li><strong>Biais de confirmation :</strong> les algorithmes renforcent nos préférences.</li>
+            </ul>
+        </div>
+        <div style="background: #fdfdfd; padding: 15px; border: 1px solid #eee; border-radius: 8px; border-top: 4px solid #27ae60;">
+            <ul style="margin: 0; padding-left: 20px;">
+                <li><strong>Biais d'échantillonnage :</strong> données trop restreintes à un groupe.</li>
+                <li><strong>Biais d'automatisation :</strong> confiance excessive dans la machine.</li>
+                <li><strong>Biais temporel :</strong> IA limitée par la date de ses données.</li>
+            </ul>
+        </div>
+    </div>
+
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 10px; margin-bottom: 20px; font-size: 1.4em;">Comment limiter les biais IA ?</h3>
+    
+    <p><strong>Améliorer les données :</strong> Recueillir des ensembles diversifiés et inclusifs ; s'assurer que toutes les catégories (genre, origine, contexte social…) soient représentées.</p>
+    <p><strong>Maintenir une supervision humaine :</strong> Ne pas accorder une confiance aveugle ; toujours prévoir une validation par des experts humains dans les domaines sensibles.</p>
+    <p><strong>Adopter un cadre éthique et juridique :</strong> Mise en place de lois internationales ; promouvoir des bonnes pratiques de transparence.</p>
+
+    <div style="background: #f1f2f6; padding: 15px; border-radius: 8px; margin-bottom: 30px;">
+        <strong>Conclusion :</strong> les biais ne sont pas inévitables si l'on combine qualité des données, contrôle humain et régulation éthique.
+    </div>
+
+    <!-- RESPONSABILITÉ -->
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">La Responsabilité face à l'IA</h3>
+
+    <p><strong>Les enjeux :</strong> L'IA peut causer des dommages non intentionnels. Qui doit répondre ? Le développeur ? L'entreprise ? L'utilisateur ? Ou une responsabilité partagée ?</p>
+    <p><strong>Défis :</strong> Complexité des systèmes (difficile d'identifier la "cause") et risque de dilution de la responsabilité.</p>
+    <p><strong>Pistes de solution :</strong> Cadres juridiques clairs (AI Act), assurances obligatoires, responsabilité graduée et comités d'éthique.</p>
+
+    <!-- TRANSPARENCE -->
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">La Transparence de l’IA</h3>
+
+    <p><strong>Problème de la "boîte noire" :</strong> Les modèles (Deep Learning) fonctionnent avec des millions de paramètres, rendant leurs décisions difficiles à expliquer (ex: IA médicale).</p>
+    <p><strong>Importance :</strong> Sans transparence, pas de confiance. Les citoyens doivent pouvoir auditer les systèmes pour réduire les risques de manipulation.</p>
+    <p><strong>Solutions :</strong> IA explicable (XAI), documentation des datasets, rapports d'impact et labels de confiance.</p>
+
+    <!-- IMPACT SOCIÉTÉ -->
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Impact de l'IA sur la société</h3>
+
+    <p><strong>Points positifs :</strong> Santé (diagnostic précoce), Environnement (climat), Accessibilité (handicap) et accélération de l'Innovation scientifique.</p>
+    <p><strong>Points négatifs / risques :</strong> Inégalités (fracture numérique), Surveillance (reconnaissance faciale), Manipulation (désinformation) et perte de lien social.</p>
+    <p><strong>Enjeux :</strong> Garantir que l'IA serve l'intérêt général via une gouvernance mondiale (ONU, UNESCO, UE).</p>
+
+    <!-- IMPACT TRAVAIL -->
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Impact de l'IA sur le monde du travail</h3>
+
+    <p><strong>Transformations :</strong> Automatisation des tâches répétitives, Augmentation de l'humain (assistance) et création de Nouveaux métiers (Data Scientist, Éthicien).</p>
+    <p><strong>Risques :</strong> Destruction d'emplois menacés (chauffeurs, traducteurs), Polarisation du marché et Précarisation via les plateformes numériques.</p>
+    <p><strong>Enjeux pour l'avenir :</strong> Formation continue, politiques sociales (revenu universel ?) et dialogue social avec les employés.</p>
+
+</div></p>
+        </section>
+
+        <section id="section5" style="margin-top: 40px;">
+            <h2>Section V : L’ingénierie des requêtes (Prompt Engineering) : stratégies pour formuler des requêtes adaptées aux outils d’IA</h2>
+            <p><div class="cours-ia-container" style="font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #2c3e50; line-height: 1.8; max-width: 950px; margin: auto; padding: 20px;">
+
+    <!-- INTRODUCTION -->
+    <div style="margin-bottom: 30px;">
+        <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 10px; margin-bottom: 20px; font-size: 1.4em;">Introduction</h3>
+        <p><strong>Pourquoi apprendre à parler à une IA ?</strong>
+        <ul>
+            <li>L'IA répond exactement à ce qu'on lui demande.</li>
+            <li>Formuler un bon prompt = penser et s'exprimer avec précision.</li>
+            <li>L'ingénierie des requêtes permet de maximiser la pertinence et la qualité des réponses.</li>
+        </ul></p>
+
+        <p><strong>Exemple concret :</strong></p>
+        <ul>
+            <li><span style="color: #c0392b;">❌ "Talk about Shakespeare."</span></li>
+            <li><span style="color: #27ae60;">✅ "Explain in about 200 words the main events of Shakespeare's life and how his experiences influenced his writing."</span></li>
+        </ul>
+    </div>
+
+    <!-- DEFINITION INGENIERIE -->
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 10px; margin-bottom: 20px; font-size: 1.4em;">Qu'est-ce que l'ingénierie des requêtes ?</h3>
+
+    <p><strong>Définition :</strong><br>
+    L'art de concevoir des instructions claires et efficaces pour guider un modèle d'IA.</p>
+
+    <p><strong>Objectifs :</strong>
+    <ul>
+        <li>Guider le modèle vers une réponse utile.</li>
+        <li>Réduire l'ambigüité.</li>
+        <li>Structurer la réflexion.</li>
+    </ul></p>
+
+    <div style="background: #f1f2f6; padding: 15px; border-radius: 8px; margin-bottom: 30px;">
+        <strong>Exemple :</strong><br>
+        "Describe in 200 words how artificial intelligence can be used to improve healthcare systems."
+    </div>
+
+    <!-- QU'EST-CE QU'UN PROMPT -->
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 10px; margin-bottom: 20px; font-size: 1.4em;">Qu'est-ce qu'un "prompt" ?</h3>
+
+    <p><strong>Définition</strong><br>
+    Un prompt est l'instruction ou la question que l'on donne à un modèle d'IA pour générer une réponse.</p>
+    <ul>
+        <li>Plus le prompt est clair et précis, meilleure sera la réponse.</li>
+        <li>C'est la clé de l'efficacité de l'interaction avec l'IA.</li>
+    </ul><br>
+
+    <p><strong>Formes de base</strong>
+    <ul>
+        <li style="margin-bottom: 10px;"><strong>Question simple :</strong> demande directe de réponse. Exemple : "What is the main theme of this poem?"</li>
+        <li style="margin-bottom: 10px;"><strong>Instruction :</strong> consigne spécifique sur un texte. Exemple : "Rewrite this paragraph in formal English."</li>
+        <li style="margin-bottom: 10px;"><strong>Texte à compléter / transformer :</strong> l'IA continue ou modifie le texte fourni. Exemple : "Complete the following story with a twist ending."</li>
+        <li style="margin-bottom: 10px;"><strong>Exemple guidé :</strong> fournir un ou plusieurs exemples avant la réponse. Exemple : "Here are two examples of comparisons. Now identify one in this text."</li>
+    </ul></p>
+
+    <!-- TYPES DE PROMPTS -->
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Les principaux types de prompts</h3>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+        <div style="background: #fdfdfd; padding: 15px; border: 1px solid #eee; border-radius: 8px; border-top: 4px solid #2980b9;">
+            <strong>Zero-shot :</strong> Aucune indication ou exemple. Exemple : "Summarize this text."
+        </div>
+        <div style="background: #fdfdfd; padding: 15px; border: 1px solid #eee; border-radius: 8px; border-top: 4px solid #27ae60;">
+            <strong>Few-shot :</strong> Fournir des exemples-guides. Exemple : "Example: 'metaphor' → 'comparison without like/as'. Now find one in this text."
+        </div>
+        <div style="background: #fdfdfd; padding: 15px; border: 1px solid #eee; border-radius: 8px; border-top: 4px solid #e67e22;">
+            <strong>Role prompting :</strong> Donner un rôle à l'IA. Exemple : "You are a teacher correcting an essay."
+        </div>
+        <div style="background: #fdfdfd; padding: 15px; border: 1px solid #eee; border-radius: 8px; border-top: 4px solid #9b59b6;">
+            <strong>Chain-of-thought :</strong> Demander un raisonnement étape par étape. Exemple : "Explain step by step how the narrator's attitude evolves."
+        </div>
+    </div>
+    <div style="background: #fdfdfd; padding: 15px; border: 1px solid #eee; border-radius: 8px; border-top: 4px solid #9b59b6;">
+    <strong>Iterative prompting :</strong> Ajuster la requête après une première réponse. Exemple : "Rewrite the previous answer using simpler words."
+    </div><br>
+                
+    <p><strong>Applications pratiques</strong>
+    <ul>
+        <li><strong>Résumé :</strong> "Summarize this article in 5 lines." → Objectif : Synthèse d'information</li>
+        <li><strong>Analyse de texte :</strong> "Identify the tone and mood of the narrator." → Objectif : Lecture analytique</li>
+        <li><strong>Traduction :</strong> "Translate this sentence keeping the original style." → Objectif : Sens et reformulation</li>
+        <li><strong>Réécriture :</strong> "Rewrite this paragraph in simpler English." → Objectif : Clarté et reformulation</li>
+        <li><strong>Production écrite :</strong> "Write an introduction for an essay on identity." → Objectif : Expression structurée</li>
+    </ul></p>
+
+    <!-- CAS D'UTILISATION -->
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Cas d'utilisation et exemples d'ingénierie des requêtes</h3>
+
+    <p><strong>Génération de texte</strong>
+    <ul>
+        <li><strong>Expression écrite :</strong> Préciser genre, ton, style et intrigue pour guider l'IA. Exemple : "Écris une nouvelle sur une jeune femme qui découvre un portail magique."</li>
+        <li><strong>Synthèse :</strong> Fournir du texte et demander un résumé concis des informations clés. Exemple : "Résume les principaux points de cet article sur le changement climatique."</li>
+        <li><strong>Traduction :</strong> Indiquer langue source et cible pour traduire correctement. Exemple : "Traduis le texte suivant du français vers l'anglais : 'Le renard brun vif saute par-dessus le chien paresseux'."</li>
+        <li><strong>Dialogue :</strong> Simuler une conversation pour obtenir une réponse contextuelle. Exemple : "Tu es un chatbot qui aide les utilisateurs. Réponds : 'Mon ordinateur ne s'allume pas'."</li>
+    </ul></p>
+
+    <p><strong>Systèmes de questions-réponses</strong>
+    <ul>
+        <li><strong>Questions ouvertes :</strong> Encourager une réponse complète et informative. Exemple : "Explique le concept de l'informatique quantique et son impact."</li>
+        <li><strong>Questions spécifiques :</strong> Cibler une information précise à partir d'un contexte ou de la base de connaissances. Exemple : "Quelle est la capitale de la France ?"</li>
+        <li><strong>QCM :</strong> Fournir des options pour choisir la réponse la plus appropriée. Exemple : "Qui a écrit Harry Potter ? A) Tolkien B) Rowling C) King"</li>
+        <li><strong>Questions hypothétiques :</strong> Explorer des situations imaginaires pour raisonner ou spéculer. Exemple : "Que se passerait-il si les humains pouvaient voyager à la vitesse de la lumière ?"</li>
+        <li><strong>Questions d'opinion :</strong> Demander un point de vue et le raisonnement de l'IA. Exemple : "L'IA surpassera-t-elle l'intelligence humaine ? Pourquoi ?"</li>
+    </ul></p>
+
+    <p><strong>Génération et manipulation de code</strong>
+    <ul>
+        <li><strong>Complétion :</strong> Fournir un code partiel et demander de le compléter. Exemple : "Écris une fonction Python pour calculer la factorielle d'un nombre."</li>
+        <li><strong>Traduction :</strong> Indiquer le langage source et cible. Exemple : "Traduis ce code Python en JavaScript : def greet(name): print('Hello,', name)"</li>
+        <li><strong>Optimisation :</strong> Analyser le code existant pour améliorer efficacité, lisibilité ou performance. Exemple : "Optimise ce code Python pour réduire son temps d'exécution."</li>
+        <li><strong>Débogage :</strong> Identifier les erreurs et proposer des solutions. Exemple : "Débogue ce code Java et explique l'exception NullPointerException."</li>
+    </ul></p>
+
+    <p><strong>Génération et édition d'images</strong>
+    <ul>
+        <li><strong>Images photoréalistes :</strong> Décrire en détail objets, paysage, lumière et style. Exemple : "Coucher de soleil sur l'océan avec palmiers."</li>
+        <li><strong>Images artistiques :</strong> Préciser style artistique, technique ou émotion. Exemple : "Rue animée sous la pluie, style impressionniste."</li>
+        <li><strong>Images abstraites :</strong> Décrire formes, couleurs et concepts pour interprétation libre. Exemple : "Image abstraite illustrant l'espoir, couleurs vives."</li>
+        <li><strong>Édition :</strong> Fournir image existante et indiquer modifications souhaitées. Exemple : "Remplace l'arrière-plan par un ciel étoilé et ajoute la lune."</li>
+    </ul></p>
+
+    <!-- COMPOSANTES -->
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Les composantes d'un bon prompt</h3>
+
+    <div style="background: #fff9db; padding: 15px; border-radius: 8px; border-left: 5px solid #fab005; margin-bottom: 30px;">
+        <ul style="margin: 0; padding-left: 20px;">
+            <li><strong>Rôle :</strong> Indiquer le rôle attendu de l'IA. Exemple : "You are a writing assistant."</li>
+            <li><strong>Contexte :</strong> Situer la tâche. Exemple : "For a student preparing an English exam."</li>
+            <li><strong>Tâche :</strong> Dire ce qu'il faut faire. Exemple : "Summarize the following passage."</li>
+            <li><strong>Format :</strong> Spécifier la forme du résultat. Exemple : "Write one paragraph of about 100 words."</li>
+            <li><strong>Style ou contrainte :</strong> Donner des indications stylistiques. Exemple : "Use academic English."</li>
+            <li><strong>Exemple :</strong> Ajouter un exemple de sortie dans un prompt est facultatif, mais cela aide à clarifier le format et le style de réponse attendu, renforçant ainsi la précision des résultats.</li>
+        </ul>
+    </div>
+
+    <!-- AVANTAGES -->
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 10px; margin-bottom: 20px; font-size: 1.4em;">Avantages de l'ingénierie des requêtes</h3>
+
+    <p>Une ingénierie des requêtes efficace offre de nombreux avantages, et améliore les capacités et la facilité d'utilisation des modèles d'IA :</p>
+
+    <p><strong>Amélioration des performances du modèle :</strong><br>
+    Des requêtes bien conçues génèrent des résultats plus précis, pertinents et informatifs issus de modèles d'IA, car elles fournissent des instructions et un contexte clairs.</p>
+
+    <p><strong>Réduction des réponses biaisées et potentiellement néfastes :</strong><br>
+    En contrôlant soigneusement les entrées et en guidant l'attention de l'IA, l'ingénierie des requêtes permet d'atténuer les biais et de réduire le risque de générer des contenus inappropriés ou choquants.</p>
+
+    <p><strong>Contrôle et prévisibilité accrues :</strong><br>
+    L'ingénierie des requêtes vous permet d'influencer le comportement de l'IA et de garantir des réponses cohérentes et prévisibles, correspondant aux résultats souhaités.</p>
+
+    <p><strong>Expérience utilisateur améliorée :</strong><br>
+    Des requêtes claires et concises permettent aux utilisateurs d'interagir plus facilement et efficacement avec les modèles d'IA, ce qui se traduit par des expériences plus intuitives et satisfaisantes.</p>
+
+</div></p>
+        </section>
+
+        <section id="section6" style="margin-top: 40px;">
+            <h2>Section VI : Les outils d’IA accessibles : présentation, démonstration et initiation à leur utilisation (ChatGPT, DeepL, Quillbot)</h2>
+            <p><div class="cours-ia-container" style="font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #2c3e50; line-height: 1.8; max-width: 950px; margin: auto; padding: 20px;">
+
+	<h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 20px; margin-bottom: 20px; font-size: 1.4em;">L'agent conversationnel : CHATGPT</h3>
+
+    <h4 style="color: #34495e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-size: 1.1em; font-weight: bold;">Introduction</h4>
+
+    <p>L'un des développements les plus remarquables de l'IA à l'heure actuelle est l'émergence de l'agent conversationnel ChatGPT créé par l'entreprise Open AI. Mais, avant d'expliquer son principe de fonctionnement, nous clarifions tout d'abord deux concepts différents, souvent confondus : GPT et ChatGPT.</p>
+
+    <p><strong>GPT vs. ChatGPT</strong></p>
+
+    <p>GPT (Generative Pre-trained Transformer) est un langage de type LLM (Large Language Model) pour le traitement et la génération du langage naturel. Ces modèles sont des modèles d'apprentissage automatique qui sont extrêmement efficaces lorsqu'il s'agit d'effectuer des tâches liées au langage : traduire, résumer des textes, générer du contenu ou du code, etc.</p>
+
+    <p>ChatGPT : C'est un mot-valise : "chat" qui fait référence à une discussion en ligne et "GPT" qui signifie que ChatGPT a été préalablement entraîné pour générer des réponses pertinentes selon le contexte.</p>
+
+    <div style="background: #f1f2f6; padding: 15px; border-radius: 8px; margin-bottom: 30px;">
+        Ce qu'il faut retenir c'est que GPT est un modèle de langage qui sert de « cerveau » à l'agent conversationnel ChatGPT et ce, pour tenir des conversations fluides et naturelles avec les utilisateurs. Nous expliquons par la suite les différents stades de l'évolution des modèles GPT.
+    </div>
+
+    <p><strong>Les stades d'évolution des modèles GPT</strong></p>
+	
+	<p>Le concept GPT a été initialement introduit en juin 2018 avec la publication du premier modèle, GPT-1, puis les autres modèles GPT-2, 3 et 4 sont dévoilés en 2019, 2020 et 2023 respectivement. La principale différence réside dans la taille ainsi que les paramètres qui sont passés de 117 millions dans GPT-1 à 1.76 Trillion dans GPT-4. D’autant plus, GPT-4 peut recevoir maintenant des images ce qui constitue une amélioration majeure puisque les versions précédentes de GPT acceptent uniquement les inputs sous forme de texte.</p>
+    <p><strong>GPT-4.5 :</strong> Introduit en 2024 comme une étape intermédiaire entre GPT-4 et GPT-5, GPT-4.5 a amélioré la compréhension contextuelle et la cohérence des réponses. Cette version a optimisé la capacité à gérer des instructions complexes et a renforcé les performances sur des tâches nécessitant un raisonnement multi-étapes, tout en conservant une vitesse de génération rapide et une meilleure sécurité contre les contenus inappropriés.</p>
+
+    <p style="margin-bottom: 30px;"><strong>GPT-5 :</strong> Lancé en 2025, GPT-5 représente un saut significatif dans la génération de texte et la compréhension du langage. Avec des capacités accrues en raisonnement, créativité et synthèse d'informations, GPT-5 offre des interactions plus naturelles et plus fiables, et une meilleure capacité à traiter des contextes très longs. Cette version marque un tournant dans l'évolution des modèles GPT, rapprochant l'IA de conversations quasi humaines.</p>
+
+    <!-- DEEPL SECTION -->
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 10px; margin-bottom: 20px; font-size: 1.4em;">Le traducteur : DeepL</h3>
+
+    <p><strong>Qu'est-ce que DeepL ?</strong></p>
+    <p>DeepL est un traducteur en ligne basé sur l'intelligence artificielle, lancé en 2017 par la société allemande DeepL GmbH. Il est aujourd'hui considéré comme l'un des outils de traduction les plus précis et les plus naturels.</p>
+
+    <p><strong>Pourquoi se distingue-t-il ?</strong></p>
+    <ul>
+        <li>Il utilise des réseaux de neurones profonds (Transformers).</li>
+        <li>Il comprend le contexte global d'un texte et l'analyse des mots.</li>
+        <li>Il adapte le style, le ton et les expressions.</li>
+        <li>Contrairement aux anciens traducteurs, DeepL ne traduit pas mot à mot — il traduit le sens.</li>
+    </ul>
+
+    <p><strong>De la traduction traditionnelle à la traduction neuronale</strong></p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+        <div style="background: #fdfdfd; padding: 15px; border: 1px solid #eee; border-radius: 8px; border-top: 4px solid #7f8c8d;">
+            <strong>Traditionnelle & Statistique :</strong><br>
+            Traduction par règles ou probabilités de mots. Résultat : mot à mot, mécanique et souvent rigide.
+        </div>
+        <div style="background: #fdfdfd; padding: 15px; border: 1px solid #eee; border-radius: 8px; border-top: 4px solid #27ae60;">
+            <strong>Neuronale (DeepL) :</strong><br>
+            Compréhension du contexte grâce à l'IA. Résultat : traduction fluide, idiomatique et naturelle.
+        </div>
+    </div>
+
+    <p>L'IA a transformé la traduction : on passe d'une approche "grammaticale" à une approche "sémantique et contextuelle".</p>
+
+    <p><strong>Le fonctionnement de DeepL</strong></p>
+    <ul>
+        <li>DeepL repose sur une architecture de réseau de neurones appelée Transformer.</li>
+        <li>Ce modèle "lit" la phrase entière, comprend les relations entre les mots et produit une traduction cohérente.</li>
+        <li>Il apprend à partir de millions de phrases traduites par des humains.</li>
+    </ul>
+
+    <div style="background: #fff9db; padding: 15px; border-radius: 8px; border-left: 5px solid #fab005; margin-bottom: 30px;">
+        <strong>Exemple :</strong><br>
+        Texte français : "Il pleut des cordes."<br>
+        ❌ PROMT → "It's raining ropes."<br>
+        ✅ DeepL → "It's raining heavily."<br>
+        (DeepL comprend qu'il s'agit d'une expression figurée.)
+    </div>
+	
+	<p><strong>Les avantages de DeepL</strong></p>
+
+	<div style="overflow-x: auto; margin-bottom: 30px;">
+		<table style="width: 100%; border-collapse: collapse; background-color: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
+			<thead>
+				<tr style="background-color: #1a5f7a; color: white;">
+					<th style="padding: 12px 15px; text-align: left; border: 1px solid #ddd;">Critères</th>
+					<th style="padding: 12px 15px; text-align: left; border: 1px solid #ddd;">DeepL (IA neuronale)</th>
+					<th style="padding: 12px 15px; text-align: left; border: 1px solid #ddd;">Traducteurs traditionnels</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td style="padding: 12px 15px; border: 1px solid #ddd; font-weight: bold; background-color: #f9f9f9;">Fidélité au sens</td>
+					<td style="padding: 12px 15px; border: 1px solid #ddd;">Très élevée</td>
+					<td style="padding: 12px 15px; border: 1px solid #ddd;">Moyenne</td>
+				</tr>
+				<tr>
+					<td style="padding: 12px 15px; border: 1px solid #ddd; font-weight: bold; background-color: #f9f9f9;">Fluidité linguistique</td>
+					<td style="padding: 12px 15px; border: 1px solid #ddd;">Naturelle et idiomatique</td>
+					<td style="padding: 12px 15px; border: 1px solid #ddd;">Rigide</td>
+				</tr>
+				<tr>
+					<td style="padding: 12px 15px; border: 1px solid #ddd; font-weight: bold; background-color: #f9f9f9;">Contexte global</td>
+					<td style="padding: 12px 15px; border: 1px solid #ddd;">Pris en compte</td>
+					<td style="padding: 12px 15px; border: 1px solid #ddd;">Ignoré</td>
+				</tr>
+				<tr>
+					<td style="padding: 12px 15px; border: 1px solid #ddd; font-weight: bold; background-color: #f9f9f9;">Expressions et proverbes</td>
+					<td style="padding: 12px 15px; border: 1px solid #ddd;">Bien traduits</td>
+					<td style="padding: 12px 15px; border: 1px solid #ddd;">Littéraux</td>
+				</tr>
+				<tr>
+					<td style="padding: 12px 15px; border: 1px solid #ddd; font-weight: bold; background-color: #f9f9f9;">Adaptation au style</td>
+					<td style="padding: 12px 15px; border: 1px solid #ddd;">Oui (formel, neutre, poétique...)</td>
+					<td style="padding: 12px 15px; border: 1px solid #ddd;">Non</td>
+				</tr>
+				<tr>
+					<td style="padding: 12px 15px; border: 1px solid #ddd; font-weight: bold; background-color: #f9f9f9;">Utilisation professionnelle</td>
+					<td style="padding: 12px 15px; border: 1px solid #ddd;">Traduction, recherche, rédaction</td>
+					<td style="padding: 12px 15px; border: 1px solid #ddd;">Limitée</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	
+	<p style="display: flex; align-items: center; font-size: 1.1em; color: #1a5f7a; font-weight: 600; margin: 20px 0;">
+		<span style="font-size: 1.4em; margin-right: 12px;">💡</span>
+		DeepL ne traduit pas seulement les mots : il interprète les idées.
+	</p>
+
+    <!-- QUILLBOT SECTION -->
+    <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 10px; margin-bottom: 20px; font-size: 1.4em;">L'outil IA de reformulation : QuillBot</h3>
+
+    <p><strong>Introduction</strong></p>
+    <p>QuillBot est un outil de révision et de reformulation de textes en ligne. Basé sur des modèles d'intelligence artificielle pour : Réécrire un texte, améliorer la clarté, proposer des synonymes et corriger des erreurs.</p>
+
+    <p><strong>Idée clé :</strong> QuillBot n'invente pas le sens, il restructure et améliore le texte.</p>
+
+    <p><strong>Fonctionnalités principales :</strong></p>
+    <ul>
+        <li><strong>Paraphrasing :</strong> Réécrit dans un style différent (formel, créatif...).</li>
+        <li><strong>Grammar Checker :</strong> Corrige les fautes grammaticales.</li>
+        <li><strong>Synonym Finder :</strong> Propose des alternatives lexicales.</li>
+        <li><strong>Summarizer :</strong> Résume automatiquement un texte long.</li>
+    </ul>
+
+    <p><strong>Comment ça marche ?</strong> L'utilisateur copie son texte, l'IA analyse la structure et le sens, puis elle propose plusieurs versions réécrites. QuillBot utilise des modèles NLP (Transformer), similaires à ceux de GPT, mais orientés vers l'amélioration de texte.</p>
+
+</div></p>
+        </section>
+        
+    </article>
+
+    <!-- SUPPORTS ET TPS -->
+    <aside class="course-sidebar">
+		<!-- Bloc QCM : Cohérent avec le style Support/TP -->
+    <div class="resource-box" style="border-top: 4px solid #2c3e50;">
+        <h4>Évaluation</h4>
+        <a href="QCMs.html" class="btn-action" style="background-color: #2c3e50; color: white; border: none; display: block; text-align: center; padding: 10px; border-radius: 4px; font-weight: bold; text-decoration: none; transition: opacity 0.3s;" onmouseover="this.style.opacity='0.9'" onmouseout="this.style.opacity='1'">
+            📝 Quiz de validation
+        </a>
+        <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 8px; text-align: center;">
+            Vérifiez votre compréhension
+        </p>
+    </div>
+		
+        <div class="resource-box dark">
+            <h4>Support de Cours</h4>
+            <a href="cours.pdf" class="btn-action btn-pdf">Télécharger PDF</a>
+        </div>
+
+        <div class="resource-box">
+            <h4>Travaux Pratiques</h4>
+            <a href="tps.pdf" class="btn-action btn-tp">📄 TPs : Section VI</a>
+            <p style="font-size: 0.75rem; color: var(--text-muted); margin-top: 10px; text-align: center;">
+            </p>
+        </div>
+    </aside>
+</main>
+
+<footer>
+    <p>© 2026 — Prof. Mouhssine EL ATILLAH | Université Ibn Zohr</p>
+</footer>
+
+</body>
+</html>
