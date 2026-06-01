@@ -596,133 +596,278 @@
     <p><strong>▪ Remarque :</strong><br>✓ Les lettres majuscules (A-Z) sont codées de 65 à 90.<br>✓ Les lettres minuscules (a-z) sont codées de 97 à 122.<br>✓ Les chiffres (0-9) vont de 48 à 57.</p>
 
     <p><strong>Table ASCII</strong></p>
-<table border="1" cellspacing="0" cellpadding="6" style="width:100%; border-collapse:collapse; font-family:Arial;">
-
-  <thead>
-    <tr style="background:#e6f0ff;">
-      <th>Décimal</th>
-      <th>Hexa</th>
-      <th>Caractère</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-
-  <tbody>
-
-    <!-- ================== CONTRÔLE (0–31) ================== -->
-    <tr style="background:#f8d7da;"><td>0</td><td>00</td><td>NUL</td><td>Caractère nul</td></tr>
-    <tr style="background:#f8d7da;"><td>1</td><td>01</td><td>SOH</td><td>Début d’en-tête</td></tr>
-    <tr style="background:#f8d7da;"><td>2</td><td>02</td><td>STX</td><td>Début de texte</td></tr>
-    <tr style="background:#f8d7da;"><td>3</td><td>03</td><td>ETX</td><td>Fin de texte</td></tr>
-    <tr style="background:#f8d7da;"><td>4</td><td>04</td><td>EOT</td><td>Fin de transmission</td></tr>
-    <tr style="background:#f8d7da;"><td>5</td><td>05</td><td>ENQ</td><td>Demande</td></tr>
-    <tr style="background:#f8d7da;"><td>6</td><td>06</td><td>ACK</td><td>Accusé de réception</td></tr>
-    <tr style="background:#f8d7da;"><td>7</td><td>07</td><td>BEL</td><td>Signal sonore</td></tr>
-    <tr style="background:#f8d7da;"><td>8</td><td>08</td><td>BS</td><td>Retour arrière</td></tr>
-    <tr style="background:#f8d7da;"><td>9</td><td>09</td><td>HT</td><td>Tabulation horizontale</td></tr>
-    <tr style="background:#f8d7da;"><td>10</td><td>0A</td><td>LF</td><td>Saut de ligne</td></tr>
-    <tr style="background:#f8d7da;"><td>11</td><td>0B</td><td>VT</td><td>Tabulation verticale</td></tr>
-    <tr style="background:#f8d7da;"><td>12</td><td>0C</td><td>FF</td><td>Saut de page</td></tr>
-    <tr style="background:#f8d7da;"><td>13</td><td>0D</td><td>CR</td><td>Retour chariot</td></tr>
-    <tr style="background:#f8d7da;"><td>14</td><td>0E</td><td>SO</td><td>Décalage sortie</td></tr>
-    <tr style="background:#f8d7da;"><td>15</td><td>0F</td><td>SI</td><td>Décalage entrée</td></tr>
-    <tr style="background:#f8d7da;"><td>16</td><td>10</td><td>DLE</td><td>Lien de données</td></tr>
-    <tr style="background:#f8d7da;"><td>17</td><td>11</td><td>DC1</td><td>Contrôle appareil 1</td></tr>
-    <tr style="background:#f8d7da;"><td>18</td><td>12</td><td>DC2</td><td>Contrôle appareil 2</td></tr>
-    <tr style="background:#f8d7da;"><td>19</td><td>13</td><td>DC3</td><td>Contrôle appareil 3</td></tr>
-    <tr style="background:#f8d7da;"><td>20</td><td>14</td><td>DC4</td><td>Contrôle appareil 4</td></tr>
-    <tr style="background:#f8d7da;"><td>21</td><td>15</td><td>NAK</td><td>Accusé négatif</td></tr>
-    <tr style="background:#f8d7da;"><td>22</td><td>16</td><td>SYN</td><td>Synchronisation</td></tr>
-    <tr style="background:#f8d7da;"><td>23</td><td>17</td><td>ETB</td><td>Fin bloc transmission</td></tr>
-    <tr style="background:#f8d7da;"><td>24</td><td>18</td><td>CAN</td><td>Annulation</td></tr>
-    <tr style="background:#f8d7da;"><td>25</td><td>19</td><td>EM</td><td>Fin du média</td></tr>
-    <tr style="background:#f8d7da;"><td>26</td><td>1A</td><td>SUB</td><td>Substitution</td></tr>
-    <tr style="background:#f8d7da;"><td>27</td><td>1B</td><td>ESC</td><td>Échappement</td></tr>
-    <tr style="background:#f8d7da;"><td>28</td><td>1C</td><td>FS</td><td>Séparateur fichier</td></tr>
-    <tr style="background:#f8d7da;"><td>29</td><td>1D</td><td>GS</td><td>Séparateur groupe</td></tr>
-    <tr style="background:#f8d7da;"><td>30</td><td>1E</td><td>RS</td><td>Séparateur enregistrement</td></tr>
-    <tr style="background:#f8d7da;"><td>31</td><td>1F</td><td>US</td><td>Séparateur unité</td></tr>
-
-    <!-- ================== SYMBOLS + CHIFFRES (32–64) ================== -->
-    <tr style="background:#fff3cd;"><td>32</td><td>20</td><td>ESPACE</td><td>Espace</td></tr>
-    <tr style="background:#fff3cd;"><td>33</td><td>21</td><td>!</td><td>Point d’exclamation</td></tr>
-    <tr style="background:#fff3cd;"><td>34</td><td>22</td><td>"</td><td>Guillemet</td></tr>
-    <tr style="background:#fff3cd;"><td>35</td><td>23</td><td>#</td><td>Dièse</td></tr>
-    <tr style="background:#fff3cd;"><td>36</td><td>24</td><td>$</td><td>Dollar</td></tr>
-    <tr style="background:#fff3cd;"><td>37</td><td>25</td><td>%</td><td>Pourcentage</td></tr>
-    <tr style="background:#fff3cd;"><td>38</td><td>26</td><td>&amp;</td><td>Esperluette</td></tr>
-    <tr style="background:#fff3cd;"><td>39</td><td>27</td><td>'</td><td>Apostrophe</td></tr>
-    <tr style="background:#fff3cd;"><td>40</td><td>28</td><td>(</td><td>Parenthèse ouvrante</td></tr>
-    <tr style="background:#fff3cd;"><td>41</td><td>29</td><td>)</td><td>Parenthèse fermante</td></tr>
-    <tr style="background:#fff3cd;"><td>42</td><td>2A</td><td>*</td><td>Astérisque</td></tr>
-    <tr style="background:#fff3cd;"><td>43</td><td>2B</td><td>+</td><td>Plus</td></tr>
-    <tr style="background:#fff3cd;"><td>44</td><td>2C</td><td>,</td><td>Virgule</td></tr>
-    <tr style="background:#fff3cd;"><td>45</td><td>2D</td><td>-</td><td>Tiret</td></tr>
-    <tr style="background:#fff3cd;"><td>46</td><td>2E</td><td>.</td><td>Point</td></tr>
-    <tr style="background:#fff3cd;"><td>47</td><td>2F</td><td>/</td><td>Barre oblique</td></tr>
-    <tr style="background:#fff3cd;"><td>48</td><td>30</td><td>0</td><td>Chiffre zéro</td></tr>
-    <tr style="background:#fff3cd;"><td>49</td><td>31</td><td>1</td><td>Chiffre un</td></tr>
-    <tr style="background:#fff3cd;"><td>50</td><td>32</td><td>2</td><td>Chiffre deux</td></tr>
-    <tr style="background:#fff3cd;"><td>51</td><td>33</td><td>3</td><td>Chiffre trois</td></tr>
-    <tr style="background:#fff3cd;"><td>52</td><td>34</td><td>4</td><td>Chiffre quatre</td></tr>
-    <tr style="background:#fff3cd;"><td>53</td><td>35</td><td>5</td><td>Chiffre cinq</td></tr>
-    <tr style="background:#fff3cd;"><td>54</td><td>36</td><td>6</td><td>Chiffre six</td></tr>
-    <tr style="background:#fff3cd;"><td>55</td><td>37</td><td>7</td><td>Chiffre sept</td></tr>
-    <tr style="background:#fff3cd;"><td>56</td><td>38</td><td>8</td><td>Chiffre huit</td></tr>
-    <tr style="background:#fff3cd;"><td>57</td><td>39</td><td>9</td><td>Chiffre neuf</td></tr>
-
-    <!-- ================== LETTRES MAJ + MIN ================== -->
-    <tr style="background:#d1ecf1;"><td>65</td><td>41</td><td>A</td><td>Lettre majuscule A</td></tr>
-    <tr style="background:#d1ecf1;"><td>66</td><td>42</td><td>B</td><td>Lettre majuscule B</td></tr>
-    <tr style="background:#d1ecf1;"><td>67</td><td>43</td><td>C</td><td>Lettre majuscule C</td></tr>
-    <tr style="background:#d1ecf1;"><td>68</td><td>44</td><td>D</td><td>Lettre majuscule D</td></tr>
-    <tr style="background:#d1ecf1;"><td>69</td><td>45</td><td>E</td><td>Lettre majuscule E</td></tr>
-    <tr style="background:#d1ecf1;"><td>70</td><td>46</td><td>F</td><td>Lettre majuscule F</td></tr>
-    <tr style="background:#d1ecf1;"><td>71</td><td>47</td><td>G</td><td>Lettre majuscule G</td></tr>
-    <tr style="background:#d1ecf1;"><td>72</td><td>48</td><td>H</td><td>Lettre majuscule H</td></tr>
-    <tr style="background:#d1ecf1;"><td>73</td><td>49</td><td>I</td><td>Lettre majuscule I</td></tr>
-    <tr style="background:#d1ecf1;"><td>74</td><td>4A</td><td>J</td><td>Lettre majuscule J</td></tr>
-    <tr style="background:#d1ecf1;"><td>75</td><td>4B</td><td>K</td><td>Lettre majuscule K</td></tr>
-    <tr style="background:#d1ecf1;"><td>76</td><td>4C</td><td>L</td><td>Lettre majuscule L</td></tr>
-    <tr style="background:#d1ecf1;"><td>77</td><td>4D</td><td>M</td><td>Lettre majuscule M</td></tr>
-    <tr style="background:#d1ecf1;"><td>78</td><td>4E</td><td>N</td><td>Lettre majuscule N</td></tr>
-    <tr style="background:#d1ecf1;"><td>79</td><td>4F</td><td>O</td><td>Lettre majuscule O</td></tr>
-
-    <tr style="background:#d4edda;"><td>97</td><td>61</td><td>a</td><td>Lettre minuscule a</td></tr>
-    <tr style="background:#d4edda;"><td>98</td><td>62</td><td>b</td><td>Lettre minuscule b</td></tr>
-    <tr style="background:#d4edda;"><td>99</td><td>63</td><td>c</td><td>Lettre minuscule c</td></tr>
-    <tr style="background:#d4edda;"><td>100</td><td>64</td><td>d</td><td>Lettre minuscule d</td></tr>
-    <tr style="background:#d4edda;"><td>101</td><td>65</td><td>e</td><td>Lettre minuscule e</td></tr>
-    <tr style="background:#d4edda;"><td>102</td><td>66</td><td>f</td><td>Lettre minuscule f</td></tr>
-    <tr style="background:#d4edda;"><td>103</td><td>67</td><td>g</td><td>Lettre minuscule g</td></tr>
-    <tr style="background:#d4edda;"><td>104</td><td>68</td><td>h</td><td>Lettre minuscule h</td></tr>
-    <tr style="background:#d4edda;"><td>105</td><td>69</td><td>i</td><td>Lettre minuscule i</td></tr>
-    <tr style="background:#d4edda;"><td>106</td><td>6A</td><td>j</td><td>Lettre minuscule j</td></tr>
-    <tr style="background:#d4edda;"><td>107</td><td>6B</td><td>k</td><td>Lettre minuscule k</td></tr>
-    <tr style="background:#d4edda;"><td>108</td><td>6C</td><td>l</td><td>Lettre minuscule l</td></tr>
-    <tr style="background:#d4edda;"><td>109</td><td>6D</td><td>m</td><td>Lettre minuscule m</td></tr>
-    <tr style="background:#d4edda;"><td>110</td><td>6E</td><td>n</td><td>Lettre minuscule n</td></tr>
-    <tr style="background:#d4edda;"><td>111</td><td>6F</td><td>o</td><td>Lettre minuscule o</td></tr>
-
-    <tr style="background:#d4edda;"><td>112</td><td>70</td><td>p</td><td>Lettre minuscule p</td></tr>
-    <tr style="background:#d4edda;"><td>113</td><td>71</td><td>q</td><td>Lettre minuscule q</td></tr>
-    <tr style="background:#d4edda;"><td>114</td><td>72</td><td>r</td><td>Lettre minuscule r</td></tr>
-    <tr style="background:#d4edda;"><td>115</td><td>73</td><td>s</td><td>Lettre minuscule s</td></tr>
-    <tr style="background:#d4edda;"><td>116</td><td>74</td><td>t</td><td>Lettre minuscule t</td></tr>
-    <tr style="background:#d4edda;"><td>117</td><td>75</td><td>u</td><td>Lettre minuscule u</td></tr>
-    <tr style="background:#d4edda;"><td>118</td><td>76</td><td>v</td><td>Lettre minuscule v</td></tr>
-    <tr style="background:#d4edda;"><td>119</td><td>77</td><td>w</td><td>Lettre minuscule w</td></tr>
-    <tr style="background:#d4edda;"><td>120</td><td>78</td><td>x</td><td>Lettre minuscule x</td></tr>
-    <tr style="background:#d4edda;"><td>121</td><td>79</td><td>y</td><td>Lettre minuscule y</td></tr>
-    <tr style="background:#d4edda;"><td>122</td><td>7A</td><td>z</td><td>Lettre minuscule z</td></tr>
-
-    <tr style="background:#d4edda;"><td>123</td><td>7B</td><td>{</td><td>Accolade ouvrante</td></tr>
-    <tr style="background:#d4edda;"><td>124</td><td>7C</td><td>|</td><td>Barre verticale</td></tr>
-    <tr style="background:#d4edda;"><td>125</td><td>7D</td><td>}</td><td>Accolade fermante</td></tr>
-    <tr style="background:#d4edda;"><td>126</td><td>7E</td><td>~</td><td>Tilde</td></tr>
-
-  </tbody>
-</table>
+		<p><table style="width: 100%; border-collapse: collapse; font-family: Arial, sans-serif; font-size: 14px; margin: 20px 0;">
+		    <thead>
+		        <tr style="background-color: #2c3e50; color: white;">
+		            <th style="border: 1px solid #7f8c8d; padding: 10px; text-align: center;">Décimal</th>
+		            <th style="border: 1px solid #7f8c8d; padding: 10px; text-align: center;">Hexa</th>
+		            <th style="border: 1px solid #7f8c8d; padding: 10px; text-align: center;">Caractère</th>
+		            <th style="border: 1px solid #7f8c8d; padding: 10px; text-align: center;">Description</th>
+		            <th style="border: 1px solid #7f8c8d; padding: 10px; text-align: center;">Décimal</th>
+		            <th style="border: 1px solid #7f8c8d; padding: 10px; text-align: center;">Hexa</th>
+		            <th style="border: 1px solid #7f8c8d; padding: 10px; text-align: center;">Caractère</th>
+		            <th style="border: 1px solid #7f8c8d; padding: 10px; text-align: center;">Description</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">0</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">00</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">NUL</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Caractère nul (Null)</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">64</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">40</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">@</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Arobase</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">1</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">01</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">SOH</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Début d'en-tête (Start of Heading)</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">65</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">41</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">A</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre majuscule A</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">2</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">02</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">STX</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Début de texte (Start of Text)</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">66</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">42</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">B</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre majuscule B</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">3</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">03</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">ETX</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Fin de texte (End of Text)</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">67</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">43</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">C</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre majuscule C</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">4</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">04</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">EOT</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Fin de transmission (End of Trans.)</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">68</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">44</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">D</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre majuscule D</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">5</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">05</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">ENQ</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Demande (Enquiry)</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">69</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">45</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">E</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre majuscule E</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">6</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">06</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">ACK</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Accusé de réception (Acknowledge)</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">70</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">46</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">F</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre majuscule F</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">7</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">07</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">BEL</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Signal sonore (Bell)</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">71</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">47</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">G</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre majuscule G</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">8</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">08</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">BS</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Retour arrière (Backspace)</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">72</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">48</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">H</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre majuscule H</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">9</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">09</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">HT</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Tabulation horizontale</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">73</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">49</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">I</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre majuscule I</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">10</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">0A</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">LF</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Saut de ligne (Line Feed)</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">74</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">4A</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">J</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre majuscule J</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">11</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">0B</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">VT</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Tabulation verticale</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">75</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">4B</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">K</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre majuscule K</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">12</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">0C</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">FF</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Saut de page (Form Feed)</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">76</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">4C</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">L</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre majuscule L</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">13</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">0D</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">CR</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Retour chariot (Carriage Return)</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">77</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">4D</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">M</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre majuscule M</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">14</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">0E</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">SO</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Hors code (Shift Out)</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">78</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">4E</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">N</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre majuscule N</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">15</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">0F</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">SI</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">En code (Shift In)</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">79</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">4F</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">O</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre majuscule O</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">16</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">10</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">DLE</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Échappement liaison (Data Link Esc.)</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">80</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">50</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">P</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre majuscule P</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">17</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">11</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">DC1</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Contrôle périphérique 1</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">81</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">51</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">Q</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre majuscule Q</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">18</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">12</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">DC2</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Contrôle périphérique 2</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">82</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">52</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">R</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre majuscule R</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">19</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">DC3</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">DC3</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Contrôle périphérique 3</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">83</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">53</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">S</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre majuscule S</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">20</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">14</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">DC4</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Contrôle périphérique 4</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">84</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">54</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">T</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre majuscule T</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">21</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">15</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">NAK</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Accusé de réception négatif</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">85</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">55</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">U</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre majuscule U</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">22</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">16</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">SYN</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Attente synchrone (Synchronous Idle)</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">86</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">56</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">V</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre majuscule V</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">23</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">17</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">ETB</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Fin de bloc de texte</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">87</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">57</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">W</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre majuscule W</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">24</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">18</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">CAN</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Annulation (Cancel)</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">88</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">58</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">X</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre majuscule X</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">25</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">19</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">EM</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Fin de support (End of Medium)</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">89</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">59</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">Y</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre majuscule Y</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">26</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">1A</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">SUB</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Substitut (Substitute)</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">90</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">5A</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">Z</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre majuscule Z</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">27</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">1B</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">ESC</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Échappement (Escape)</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">91</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">5B</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">[</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Crochet ouvrant</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">28</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">1C</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">FS</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Séparateur de fichier</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">92</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">5C</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">\</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Barre oblique inversée (Antislash)</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">29</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">1D</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">GS</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Séparateur de groupe</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">93</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">5D</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">]</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Crochet fermant</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">30</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">1E</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">RS</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Séparateur d'enregistrement</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">94</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">5E</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">^</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Accent circonflexe</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">31</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">1F</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">US</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Séparateur d'unité</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">95</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">5F</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">_</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Trait de soulignement (Underscore)</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">32</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">20</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">&nbsp;</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Espace</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">96</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">60</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">`</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Accent grave</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">33</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">21</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">!</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Point d'exclamation</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">97</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">61</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">a</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre minuscule a</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">34</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">22</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">"</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Guillemet droit</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">98</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">62</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">b</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre minuscule b</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">35</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">23</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">#</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Dièse</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">99</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">63</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">c</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre minuscule c</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">36</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">24</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">$</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Signe dollar</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">100</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">64</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">d</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre minuscule d</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">37</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">25</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">%</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Signe pourcentage</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">101</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">65</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">e</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre minuscule e</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">38</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">26</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">&amp;</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Esperluette (Et commercial)</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">102</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">66</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">f</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre minuscule f</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">39</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">27</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">'</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Apostrophe</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">103</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">67</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">g</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre minuscule g</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">40</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">28</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">(</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Parenthèse ouvrante</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">104</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">68</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">h</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre minuscule h</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">41</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">29</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">)</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Parenthèse fermante</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">105</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">69</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">i</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre minuscule i</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">42</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">2A</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">*</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Astérisque</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">106</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">6A</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">j</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre minuscule j</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">43</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">2B</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">+</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Signe plus</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">107</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">6B</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">k</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre minuscule k</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">44</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">2C</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">,</td><td>Virgule</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">108</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">6C</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">l</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre minuscule l</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">45</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">2D</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">-</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Trait d'union / Signe moins</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">109</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">6D</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">m</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre minuscule m</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">46</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">2E</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">.</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Point</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">110</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">6E</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">n</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre minuscule n</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">47</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">2F</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">/</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Barre oblique (Slash)</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">111</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">6F</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">o</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre minuscule o</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">48</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">30</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">0</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Chiffre 0</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">112</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">70</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">p</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre minuscule p</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">49</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">1</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">1</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Chiffre 1</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">113</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">71</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">q</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre minuscule q</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">50</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">32</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">2</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Chiffre 2</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">114</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">72</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">r</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre minuscule r</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">51</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">33</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">3</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Chiffre 3</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">115</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">73</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">s</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre minuscule s</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">52</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">34</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">4</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Chiffre 4</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">116</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">74</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">t</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre minuscule t</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">53</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">35</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">5</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Chiffre 5</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">117</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">75</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">u</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre minuscule u</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">54</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">36</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">6</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Chiffre 6</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">118</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">76</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">v</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre minuscule v</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">55</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">37</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">7</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Chiffre 7</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">119</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">77</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">w</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre minuscule w</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">56</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">38</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">8</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Chiffre 8</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">120</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">78</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">x</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre minuscule x</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">57</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">39</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">9</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Chiffre 9</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">121</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">79</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">y</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre minuscule y</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">58</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">3A</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">:</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Deux-points</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">122</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">7A</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">z</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Lettre minuscule z</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">59</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">3B</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">;</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Point-virgule</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">123</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">7B</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">{</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Accolade ouvrante</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">60</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">3C</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">&lt;</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Signe inférieur à</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">124</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">7C</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">|</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Barre verticale (Pipe)</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">61</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">3D</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">=</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Signe égal</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">125</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">7D</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">}</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Accolade fermante</td>
+		        </tr>
+		        <tr style="background-color: #ffffff;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">62</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">3E</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">&gt;</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Signe supérieur à</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">126</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">7E</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">~</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Tilde</td>
+		        </tr>
+		        <tr style="background-color: #f9f9f9;">
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">63</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">3F</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">?</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Point d'interrogation</td>
+		            <td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">127</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-weight: bold;">7F</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center; font-family: monospace; font-weight: bold; color: #c7254e;">DEL</td><td style="border: 1px solid #dddddd; padding: 8px; text-align: center;">Supprimer (Delete)</td>
+		        </tr>
+		    </tbody>
+		</table></p>
 
     <p><strong>La conversion de la base décimale à la base binaire</strong></p>
     <p>Soit le nombre 18, pour le transformer en binaire, on le divise successivement par 2 et on prend les restes.</p>
