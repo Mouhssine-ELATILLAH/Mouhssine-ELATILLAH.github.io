@@ -596,11 +596,133 @@
     <p><strong>▪ Remarque :</strong><br>✓ Les lettres majuscules (A-Z) sont codées de 65 à 90.<br>✓ Les lettres minuscules (a-z) sont codées de 97 à 122.<br>✓ Les chiffres (0-9) vont de 48 à 57.</p>
 
     <p><strong>Table ASCII</strong></p>
-    <!-- Espace pour intégrer la table ASCII comme image -->
-    <div style="background-color: #f9f9f9; border: 2px dashed #3498db; border-radius: 10px; padding: 40px; text-align: center; margin: 20px 0;">
-        <p style="color: #7f8c8d; margin: 0;">[Image : Table ASCII complète]</p>
-        <p style="color: #95a5a6; font-size: 12px; margin-top: 10px;">Insérez ici l'image de la table ASCII</p>
-    </div>
+<table border="1" cellspacing="0" cellpadding="6" style="width:100%; border-collapse:collapse; font-family:Arial;">
+
+  <thead>
+    <tr style="background:#e6f0ff;">
+      <th>Décimal</th>
+      <th>Hexa</th>
+      <th>Caractère</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    <!-- ================== CONTRÔLE (0–31) ================== -->
+    <tr style="background:#f8d7da;"><td>0</td><td>00</td><td>NUL</td><td>Caractère nul</td></tr>
+    <tr style="background:#f8d7da;"><td>1</td><td>01</td><td>SOH</td><td>Début d’en-tête</td></tr>
+    <tr style="background:#f8d7da;"><td>2</td><td>02</td><td>STX</td><td>Début de texte</td></tr>
+    <tr style="background:#f8d7da;"><td>3</td><td>03</td><td>ETX</td><td>Fin de texte</td></tr>
+    <tr style="background:#f8d7da;"><td>4</td><td>04</td><td>EOT</td><td>Fin de transmission</td></tr>
+    <tr style="background:#f8d7da;"><td>5</td><td>05</td><td>ENQ</td><td>Demande</td></tr>
+    <tr style="background:#f8d7da;"><td>6</td><td>06</td><td>ACK</td><td>Accusé de réception</td></tr>
+    <tr style="background:#f8d7da;"><td>7</td><td>07</td><td>BEL</td><td>Signal sonore</td></tr>
+    <tr style="background:#f8d7da;"><td>8</td><td>08</td><td>BS</td><td>Retour arrière</td></tr>
+    <tr style="background:#f8d7da;"><td>9</td><td>09</td><td>HT</td><td>Tabulation horizontale</td></tr>
+    <tr style="background:#f8d7da;"><td>10</td><td>0A</td><td>LF</td><td>Saut de ligne</td></tr>
+    <tr style="background:#f8d7da;"><td>11</td><td>0B</td><td>VT</td><td>Tabulation verticale</td></tr>
+    <tr style="background:#f8d7da;"><td>12</td><td>0C</td><td>FF</td><td>Saut de page</td></tr>
+    <tr style="background:#f8d7da;"><td>13</td><td>0D</td><td>CR</td><td>Retour chariot</td></tr>
+    <tr style="background:#f8d7da;"><td>14</td><td>0E</td><td>SO</td><td>Décalage sortie</td></tr>
+    <tr style="background:#f8d7da;"><td>15</td><td>0F</td><td>SI</td><td>Décalage entrée</td></tr>
+    <tr style="background:#f8d7da;"><td>16</td><td>10</td><td>DLE</td><td>Lien de données</td></tr>
+    <tr style="background:#f8d7da;"><td>17</td><td>11</td><td>DC1</td><td>Contrôle appareil 1</td></tr>
+    <tr style="background:#f8d7da;"><td>18</td><td>12</td><td>DC2</td><td>Contrôle appareil 2</td></tr>
+    <tr style="background:#f8d7da;"><td>19</td><td>13</td><td>DC3</td><td>Contrôle appareil 3</td></tr>
+    <tr style="background:#f8d7da;"><td>20</td><td>14</td><td>DC4</td><td>Contrôle appareil 4</td></tr>
+    <tr style="background:#f8d7da;"><td>21</td><td>15</td><td>NAK</td><td>Accusé négatif</td></tr>
+    <tr style="background:#f8d7da;"><td>22</td><td>16</td><td>SYN</td><td>Synchronisation</td></tr>
+    <tr style="background:#f8d7da;"><td>23</td><td>17</td><td>ETB</td><td>Fin bloc transmission</td></tr>
+    <tr style="background:#f8d7da;"><td>24</td><td>18</td><td>CAN</td><td>Annulation</td></tr>
+    <tr style="background:#f8d7da;"><td>25</td><td>19</td><td>EM</td><td>Fin du média</td></tr>
+    <tr style="background:#f8d7da;"><td>26</td><td>1A</td><td>SUB</td><td>Substitution</td></tr>
+    <tr style="background:#f8d7da;"><td>27</td><td>1B</td><td>ESC</td><td>Échappement</td></tr>
+    <tr style="background:#f8d7da;"><td>28</td><td>1C</td><td>FS</td><td>Séparateur fichier</td></tr>
+    <tr style="background:#f8d7da;"><td>29</td><td>1D</td><td>GS</td><td>Séparateur groupe</td></tr>
+    <tr style="background:#f8d7da;"><td>30</td><td>1E</td><td>RS</td><td>Séparateur enregistrement</td></tr>
+    <tr style="background:#f8d7da;"><td>31</td><td>1F</td><td>US</td><td>Séparateur unité</td></tr>
+
+    <!-- ================== SYMBOLS + CHIFFRES (32–64) ================== -->
+    <tr style="background:#fff3cd;"><td>32</td><td>20</td><td>ESPACE</td><td>Espace</td></tr>
+    <tr style="background:#fff3cd;"><td>33</td><td>21</td><td>!</td><td>Point d’exclamation</td></tr>
+    <tr style="background:#fff3cd;"><td>34</td><td>22</td><td>"</td><td>Guillemet</td></tr>
+    <tr style="background:#fff3cd;"><td>35</td><td>23</td><td>#</td><td>Dièse</td></tr>
+    <tr style="background:#fff3cd;"><td>36</td><td>24</td><td>$</td><td>Dollar</td></tr>
+    <tr style="background:#fff3cd;"><td>37</td><td>25</td><td>%</td><td>Pourcentage</td></tr>
+    <tr style="background:#fff3cd;"><td>38</td><td>26</td><td>&amp;</td><td>Esperluette</td></tr>
+    <tr style="background:#fff3cd;"><td>39</td><td>27</td><td>'</td><td>Apostrophe</td></tr>
+    <tr style="background:#fff3cd;"><td>40</td><td>28</td><td>(</td><td>Parenthèse ouvrante</td></tr>
+    <tr style="background:#fff3cd;"><td>41</td><td>29</td><td>)</td><td>Parenthèse fermante</td></tr>
+    <tr style="background:#fff3cd;"><td>42</td><td>2A</td><td>*</td><td>Astérisque</td></tr>
+    <tr style="background:#fff3cd;"><td>43</td><td>2B</td><td>+</td><td>Plus</td></tr>
+    <tr style="background:#fff3cd;"><td>44</td><td>2C</td><td>,</td><td>Virgule</td></tr>
+    <tr style="background:#fff3cd;"><td>45</td><td>2D</td><td>-</td><td>Tiret</td></tr>
+    <tr style="background:#fff3cd;"><td>46</td><td>2E</td><td>.</td><td>Point</td></tr>
+    <tr style="background:#fff3cd;"><td>47</td><td>2F</td><td>/</td><td>Barre oblique</td></tr>
+    <tr style="background:#fff3cd;"><td>48</td><td>30</td><td>0</td><td>Chiffre zéro</td></tr>
+    <tr style="background:#fff3cd;"><td>49</td><td>31</td><td>1</td><td>Chiffre un</td></tr>
+    <tr style="background:#fff3cd;"><td>50</td><td>32</td><td>2</td><td>Chiffre deux</td></tr>
+    <tr style="background:#fff3cd;"><td>51</td><td>33</td><td>3</td><td>Chiffre trois</td></tr>
+    <tr style="background:#fff3cd;"><td>52</td><td>34</td><td>4</td><td>Chiffre quatre</td></tr>
+    <tr style="background:#fff3cd;"><td>53</td><td>35</td><td>5</td><td>Chiffre cinq</td></tr>
+    <tr style="background:#fff3cd;"><td>54</td><td>36</td><td>6</td><td>Chiffre six</td></tr>
+    <tr style="background:#fff3cd;"><td>55</td><td>37</td><td>7</td><td>Chiffre sept</td></tr>
+    <tr style="background:#fff3cd;"><td>56</td><td>38</td><td>8</td><td>Chiffre huit</td></tr>
+    <tr style="background:#fff3cd;"><td>57</td><td>39</td><td>9</td><td>Chiffre neuf</td></tr>
+
+    <!-- ================== LETTRES MAJ + MIN ================== -->
+    <tr style="background:#d1ecf1;"><td>65</td><td>41</td><td>A</td><td>Lettre majuscule A</td></tr>
+    <tr style="background:#d1ecf1;"><td>66</td><td>42</td><td>B</td><td>Lettre majuscule B</td></tr>
+    <tr style="background:#d1ecf1;"><td>67</td><td>43</td><td>C</td><td>Lettre majuscule C</td></tr>
+    <tr style="background:#d1ecf1;"><td>68</td><td>44</td><td>D</td><td>Lettre majuscule D</td></tr>
+    <tr style="background:#d1ecf1;"><td>69</td><td>45</td><td>E</td><td>Lettre majuscule E</td></tr>
+    <tr style="background:#d1ecf1;"><td>70</td><td>46</td><td>F</td><td>Lettre majuscule F</td></tr>
+    <tr style="background:#d1ecf1;"><td>71</td><td>47</td><td>G</td><td>Lettre majuscule G</td></tr>
+    <tr style="background:#d1ecf1;"><td>72</td><td>48</td><td>H</td><td>Lettre majuscule H</td></tr>
+    <tr style="background:#d1ecf1;"><td>73</td><td>49</td><td>I</td><td>Lettre majuscule I</td></tr>
+    <tr style="background:#d1ecf1;"><td>74</td><td>4A</td><td>J</td><td>Lettre majuscule J</td></tr>
+    <tr style="background:#d1ecf1;"><td>75</td><td>4B</td><td>K</td><td>Lettre majuscule K</td></tr>
+    <tr style="background:#d1ecf1;"><td>76</td><td>4C</td><td>L</td><td>Lettre majuscule L</td></tr>
+    <tr style="background:#d1ecf1;"><td>77</td><td>4D</td><td>M</td><td>Lettre majuscule M</td></tr>
+    <tr style="background:#d1ecf1;"><td>78</td><td>4E</td><td>N</td><td>Lettre majuscule N</td></tr>
+    <tr style="background:#d1ecf1;"><td>79</td><td>4F</td><td>O</td><td>Lettre majuscule O</td></tr>
+
+    <tr style="background:#d4edda;"><td>97</td><td>61</td><td>a</td><td>Lettre minuscule a</td></tr>
+    <tr style="background:#d4edda;"><td>98</td><td>62</td><td>b</td><td>Lettre minuscule b</td></tr>
+    <tr style="background:#d4edda;"><td>99</td><td>63</td><td>c</td><td>Lettre minuscule c</td></tr>
+    <tr style="background:#d4edda;"><td>100</td><td>64</td><td>d</td><td>Lettre minuscule d</td></tr>
+    <tr style="background:#d4edda;"><td>101</td><td>65</td><td>e</td><td>Lettre minuscule e</td></tr>
+    <tr style="background:#d4edda;"><td>102</td><td>66</td><td>f</td><td>Lettre minuscule f</td></tr>
+    <tr style="background:#d4edda;"><td>103</td><td>67</td><td>g</td><td>Lettre minuscule g</td></tr>
+    <tr style="background:#d4edda;"><td>104</td><td>68</td><td>h</td><td>Lettre minuscule h</td></tr>
+    <tr style="background:#d4edda;"><td>105</td><td>69</td><td>i</td><td>Lettre minuscule i</td></tr>
+    <tr style="background:#d4edda;"><td>106</td><td>6A</td><td>j</td><td>Lettre minuscule j</td></tr>
+    <tr style="background:#d4edda;"><td>107</td><td>6B</td><td>k</td><td>Lettre minuscule k</td></tr>
+    <tr style="background:#d4edda;"><td>108</td><td>6C</td><td>l</td><td>Lettre minuscule l</td></tr>
+    <tr style="background:#d4edda;"><td>109</td><td>6D</td><td>m</td><td>Lettre minuscule m</td></tr>
+    <tr style="background:#d4edda;"><td>110</td><td>6E</td><td>n</td><td>Lettre minuscule n</td></tr>
+    <tr style="background:#d4edda;"><td>111</td><td>6F</td><td>o</td><td>Lettre minuscule o</td></tr>
+
+    <tr style="background:#d4edda;"><td>112</td><td>70</td><td>p</td><td>Lettre minuscule p</td></tr>
+    <tr style="background:#d4edda;"><td>113</td><td>71</td><td>q</td><td>Lettre minuscule q</td></tr>
+    <tr style="background:#d4edda;"><td>114</td><td>72</td><td>r</td><td>Lettre minuscule r</td></tr>
+    <tr style="background:#d4edda;"><td>115</td><td>73</td><td>s</td><td>Lettre minuscule s</td></tr>
+    <tr style="background:#d4edda;"><td>116</td><td>74</td><td>t</td><td>Lettre minuscule t</td></tr>
+    <tr style="background:#d4edda;"><td>117</td><td>75</td><td>u</td><td>Lettre minuscule u</td></tr>
+    <tr style="background:#d4edda;"><td>118</td><td>76</td><td>v</td><td>Lettre minuscule v</td></tr>
+    <tr style="background:#d4edda;"><td>119</td><td>77</td><td>w</td><td>Lettre minuscule w</td></tr>
+    <tr style="background:#d4edda;"><td>120</td><td>78</td><td>x</td><td>Lettre minuscule x</td></tr>
+    <tr style="background:#d4edda;"><td>121</td><td>79</td><td>y</td><td>Lettre minuscule y</td></tr>
+    <tr style="background:#d4edda;"><td>122</td><td>7A</td><td>z</td><td>Lettre minuscule z</td></tr>
+
+    <tr style="background:#d4edda;"><td>123</td><td>7B</td><td>{</td><td>Accolade ouvrante</td></tr>
+    <tr style="background:#d4edda;"><td>124</td><td>7C</td><td>|</td><td>Barre verticale</td></tr>
+    <tr style="background:#d4edda;"><td>125</td><td>7D</td><td>}</td><td>Accolade fermante</td></tr>
+    <tr style="background:#d4edda;"><td>126</td><td>7E</td><td>~</td><td>Tilde</td></tr>
+
+  </tbody>
+</table>
 
     <p><strong>La conversion de la base décimale à la base binaire</strong></p>
     <p>Soit le nombre 18, pour le transformer en binaire, on le divise successivement par 2 et on prend les restes.</p>
