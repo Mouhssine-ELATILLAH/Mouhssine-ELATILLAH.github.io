@@ -1038,24 +1038,22 @@
             <p>Internet est un réseau mondial de milliards d'ordinateurs connectés entre eux, permettant la communication, le partage d'informations et la collaboration à l'échelle planétaire. Pour comprendre son fonctionnement, trois concepts clés sont à maîtriser : les adresses IP, le DNS et les routeurs.</p>
         </div>
 
-        <!-- SECTION IPV4 ET IPV6 SIMPLIFIÉE COMME DANS LE PDF -->
+        <!-- SECTION IPV4 ET IPV6 -->
         <div style="margin-bottom: 30px; background-color: #f8f9fa; padding: 20px; border-radius: 12px;">
             <h4 style="color: #34495e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-size: 1.1em; font-weight: bold;">Adresse IP (Internet Protocol)</h4>
             <p>Chaque appareil connecté à Internet possède une <strong>adresse IP unique</strong> qui l'identifie et le localise sur le réseau.</p>
             
             <div style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 20px;">
-                <!-- IPv4 Card -->
-                <div style="flex: 1; min-width: 250px; background: white; border-radius: 12px; padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 5px solid #3498db;">
+                <div style="flex: 1; min-width: 200px; background: white; border-radius: 12px; padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 5px solid #3498db;">
                     <h5 style="color: #2980b9; margin-top: 0; font-size: 1.2em;">📡 IPv4</h5>
                     <p><strong>32 bits</strong> (4 octets) — environ <strong>4,3 milliards</strong> d'adresses</p>
-                    <p style="background: #eef2f3; padding: 10px; border-radius: 8px; font-family: monospace; text-align: center; font-size: 1.1em;">203.0.113.45</p>
+                    <p style="background: #eef2f3; padding: 10px; border-radius: 8px; font-family: monospace; text-align: center; font-size: 1em; word-break: break-word;">203.0.113.45</p>
                     <p><em>4 nombres séparés par des points, chacun entre 0 et 255.</em></p>
                 </div>
-                <!-- IPv6 Card -->
-                <div style="flex: 1; min-width: 250px; background: white; border-radius: 12px; padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 5px solid #27ae60;">
+                <div style="flex: 1; min-width: 200px; background: white; border-radius: 12px; padding: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); border-left: 5px solid #27ae60;">
                     <h5 style="color: #27ae60; margin-top: 0; font-size: 1.2em;">🌍 IPv6</h5>
                     <p><strong>128 bits</strong> — un nombre <strong>pratiquement illimité</strong> d'adresses</p>
-                    <p style="background: #eef2f3; padding: 10px; border-radius: 8px; font-family: monospace; text-align: center; font-size: 0.9em; word-break: break-all;">2001:0db8:85a3:0000:0000:8a2e:0370:7334</p>
+                    <p style="background: #eef2f3; padding: 10px; border-radius: 8px; font-family: monospace; text-align: center; font-size: 0.85em; word-break: break-all;">2001:0db8:85a3:0000:0000:8a2e:0370:7334</p>
                     <p><em>8 groupes de 4 chiffres hexadécimaux, séparés par des deux-points.</em></p>
                 </div>
             </div>
@@ -1099,7 +1097,7 @@
         <div style="margin-bottom: 30px;">
             <h4 style="color: #34495e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-size: 1.1em; font-weight: bold;">URL (Uniform Resource Locator)</h4>
             <p>Une URL est l'adresse unique d'une ressource sur le Web. Exemple décomposé :</p>
-            <div style="background: #2c3e50; color: white; padding: 15px; border-radius: 10px; font-family: monospace; text-align: center;">
+            <div style="background: #2c3e50; color: white; padding: 15px; border-radius: 10px; font-family: monospace; text-align: center; word-break: break-word;">
                 http://ead.uit.ac.ma/moodle/course/index.php
             </div>
             <ul style="margin-top: 10px;">
@@ -1114,7 +1112,7 @@
             <p>En saisissant <strong>http://ead.uit.ac.ma/moodle/course/index.php</strong> dans Chrome, le client envoie une requête au serveur <strong>ead.uit.ac.ma</strong> pour obtenir <strong>index.php</strong>. Le serveur traite la requête via HTTP, copie la ressource et la renvoie au client pour affichage.</p>
         </div>
 
-        <!-- ==================== HTML / CSS / JAVASCRIPT AVEC EXEMPLE CONCRET ==================== -->
+        <!-- ==================== HTML / CSS / JAVASCRIPT ==================== -->
         <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Technologies Web : HTML, CSS et JavaScript</h3>
         
         <div style="margin-bottom: 30px;">
@@ -1125,7 +1123,8 @@
         <div style="margin-bottom: 30px;">
             <h4 style="color: #34495e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-size: 1.1em; font-weight: bold;">HTML (HyperText Markup Language)</h4>
             <p>HTML utilise des <strong>balises</strong> pour structurer la page : titres, paragraphes, listes, images, etc.</p>
-            <pre style="background-color: #2c3e50; color: #f8f9fa; padding: 15px; border-radius: 10px; overflow-x: auto; font-family: 'Courier New', monospace;">
+            <div style="overflow-x: auto;">
+                <pre style="background-color: #2c3e50; color: #f8f9fa; padding: 15px; border-radius: 10px; font-family: 'Courier New', monospace; white-space: pre-wrap; word-break: break-word;">
 &lt;!DOCTYPE html&gt;
 &lt;html&gt;
 &lt;head&gt;
@@ -1140,13 +1139,15 @@
     &lt;script src="script.js"&gt;&lt;/script&gt;
 &lt;/body&gt;
 &lt;/html&gt;
-            </pre>
+                </pre>
+            </div>
         </div>
 
         <div style="margin-bottom: 30px;">
             <h4 style="color: #34495e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-size: 1.1em; font-weight: bold;">CSS (Cascading Style Sheets)</h4>
             <p>CSS contrôle l'apparence visuelle : couleurs, polices, marges, positionnement, animations.</p>
-            <pre style="background-color: #2c3e50; color: #f8f9fa; padding: 15px; border-radius: 10px; overflow-x: auto; font-family: 'Courier New', monospace;">
+            <div style="overflow-x: auto;">
+                <pre style="background-color: #2c3e50; color: #f8f9fa; padding: 15px; border-radius: 10px; font-family: 'Courier New', monospace; white-space: pre-wrap; word-break: break-word;">
 /* style.css - Mise en forme de la page */
 body {
     font-family: 'Segoe UI', sans-serif;
@@ -1185,13 +1186,15 @@ button:hover {
     transform: scale(1.05);
     background: #ff4757;
 }
-            </pre>
+                </pre>
+            </div>
         </div>
 
         <div style="margin-bottom: 30px;">
             <h4 style="color: #34495e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-size: 1.1em; font-weight: bold;">JavaScript</h4>
             <p>JavaScript ajoute de l'<strong>interactivité</strong> : réactions aux clics, modifications dynamiques, animations, appels API, etc.</p>
-            <pre style="background-color: #2c3e50; color: #f8f9fa; padding: 15px; border-radius: 10px; overflow-x: auto; font-family: 'Courier New', monospace;">
+            <div style="overflow-x: auto;">
+                <pre style="background-color: #2c3e50; color: #f8f9fa; padding: 15px; border-radius: 10px; font-family: 'Courier New', monospace; white-space: pre-wrap; word-break: break-word;">
 // script.js - Comportement interactif
 function changerCouleur() {
     let paragraphe = document.getElementById("monParagraphe");
@@ -1205,7 +1208,8 @@ function changerCouleur() {
     // Affiche une alerte amusante
     alert("Bien joué ! Tu viens d'exécuter du JavaScript.");
 }
-            </pre>
+                </pre>
+            </div>
             <div style="margin-top: 15px; padding: 15px; background: #e8f8f5; border-radius: 12px; border-left: 5px solid #1abc9c;">
                 <p><strong>✨ Résultat :</strong> Le fichier HTML structure la page, le CSS la rend belle, et JavaScript la rend interactive (au clic sur le bouton, le texte et le style changent, et une alerte apparaît).</p>
             </div>
@@ -1252,9 +1256,9 @@ function changerCouleur() {
             </ul>
         </div>
 
-        <div style="margin-bottom: 30px;">
+        <div style="margin-bottom: 30px; overflow-x: auto;">
             <h4 style="color: #34495e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-size: 1.1em; font-weight: bold;">Opérateurs de recherche (à connaître absolument)</h4>
-            <table style="width: 100%; border-collapse: collapse; margin-top: 15px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+            <table style="width: 100%; border-collapse: collapse; margin-top: 15px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); min-width: 400px;">
                 <thead>
                     <tr style="background-color: #34495e; color: white;">
                         <th style="padding: 12px; text-align: left; border: 1px solid #ddd;">Fonction</th>
@@ -1263,11 +1267,11 @@ function changerCouleur() {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr style="background-color: #f9f9f9;"><td style="padding: 10px; border: 1px solid #ddd;">Expression exacte</td><td style="padding: 10px; border: 1px solid #ddd;">"..."</td><td style="padding: 10px; border: 1px solid #ddd;">"recette de gâteau au chocolat"</td></tr>
-                    <tr><td style="padding: 10px; border: 1px solid #ddd;">Exclusion de mots</td><td style="padding: 10px; border: 1px solid #ddd;">-mot</td><td style="padding: 10px; border: 1px solid #ddd;">recette gâteau -noix</td></tr>
-                    <tr style="background-color: #f9f9f9;"><td style="padding: 10px; border: 1px solid #ddd;">Site spécifique</td><td style="padding: 10px; border: 1px solid #ddd;">site:</td><td style="padding: 10px; border: 1px solid #ddd;">site:wikipedia.org Albert Einstein</td></tr>
-                    <tr><td style="padding: 10px; border: 1px solid #ddd;">Type de fichier</td><td style="padding: 10px; border: 1px solid #ddd;">filetype:</td><td style="padding: 10px; border: 1px solid #ddd;">changement climatique filetype:pdf</td></tr>
-                    <tr style="background-color: #f9f9f9;"><td style="padding: 10px; border: 1px solid #ddd;">Recherche par image</td><td style="padding: 10px; border: 1px solid #ddd;">(icône appareil photo)</td><td style="padding: 10px; border: 1px solid #ddd;">Google Images → Déposer une image</td></tr>
+                    <tr style="background-color: #f9f9f9;"><td style="padding: 10px; border: 1px solid #ddd;">Expression exacte</td><td style="padding: 10px; border: 1px solid #ddd;">"..."</td><td style="padding: 10px; border: 1px solid #ddd; word-break: break-word;">"recette de gâteau au chocolat"</td></tr>
+                    <tr><td style="padding: 10px; border: 1px solid #ddd;">Exclusion de mots</td><td style="padding: 10px; border: 1px solid #ddd;">-mot</td><td style="padding: 10px; border: 1px solid #ddd; word-break: break-word;">recette gâteau -noix</td></tr>
+                    <tr style="background-color: #f9f9f9;"><td style="padding: 10px; border: 1px solid #ddd;">Site spécifique</td><td style="padding: 10px; border: 1px solid #ddd;">site:</td><td style="padding: 10px; border: 1px solid #ddd; word-break: break-word;">site:wikipedia.org Albert Einstein</td></tr>
+                    <tr><td style="padding: 10px; border: 1px solid #ddd;">Type de fichier</td><td style="padding: 10px; border: 1px solid #ddd;">filetype:</td><td style="padding: 10px; border: 1px solid #ddd; word-break: break-word;">changement climatique filetype:pdf</td></tr>
+                    <tr style="background-color: #f9f9f9;"><td style="padding: 10px; border: 1px solid #ddd;">Recherche par image</td><td style="padding: 10px; border: 1px solid #ddd;">(icône appareil photo)</td><td style="padding: 10px; border: 1px solid #ddd; word-break: break-word;">Google Images → Déposer une image</td></tr>
                 </tbody>
             </table>
         </div>
