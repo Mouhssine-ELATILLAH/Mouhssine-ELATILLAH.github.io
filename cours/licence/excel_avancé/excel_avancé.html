@@ -461,7 +461,7 @@
 		
 		</section>
         
-        <section id="section6" style="margin-top: 40px;">
+        <section id="section1" style="margin-top: 40px;">
 			
 	    <h2>Excel Basique</h2>
 	    <div class="cours-ia-container" style="font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #2c3e50; line-height: 1.8; max-width: 950px; margin: auto; padding: 20px;">
@@ -691,6 +691,190 @@
 				</figure>
 	        </div>
 	
+	    </div>
+	</section>
+
+	<section id="section2" style="margin-top: 40px;">
+				
+	    <h2>Excel Avancé</h2>
+	    <div class="cours-ia-container" style="font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #2c3e50; line-height: 1.8; max-width: 950px; margin: auto; padding: 20px;">
+	        
+	        <!-- ==================== FILTRES ET TRIS AVANCÉS ==================== -->
+	        <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Filtres et tris avancés</h3>
+	        
+	        <div style="margin-bottom: 30px;">
+	            <p>Trier le contenu d'un tableau consiste à classer ses enregistrements selon un ou plusieurs critères, dans un ordre croissant ou décroissant. Les commandes de tri et de filtrage sont disponibles dans le groupe <strong>Trier et filtrer</strong> de l'onglet <strong>Données</strong>.</p>
+	            
+	            <h4 style="color: #34495e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-size: 1.1em; font-weight: bold;">1. Le tri simple</h4>
+	            <p>Le tri simple permet d'ordonner tous les enregistrements selon un seul critère.</p>
+	            <ul>
+	                <li><strong>Méthode rapide :</strong> Cliquez dans une cellule du champ à trier, puis utilisez les boutons <strong>Trier de A à Z</strong> (croissant) ou <strong>Trier de Z à A</strong> (décroissant).</li>
+	                <li><strong>Via le filtre :</strong> Cliquez sur la flèche du titre du champ et choisissez le tri souhaité.</li>
+	            </ul>
+	            
+	            <h4 style="color: #34495e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-size: 1.1em; font-weight: bold;">2. Le tri sur plusieurs critères</h4>
+	            <p>Pour départager des ex-aequo, utilisez un deuxième critère. La fonctionnalité <strong>Trier</strong> (onglet Données) permet d'ajouter des niveaux.</p>
+	            <ul>
+	                <li>Dans la boîte de dialogue <strong>Tri</strong>, le premier critère est déjà présent.</li>
+	                <li>Cliquez sur <strong>Ajouter un niveau</strong>.</li>
+	                <li>Choisissez le deuxième champ et son ordre, puis validez.</li>
+	            </ul>
+	            
+	            <h4 style="color: #34495e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-size: 1.1em; font-weight: bold;">Filtrer les enregistrements</h4>
+	            <p>Filtrer signifie n'afficher que les données répondant à un critère. Activez les filtres avec le bouton <strong>Filtrer</strong> de l'onglet Données.</p>
+	            <ul>
+	                <li><strong>Choisir dans la liste :</strong> Cochez/décochez les éléments dans la liste déroulante.</li>
+	                <li><strong>Filtre numérique :</strong> "Est supérieur à", "Est égal à", etc.</li>
+	                <li><strong>Filtre textuel :</strong> "Commence par", "Contient", "Ne contient pas", etc.</li>
+	                <li><strong>Filtre chronologique :</strong> Adapté aux dates et heures.</li>
+	                <li><strong>Filtre personnalisé :</strong> Utilisez les opérateurs logiques ET/OU pour combiner des critères.</li>
+	            </ul>
+	            
+	            <!-- Figure unique pour les filtres -->
+	            <figure style="text-align: center; margin: 20px 0;">
+	                <img src="ressources/ms_excel_avance/Filters excel.png" alt="Filtres Excel" style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #ddd;">
+	                <figcaption style="font-size: 0.9em; color: #7f8c8d; margin-top: 5px;">Exemples de filtres numérique</figcaption>
+	            </figure>
+	        </div>
+	
+	        <!-- ==================== MISE EN FORME CONDITIONNELLE ==================== -->
+	        <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Mise en forme conditionnelle</h3>
+	        
+	        <div style="margin-bottom: 30px;">
+	            <p>La mise en forme conditionnelle (MFC) permet d'appliquer un formatage à une cellule selon son contenu. Elle rend les données plus lisibles et met en valeur les informations importantes.</p>
+	            <p>Les MFC se trouvent dans le groupe <strong>Styles</strong> de l'onglet <strong>Accueil</strong> (bouton <strong>Mise en forme conditionnelle</strong>).</p>
+	            
+	            <h4 style="color: #34495e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-size: 1.1em; font-weight: bold;">MFC prédéfinies</h4>
+	            <ul>
+	                <li><strong>Règles de mise en surbrillance :</strong> Met en évidence les cellules selon des conditions (ex: valeurs supérieures à..., texte contenant...).</li>
+	                <li><strong>Règles des valeurs plus/moins élevées :</strong> Met en relief les valeurs extrêmes ou celles au-dessus/en-dessous de la moyenne.</li>
+	                <li><strong>Barres de données :</strong> Affiche des barres proportionnelles aux valeurs.</li>
+	                <li><strong>Nuances de couleurs :</strong> Utilise des dégradés de couleurs selon la distribution des valeurs.</li>
+	                <li><strong>Jeux d'icônes :</strong> Attribue des icônes (ex: flèches, feux tricolores) selon la valeur.</li>
+	            </ul>
+	            
+	            <h4 style="color: #34495e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-size: 1.1em; font-weight: bold;">MFC personnalisées</h4>
+	            <p>Choisissez <strong>Nouvelle règle</strong> pour créer des règles personnalisées. Vous pouvez :</p>
+	            <ul>
+	                <li>Mettre en forme toutes les cellules selon leur valeur.</li>
+	                <li>Appliquer une mise en forme uniquement aux cellules contenant une valeur spécifique, une date, un texte, une erreur, etc.</li>
+	                <li>Mettre en forme les valeurs extrêmes (premières/dernières).</li>
+	                <li>Utiliser une formule personnalisée (ex: <code>=A1>MOYENNE(A:A)</code>).</li>
+	            </ul>
+	            
+	            <h4 style="color: #34495e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-size: 1.1em; font-weight: bold;">Gérer les règles</h4>
+	            <p>Utilisez <strong>Gérer les règles...</strong> pour afficher, modifier ou supprimer toutes les règles de la feuille ou de la sélection.</p>
+	            
+	            <!-- Figure MFC -->
+	            <figure style="text-align: center; margin: 20px 0;">
+	                <img src="ressources/ms_excel_avance/Exemples de MFC.png" alt="Exemples de MFC" style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #ddd;">
+	                <figcaption style="font-size: 0.9em; color: #7f8c8d; margin-top: 5px;">Exemples de barres de données, nuances de couleurs et jeux d'icônes</figcaption>
+	            </figure>
+	        </div>
+	
+	        <!-- ==================== STYLES PERSONNALISÉS ==================== -->
+	        <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Styles personnalisés</h3>
+	        
+	        <div style="margin-bottom: 30px;">
+	            <p>Un style est un ensemble de mises en forme prédéfinies. Vous pouvez les appliquer, les créer et les gérer via le bouton <strong>Styles de cellules</strong> dans le groupe <strong>Styles</strong> (onglet Accueil).</p>
+	            <ul>
+	                <li><strong>Appliquer :</strong> Sélectionnez la cellule et cliquez sur un style dans la galerie.</li>
+	                <li><strong>Créer :</strong> Mettez en forme une cellule, puis choisissez <strong>Nouveau style de cellule</strong>. Donnez-lui un nom et définissez les éléments à inclure.</li>
+	                <li><strong>Gérer :</strong> Clic droit sur un style pour le modifier, le supprimer, ou fusionner les styles d'un autre classeur.</li>
+	            </ul>
+	        </div>
+	
+	        <!-- ==================== FORMULES COMPLEXES ==================== -->
+	        <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Formules complexes et imbrications</h3>
+	        
+	        <div style="margin-bottom: 30px;">
+	            
+	            <h4 style="color: #34495e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-size: 1.1em; font-weight: bold;">Fonction SI, SI imbriqué et SI.CONDITIONS</h4>
+	            <ul>
+	                <li><strong>SI</strong> : <code>=SI(test_logique; valeur_si_vrai; valeur_si_faux)</code>.</li>
+	                <li><strong>SI imbriqué</strong> : Insérer des SI dans d'autres SI pour gérer des catégories multiples. 
+	                    <br>Exemple : <code>=SI(A1>=16;"TB";SI(A1>=14;"B";SI(A1>=12;"AB";SI(A1>=10;"P";"Redouble"))))</code>.
+	                </li>
+	                <li><strong>SI.CONDITIONS</strong> (Excel 2019+) : Simplifie l'écriture pour plusieurs conditions.
+	                    <br>Exemple : <code>=SI.CONDITIONS(A1>=16;"TB";A1>=14;"B";A1>=12;"AB";A1>=10;"P";A1<10;"Redouble")</code>.
+	                </li>
+	            </ul>
+	
+	            <h4 style="color: #34495e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-size: 1.1em; font-weight: bold;">Opérateurs logiques ET, OU</h4>
+	            <ul>
+	                <li><strong>ET</strong> : Renvoie VRAI si <strong>toutes</strong> les conditions sont vraies. <code>=ET(A1>10; B1<5)</code>.</li>
+	                <li><strong>OU</strong> : Renvoie VRAI si <strong>au moins une</strong> condition est vraie. <code>=OU(A1>10; B1<5)</code>.</li>
+	            </ul>
+	
+	            <h4 style="color: #34495e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-size: 1.1em; font-weight: bold;">Fonctions NBVAL, MODE, ÉCARTYPE</h4>
+	            <ul>
+	                <li><strong>NBVAL</strong> : Compte les cellules non vides. <code>=NBVAL(plage)</code>.</li>
+	                <li><strong>MODE</strong> : Calcule la valeur la plus fréquente. <code>=MODE(plage)</code>.</li>
+	                <li><strong>ÉCARTYPE</strong> : Mesure la dispersion des données. <code>=ECARTYPE(plage)</code>.</li>
+	            </ul>
+	
+	            <h4 style="color: #34495e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-size: 1.1em; font-weight: bold;">Fonctions NB.SI, SOMME.SI</h4>
+	            <ul>
+	                <li><strong>NB.SI</strong> : Compte les cellules qui répondent à un critère. <code>=NB.SI(plage; critère)</code>.</li>
+	                <li><strong>SOMME.SI</strong> : Additionne les valeurs d'une plage qui répondent à un critère. <code>=SOMME.SI(plage_critère; critère; [plage_somme])</code>.</li>
+	            </ul>
+	        </div>
+	
+	        <!-- ==================== RECHERCHEH ET RECHERCHEV ==================== -->
+	        <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Recherche H et V</h3>
+	        
+	        <div style="margin-bottom: 30px;">
+	            <p><strong>RECHERCHEV</strong> et <strong>RECHERCHEH</strong> sont des fonctions essentielles pour rechercher et extraire des valeurs dans un tableau.</p>
+	            
+	            <h4 style="color: #34495e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-size: 1.1em; font-weight: bold;">RECHERCHEV (Vertical)</h4>
+	            <p><code>=RECHERCHEV(valeur_cherchée; tableau; n°_colonne; [valeur_proche])</code></p>
+	            <ul>
+	                <li>Recherche <strong>verticalement</strong> une valeur dans la <strong>première colonne</strong> du tableau.</li>
+	                <li>Renvoie la valeur se trouvant dans la même ligne mais à la colonne spécifiée.</li>
+	                <li><strong>Valeur_proche</strong> : FAUX pour une recherche exacte, VRAI (ou omis) pour une recherche approximative.</li>
+	            </ul>
+	            <p><strong>Exemple :</strong> <code>=RECHERCHEV(B5;B3:D6;3;FAUX)</code></p>
+	            
+	            <h4 style="color: #34495e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-size: 1.1em; font-weight: bold;">RECHERCHEH (Horizontal)</h4>
+	            <p><code>=RECHERCHEH(valeur_cherchée; tableau; n°_ligne; [valeur_proche])</code></p>
+	            <ul>
+	                <li>Recherche <strong>horizontalement</strong> une valeur dans la <strong>première ligne</strong> du tableau.</li>
+	                <li>Renvoie la valeur se trouvant dans la même colonne mais à la ligne spécifiée.</li>
+	            </ul>
+	            <p><strong>Exemple :</strong> <code>=RECHERCHEH(I2;G2:J4;3;FAUX)</code></p>
+	        </div>
+	
+	        <!-- ==================== CONTRÔLE DE SAISIE ==================== -->
+	        <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Contrôle de saisie et protection</h3>
+	        
+	        <div style="margin-bottom: 30px;">
+	            <p>Le contrôle de saisie garantit l'exactitude et la cohérence des données. Il inclut la validation, le verrouillage et la protection.</p>
+	            
+	            <h4 style="color: #34495e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-size: 1.1em; font-weight: bold;">Validation des données</h4>
+	            <p>Restreint la saisie des utilisateurs. Onglet <strong>Données</strong> > <strong>Validation des données</strong>.</p>
+	            <ul>
+	                <li><strong>Nombre entier/décimal :</strong> Plage autorisée (ex: entre 0 et 100).</li>
+	                <li><strong>Liste déroulante :</strong> Valeurs prédéfinies (saisies manuelles ou via une plage nommée).</li>
+	                <li><strong>Date/Heure :</strong> Plage de dates autorisée.</li>
+	                <li><strong>Longueur du texte :</strong> Nombre de caractères maximum/minimum.</li>
+	                <li><strong>Personnalisé :</strong> Utilisez une formule pour définir la règle.</li>
+	            </ul>
+	            <p><strong>Liste déroulante imbriquée :</strong> Utilisez la fonction <code>INDIRECT</code> pour créer des listes dépendantes.</p>
+	            <p>Ajoutez des <strong>Messages de saisie</strong> et des <strong>Alertes d'erreur</strong> pour guider l'utilisateur.</p>
+	            
+	            <h4 style="color: #34495e; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; font-size: 1.1em; font-weight: bold;">Protection et verrouillage</h4>
+	            <ul>
+	                <li><strong>Verrouiller des cellules :</strong> Par défaut, toutes les cellules sont verrouillées. Pour autoriser la modification de certaines cellules, déverrouillez-les (Format de cellule > Protection > décocher "Verrouillée"), puis protégez la feuille (onglet Révision > Protéger la feuille).</li>
+	                <li><strong>Protéger la structure du classeur :</strong> Empêche l'ajout, la suppression ou le renommage de feuilles.</li>
+	            </ul>
+	            
+	            <!-- Figure Validation des données -->
+	            <figure style="text-align: center; margin: 20px 0;">
+	                <img src="ressources/ms_excel_avance/Validation par liste.png" alt="Validation des données" style="max-width: 100%; height: auto; border-radius: 8px; border: 1px solid #ddd;">
+	                <figcaption style="font-size: 0.9em; color: #7f8c8d; margin-top: 5px;">Validation des données avec liste déroulante</figcaption>
+	            </figure>
+	        </div>
+	        
 	    </div>
 	</section>
 
