@@ -61,7 +61,7 @@
         .dropdown { position: relative; margin-right: 20px; display: inline-block; }
         .dropdown-trigger { cursor: pointer; }
         .dropdown .arrow { font-size: 0.65rem; margin-left: 4px; transition: transform 0.3s ease; display: inline-block; }
-        
+         
         .dropdown-menu {
             position: absolute;
             top: 100%;
@@ -86,7 +86,7 @@
 
         .dropdown-column { display: flex; flex-direction: column; width: 200px; }
         .column-title { font-family: 'Lexend', sans-serif; font-size: 0.8rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 800; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
-        
+         
         .dropdown-column a { margin-right: 0 !important; padding: 6px 0 !important; color: rgba(255, 255, 255, 0.75) !important; font-size: 0.82rem !important; text-transform: none !important; font-weight: 400 !important; letter-spacing: 0px !important; transition: all 0.2s ease; }
         .dropdown-column a:hover { color: #ffffff !important; padding-left: 6px !important; }
 
@@ -112,6 +112,18 @@
             align-items: center;
             justify-content: space-between;
             gap: 60px;
+            position: relative;
+        }
+
+        /* Ligne de séparation stylisée en bas de cadre */
+        .hero-divider {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent) 50%, transparent);
+            box-shadow: 0 -2px 12px var(--accent);
         }
 
         .hero-info h1 { 
@@ -121,7 +133,44 @@
             margin-bottom: 20px; 
             font-weight: 800; 
         }
-        .hero-info p { font-size: 1.15rem; color: #94a3b8; max-width: 550px; font-weight: 300; }
+        .hero-info p { font-size: 1.15rem; color: #94a3b8; max-width: 550px; font-weight: 300; margin-bottom: 35px; }
+
+        /* Boutons d'action stylisés */
+        .hero-buttons { display: flex; gap: 20px; }
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            font-family: 'Lexend', sans-serif;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            border-radius: 50px; /* Forme capsule moderne */
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: center;
+        }
+        .btn-primary { 
+            background: linear-gradient(135deg, var(--accent), #d97706); 
+            color: var(--dark); 
+            box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+        }
+        .btn-primary:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 8px 25px rgba(245, 158, 11, 0.5); 
+            background: linear-gradient(135deg, #fbbf24, #f59e0b);
+        }
+        .btn-secondary { 
+            background: rgba(255, 255, 255, 0.03); 
+            color: white; 
+            border: 2px solid rgba(255, 255, 255, 0.15); 
+            backdrop-filter: blur(5px);
+        }
+        .btn-secondary:hover { 
+            border-color: var(--accent); 
+            color: var(--accent);
+            background: rgba(245, 158, 11, 0.05);
+            transform: translateY(-3px); 
+            box-shadow: 0 8px 20px rgba(245, 158, 11, 0.15);
+        }
 
         .profile-frame { position: relative; width: 300px; height: 300px; flex-shrink: 0; }
         .frame-border {
@@ -138,7 +187,7 @@
             clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
             border: 5px solid rgba(255,255,255,0.1);
         }
-        
+         
         @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.3; } 50% { transform: scale(1.05); opacity: 0.6; } }
 
         /* --- Section Nos Cours --- */
@@ -169,7 +218,7 @@
         .footer-wide-wrapper { display: flex; justify-content: center; align-items: flex-start; gap: 80px; flex-wrap: wrap; max-width: 1200px; margin: 0 auto; }
         .footer-col { flex: 1; min-width: 250px; display: flex; flex-direction: column; align-items: center; }
         .footer-col h4 { font-family: 'Lexend', sans-serif; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); margin-bottom: 25px; }
-        .footer-col p, .footer-col a { color: #94a3b8; text-decoration: none; margin-bottom: 12px; font-size: 0.95rem; max-width: 300px; }
+        .footer-col p, .footer-col a { color: #94a3b8; text-decoration: none; margin-bottom: 12px; font-size: 0.95rem; max-width: 300px; word-break: break-word; }
         .footer-col a:hover { color: white; }
 
         .bottom-copyright { margin-top: 60px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; font-size: 0.8rem; color: #475569; }
@@ -204,7 +253,8 @@
             /* Zone Hero (Photo passe au-dessus du texte, tout est centré) */
             .hero { flex-direction: column-reverse; text-align: center; gap: 40px; padding-top: 240px; padding-bottom: 80px; }
             .hero-info h1 { font-size: 2.5rem; }
-            .hero-info p { margin: 0 auto; }
+            .hero-info p { margin: 0 auto 25px; }
+            .hero-buttons { justify-content: center; }
             .profile-frame { width: 240px; height: 240px; }
 
             /* Contenu principal */
@@ -214,14 +264,18 @@
             .course-grid { grid-template-columns: 1fr; gap: 20px; }
             .course-card { padding: 25px; }
 
-            /* Pied de page */
-            .footer-wide-wrapper { flex-direction: column; gap: 40px; }
-            .bottom-copyright { flex-direction: column; gap: 12px; text-align: center; }
+            /* Pied de page optimisé pour mobile (pas de distorsion) */
+            .footer-wide-wrapper { flex-direction: column; align-items: center; gap: 45px; }
+            .footer-col { min-width: 100%; text-align: center; }
+            .footer-col p, .footer-col a { max-width: 100%; margin-bottom: 10px; }
+            .bottom-copyright { flex-direction: column; gap: 12px; text-align: center; align-items: center; }
         }
 
         @media (max-width: 480px) {
-            .hero-info h1 { font-size: 2rem; }
+            .hero-info h1 { font-size: 2.2rem; }
             .hero-info p { font-size: 1rem; }
+            .hero-buttons { flex-direction: column; width: 100%; gap: 12px; }
+            .btn { width: 100%; }
             .main-title { font-size: 1.8rem; }
         }
     </style>
@@ -231,10 +285,9 @@
 <nav>
     <a href="#" class="nav-logo">Digital<span>Skills</span></a>
     <div class="nav-right">
-        <!-- Barre de recherche nativement reliée au script JS -->
         <div class="nav-links">
             <a href="#">Accueil</a>
-            
+             
             <div class="dropdown">
                 <a href="#" class="dropdown-trigger" onclick="return false;">Cours <span class="arrow">▼</span></a>
                 <div class="dropdown-menu">
@@ -251,7 +304,7 @@
                     </div>
                 </div>
             </div>
-            
+             
             <a href="assets/publications.html">Publications</a>
         </div>
     </div>
@@ -261,14 +314,21 @@
     <div class="hero-info">
         <h1>Savoir Digital & <span style="color: var(--accent);">IA</span></h1>
         <p>Espace de Cours du Mouhssine EL ATILLAH. Professeur de Culture Digitale à la faculté des lettres et sciences humaines d'Agadir (UIZ).</p>
+        <div class="hero-buttons">
+            <a href="#cours-section" class="btn btn-primary">Explorer les cours</a>
+            <a href="#contact-section" class="btn btn-secondary">Nos Contacts</a>
+        </div>
     </div>
     <div class="profile-frame">
         <div class="frame-border"></div>
-        <img src="assets/img/photo.jpg" alt="Professeur Mouhssine EL ATILLAH" class="profile-img">
+        <!-- Utilisation de l'image générée décrivant le contenu technologique du site -->
+        <img src="http://googleusercontent.com/image_generation_content/0" alt="Savoir Digital & Intelligence Artificielle" class="profile-img">
     </div>
+    <!-- Séparateur de fin de cadre noir -->
+    <div class="hero-divider"></div>
 </header>
 
-<main class="container">
+<main class="container" id="cours-section">
     <h1 class="main-title">Espace Cours</h1>
 
     <div class="section-header">
@@ -306,13 +366,13 @@
     </div>
 </main>
 
-<footer>
+<footer id="contact-section">
     <div class="footer-wide-wrapper">
         <div class="footer-col">
             <h4>DigitalSkills</h4>
             <p>Développement des compétences technologiques et recherche appliquée en IA. Faculté des Lettres, Agadir.</p>
         </div>
-        
+         
         <div class="footer-col">
             <h4>Contact Académique</h4>
             <p>📧 m.elatillah@uiz.ac.ma</p>
@@ -333,15 +393,18 @@
 </footer>
 
 <script>
-    // Script de filtrage en temps réel fonctionnel
-    document.getElementById('siteSearch').addEventListener('keyup', function() {
-        let filter = this.value.toUpperCase();
-        let cards = document.querySelectorAll('.course-card');
-        cards.forEach(card => {
-            let title = card.querySelector('h3').innerText;
-            card.style.display = title.toUpperCase().includes(filter) ? "block" : "none";
+    // Script de filtrage en temps réel fonctionnel si un champ d'ID 'siteSearch' est défini
+    let searchInput = document.getElementById('siteSearch');
+    if(searchInput) {
+        searchInput.addEventListener('keyup', function() {
+            let filter = this.value.toUpperCase();
+            let cards = document.querySelectorAll('.course-card');
+            cards.forEach(card => {
+                let title = card.querySelector('h3').innerText;
+                card.style.display = title.toUpperCase().includes(filter) ? "block" : "none";
+            });
         });
-    });
+    }
 </script>
 
 </body>
