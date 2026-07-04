@@ -105,11 +105,50 @@
             background: #dc2626;
         }
 
+        /* Bouton retour avec dégradé de qualité */
+        .btn-retour {
+            padding: 14px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all .4s ease;
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            letter-spacing: 0.5px;
+        }
+
+        .btn-retour:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.5);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        .btn-retour:active {
+            transform: translateY(0px) scale(0.98);
+        }
+
+        .btn-retour i {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+
         .footer {
-            padding: 20px;
+            padding: 25px 20px;
             text-align: center;
             color: #777;
             background: #fafafa;
+        }
+
+        .footer .retour-wrapper {
+            margin-bottom: 15px;
+        }
+
+        .footer .copyright {
+            margin-top: 10px;
+            font-size: 14px;
         }
 
         @media (max-width: 768px) {
@@ -126,6 +165,22 @@
                 display: block;
                 margin: 8px auto;
                 width: 200px;
+            }
+
+            .btn-retour {
+                display: block;
+                margin: 0 auto;
+                width: 280px;
+                padding: 14px 20px;
+                font-size: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .btn-retour {
+                width: 100%;
+                font-size: 14px;
+                padding: 12px 15px;
             }
         }
     </style>
@@ -224,7 +279,14 @@
             </div>
 
             <div class="footer">
-                © 2026 - Plateforme de cours | Tous droits réservés
+                <div class="retour-wrapper">
+                    <a href="index.html" class="btn-retour">
+                        <i>🏠</i> Retour à la page du cours principale
+                    </a>
+                </div>
+                <div class="copyright">
+                    © 2026 - Plateforme de cours | Tous droits réservés
+                </div>
             </div>
         </div>
     </div>
