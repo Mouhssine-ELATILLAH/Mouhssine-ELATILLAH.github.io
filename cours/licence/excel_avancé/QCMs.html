@@ -97,12 +97,8 @@
 
     <!-- Sélecteur de Section -->
     <div class="section-nav">
-        <button class="btn-section active" onclick="loadSection(1)">Section I</button>
-        <button class="btn-section" onclick="loadSection(2)">Section II</button>
-        <button class="btn-section" onclick="loadSection(3)">Section III</button>
-        <button class="btn-section" onclick="loadSection(4)">Section IV</button>
-        <button class="btn-section" onclick="loadSection(5)">Section V</button>
-        <button class="btn-section" onclick="loadSection(6)">Section VI</button>
+        <button class="btn-section active" onclick="loadSection(1)">Excel Basique</button>
+        <button class="btn-section" onclick="loadSection(2)">Excel Avancé</button>
     </div>
 
     <!-- Frame des Questions -->
@@ -125,7 +121,7 @@
 
     <!-- NOUVEAU : Bouton de retour en bas de page pour casser la page morte -->
     <div class="back-home-zone">
-        <a href="initiation_ia.html" class="btn-back-home">
+        <a href="excel_avancé.html" class="btn-back-home">
             <span>🏠</span> Retour à la page du Cours principale
         </a>
     </div>
@@ -133,718 +129,1412 @@
 
 <script>
     const quizData = {
-        1: [
-            {
-                q: "L’abréviation IA veut dire :",
-                options: ["Intelligence Artificielle", "Informatique Avancée", "Instruction Algébrique", "Interface Automatique"],
-                correct: [0]
-            },
-            {
-                q: "Quelles affirmations décrivent correctement l’intelligence artificielle (IA) ?",
-                options: ["L’IA est un domaine de l’informatique", "L’IA permet aux machines de réaliser des tâches demandant l’intelligence humaine", "L’IA pense et ressent comme un humain", "L’IA peut analyser des informations et apprendre de l’expérience"],
-                correct: [0, 1, 3]
-            },
-            {
-                q: "Quelles capacités l’IA peut-elle simuler ?",
-                options: ["Analyser des informations", "Apprendre de l’expérience", "Prendre parfois des décisions", "Ressentir des émotions comme un humain"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Quelles affirmations décrivent l’intelligence naturelle ?",
-                options: ["Capacité à penser et raisonner", "Capacité à ressentir des émotions", "Aptitude à résoudre des problèmes nouveaux et complexes", "Capacité à analyser des millions de phrases automatiquement"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Quelles affirmations décrivent l’intelligence artificielle ?",
-                options: ["Programmes informatiques capables d’accomplir certaines tâches nécessitant l’intelligence humaine", "Analyse de données et apprentissage automatique", "Génération de contenu (texte, image, audio)", "Capacité à ressentir des émotions comme un humain"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Quel est un exemple concret de différence entre humain et IA pour apprendre une langue ?",
-                options: ["L’humain apprend en parlant et en interagissant", "L’IA apprend en analysant des millions de phrases", "L’humain analyse des millions de phrases pour apprendre", "L’IA apprend en ressentant les émotions"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quelles capacités sont communes entre IA et intelligence naturelle ?",
-                options: ["Résolution de problèmes", "Apprentissage à partir de l’expérience", "Créativité complète comme un humain", "Analyse et traitement d’informations"],
-                correct: [0, 1, 3]
-            },
-            {
-                q: "Quelles affirmations décrivent le Machine Learning ?",
-                options: ["Le Machine Learning est un sous-domaine de l’IA", "Il permet aux machines d’apprendre à partir de données sans être explicitement programmées", "Les outils de Machine Learning peuvent être utilisés pour des tâches de Deep Learning ou d’IA générative", "Le Machine Learning est toujours limité à des tâches simples"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Quelles affirmations décrivent le Deep Learning ?",
-                options: ["Le Deep Learning est une méthode du Machine Learning utilisant des réseaux de neurones profonds", "Il est utilisé pour des tâches complexes comme reconnaissance d’images, traduction automatique, diagnostic médical", "Le Deep Learning nécessite toujours un humain pour toutes les décisions", "Le Deep Learning peut être employé dans des applications d’IA générative"],
-                correct: [0, 1, 3]
-            },
-            {
-                q: "Quelles affirmations décrivent l’IA générative ?",
-                options: ["L’IA générative crée du contenu nouveau (texte, image, audio) à partir de modèles entraînés", "Elle utilise souvent des techniques de Deep Learning ou de Machine Learning", "Elle ne peut jamais utiliser les mêmes outils que le Machine Learning classique", "Exemples : ChatGPT, DALL·E, MidJourney"],
-                correct: [0, 1, 3]
-            },
-            {
-                q: "Sur quels points les sous-domaines de l’IA se chevauchent-ils ?",
-                options: ["Les outils de Machine Learning peuvent être utilisés pour des tâches de Deep Learning", "L’IA générative repose souvent sur des techniques de Deep Learning", "Deep Learning et Machine Learning sont complètement indépendants", "Les quatre (IA, ML, DL, IA générative) sont toujours des catégories strictement séparées"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quelles sont les étapes clés d’un système d’intelligence artificielle ?",
-                options: ["Percevoir : détecter l’environnement avec capteurs ou caméras", "Analyser : interpréter les informations pour prendre une décision", "Décider : choisir une action à entreprendre", "Apprendre : s’améliorer à partir de l’expérience"],
-                correct: [0, 1, 2, 3]
-            },
-            {
-                q: "Quelles actions un système d’IA peut-il décider dans un exemple concret (voiture autonome) ?",
-                options: ["Freiner", "Tourner", "Accélérer", "Ignorer les obstacles"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Quelles méthodes peuvent être utilisées pour l’étape “Apprendre” dans un système intelligent ?",
-                options: ["Apprentissage supervisé", "Apprentissage par renforcement", "Mise à jour des modèles", "Apprentissage uniquement manuel"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Quelles technologies permettent à un système intelligent de percevoir son environnement ?",
-                options: ["Caméras et capteurs", "Microphones pour la parole", "Détection automatique via règles prédéfinies", "Lecture de pensées humaines"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Dans un système intelligent comme une voiture autonome, quelles affirmations sont correctes ?",
-                options: ["Le véhicule ajuste sa conduite en fonction des erreurs passées", "L’IA peut améliorer ses décisions avec de nouvelles données", "Le véhicule prend toujours des décisions prédéfinies sans apprentissage", "Le système peut analyser et comprendre où se trouvent les obstacles"],
-                correct: [0, 1, 3]
-            },
-            {
-                q: "Quelles affirmations sont correctes concernant la machine ENIGMA utilisée pendant la Seconde Guerre mondiale ?",
-                options: ["ENIGMA était utilisée pour protéger les messages secrets allemands", "Lorsqu’un opérateur appuyait sur une touche, une autre lettre s’allumait via une diode", "Elle ne pouvait produire que quelques dizaines de combinaisons", "Sans la même machine et les bons paramètres, il était impossible de décoder les messages"],
-                correct: [0, 1, 3]
-            },
-            {
-                q: "Quels faits sont liés à Alan Turing ?",
-                options: ["Il a publié en 1936 un article fondateur sur la machine de Turing", "Il a montré des failles majeures dans le fonctionnement d’Enigma", "Il a développé le logiciel Deep Blue", "Il a proposé le Test de Turing pour vérifier si une machine peut imiter une conversation humaine"],
-                correct: [0, 1, 3]
-            },
-            {
-                q: "Quels événements marquent les années 1960 dans l’IA ?",
-                options: ["Arthur Samuel a développé une IA capable de jouer aux dames en auto-apprentissage", "L’IA a battu Kasparov aux échecs", "La période est encore très expérimentale et limitée", "C’est la période de l’hiver de l’IA"],
-                correct: [0, 2]
-            },
-            {
-                q: "Quelles affirmations sont vraies concernant l’hiver de l’intelligence artificielle ?",
-                options: ["Il correspond aux années 1970", "L’intérêt et le financement pour l’IA ont diminué", "L’IA atteignait son apogée et battait tous les humains aux jeux", "Cette période est aussi appelée la première vague d’IA"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quelles avancées se produisent dans la seconde vague de l’IA (1980-2010) ?",
-                options: ["Naissance du concept de Machine Learning", "Utilisation de probabilités statistiques pour apprendre sans programmation explicite", "IBM crée Deep Blue qui bat Kasparov", "Développement d’ENIGMA"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Quelles affirmations sont correctes concernant le Deep Learning et AlphaGo ?",
-                options: ["Dans les années 2000-2010, des concepts plus profonds dérivés du Machine Learning apparaissent", "DeepMind développe AlphaGo qui bat le champion du monde du jeu Goban", "AlphaGo utilise uniquement des règles codées manuellement", "Le Deep Learning repose sur des réseaux de neurones artificiels"],
-                correct: [0, 1, 3]
-            },
-            {
-                q: "Quels éléments caractérisent la troisième vague de l’IA (2020-~) ?",
-                options: ["Explosion des technologies contribuant à l’IA", "Utilisation du Big Data pour collecter des données massives", "GPU pour répartir la puissance de calcul", "Les machines ne nécessitent plus de données pour apprendre"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Quels éléments sont liés au Cloud et au Big Data dans la troisième phase de l’IA ?",
-                options: ["Cloud : mutualisation des ressources et puissance de calcul", "Big Data : mécanismes pour récolter des données massives", "GPU : permet de générer automatiquement du contenu", "Ces technologies permettent d’accélérer et d’améliorer les performances de l’IA"],
-                correct: [0, 1, 2, 3]
-            },
-            {
-                q: "Quelles affirmations sont vraies sur Deep Blue et AlphaGo ?",
-                options: ["Deep Blue a battu Kasparov aux échecs", "AlphaGo a battu le champion du monde de Goban", "Les deux programmes n’utilisent pas d’apprentissage à partir de données", "Ces programmes démontrent la puissance de l’IA dans les jeux complexes"],
-                correct: [0, 1, 3]
-            },
-            {
-                q: "Quelles applications de l’IA sont présentes dans le domaine de la santé ?",
-                options: ["Diagnostic médical assisté", "Imagerie médicale", "Suivi des patients", "Conception manuelle de médicaments uniquement"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Quels exemples concrets montrent l’utilisation de l’IA dans la santé ?",
-                options: ["Détection de tumeurs dans les radiographies grâce à la vision par ordinateur", "Analyse de données médicales pour prédire des maladies", "Écriture de prescriptions médicales sans aucune supervision humaine", "Recommandation de traitement basé sur les données"],
-                correct: [0, 1, 3]
-            },
-            {
-                q: "Quelles applications de l’IA sont présentes dans l’éducation ?",
-                options: ["Tutoriels intelligents", "Correction automatique", "Personnalisation des parcours d’apprentissage", "Remplacement complet des enseignants"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Quels exemples concrets illustrent l’utilisation de l’IA dans l’éducation ?",
-                options: ["Plateformes adaptatives ajustant le niveau des exercices selon la progression de l’étudiant", "Correction automatique des devoirs et tests avec retours détaillés", "Apprentissage uniquement basé sur le hasard", "Suivi précis des performances des étudiants"],
-                correct: [0, 1, 3]
-            },
-            {
-                q: "Quelles applications de l’IA sont présentes dans l’industrie, le transport et la communication ?",
-                options: ["Robots industriels effectuant des tâches répétitives ou dangereuses", "Véhicules autonomes prenant des décisions en temps réel", "Assistants vocaux capables de comprendre et répondre aux demandes", "Machines capables de ressentir des émotions humaines"],
-                correct: [0, 1, 2]
-            }
-        ],
-        2: [
-            {
-                q: "Les trois piliers fondamentaux de l’intelligence artificielle sont :",
-                options: ["Les données", "Les algorithmes", "L’apprentissage", "Le matériel informatique"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Le rôle principal des données dans l’IA est :",
-                options: ["Servir de matière première pour l’apprentissage", "Remplacer les algorithmes", "Créer des images aléatoires", "Exécuter les programmes"],
-                correct: [0]
-            },
-            {
-                q: "Quels types de données peuvent être utilisés par une IA ?",
-                options: ["Images et vidéos", "Textes et sons", "Données numériques issues de capteurs", "Seulement des chiffres"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Dans l’exemple d’apprentissage d’une IA à reconnaître une pomme, que représente « l’image de la pomme » ?",
-                options: ["Une donnée d’entraînement", "Un algorithme", "Une récompense", "Une action"],
-                correct: [0]
-            },
-            {
-                q: "Qu’est-ce qu’un algorithme dans le contexte de l’IA ?",
-                options: ["Une suite d’instructions logiques permettant de résoudre un problème", "Une base de données d’images", "Un ensemble de capteurs matériels", "Un langage de programmation"],
-                correct: [0]
-            },
-            {
-                q: "Dans la métaphore de la cuisine, que représentent les « ingrédients » ?",
-                options: ["Les données utilisées par l’IA", "Les algorithmes", "Les résultats", "Le matériel informatique"],
-                correct: [0]
-            },
-            {
-                q: "Dans la métaphore de la cuisine, le « plat final » correspond à :",
-                options: ["Le résultat produit par l’IA", "L’algorithme utilisé", "Les données d’entrée", "Les paramètres du modèle"],
-                correct: [0]
-            },
-            {
-                q: "Dans le machine learning, l’« apprentissage supervisé » signifie que :",
-                options: ["Les données d’entraînement sont étiquetées", "Les données sont aléatoires", "L’IA apprend sans connaître la bonne réponse", "Le modèle ne reçoit jamais de feedback"],
-                correct: [0]
-            },
-            {
-                q: "L’apprentissage non supervisé est utilisé pour :",
-                options: ["Découvrir des structures ou des groupes dans les données", "Prédire une valeur connue", "Explorer des données non étiquetées", "Fournir une récompense à l’agent"],
-                correct: [0, 2]
-            },
-            {
-                q: "L’apprentissage par renforcement repose sur :",
-                options: ["Le système de récompense et de punition", "Les interactions entre un agent et un environnement", "Des données étiquetées fixes", "Un modèle sans retour d’expérience"],
-                correct: [0, 1]
-            },
-            {
-                q: "Dans un apprentissage supervisé, un « label » (étiquette) représente :",
-                options: ["La bonne réponse associée à une donnée d’entrée", "Le nom du fichier image", "Le code source du modèle", "Le poids du réseau neuronal"],
-                correct: [0]
-            },
-            {
-                q: "Un exemple typique d’apprentissage supervisé est :",
-                options: ["La classification d’images comme « chat » ou « chien »", "La détection automatique de groupes sans étiquettes", "L’exploration de données non structurées", "Le renforcement d’un agent par essais-erreurs"],
-                correct: [0]
-            },
-            {
-                q: "Quels sont des algorithmes utilisés dans l’apprentissage supervisé ?",
-                options: ["Régression logistique", "Machines à vecteurs de support (SVM)", "Analyse en composantes principales (PCA)", "K-means clustering"],
-                correct: [0, 1]
-            },
-            {
-                q: "L’apprentissage non supervisé permet notamment :",
-                options: ["La découverte automatique de structures dans les données", "La détection d’anomalies", "La prédiction de labels connus", "La correction automatique des erreurs d’étiquetage"],
-                correct: [0, 1]
-            },
-            {
-                q: "L’analyse en composantes principales (PCA) est utilisée pour :",
-                options: ["Réduire la dimensionnalité des données", "Visualiser des données complexes", "Classer les données en catégories connues", "Corriger les biais des algorithmes"],
-                correct: [0, 1]
-            },
-            {
-                q: "L’apprentissage par renforcement implique :",
-                options: ["Un agent qui agit dans un environnement", "Des récompenses ou punitions selon les actions", "Des étiquettes fixes pour chaque donnée", "Une absence de retour d’expérience"],
-                correct: [0, 1]
-            },
-            {
-                q: "L’apprentissage par renforcement est particulièrement utilisé pour :",
-                options: ["Les jeux vidéo", "La robotique", "La segmentation d’images médicales", "L’analyse statistique descriptive"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quelle affirmation décrit le mieux un agent intelligent ?",
-                options: ["Il perçoit son environnement et agit pour atteindre un objectif", "Il exécute uniquement des instructions prédéfinies", "Il se limite à l’analyse statistique", "Il agit sans retour d’expérience"],
-                correct: [0]
-            },
-            {
-                q: "Dans le contexte d’une IA, qu’est-ce qu’un environnement ?",
-                options: ["L’espace dans lequel l’agent interagit et agit", "Le code source de l’algorithme", "Les données d’entraînement", "L’interface utilisateur"],
-                correct: [0]
-            },
-            {
-                q: "Quel type d’interaction correspond à une IA qui contrôle un robot dans une usine ?",
-                options: ["Interaction avec une base de données", "Interaction avec un environnement physique", "Interaction sans apprentissage", "Interaction uniquement textuelle"],
-                correct: [1]
-            },
-            {
-                q: "Un algorithme de classification sert à :",
-                options: ["Prédire des catégories (par exemple “chat” ou “chien”)", "Créer des associations entre objets", "Réduire la dimension des données", "Explorer des données non étiquetées"],
-                correct: [0]
-            },
-            {
-                q: "Un algorithme de régression sert à :",
-                options: ["Prédire des valeurs continues comme la température ou un salaire", "Identifier des classes discrètes", "Classer des images", "Détecter des anomalies dans des groupes"],
-                correct: [0]
-            },
-            {
-                q: "Les algorithmes non supervisés comme K-means ou GMM servent à :",
-                options: ["Regrouper des données selon leur similarité", "Explorer des ensembles non étiquetés", "Calculer la probabilité d’un événement", "Déterminer des valeurs de sortie connues"],
-                correct: [0, 1]
-            },
-            {
-                q: "Dans le RLHF (Reinforcement Learning with Human Feedback), le rôle du retour humain est :",
-                options: ["Aider à orienter l’apprentissage par récompense/punition", "Corriger les comportements indésirables de l’agent", "Fournir des étiquettes fixes", "Supprimer les données non pertinentes"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quelle phrase résume le mieux le rôle global de l’apprentissage en IA ?",
-                options: ["Il permet à l’IA d’améliorer ses performances à partir de l’expérience", "Il consiste à stocker plus de données", "Il remplace les algorithmes", "Il rend l’IA consciente"],
-                correct: [0]
-            }
-        ],
-        3: [
-            {
-                q: "Qu’est-ce que l’IA générative ?",
-                options: ["Une branche de l’IA capable de créer de nouveaux contenus à partir de données existantes", "Une méthode classique de calcul de probabilités", "Une technologie basée sur des réseaux neuronaux profonds", "Une base de données de textes et d’images"],
-                correct: [0, 2]
-            },
-            {
-                q: "Quelle différence principale distingue un modèle génératif d’un modèle discriminant ?",
-                options: ["Le modèle génératif peut créer de nouvelles données similaires à celles apprises", "Le modèle discriminant classe ou prédit à partir de données existantes", "Le modèle génératif ne peut pas produire d’images", "Les deux modèles fonctionnent de manière identique"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quel événement Bill Gates a-t-il décrit comme la troisième grande transformation informatique ?",
-                options: ["L’arrivée des réseaux sociaux", "L’essor de l’IA générative", "La création du cloud computing", "La sortie de Windows 10"],
-                correct: [1]
-            },
-            {
-                q: "L’IA générative repose principalement sur :",
-                options: ["Les réseaux neuronaux profonds", "Des programmes codés à la main", "Des modèles statistiques entraînés sur de grandes quantités de données", "Des règles logiques fixes"],
-                correct: [0, 2]
-            },
-            {
-                q: "Quelle phrase décrit correctement la notion de “modèle de fondation” ?",
-                options: ["Un modèle entraîné sur de vastes données et adaptable à plusieurs tâches", "Un modèle spécialisé sur une seule tâche précise", "Un modèle utilisé uniquement dans la finance", "Un modèle sur lequel s’appuient les modèles génératifs comme GPT"],
-                correct: [0, 3]
-            },
-            {
-                q: "Quels sont les domaines couverts par l’IA générative ?",
-                options: ["Texte", "Image", "Audio", "Température atmosphérique"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Quel type de résultat indique qu’un modèle est génératif ?",
-                options: ["Une valeur numérique comme une probabilité", "Un texte, une image ou un son généré", "Une simple étiquette de classe", "Une matrice de confusion"],
-                correct: [1]
-            },
-            {
-                q: "Quel est un exemple de modèle de langage génératif ?",
-                options: ["GPT", "SVM", "K-Means", "PaLM"],
-                correct: [0, 3]
-            },
-            {
-                q: "Quel modèle est capable de générer des images à partir de texte ?",
-                options: ["DALL-E", "ChatGPT", "Midjourney", "Excel AI"],
-                correct: [0, 2]
-            },
-            {
-                q: "Que signifie la multimodalité dans l’IA générative ?",
-                options: ["La capacité à combiner plusieurs types de données (texte, image, son…)", "L’utilisation d’un seul type de données", "La possibilité de transformer un texte en image ou en vidéo", "Un mode d’affichage spécifique"],
-                correct: [0, 2]
-            },
-            {
-                q: "Quelle tâche un modèle génératif d’images comme CoModGAN peut-il accomplir ?",
-                options: ["Compléter une image endommagée", "Générer une image réaliste à partir d’un texte", "Classer des images par catégories", "Traduire un texte en plusieurs langues"],
-                correct: [0, 1]
-            },
-            {
-                q: "Qu’est-ce qu’un modèle discriminant fait typiquement ?",
-                options: ["Il classe ou prédit une étiquette à partir de données existantes", "Il crée de nouvelles images ou sons", "Il traduit automatiquement les langues", "Il génère des vidéos à partir de texte"],
-                correct: [0]
-            },
-            {
-                q: "Quels sont des exemples de modèles d’IA générative textuelle ?",
-                options: ["GPT", "PaLM", "Random Forest", "CNN classique"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quelle phrase résume correctement le rôle du Machine Learning dans l’IA générative ?",
-                options: ["Il permet à un système d’apprendre à partir de données sans programmation explicite", "Il consiste à stocker des données dans des bases fixes", "Il n’utilise pas d’algorithmes", "Il est à la base de l’apprentissage profond et génératif"],
-                correct: [0, 3]
-            },
-            {
-                q: "Quelle est une caractéristique clé de l’apprentissage profond ?",
-                options: ["L’usage de réseaux de neurones pour traiter des problèmes complexes", "La dépendance à des instructions manuelles", "Le stockage de texte dans des bases simples", "L’autonomie dans la détection de motifs et structures de données"],
-                correct: [0, 3]
-            },
-            {
-                q: "Quelle tâche illustre un modèle génératif multimodal ?",
-                options: ["Transformer un texte en vidéo", "Générer des diapositives à partir d’un fichier audio", "Classer des emails en spam ou non-spam", "Calculer la moyenne d’un ensemble de données"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quelle est la différence entre la programmation classique et l’IA générative ?",
-                options: ["La programmation classique repose sur des règles codées manuellement", "L’IA générative apprend à partir des données et crée du contenu nouveau", "Elles fonctionnent de la même manière", "L’IA générative ne dépend pas de données d’entraînement"],
-                correct: [0, 1]
-            },
-            {
-                q: "Dans la vague générative, l’utilisateur peut :",
-                options: ["Générer du contenu en posant simplement une question", "Devoir coder manuellement chaque règle", "Produire des textes, images ou vidéos en langage naturel", "Fournir uniquement des nombres en entrée"],
-                correct: [0, 2]
-            },
-            {
-                q: "Quelles sont les applications concrètes de l’IA générative ?",
-                options: ["Création de contenu textuel et visuel", "Synthèse vocale et génération musicale", "Calcul de statistiques financières uniquement", "Sauvegarde de bases de données"],
-                correct: [0, 1]
-            },
-            {
-                q: "Pourquoi l’IA générative est-elle considérée comme une révolution ?",
-                options: ["Elle permet aux machines de produire des créations inédites", "Elle relie plusieurs domaines comme texte, image et son", "Elle ne fonctionne qu’en laboratoire", "Elle supprime complètement le besoin d’humains"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quel est l’un des avantages majeurs des modèles de fondation ?",
-                options: ["Leur adaptabilité à plusieurs tâches sans réentraînement complet", "Leur dépendance à des petites bases locales", "Leur incapacité à apprendre de nouveaux domaines", "Leur entraînement sur des données diversifiées à grande échelle"],
-                correct: [0, 3]
-            },
-            {
-                q: "Quelle est la contribution des réseaux de neurones à l’IA générative ?",
-                options: ["Ils permettent d’apprendre des structures et des motifs complexes", "Ils sont la base de l’apprentissage profond", "Ils remplacent entièrement les algorithmes classiques", "Ils servent uniquement à calculer des moyennes"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quelles sont les limites actuelles de l’IA générative ?",
-                options: ["Elle peut produire des contenus incorrects ou biaisés", "Elle nécessite des ressources matérielles importantes", "Elle garantit toujours la véracité des informations", "Elle fonctionne sans données d’entraînement"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quelle est une problématique éthique de l’IA générative ?",
-                options: ["Le risque de désinformation et de deepfakes", "Les questions de droit d’auteur sur les données d’entraînement", "L’amélioration des diagnostics médicaux", "L’automatisation de la traduction"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quelle compétence devient essentielle à l’ère de l’IA générative ?",
-                options: ["La capacité à formuler des requêtes (prompting) efficaces", "L’esprit critique face aux productions automatiques", "La mémorisation de règles de programmation basiques", "L’exécution manuelle d’algorithmes sur papier"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quelles sont les opportunités de l’IA générative pour l’éducation ?",
-                options: ["Génération de supports pédagogiques interactifs", "Aide à la personnalisation des apprentissages", "Suppression du rôle des enseignants", "Évaluation uniquement automatique des élèves"],
-                correct: [0, 1]
-            },
-            {
-                q: "Dans quel domaine l’IA générative est-elle déjà utilisée efficacement ?",
-                options: ["Création artistique et design", "Rédaction assistée et traduction automatique", "Pilotage manuel d’engins lourds", "Réparation mécanique sans capteurs"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quel est le rôle du “fine-tuning” dans l’IA générative ?",
-                options: ["Adapter un modèle pré-entraîné à un domaine spécifique", "Améliorer la précision sur des tâches ciblées", "Réinitialiser complètement l’apprentissage", "Supprimer les données d’origine du modèle"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quelle est une tendance récente dans l’évolution des modèles génératifs ?",
-                options: ["L’émergence de modèles multimodaux (texte, image, audio, vidéo)", "L’intégration dans des outils quotidiens (bureautique, communication, etc.)", "La disparition des réseaux neuronaux", "La restriction des usages créatifs"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quelle est une perspective future de l’IA générative ?",
-                options: ["La création d’assistants intelligents multimodaux", "Le développement d’IA collaboratives et explicables", "Le retour à une IA purement symbolique", "La suppression totale du Deep Learning"],
-                correct: [0, 1]
-            }
-        ],
-        4: [
-            {
-                q: "Qu’est-ce qu’un biais en intelligence artificielle ?",
-                options: ["Une déformation ou une erreur systématique dans les résultats d’un modèle", "Une erreur volontaire ajoutée par les concepteurs", "Une mise à jour du modèle", "Une forme d’optimisation du code"],
-                correct: [0]
-            },
-            {
-                q: "Parmi les exemples suivants, lesquels illustrent un biais de données ?",
-                options: ["Une IA de reconnaissance faciale moins précise pour certains groupes ethniques", "Un modèle médical entraîné sur une population limitée géographiquement", "Un modèle transparent et bien documenté", "Un algorithme capable d’expliquer ses décisions"],
-                correct: [0, 1]
-            },
-            {
-                q: "Que signifie le terme “IA explicable” (XAI) ?",
-                options: ["Une IA dont les décisions peuvent être comprises et justifiées", "Une IA qui apprend sans données", "Une IA qui cache ses calculs", "Une IA qui imite le cerveau humain"],
-                correct: [0]
-            },
-            {
-                q: "Quels sont les principaux types de biais en IA ?",
-                options: ["Biais de données", "Biais de conception", "Biais de confirmation", "Biais d’apprentissage automatique"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Pourquoi la transparence est-elle essentielle dans les systèmes d’IA ?",
-                options: ["Elle permet de comprendre et d’auditer les décisions de l’IA", "Elle renforce la confiance des utilisateurs", "Elle augmente automatiquement la vitesse du modèle", "Elle réduit les coûts de maintenance"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quels sont les niveaux de risque identifiés par l’Union Européenne pour les IA ?",
-                options: ["Risque inacceptable", "Risque élevé", "Risque limité", "Risque minime"],
-                correct: [0, 1, 2, 3]
-            },
-            {
-                q: "Quelle est la conséquence d’un biais algorithmique en santé ?",
-                options: ["Risque de diagnostic erroné", "Accélération automatique de la guérison", "Diminution du coût des soins", "Discrimination entre patients selon les données"],
-                correct: [0, 4]
-            },
-            {
-                q: "Qui peut être responsable en cas d’erreur grave commise par une IA ?",
-                options: ["Le concepteur de l’algorithme", "L’entreprise qui l’utilise", "L’utilisateur final", "Le système d’exploitation"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Quelle mesure aide à limiter les biais d’entraînement ?",
-                options: ["Utiliser des données diversifiées et inclusives", "Réduire la taille du dataset", "Vérifier la représentativité des catégories", "Supprimer la supervision humaine"],
-                correct: [0, 2]
-            },
-            {
-                q: "Qu’est-ce qu’un risque inacceptable selon l’Union Européenne ?",
-                options: ["Une IA qui viole les droits fondamentaux", "Une IA utilisée pour recommander des films", "Un système de filtrage anti-spam", "Une IA de notation sociale par un État"],
-                correct: [0, 3]
-            },
-            {
-                q: "Quels sont les impacts positifs de l’IA sur la société ?",
-                options: ["Amélioration du diagnostic médical", "Optimisation de la consommation d’énergie", "Augmentation des inégalités sociales", "Soutien à la recherche scientifique"],
-                correct: [0, 1, 3]
-            },
-            {
-                q: "Quels sont les risques sociétaux associés à l’IA ?",
-                options: ["Surveillance et perte de vie privée", "Manipulation de l’opinion publique", "Réduction automatique de la pauvreté", "Fracture numérique entre pays riches et pauvres"],
-                correct: [0, 1, 3]
-            },
-            {
-                q: "Quelle est la différence entre automatisation et augmentation par l’IA ?",
-                options: ["L’automatisation remplace des tâches humaines", "L’augmentation assiste et complète l’humain", "Les deux suppriment les emplois créatifs", "L’automatisation concerne uniquement les métiers du numérique"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quels domaines nécessitent une supervision humaine obligatoire pour l’IA ?",
-                options: ["Santé", "Justice", "Finance", "Jeux vidéo"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Que cherche à garantir la transparence algorithmique ?",
-                options: ["Une compréhension des décisions prises par l’IA", "Une meilleure confiance du public", "Une réduction automatique des coûts", "L’élimination de tout biais"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quels biais peuvent être intégrés par les concepteurs eux-mêmes ?",
-                options: ["Biais de conception", "Biais de données", "Biais temporel", "Biais de confirmation"],
-                correct: [0]
-            },
-            {
-                q: "Quels métiers risquent d’être fortement impactés par l’automatisation ?",
-                options: ["Chauffeurs routiers", "Caissiers", "Chercheurs en IA", "Artistes numériques"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quelles mesures peuvent aider à garantir une IA plus éthique ?",
-                options: ["L’adoption de cadres juridiques clairs", "La supervision humaine dans les décisions sensibles", "L’élimination de la transparence", "La diversification des données d’entraînement"],
-                correct: [0, 1, 3]
-            },
-            {
-                q: "Quels sont les nouveaux métiers créés par l’essor de l’IA ?",
-                options: ["Data scientist", "Ingénieur en IA", "Éthicien numérique", "Standardiste téléphonique"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Quelle approche permet de réduire la précarisation liée à l’automatisation ?",
-                options: ["Favoriser la formation continue et la reconversion", "Mettre en place des politiques sociales adaptées", "Supprimer les emplois manuels", "Déléguer toutes les décisions à des IA"],
-                correct: [0, 1]
-            }
-        ],
-        5: [
-            {
-                q: "Quels objectifs peut-on atteindre avec un prompt bien conçu ?",
-                options: ["Réduire l’ambiguïté", "Obtenir des réponses plus précises et cohérentes", "Structurer la réflexion du modèle", "Modifier automatiquement les paramètres internes de l’IA"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Quelles formes de prompts peut-on utiliser ?",
-                options: ["Question simple", "Instruction", "Texte à compléter ou transformer", "Exemple guidé"],
-                correct: [0, 1, 2, 3]
-            },
-            {
-                q: "Dans quel cas utilise-t-on un prompt “iterative prompting” ?",
-                options: ["Pour ajuster la requête après une première réponse", "Pour améliorer progressivement la qualité de la réponse", "Pour fournir uniquement des exemples sans instruction", "Pour demander une réponse aléatoire"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quels types d’activités peuvent bénéficier d’un prompt clair ?",
-                options: ["Résumé", "Analyse de texte", "Traduction", "Production écrite"],
-                correct: [0, 1, 2, 3]
-            },
-            {
-                q: "Quels sont les avantages principaux de l’ingénierie des requêtes ?",
-                options: ["Amélioration des performances du modèle", "Réduction des réponses biaisées", "Contrôle et prévisibilité accrus", "Expérience utilisateur améliorée"],
-                correct: [0, 1, 2, 3]
-            },
-            {
-                q: "Quelles pratiques peuvent améliorer l’efficacité d’un prompt pour la génération de texte ?",
-                options: ["Préciser le genre et le style", "Donner des instructions claires et détaillées", "Fournir un exemple concret de sortie attendue", "Laisser le prompt vague pour plus de créativité"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Dans quels cas l’ingénierie des requêtes est-elle utile pour la traduction ?",
-                options: ["Indiquer la langue source et cible", "Maintenir le style et le ton du texte original", "Fournir uniquement des instructions vagues", "Ignorer le contexte du texte"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quels avantages l’utilisateur obtient-il d’une bonne ingénierie des requêtes ?",
-                options: ["Interaction plus facile avec le modèle", "Réponses plus précises et cohérentes", "Moins de contenu inapproprié ou biaisé", "Accélération automatique du temps de calcul"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Quels types d’activités peuvent être améliorées par l’ingénierie des requêtes ?",
-                options: ["Résumé d’articles", "Analyse de texte", "Réécriture et clarification", "Production écrite structurée"],
-                correct: [0, 1, 2, 3]
-            },
-            {
-                q: "Quels types de prompts sont utilisés pour la génération et l’édition de code ?",
-                options: ["Complétion de code partiel", "Débogage", "Traduction entre langages de programmation", "Création automatique de documentation sans instructions"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Dans la génération d’images, quelles indications peuvent améliorer le résultat ?",
-                options: ["Décrire les objets et le paysage en détail", "Indiquer le style artistique et l’émotion", "Fournir l’image de référence pour modification", "Laisser uniquement des mots-clés vagues"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Quels types de questions peuvent être posées avec un prompt en système de questions-réponses ?",
-                options: ["Questions ouvertes", "Questions spécifiques", "QCM", "Questions hypothétiques ou d’opinion"],
-                correct: [0, 1, 2, 3]
-            },
-            {
-                q: "Quelles sont les étapes de l’itération d’un prompt efficace ?",
-                options: ["Tester la première version de la requête", "Ajuster la consigne selon les résultats", "Fournir des exemples supplémentaires si nécessaire", "Supprimer complètement la consigne initiale"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Quels avantages apporte l’ingénierie des requêtes aux modèles IA ?",
-                options: ["Réponses plus informatives et précises", "Réduction du risque de contenus inappropriés", "Réponses cohérentes et prévisibles", "Augmentation automatique de la vitesse du modèle"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Quels éléments d’un prompt contribuent à l’expérience utilisateur ?",
-                options: ["Clarté des instructions", "Précision dans le contexte et la tâche", "Indication du style et du format souhaités", "Utilisation de prompts très longs sans structure"],
-                correct: [0, 1, 2]
-            }
-        ],
-        6: [
-            {
-                q: "Que signifie le terme \"prompt\" dans l’usage d’une IA comme ChatGPT ?",
-                options: ["L'instruction ou question donnée à l'IA", "Un élément essentiel pour guider la réponse", "Un type de modèle d’intelligence artificielle", "Un filtre automatique de sécurité"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quels éléments améliorent la qualité d’un prompt pour ChatGPT ?",
-                options: ["Donner un rôle clair à l’IA", "Fournir un contexte précis", "Indiquer un format de réponse attendu", "Laisser l’IA deviner la tâche toute seule"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Quelles sont les caractéristiques d’un bon modèle de traduction comme DeepL ?",
-                options: ["Capacité à comprendre le contexte global", "Production de phrases idiomatiques et naturelles", "Traduction strictement mot à mot", "Traduction sans tenir compte du style"],
-                correct: [0, 1]
-            },
-            {
-                q: "À quoi sert un outil de reformulation comme QuillBot ?",
-                options: ["Améliorer la clarté d’un texte", "Modifier la structure des phrases tout en gardant le sens", "Traduire un texte d’une langue à une autre", "Générer des images réalistes"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quels types de tâches peuvent être effectuées par ChatGPT ?",
-                options: ["Résumer un texte", "Générer du code", "Répondre à des questions complexes", "Exécuter directement des programmes sur l’ordinateur"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Pourquoi définir un rôle (“You are…”) dans un prompt ?",
-                options: ["Pour orienter le ton et le style de la réponse", "Pour améliorer la précision de l’IA", "Pour limiter la longueur des réponses", "Pour empêcher l’IA de générer des exemples"],
-                correct: [0, 1]
-            },
-            {
-                q: "Qu’est-ce qui distingue un modèle de langage performant ?",
-                options: ["Comprendre le contexte large", "Fournir des réponses cohérentes", "Répondre uniquement par des mots isolés", "Ne jamais réviser sa réponse"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quels sont les avantages d’un traducteur basé sur les Transformers comme DeepL ?",
-                options: ["Meilleure compréhension du contexte", "Adaptation au ton du texte", "Traduction rigide sans nuance", "Ignorer les expressions idiomatiques"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quels bénéfices un outil de reformulation peut-il offrir ?",
-                options: ["Améliorer la lisibilité du texte", "Corriger certaines erreurs grammaticales", "Proposer plusieurs styles d’écriture", "Traduire automatiquement en plusieurs langues"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Quelles sont les caractéristiques d’un prompt “bien structuré” ?",
-                options: ["Un rôle défini", "Un contexte clair", "Une tâche précise", "Un format attendu"],
-                correct: [0, 1, 2, 3]
-            },
-            {
-                q: "Pourquoi l’ingénierie des requêtes est-elle importante ?",
-                options: ["Pour obtenir des réponses plus pertinentes", "Pour réduire l’ambiguïté", "Pour contrôler le style de la réponse", "Pour empêcher l’IA de répondre trop rapidement"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Quelles sont les fonctions courantes offertes par ChatGPT ?",
-                options: ["Explications de concepts", "Génération de texte", "Analyse de texte", "Évaluation automatique de traductions humaines"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Quels critères permettent d’évaluer la qualité d’une traduction ?",
-                options: ["La fluidité", "La fidélité au sens", "L’adaptation culturelle", "La vitesse d’exécution uniquement"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Quels avantages apporte un outil comme QuillBot pour l’écriture académique ?",
-                options: ["Améliorer le style", "Éviter la répétition excessive", "Faciliter la reformulation d’idées", "Traduire automatiquement les citations"],
-                correct: [0, 1, 2]
-            },
-            {
-                q: "Quelles sont les limites possibles d’un modèle comme ChatGPT ?",
-                options: ["Il peut manquer de précision factuelle", "Il peut interpréter un prompt ambigu de manière incorrecte", "Il ne peut jamais se tromper", "Il fait de la lecture de pensées humaines"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quels sont les avantages des modèles GPT ?",
-                options: ["Adaptabilité à de nombreuses tâches", "Compréhension contextuelle avancée", "Production de traduction uniquement", "Limitation à des réponses courtes"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quelles tâches un traducteur moderne comme DeepL accomplit-il bien ?",
-                options: ["Traduire avec nuance", "Comprendre des phrases longues et complexes", "Générer du code informatique", "Réécrire un texte en gardant la même langue"],
-                correct: [0, 1]
-            },
-            {
-                q: "Pourquoi la reformulation automatique est-elle utile ?",
-                options: ["Pour éviter le plagiat involontaire", "Pour diversifier le style d’écriture", "Pour traduire automatiquement en plusieurs langues", "Pour corriger uniquement les fautes d’orthographe"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quels éléments ChatGPT utilise-t-il pour produire une réponse cohérente ?",
-                options: ["Le contexte du prompt", "Les connaissances apprises lors de l’entraînement", "Les préférences personnelles de l’utilisateur", "Des informations en temps réel provenant d’Internet"],
-                correct: [0, 1]
-            },
-            {
-                q: "Quels outils facilitent la rédaction grâce à l’IA ?",
-                options: ["ChatGPT pour générer et expliquer des idées", "DeepL pour traduire avec précision", "QuillBot pour reformuler et clarifier", "Un tableur pour effectuer des calculs"],
-                correct: [0, 1, 2]
-            }
-        ]
+            1:[
+                {
+                    q: "Qu’est-ce qu’un tableur ?",
+                    options: [
+                        "Un logiciel de traitement d’images",
+                        "Un logiciel de création et de manipulation de tableaux numériques ou alphanumériques",
+                        "Un navigateur Internet",
+                        "Un logiciel de montage vidéo"
+                    ],
+                    correct: [1]
+                },
+                {
+                    q: "Parmi les logiciels suivants, lesquels sont des tableurs ?",
+                    options: [
+                        "Microsoft Excel",
+                        "OpenOffice Calc",
+                        "Quattro Pro",
+                        "Adobe Photoshop"
+                    ],
+                    correct: [0,1,2]
+                },
+                {
+                    q: "Quelle opération peut être réalisée avec un tableur ?",
+                    options: [
+                        "Créer des feuilles de calcul",
+                        "Créer uniquement des vidéos",
+                        "Réaliser des calculs",
+                        "Créer des graphiques"
+                    ],
+                    correct: [0,2,3]
+                },
+                {
+                    q: "Quelle fonctionnalité permet d’obtenir une représentation visuelle des données dans Excel ?",
+                    options: [
+                        "Le publipostage",
+                        "Les graphiques",
+                        "Le correcteur orthographique",
+                        "Les macros"
+                    ],
+                    correct: [1]
+                },
+                {
+                    q: "Parmi les actions suivantes, lesquelles font partie des fonctionnalités d’un tableur ?",
+                    options: [
+                        "Saisir des données",
+                        "Mettre en forme une feuille de calcul",
+                        "Utiliser des fonctions prédéfinies",
+                        "Développer un système d’exploitation"
+                    ],
+                    correct: [0,1,2]
+                },
+                {
+                    q: "Combien de méthodes sont présentées dans le cours pour démarrer Microsoft Excel ?",
+                    options: [
+                        "3",
+                        "4",
+                        "5",
+                        "6"
+                    ],
+                    correct: [2]
+                },
+                {
+                    q: "Quelle méthode permet de créer directement un nouveau fichier Excel depuis le Bureau Windows ?",
+                    options: [
+                        "Nouveau → Feuille de calcul Microsoft Excel",
+                        "Panneau de configuration",
+                        "Gestionnaire des tâches",
+                        "Bloc-notes"
+                    ],
+                    correct: [0]
+                },
+                {
+                    q: "Comment s’appelle la grande zone quadrillée située au centre de la fenêtre Excel ?",
+                    options: [
+                        "La barre d’état",
+                        "La zone de travail",
+                        "Le presse-papiers",
+                        "La barre de lancement"
+                    ],
+                    correct: [1]
+                },
+                {
+                    q: "Pour créer un nouveau classeur, il faut choisir :",
+                    options: [
+                        "Affichage > Nouveau",
+                        "Fichier > Nouveau",
+                        "Insertion > Classeur",
+                        "Accueil > Nouveau"
+                    ],
+                    correct: [1]
+                },
+                {
+                    q: "Quelles informations doit-on généralement fournir lors du premier enregistrement d’un nouveau classeur ?",
+                    options: [
+                        "L’emplacement du fichier",
+                        "Le nom du fichier",
+                        "Le numéro de série d’Excel",
+                        "Le format d’enregistrement si nécessaire"
+                    ],
+                    correct: [0,1,3]
+                },
+                {
+                    q: "Que représente un classeur dans Microsoft Excel ?",
+                    options: [
+                        "Une seule cellule",
+                        "Un document contenant plusieurs feuilles de calcul",
+                        "Un graphique",
+                        "Une seule colonne"
+                    ],
+                    correct: [1]
+                },
+                {
+                    q: "Parmi les affirmations suivantes concernant un classeur Excel, lesquelles sont correctes ?",
+                    options: [
+                        "On peut ajouter une feuille.",
+                        "On peut supprimer une feuille.",
+                        "On peut sélectionner une feuille à partir de son onglet.",
+                        "Un classeur ne peut contenir qu'une seule feuille."
+                    ],
+                    correct: [0,1,2]
+                },
+                {
+                    q: "Une feuille de calcul est organisée sous forme de :",
+                    options: [
+                        "Diapositives",
+                        "Tableau composé de lignes et de colonnes",
+                        "Pages HTML",
+                        "Graphiques uniquement"
+                    ],
+                    correct: [1]
+                },
+                {
+                    q: "Combien de lignes possède une feuille Excel moderne ?",
+                    options: [
+                        "65 536",
+                        "1 024",
+                        "1 048 576",
+                        "16 384"
+                    ],
+                    correct: [2]
+                },
+                {
+                    q: "Combien de colonnes possède une feuille Excel moderne ?",
+                    options: [
+                        "1 024",
+                        "16 384",
+                        "65 536",
+                        "10 000"
+                    ],
+                    correct: [1]
+                },
+                {
+                    q: "Quelle est la dernière colonne d'une feuille Excel ?",
+                    options: [
+                        "ZZZ",
+                        "XFE",
+                        "XFD",
+                        "FFD"
+                    ],
+                    correct: [2]
+                },
+                {
+                    q: "Une cellule correspond à :",
+                    options: [
+                        "L'intersection d'une ligne et d'une colonne",
+                        "Une ligne entière",
+                        "Une colonne entière",
+                        "Un graphique"
+                    ],
+                    correct: [0]
+                },
+                {
+                    q: "Par défaut, comment est aligné un texte dans une cellule Excel ?",
+                    options: [
+                        "À droite",
+                        "Au centre",
+                        "À gauche",
+                        "Justifié"
+                    ],
+                    correct: [2]
+                },
+                {
+                    q: "Quels types de données sont alignés à droite par défaut dans Excel ?",
+                    options: [
+                        "Les nombres",
+                        "Les dates",
+                        "Les heures",
+                        "Les textes"
+                    ],
+                    correct: [0,1,2]
+                },
+                {
+                    q: "Que se passe-t-il lorsqu'un texte est plus long que la largeur de sa colonne et que la cellule voisine est vide ?",
+                    options: [
+                        "Le texte est supprimé.",
+                        "Le texte est automatiquement réduit.",
+                        "Le texte déborde sur la cellule voisine.",
+                        "Excel affiche une erreur."
+                    ],
+                    correct: [2]
+                },
+                {
+                    q: "Avant d'appliquer une mise en forme à une ou plusieurs cellules, quelle est la première opération à effectuer ?",
+                    options: [
+                        "Enregistrer le classeur",
+                        "Sélectionner les cellules",
+                        "Créer un graphique",
+                        "Imprimer le document"
+                    ],
+                    correct: [1]
+                },
+                {
+                    q: "Comment sélectionner une colonne entière dans Excel ?",
+                    options: [
+                        "Cliquer sur son numéro",
+                        "Cliquer sur sa lettre",
+                        "Double-cliquer sur une cellule",
+                        "Utiliser uniquement le clavier"
+                    ],
+                    correct: [1]
+                },
+                {
+                    q: "Comment sélectionner une ligne entière dans Excel ?",
+                    options: [
+                        "Cliquer sur la lettre de la colonne",
+                        "Cliquer sur le numéro de la ligne",
+                        "Double-cliquer sur une cellule",
+                        "Cliquer sur la barre de formule"
+                    ],
+                    correct: [1]
+                },
+                {
+                    q: "Comment sélectionner toute la feuille de calcul ?",
+                    options: [
+                        "En cliquant sur le bouton situé dans le coin supérieur gauche de la feuille",
+                        "En cliquant sur la barre d'état",
+                        "En sélectionnant une seule cellule",
+                        "En cliquant sur le ruban Accueil"
+                    ],
+                    correct: [0]
+                },
+                {
+                    q: "Quelles méthodes permettent de modifier le contenu d'une cellule ?",
+                    options: [
+                        "Modifier le contenu depuis la barre de formule",
+                        "Double-cliquer sur la cellule",
+                        "Modifier directement dans la barre d'état",
+                        "Sélectionner la cellule puis effectuer les modifications"
+                    ],
+                    correct: [0,1,3]
+                },
+                {
+                    q: "Pourquoi met-on généralement en forme une feuille de calcul ?",
+                    options: [
+                        "Pour améliorer sa présentation",
+                        "Pour faciliter sa lecture",
+                        "Pour rendre les données plus claires",
+                        "Pour augmenter automatiquement les valeurs"
+                    ],
+                    correct: [0,1,2]
+                },
+                {
+                    q: "Quels outils permettent de mettre en forme les cellules ?",
+                    options: [
+                        "Les icônes de l'onglet Accueil",
+                        "La fenêtre Format de cellule",
+                        "Le Bloc-notes Windows",
+                        "Le menu Police de la fenêtre Format de cellule"
+                    ],
+                    correct: [0,1,3]
+                },
+                {
+                    q: "L'onglet « Nombre » du format de cellule permet notamment de choisir :",
+                    options: [
+                        "Le format Monétaire",
+                        "Le format Date",
+                        "Le format Pourcentage",
+                        "La couleur de la feuille"
+                    ],
+                    correct: [0,1,2]
+                },
+                {
+                    q: "Quelles options sont disponibles dans l'onglet « Alignement » ?",
+                    options: [
+                        "Alignement horizontal et vertical du texte",
+                        "Fusionner les cellules",
+                        "Renvoyer le texte automatiquement à la ligne",
+                        "Orientation du texte"
+                    ],
+                    correct: [0,1,2,3]
+                },
+                {
+                    q: "Quelles méthodes permettent d'ajuster la largeur d'une colonne ?",
+                    options: [
+                        "Automatiquement à partir de la commande Format",
+                        "Manuellement à l'aide de la souris",
+                        "Uniquement avec une formule",
+                        "En modifiant le nom de la colonne"
+                    ],
+                    correct: [0,1]
+                },
+                {
+                    q: "Pourquoi la formule =A2*$B$2 utilise-t-elle le signe $ devant B et 2 ?",
+                    options: [
+                        "Pour empêcher la modification de la référence B2 lors de la recopie",
+                        "Pour transformer la cellule en texte",
+                        "Pour accélérer les calculs",
+                        "Pour masquer la valeur de B2"
+                    ],
+                    correct: [0]
+                },
+                {
+                    q: "Après avoir recopié vers le bas la formule =B2+C2, quel sera le résultat dans la ligne suivante ?",
+                    options: [
+                        "=B2+C2",
+                        "=B3+C3",
+                        "=C2+D2",
+                        "=B2+C3"
+                    ],
+                    correct: [1]
+                },
+                {
+                    q: "Parmi les références suivantes, lesquelles sont des références absolues ?",
+                    options: [
+                        "$A$1",
+                        "A$1",
+                        "$A1",
+                        "A1"
+                    ],
+                    correct: [0]
+                },
+                {
+                    q: "Pourquoi utilise-t-on une référence absolue dans une formule ?",
+                    options: [
+                        "Pour conserver la même cellule de référence lors de la recopie",
+                        "Pour augmenter automatiquement les valeurs",
+                        "Pour convertir une formule en texte",
+                        "Pour éviter les erreurs liées au changement de ligne ou de colonne"
+                    ],
+                    correct: [0,3]
+                },
+                {
+                    q: "Quelle formule est la plus appropriée pour calculer la somme des cellules B3 à B6 ?",
+                    options: [
+                        "=B3+B4+B5+B6",
+                        "=SOMME(B3:B6)",
+                        "=MAX(B3:B6)",
+                        "=PRODUIT(B3:B6)"
+                    ],
+                    correct: [1]
+                },
+                {
+                    q: "Quels avantages présentent les fonctions prédéfinies d'Excel par rapport aux formules longues ?",
+                    options: [
+                        "Les formules sont plus courtes et plus lisibles",
+                        "Le risque d'erreur est réduit",
+                        "Les calculs sont plus faciles à modifier",
+                        "Elles empêchent totalement les erreurs de saisie"
+                    ],
+                    correct: [0,1,2]
+                },
+                {
+                    q: "Pourquoi est-il conseillé de donner un nom à une plage de cellules ?",
+                    options: [
+                        "Pour rendre les formules plus compréhensibles",
+                        "Pour faciliter la sélection d'une plage",
+                        "Pour réduire les risques d'erreur",
+                        "Pour augmenter automatiquement le nombre de cellules"
+                    ],
+                    correct: [0,1,2]
+                },
+                {
+                    q: "Quelle formule utilise correctement une plage nommée appelée Notes ?",
+                    options: [
+                        "=SOMME(Notes)",
+                        "=SOMME(C4:C9)",
+                        "=MAX(Notes)",
+                        "=Notes=SOMME()"
+                    ],
+                    correct: [0,2]
+                },
+                {
+                    q: "Lequel des énoncés suivants décrit correctement un grapheur dans Excel ?",
+                    options: [
+                        "Il permet de représenter graphiquement des données",
+                        "Il est intégré à Microsoft Excel",
+                        "Il remplace les feuilles de calcul",
+                        "Il facilite l'analyse visuelle des données"
+                    ],
+                    correct: [0,1,3]
+                },
+                {
+                    q: "Quelles affirmations sont correctes concernant les fonctions Excel ?",
+                    options: [
+                        "Une fonction est une formule prédéfinie",
+                        "Les fonctions peuvent appartenir à différentes catégories (mathématiques, financières, logiques, statistiques, etc.)",
+                        "Une fonction accepte généralement un ou plusieurs arguments",
+                        "Toutes les fonctions retournent obligatoirement un texte"
+                    ],
+                    correct: [0,1,2]
+                }
+            ],
+
+        2:[
+                    {
+                    q:"Quel est l'objectif principal du tri dans Excel ?",
+                    options:[
+                    "Modifier les données",
+                    "Classer les données selon un ou plusieurs critères",
+                    "Supprimer les doublons",
+                    "Créer un graphique"
+                    ],
+                    correct:[1]
+                    },
+                    {
+                    q:"Le tri croissant d'une colonne de nombres les classe :",
+                    options:[
+                    "Du plus grand au plus petit",
+                    "Du plus petit au plus grand",
+                    "Par ordre d'insertion",
+                    "Par couleur"
+                    ],
+                    correct:[1]
+                    },
+                    {
+                    q:"Le tri décroissant permet de classer les données :",
+                    options:[
+                    "Du plus petit au plus grand",
+                    "Du plus grand au plus petit",
+                    "Par ordre alphabétique",
+                    "Par date uniquement"
+                    ],
+                    correct:[1]
+                    },
+                    {
+                    q:"Parmi les éléments suivants, lesquels peuvent être utilisés comme critères de tri ?",
+                    options:[
+                    "Texte",
+                    "Nombres",
+                    "Dates",
+                    "Images uniquement"
+                    ],
+                    correct:[0,1,2]
+                    },
+                    {
+                    q:"Quel outil permet d'afficher uniquement certaines lignes répondant à un critère ?",
+                    options:[
+                    "Le tri",
+                    "Le filtre",
+                    "La validation",
+                    "La mise en forme"
+                    ],
+                    correct:[1]
+                    },
+                    {
+                    q:"L'application d'un filtre dans Excel :",
+                    options:[
+                    "Supprime les lignes non sélectionnées",
+                    "Masque temporairement les lignes qui ne répondent pas au critère",
+                    "Supprime définitivement les données",
+                    "Convertit les données en tableau"
+                    ],
+                    correct:[1]
+                    },
+                    {
+                    q:"Quels types de filtres sont présentés dans le cours ?",
+                    options:[
+                    "Filtre textuel",
+                    "Filtre numérique",
+                    "Filtre chronologique",
+                    "Filtre personnalisé"
+                    ],
+                    correct:[0,1,2,3]
+                    },
+                    {
+                    q:"Le filtre chronologique est principalement utilisé pour :",
+                    options:[
+                    "Les images",
+                    "Les dates et heures",
+                    "Les graphiques",
+                    "Les commentaires"
+                    ],
+                    correct:[1]
+                    },
+                    {
+                    q:"Le filtre personnalisé permet d'utiliser :",
+                    options:[
+                    "Deux critères liés par ET ou OU",
+                    "Une seule couleur",
+                    "Uniquement des nombres",
+                    "Des graphiques"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Avec l'opérateur logique ET, les deux conditions doivent être :",
+                    options:[
+                    "Fausses",
+                    "Vraies simultanément",
+                    "Identiques",
+                    "Optionnelles"
+                    ],
+                    correct:[1]
+                    },
+                    {
+                    q:"Avec l'opérateur logique OU, le résultat est VRAI lorsque :",
+                    options:[
+                    "Toutes les conditions sont vraies",
+                    "Au moins une condition est vraie",
+                    "Aucune condition n'est vraie",
+                    "Les cellules sont vides"
+                    ],
+                    correct:[1]
+                    },
+                    {
+                    q:"Pour afficher les ordinateurs HP ou Toshiba, quel opérateur logique faut-il utiliser ?",
+                    options:[
+                    "ET",
+                    "OU",
+                    "NON",
+                    "SI"
+                    ],
+                    correct:[1]
+                    },
+                    {
+                    q:"La mise en forme conditionnelle sert principalement à :",
+                    options:[
+                    "Mettre en valeur certaines données",
+                    "Supprimer les données",
+                    "Créer des macros",
+                    "Protéger le classeur"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"La mise en forme conditionnelle applique une mise en forme selon :",
+                    options:[
+                    "La taille du fichier",
+                    "Une ou plusieurs conditions",
+                    "Le nombre de feuilles",
+                    "Le nom du classeur"
+                    ],
+                    correct:[1]
+                    },
+                    {
+                    q:"Quels types de contenus peuvent être évalués par une mise en forme conditionnelle ?",
+                    options:[
+                    "Valeurs numériques",
+                    "Textes",
+                    "Valeurs logiques",
+                    "Dates"
+                    ],
+                    correct:[0,1,2,3]
+                    },
+                    {
+                    q:"Dans quel onglet trouve-t-on la commande Mise en forme conditionnelle ?",
+                    options:[
+                    "Accueil",
+                    "Insertion",
+                    "Affichage",
+                    "Révision"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"La commande 'Nouvelle règle' permet de :",
+                    options:[
+                    "Créer une nouvelle règle de mise en forme conditionnelle",
+                    "Créer une nouvelle feuille",
+                    "Créer un graphique",
+                    "Créer une macro"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Que permet la commande 'Gérer les règles' ?",
+                    options:[
+                    "Modifier les règles existantes",
+                    "Supprimer des règles",
+                    "Ajouter de nouvelles règles",
+                    "Modifier la largeur des colonnes"
+                    ],
+                    correct:[0,1,2]
+                    },
+                    {
+                    q:"La commande 'Effacer les règles' permet :",
+                    options:[
+                    "De supprimer les mises en forme conditionnelles",
+                    "D'effacer les données",
+                    "De supprimer une feuille",
+                    "De supprimer une formule"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Avant d'appliquer une mise en forme conditionnelle, il faut :",
+                    options:[
+                    "Sélectionner la cellule ou la plage concernée",
+                    "Enregistrer le classeur",
+                    "Fermer Excel",
+                    "Créer un graphique"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Quelle catégorie de mise en forme conditionnelle met en évidence les cellules supérieures à une valeur donnée ?",
+                    options:[
+                    "Règles de mise en surbrillance des cellules",
+                    "Barres de données",
+                    "Jeux d'icônes",
+                    "Nuances de couleurs"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Les barres de données représentent :",
+                    options:[
+                    "La largeur des colonnes",
+                    "La valeur numérique de chaque cellule",
+                    "Le nombre de feuilles",
+                    "La longueur du texte"
+                    ],
+                    correct:[1]
+                    },
+                    {
+                    q:"Les nuances de couleurs permettent de :",
+                    options:[
+                    "Visualiser la répartition des valeurs",
+                    "Supprimer les erreurs",
+                    "Créer un tableau croisé dynamique",
+                    "Fusionner des cellules"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Les jeux d'icônes servent à :",
+                    options:[
+                    "Décorer les cellules uniquement",
+                    "Comparer visuellement les valeurs d'une plage",
+                    "Créer des liens hypertextes",
+                    "Protéger les cellules"
+                    ],
+                    correct:[1]
+                    },
+                    {
+                    q:"Parmi les mises en forme conditionnelles prédéfinies, lesquelles figurent dans le cours ?",
+                    options:[
+                    "Barres de données",
+                    "Nuances de couleurs",
+                    "Jeux d'icônes",
+                    "Règles des valeurs plus/moins élevées"
+                    ],
+                    correct:[0,1,2,3]
+                    },
+                    {
+                    q:"Pour créer une mise en forme conditionnelle personnalisée, il faut choisir :",
+                    options:[
+                    "Mise en forme conditionnelle > Nouvelle règle",
+                    "Insertion > Nouvelle règle",
+                    "Affichage > Nouvelle règle",
+                    "Données > Validation"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Quelle règle applique une mise en forme à toutes les cellules en fonction de leur valeur ?",
+                    options:[
+                    "Mettre en forme toutes les cellules d'après leur valeur",
+                    "Valeurs uniques",
+                    "Cellules contenant",
+                    "Utiliser une formule"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Quelle règle permet de mettre en forme uniquement les cellules contenant un texte précis ?",
+                    options:[
+                    "Appliquer une mise en forme uniquement aux cellules qui contiennent",
+                    "Barres de données",
+                    "Nuances de couleurs",
+                    "Jeux d'icônes"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Quelle règle permet de mettre en évidence les cinq plus grandes valeurs d'une plage ?",
+                    options:[
+                    "Valeurs plus/moins élevées",
+                    "Barres de données",
+                    "Valeurs uniques",
+                    "Utiliser une formule"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Quelle règle permet de distinguer les valeurs au-dessus ou au-dessous de la moyenne ?",
+                    options:[
+                    "Valeurs supérieures ou inférieures à la moyenne",
+                    "Cellules contenant",
+                    "Barres de données",
+                    "Jeux d'icônes"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Quelle règle permet de repérer les doublons ?",
+                    options:[
+                    "Valeurs uniques ou doublons",
+                    "Barres de données",
+                    "Nuances de couleurs",
+                    "Cellules contenant"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Dans une règle utilisant une formule, la mise en forme est appliquée lorsque la formule renvoie :",
+                    options:[
+                    "0",
+                    "VRAI",
+                    "1",
+                    "Une chaîne vide"
+                    ],
+                    correct:[1]
+                    },
+                    {
+                    q:"Quelle commande permet de modifier une règle existante ?",
+                    options:[
+                    "Modifier la règle",
+                    "Fusionner les styles",
+                    "Styles de cellules",
+                    "Validation des données"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Quelle commande permet de supprimer une règle de mise en forme conditionnelle ?",
+                    options:[
+                    "Supprimer la règle",
+                    "Effacer la feuille",
+                    "Supprimer les données",
+                    "Supprimer la colonne"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Par défaut, 'Afficher les règles de mise en forme pour' est réglé sur :",
+                    options:[
+                    "Cette feuille de calcul",
+                    "Le classeur",
+                    "Sélection actuelle",
+                    "Toutes les feuilles"
+                    ],
+                    correct:[2]
+                    },
+                    {
+                    q:"Un style de cellule est :",
+                    options:[
+                    "Une mise en valeur prédéfinie",
+                    "Une formule",
+                    "Une macro",
+                    "Un graphique"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Les styles de cellule sont accessibles dans le groupe :",
+                    options:[
+                    "Styles",
+                    "Police",
+                    "Édition",
+                    "Données"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Pour retrouver la mise en forme d'origine après l'application d'un style, il faut choisir :",
+                    options:[
+                    "Le style Normal",
+                    "Supprimer la feuille",
+                    "Réinitialiser Excel",
+                    "Annuler"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Créer un style de cellule permet de :",
+                    options:[
+                    "Réutiliser rapidement une mise en forme",
+                    "Créer une formule",
+                    "Créer une feuille",
+                    "Créer un graphique"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Les styles personnalisés apparaissent dans la catégorie :",
+                    options:[
+                    "Personnalisé",
+                    "Accueil",
+                    "Favoris",
+                    "Formules"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Les styles créés sont enregistrés :",
+                    options:[
+                    "Uniquement dans le classeur actif",
+                    "Dans tous les classeurs",
+                    "Dans Windows",
+                    "Dans OneDrive uniquement"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Modifier un style entraîne :",
+                    options:[
+                    "La modification immédiate des cellules utilisant ce style",
+                    "La suppression des cellules",
+                    "La suppression des données",
+                    "Aucun changement"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"La suppression d'un style :",
+                    options:[
+                    "Peut être annulée",
+                    "Est définitive",
+                    "Supprime également les données",
+                    "Supprime le classeur"
+                    ],
+                    correct:[1]
+                    },
+                    {
+                    q:"La fonction SI permet de :",
+                    options:[
+                    "Tester une condition",
+                    "Créer un filtre",
+                    "Créer un graphique",
+                    "Compter les cellules"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"La syntaxe correcte de la fonction SI est :",
+                    options:[
+                    "=SI(test_logique;valeur_si_vrai;valeur_si_faux)",
+                    "=SI(valeur;condition)",
+                    "=SI(test;vrai)",
+                    "=SI(condition;résultat)"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Si la condition d'une fonction SI est vraie, Excel renvoie :",
+                    options:[
+                    "valeur_si_vrai",
+                    "valeur_si_faux",
+                    "FAUX",
+                    "Une erreur"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"La fonction SI imbriqué consiste à :",
+                    options:[
+                    "Insérer plusieurs fonctions SI les unes dans les autres",
+                    "Utiliser uniquement ET",
+                    "Utiliser uniquement OU",
+                    "Créer plusieurs feuilles"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Quel est l'avantage principal de SI.CONDITIONS ?",
+                    options:[
+                    "Une écriture plus claire des tests multiples",
+                    "Une vitesse de calcul plus élevée",
+                    "Une meilleure mise en forme",
+                    "La création automatique de graphiques"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"SI.CONDITIONS est disponible à partir de :",
+                    options:[
+                    "Excel 2019 / Microsoft 365",
+                    "Excel 2003",
+                    "Excel XP",
+                    "Toutes les versions d'Excel"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Parmi les affirmations suivantes concernant SI imbriqué et SI.CONDITIONS, lesquelles sont exactes ?",
+                    options:[
+                    "SI imbriqué est compatible avec toutes les versions d'Excel",
+                    "SI.CONDITIONS est plus lisible",
+                    "SI.CONDITIONS nécessite une version récente d'Excel",
+                    "Les deux fonctions permettent de gérer plusieurs conditions"
+                    ],
+                    correct:[0,1,2,3]
+                    },
+                    {
+                    q:"Les conditions simples dans Excel utilisent généralement :",
+                    options:[
+                    "Un seul opérateur de comparaison",
+                    "Une fonction SI obligatoire",
+                    "Une fonction ET obligatoire",
+                    "Deux fonctions imbriquées"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Parmi les opérateurs suivants, lesquels sont des opérateurs de comparaison dans Excel ?",
+                    options:[
+                    ">",
+                    "<=",
+                    "<>",
+                    "&&"
+                    ],
+                    correct:[0,1,2]
+                    },
+                    {
+                    q:"La fonction OU renvoie VRAI lorsque :",
+                    options:[
+                    "Toutes les conditions sont vraies",
+                    "Au moins une condition est vraie",
+                    "Aucune condition n'est vraie",
+                    "Les cellules sont vides"
+                    ],
+                    correct:[1]
+                    },
+                    {
+                    q:"La syntaxe correcte de la fonction OU est :",
+                    options:[
+                    "=OU(test1;test2;...)",
+                    "=OU(condition;valeur)",
+                    "=OU(test1,test2)",
+                    "=OU(A1)"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"La fonction ET renvoie VRAI lorsque :",
+                    options:[
+                    "Une seule condition est vraie",
+                    "Toutes les conditions sont vraies",
+                    "Aucune condition n'est vraie",
+                    "Le résultat est numérique"
+                    ],
+                    correct:[1]
+                    },
+                    {
+                    q:"La syntaxe correcte de la fonction ET est :",
+                    options:[
+                    "=ET(test1;test2;...)",
+                    "=ET(valeur;condition)",
+                    "=ET(A1)",
+                    "=ET(test)"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Combien d'arguments au maximum peuvent être utilisés dans les fonctions ET et OU ?",
+                    options:[
+                    "30",
+                    "64",
+                    "255",
+                    "1024"
+                    ],
+                    correct:[2]
+                    },
+                    {
+                    q:"Dans le cours, un client est considéré fidèle lorsque :",
+                    options:[
+                    "Le montant est supérieur à 5000 DH ou le nombre d'opérations est supérieur ou égal à 10",
+                    "Le montant est supérieur à 5000 DH et le nombre d'opérations est supérieur ou égal à 10",
+                    "Le montant est inférieur à 5000 DH",
+                    "Le nombre d'opérations est inférieur à 10"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Dans le cours, un client est considéré loyal lorsque :",
+                    options:[
+                    "Une seule condition est vraie",
+                    "Le montant > 5000 DH ET le nombre d'opérations ≥ 10",
+                    "Le montant > 5000 DH OU le nombre d'opérations ≥ 10",
+                    "Le montant = 5000 DH"
+                    ],
+                    correct:[1]
+                    },
+                    {
+                    q:"Quelle fonction est utilisée pour calculer une remise selon plusieurs conditions ?",
+                    options:[
+                    "SI",
+                    "NBVAL",
+                    "MODE",
+                    "MAX"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"La fonction NBVAL permet de :",
+                    options:[
+                    "Compter les cellules non vides",
+                    "Additionner les cellules",
+                    "Compter uniquement les nombres",
+                    "Calculer une moyenne"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"NBVAL compte :",
+                    options:[
+                    "Les nombres uniquement",
+                    "Les cellules non vides, quel que soit leur contenu",
+                    "Les cellules vides",
+                    "Les cellules contenant des formules uniquement"
+                    ],
+                    correct:[1]
+                    },
+                    {
+                    q:"La fonction MODE permet de déterminer :",
+                    options:[
+                    "La moyenne",
+                    "La valeur la plus fréquente",
+                    "La plus grande valeur",
+                    "La médiane"
+                    ],
+                    correct:[1]
+                    },
+                    {
+                    q:"MODE s'applique principalement à :",
+                    options:[
+                    "Des textes",
+                    "Des nombres",
+                    "Des images",
+                    "Des commentaires"
+                    ],
+                    correct:[1]
+                    },
+                    {
+                    q:"La fonction ECARTYPE mesure :",
+                    options:[
+                    "La somme",
+                    "La dispersion des données autour de la moyenne",
+                    "La valeur maximale",
+                    "La fréquence"
+                    ],
+                    correct:[1]
+                    },
+                    {
+                    q:"Une faible valeur d'écart-type signifie généralement que :",
+                    options:[
+                    "Les données sont proches de la moyenne",
+                    "Les données sont très dispersées",
+                    "La moyenne est nulle",
+                    "Les données sont incorrectes"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"La fonction NB.SI permet de :",
+                    options:[
+                    "Compter les cellules répondant à un critère",
+                    "Calculer une somme",
+                    "Créer une validation",
+                    "Créer un filtre"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"La syntaxe correcte de NB.SI est :",
+                    options:[
+                    "=NB.SI(plage;critère)",
+                    "=NB.SI(valeur;plage)",
+                    "=NB.SI(plage)",
+                    "=NB.SI(test;résultat)"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"La fonction SOMME.SI permet de :",
+                    options:[
+                    "Additionner toutes les cellules",
+                    "Additionner uniquement les cellules répondant à un critère",
+                    "Compter les cellules",
+                    "Calculer une moyenne"
+                    ],
+                    correct:[1]
+                    },
+                    {
+                    q:"Dans SOMME.SI(plage;critère;[somme_plage]), l'argument somme_plage est :",
+                    options:[
+                    "Obligatoire",
+                    "Facultatif",
+                    "Interdit",
+                    "Réservé aux textes"
+                    ],
+                    correct:[1]
+                    },
+                    {
+                    q:"Quelles fonctions sont présentées dans le chapitre des fonctions statistiques ?",
+                    options:[
+                    "NBVAL",
+                    "MODE",
+                    "ECARTYPE",
+                    "SOMME"
+                    ],
+                    correct:[0,1,2]
+                    },
+                    {
+                    q:"Parmi les fonctions suivantes, lesquelles utilisent un critère ?",
+                    options:[
+                    "NB.SI",
+                    "SOMME.SI",
+                    "NBVAL",
+                    "MODE"
+                    ],
+                    correct:[0,1]
+                    },
+                    {
+                    q:"NBVAL ignore :",
+                    options:[
+                    "Les cellules contenant du texte",
+                    "Les cellules contenant des nombres",
+                    "Les cellules vides",
+                    "Les cellules contenant des dates"
+                    ],
+                    correct:[2]
+                    },
+                    {
+                    q:"La fonction MODE retourne :",
+                    options:[
+                    "La première valeur",
+                    "La valeur la plus fréquente",
+                    "La moyenne",
+                    "La valeur minimale"
+                    ],
+                    correct:[1]
+                    },
+                    {
+                    q:"ECARTYPE est principalement utilisé pour :",
+                    options:[
+                    "Mesurer la variabilité d'une série de données",
+                    "Créer un graphique",
+                    "Trier les données",
+                    "Mettre en forme les cellules"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"La fonction RECHERCHEV permet de :",
+                    options:[
+                    "Rechercher une valeur verticalement dans un tableau",
+                    "Rechercher une valeur horizontalement",
+                    "Compter des cellules",
+                    "Créer un filtre"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Dans RECHERCHEV, la valeur recherchée doit se trouver dans :",
+                    options:[
+                    "La première colonne du tableau",
+                    "La dernière colonne",
+                    "N'importe quelle colonne",
+                    "La colonne des résultats"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"La syntaxe correcte de RECHERCHEV est :",
+                    options:[
+                    "=RECHERCHEV(valeur;tableau;no_colonne;[valeur_proche])",
+                    "=RECHERCHEV(tableau;valeur)",
+                    "=RECHERCHEV(valeur;ligne)",
+                    "=RECHERCHEV(test)"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Dans RECHERCHEV, le troisième argument correspond :",
+                    options:[
+                    "Au numéro de colonne contenant le résultat",
+                    "Au numéro de ligne",
+                    "Au nombre de critères",
+                    "Au numéro de feuille"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Dans RECHERCHEV, utiliser FAUX signifie :",
+                    options:[
+                    "Recherche approximative",
+                    "Recherche exacte",
+                    "Recherche par couleur",
+                    "Recherche alphabétique"
+                    ],
+                    correct:[1]
+                    },
+                    {
+                    q:"Si le quatrième argument est VRAI ou omis dans RECHERCHEV :",
+                    options:[
+                    "La recherche est approximative",
+                    "La recherche est exacte",
+                    "La formule est incorrecte",
+                    "Excel affiche toujours une erreur"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"La fonction RECHERCHEH effectue une recherche :",
+                    options:[
+                    "Horizontale",
+                    "Verticale",
+                    "Circulaire",
+                    "Automatique"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Dans RECHERCHEH, la valeur recherchée doit se trouver dans :",
+                    options:[
+                    "La première ligne du tableau",
+                    "La dernière ligne",
+                    "N'importe quelle ligne",
+                    "La ligne des résultats"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Le troisième argument de RECHERCHEH indique :",
+                    options:[
+                    "Le numéro de ligne contenant la valeur à retourner",
+                    "Le numéro de colonne",
+                    "Le nombre de feuilles",
+                    "Le nombre de critères"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Quelles affirmations concernant RECHERCHEV sont exactes ?",
+                    options:[
+                    "La valeur recherchée doit être dans la première colonne",
+                    "FAUX réalise une recherche exacte",
+                    "VRAI réalise une recherche approximative",
+                    "Le numéro de colonne est obligatoire"
+                    ],
+                    correct:[0,1,2,3]
+                    },
+                    {
+                    q:"Le contrôle de saisie des données permet principalement de :",
+                    options:[
+                    "Limiter les erreurs de saisie",
+                    "Créer des graphiques",
+                    "Supprimer les doublons",
+                    "Fusionner les cellules"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Quels éléments font partie du contrôle de saisie présenté dans le cours ?",
+                    options:[
+                    "Validation des données",
+                    "Verrouillage des cellules",
+                    "Protection des feuilles",
+                    "Organisation des données"
+                    ],
+                    correct:[0,1,2,3]
+                    },
+                    {
+                    q:"La validation des données se trouve dans l'onglet :",
+                    options:[
+                    "Accueil",
+                    "Données",
+                    "Insertion",
+                    "Affichage"
+                    ],
+                    correct:[1]
+                    },
+                    {
+                    q:"Quelle est la première étape avant d'appliquer une validation ?",
+                    options:[
+                    "Sélectionner les cellules concernées",
+                    "Fermer le fichier",
+                    "Créer une feuille",
+                    "Créer un graphique"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Quel type de validation permet d'autoriser uniquement des nombres compris entre deux limites ?",
+                    options:[
+                    "Nombre entier ou Décimal",
+                    "Liste",
+                    "Date",
+                    "Personnalisée"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Quel type de validation permet de créer une liste déroulante ?",
+                    options:[
+                    "Liste",
+                    "Nombre entier",
+                    "Date",
+                    "Personnalisée"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Une liste déroulante peut être alimentée par :",
+                    options:[
+                    "Une liste fixe",
+                    "Une plage de cellules",
+                    "Une plage nommée",
+                    "Une image"
+                    ],
+                    correct:[0,1,2]
+                    },
+                    {
+                    q:"Selon le cours, la méthode la plus conseillée pour alimenter une liste déroulante est :",
+                    options:[
+                    "La plage nommée",
+                    "La liste fixe",
+                    "La saisie manuelle",
+                    "Le copier-coller"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Pourquoi les plages nommées sont-elles recommandées ?",
+                    options:[
+                    "Elles sont faciles à modifier",
+                    "On peut les rendre dynamiques",
+                    "Elles facilitent la maintenance",
+                    "Elles augmentent la vitesse du processeur"
+                    ],
+                    correct:[0,1,2]
+                    },
+                    {
+                    q:"Dans une liste déroulante imbriquée, quelle fonction est utilisée pour récupérer automatiquement la plage correspondante ?",
+                    options:[
+                    "INDIRECT",
+                    "NBVAL",
+                    "MODE",
+                    "OU"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Quel raccourci permet d'insérer rapidement une plage nommée ?",
+                    options:[
+                    "F2",
+                    "F3",
+                    "F5",
+                    "Ctrl+F"
+                    ],
+                    correct:[1]
+                    },
+                    {
+                    q:"Dans l'exemple du cours, la formule =INDIRECT($A$2) permet de :",
+                    options:[
+                    "Afficher la liste correspondant au choix effectué dans la première liste",
+                    "Calculer une somme",
+                    "Créer une feuille",
+                    "Supprimer une validation"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Quel type de validation permet de limiter la longueur d'un texte ?",
+                    options:[
+                    "Longueur du texte",
+                    "Liste",
+                    "Date",
+                    "Décimal"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Quel type de validation permet d'imposer une règle complexe ?",
+                    options:[
+                    "Personnalisée",
+                    "Liste",
+                    "Nombre entier",
+                    "Date"
+                    ],
+                    correct:[0]
+                    },
+                    {
+                    q:"Une validation personnalisée utilise généralement :",
+                    options:[
+                    "Une formule",
+                    "Une image",
+                    "Un graphique",
+                    "Une macro obligatoire"
+                    ],
+                    correct:[0]
+                    }
+                    ]
+        
     };
 
     let currentSection = 1;
