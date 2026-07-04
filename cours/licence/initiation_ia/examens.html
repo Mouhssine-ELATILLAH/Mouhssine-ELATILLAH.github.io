@@ -1,306 +1,232 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Examens</title>
 
-<title>Mes Examens</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Segoe UI, Arial, sans-serif;
+        }
 
-<style>
+        body {
+            background: #f4f6fb;
+            padding: 40px;
+        }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Segoe UI,Arial,sans-serif;
-}
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
 
-body{
+        .card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+        }
 
-    background:#f4f6fb;
-    padding:40px;
-}
+        .header {
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            color: white;
+            padding: 35px;
+            text-align: center;
+        }
 
-.container{
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
 
-    max-width:1100px;
-    margin:auto;
-}
+        .header p {
+            opacity: .95;
+            font-size: 18px;
+        }
 
-.card{
+        .table-container {
+            padding: 30px;
+            overflow-x: auto;
+        }
 
-    background:white;
-    border-radius:15px;
-    overflow:hidden;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
 
-}
+        th {
+            background: #f59e0b;
+            color: white;
+            padding: 18px;
+            font-size: 18px;
+        }
 
-.header{
+        td {
+            padding: 18px;
+            text-align: center;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 17px;
+        }
 
-    background:linear-gradient(135deg,#f59e0b,#fbbf24);
-    color:white;
-    padding:35px;
-    text-align:center;
-}
+        tr:nth-child(even) {
+            background: #fafafa;
+        }
 
-.header h1{
+        tr:hover {
+            background: #fff8eb;
+        }
 
-    font-size:36px;
-    margin-bottom:10px;
-}
+        .btn {
+            display: inline-block;
+            padding: 10px 22px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            transition: .3s;
+        }
 
-.header p{
+        .normal {
+            background: #10b981;
+        }
 
-    opacity:.95;
-    font-size:18px;
-}
+        .normal:hover {
+            background: #059669;
+        }
 
-.table-container{
+        .rattrapage {
+            background: #ef4444;
+        }
 
-    padding:30px;
-    overflow-x:auto;
-}
+        .rattrapage:hover {
+            background: #dc2626;
+        }
 
-table{
+        .footer {
+            padding: 20px;
+            text-align: center;
+            color: #777;
+            background: #fafafa;
+        }
 
-    width:100%;
-    border-collapse:collapse;
-}
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 28px;
+            }
 
-th{
+            th, td {
+                font-size: 15px;
+                padding: 12px;
+            }
 
-    background:#f59e0b;
-    color:white;
-    padding:18px;
-    font-size:18px;
-}
-
-td{
-
-    padding:18px;
-    text-align:center;
-    border-bottom:1px solid #e5e7eb;
-    font-size:17px;
-}
-
-tr:nth-child(even){
-
-    background:#fafafa;
-}
-
-tr:hover{
-
-    background:#fff8eb;
-}
-
-.btn{
-
-    display:inline-block;
-    padding:10px 22px;
-    border-radius:8px;
-    text-decoration:none;
-    color:white;
-    font-weight:600;
-    transition:.3s;
-}
-
-.normal{
-
-    background:#10b981;
-}
-
-.normal:hover{
-
-    background:#059669;
-}
-
-.rattrapage{
-
-    background:#ef4444;
-}
-
-.rattrapage:hover{
-
-    background:#dc2626;
-}
-
-.footer{
-
-    padding:20px;
-    text-align:center;
-    color:#777;
-    background:#fafafa;
-}
-
-@media(max-width:768px){
-
-.header h1{
-
-font-size:28px;
-
-}
-
-th,td{
-
-font-size:15px;
-padding:12px;
-
-}
-
-.btn{
-
-display:block;
-margin:8px auto;
-width:200px;
-
-}
-
-}
-
-</style>
-
+            .btn {
+                display: block;
+                margin: 8px auto;
+                width: 200px;
+            }
+        }
+    </style>
 </head>
 
 <body>
+    <div class="container">
+        <div class="card">
+            <div class="header">
+                <h1>📚 Mes Examens</h1>
+                <p><strong>Cours :</strong> Initiation à l'IA</p>
+            </div>
 
-<div class="container">
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Année Universitaire</th>
+                            <th>Examen Normal</th>
+                            <th>Examen de Rattrapage</th>
+                        </tr>
+                    </thead>
 
-<div class="card">
+                    <tbody>
+                        <tr>
+                            <td>2025 - 2026</td>
+                            <td>
+                                <a href="Examens/2025-2026/Normal.pdf" class="btn normal" download>
+                                    📄 Télécharger
+                                </a>
+                            </td>
+                            <td>
+                                <a href="Examens/2025-2026/Rattrapage.pdf" class="btn rattrapage" download>
+                                    🔄 Télécharger
+                                </a>
+                            </td>
+                        </tr>
 
-<div class="header">
+                        <tr>
+                            <td>2024 - 2025</td>
+                            <td>
+                                <a href="Examens/2024-2025/Normal.pdf" class="btn normal" download>
+                                    📄 Télécharger
+                                </a>
+                            </td>
+                            <td>
+                                <a href="Examens/2024-2025/Rattrapage.pdf" class="btn rattrapage" download>
+                                    🔄 Télécharger
+                                </a>
+                            </td>
+                        </tr>
 
-<h1>📚 Mes Examens</h1>
+                        <tr>
+                            <td>2023 - 2024</td>
+                            <td>
+                                <a href="Examens/2023-2024/Normal.pdf" class="btn normal" download>
+                                    📄 Télécharger
+                                </a>
+                            </td>
+                            <td>
+                                <a href="Examens/2023-2024/Rattrapage.pdf" class="btn rattrapage" download>
+                                    🔄 Télécharger
+                                </a>
+                            </td>
+                        </tr>
 
-<p><strong>Cours :</strong> Initiation à l'IA</p>
+                        <tr>
+                            <td>2022 - 2023</td>
+                            <td>
+                                <a href="Examens/2022-2023/Normal.pdf" class="btn normal" download>
+                                    📄 Télécharger
+                                </a>
+                            </td>
+                            <td>
+                                <a href="Examens/2022-2023/Rattrapage.pdf" class="btn rattrapage" download>
+                                    🔄 Télécharger
+                                </a>
+                            </td>
+                        </tr>
 
-</div>
+                        <tr>
+                            <td>2021 - 2022</td>
+                            <td>
+                                <a href="Examens/2021-2022/Normal.pdf" class="btn normal" download>
+                                    📄 Télécharger
+                                </a>
+                            </td>
+                            <td>
+                                <a href="Examens/2021-2022/Rattrapage.pdf" class="btn rattrapage" download>
+                                    🔄 Télécharger
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-<div class="table-container">
-
-<table>
-
-<thead>
-
-<tr>
-
-<th>Année Universitaire</th>
-
-<th>Examen Normal</th>
-
-<th>Examen de Rattrapage</th>
-
-</tr>
-
-</thead>
-
-<tbody>
-
-<tr>
-
-<td>2025 - 2026</td>
-
-<td>
-<a href="Examens/2025-2026/Normal.pdf" class="btn normal" download>
-📄 Télécharger
-</a>
-</td>
-
-<td>
-<a href="Examens/2025-2026/Rattrapage.pdf" class="btn rattrapage" download>
-🔄 Télécharger
-</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>2024 - 2025</td>
-
-<td>
-<a href="Examens/2024-2025/Normal.pdf" class="btn normal" download>
-📄 Télécharger
-</a>
-</td>
-
-<td>
-<a href="Examens/2024-2025/Rattrapage.pdf" class="btn rattrapage" download>
-🔄 Télécharger
-</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>2023 - 2024</td>
-
-<td>
-<a href="Examens/2023-2024/Normal.pdf" class="btn normal" download>
-📄 Télécharger
-</a>
-</td>
-
-<td>
-<a href="Examens/2023-2024/Rattrapage.pdf" class="btn rattrapage" download>
-🔄 Télécharger
-</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>2022 - 2023</td>
-
-<td>
-<a href="Examens/2022-2023/Normal.pdf" class="btn normal" download>
-📄 Télécharger
-</a>
-</td>
-
-<td>
-<a href="Examens/2022-2023/Rattrapage.pdf" class="btn rattrapage" download>
-🔄 Télécharger
-</a>
-</td>
-
-</tr>
-
-<tr>
-
-<td>2021 - 2022</td>
-
-<td>
-<a href="Examens/2021-2022/Normal.pdf" class="btn normal" download>
-📄 Télécharger
-</a>
-</td>
-
-<td>
-<a href="Examens/2021-2022/Rattrapage.pdf" class="btn rattrapage" download>
-🔄 Télécharger
-</a>
-</td>
-
-</tr>
-
-</tbody>
-
-</table>
-
-</div>
-
-<div class="footer">
-
-© 2026 - Plateforme de cours | Tous droits réservés
-
-</div>
-
-</div>
-
-</div>
-
+            <div class="footer">
+                © 2026 - Plateforme de cours | Tous droits réservés
+            </div>
+        </div>
+    </div>
 </body>
 </html>
