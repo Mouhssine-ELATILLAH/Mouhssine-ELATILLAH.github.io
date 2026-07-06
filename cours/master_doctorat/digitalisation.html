@@ -255,8 +255,28 @@
             }
             .dropdown:hover .dropdown-menu { transform: none; }
             .dropdown-column { width: 100%; }
-        }
-		
+		    }
+				.sub-section-title{
+			    display:flex;
+			    align-items:center;
+			    justify-content:center;
+			    gap:15px;
+			    margin:35px 0 25px;
+			}
+			
+			.sub-section-title span{
+			    flex:1;
+			    max-width:180px;
+			    height:2px;
+			    background:#f59e0b;
+			}
+			
+			.sub-section-title h3{
+			    margin:0;
+			    color:#f59e0b;
+			    font-size:28px;
+			    font-weight:700;
+			}
     </style>
 </head>
 <body>
@@ -297,13 +317,12 @@
         <h3>Sommaire</h3>
         <ul>
             <li><a href="#introCours">Présentation du Cours</a></li>
-            <li><a href="#section1">Séquence 1</a></li>
-            <li><a href="#section2">Séquence 2</a></li>
-            <li><a href="#section3">Séquence 3</a></li>
-            <li><a href="#section4">Séquence 4</a></li>
-            <li><a href="#section5">Séquence 5</a></li>
-            <li><a href="#section6">Séquence 6</a></li>
-			<li><a href="#section7">Séquence 7</a></li>
+            <li><a href="#section1">Séquence 01</a></li>
+            <li><a href="#section2">Séquence 02</a></li>
+            <li><a href="#section3">Séquence 03</a></li>
+            <li><a href="#section4">Séquence 04</a></li>
+            <li><a href="#section5">Séquence 05</a></li>
+            <li><a href="#section6">Séquence 06</a></li>
         </ul>
     </aside>
 
@@ -346,10 +365,14 @@
 		    </p>
 		</section>
 
-		<section id="section1" style="margin-top: 40px;">
+<section id="section1" style="margin-top: 40px;">
     <h2>Sequence 1 : Microsoft Office (Word, Excel et PowerPoint)</h2>
     <div class="cours-ia-container" style="font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #2c3e50; line-height: 1.8; max-width: 950px; margin: auto; padding: 20px;">
-        
+    <div class="sub-section-title">
+        <span></span>
+        <h3>Partie 1 : Microsoft Word</h3>
+        <span></span>
+    </div>
         <!-- ==================== INTRODUCTION ==================== -->
         <h3 style="color: #c0392b; border-bottom: 2px solid #ee5253; padding-bottom: 5px; display: inline-block; margin-top: 30px; margin-bottom: 20px; font-size: 1.4em;">Microsoft Word</h3>
         
