@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Téléchargement des TP</title>
+
+    <style>
+        /* ==========================================================
+           VARIABLES
+           ========================================================== */
+
+        :root {
+            --dark: #020617;
+            --surface: #ffffff;
+            --accent: #f59e0b;
+            --primary: #6366f1;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+
+            --pdf: #ef4444;
+            --word: #2563eb;
+            --zip: #10b981;
+        }
+
+        /* ==========================================================
+           RESET
+           ========================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        body {
+            width: 100%;
+            background: #f8fafc;
+            color: var(--text-main);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ==========================================================
+           HEADER
+           ========================================================== */
+
+        .page-header {
+            background: var(--dark);
+            color: white;
+            padding: 70px 5% 50px;
+            text-align: center;
+        }
+
+        .page-header .icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .page-header h1 {
+            font-size: 2.6rem;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            color: #cbd5e1;
+            font-size: 1.05rem;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        /* ==========================================================
+           CONTENEUR
+           ========================================================== */
+
+        .tp-container {
+            width: 100%;
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* ==========================================================
+           SÉQUENCE
+           ========================================================== */
+
+        .sequence {
+            background: white;
+            border-radius: 14px;
+            margin-bottom: 30px;
+            overflow: hidden;
+            border: 1px solid #e5e7eb;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .sequence-header {
+            background: #f8fafc;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 20px 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .sequence-number {
+            width: 42px;
+            height: 42px;
+            min-width: 42px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+        }
+
+        .sequence-header h2 {
+            font-size: 1.35rem;
+            color: var(--dark);
+        }
+
+        .sequence-header p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* ==========================================================
+           LISTE DES TP
+           ========================================================== */
+
+        .tp-list {
+            padding: 10px 25px 25px;
+        }
+
+        .tp-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 20px 0;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .tp-item:last-child {
+            border-bottom: none;
+        }
+
+        /* ==========================================================
+           INFORMATIONS DU TP
+           ========================================================== */
+
+        .tp-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .tp-info h3 {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            margin-bottom: 5px;
+        }
+
+        .tp-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* ==========================================================
+           BOUTONS
+           ========================================================== */
+
+        .download-buttons {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            min-width: 105px;
+            padding: 9px 13px;
+            border-radius: 7px;
+            color: white;
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 600;
+            transition: all 0.25s ease;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.08);
+        }
+
+        .download-btn.pdf {
+            background: var(--pdf);
+        }
+
+        .download-btn.word {
+            background: var(--word);
+        }
+
+        .download-btn.zip {
+            background: var(--zip);
+        }
+
+        /* ==========================================================
+           BADGES
+           ========================================================== */
+
+        .file-badge {
+            display: inline-block;
+            margin-top: 7px;
+            padding: 3px 8px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            background: #f1f5f9;
+            color: #64748b;
+        }
+
+        /* ==========================================================
+           MESSAGE SI AUCUN TP
+           ========================================================== */
+
+        .empty {
+            text-align: center;
+            padding: 30px;
+            color: var(--text-muted);
+        }
+
+        /* ==========================================================
+           FOOTER
+           ========================================================== */
+
+        footer {
+            background: var(--dark);
+            color: #cbd5e1;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+            font-size: 0.9rem;
+        }
+
+        /* ==========================================================
+           TABLETTES
+           ========================================================== */
+
+        @media (max-width: 768px) {
+
+            .page-header {
+                padding: 55px 20px 40px;
+            }
+
+            .page-header h1 {
+                font-size: 2.1rem;
+            }
+
+            .tp-container {
+                margin: 25px auto;
+                padding: 0 15px;
+            }
+
+            .sequence-header {
+                padding: 18px;
+            }
+
+            .tp-list {
+                padding: 5px 18px 18px;
+            }
+
+            .tp-item {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .download-buttons {
+                width: 100%;
+                flex-wrap: wrap;
+            }
+
+            .download-btn {
+                flex: 1;
+                min-width: 120px;
+            }
+        }
+
+        /* ==========================================================
+           TÉLÉPHONES
+           ========================================================== */
+
+        @media (max-width: 480px) {
+
+            .page-header {
+                padding: 40px 15px 30px;
+            }
+
+            .page-header .icon {
+                font-size: 2.3rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.7rem;
+            }
+
+            .page-header p {
+                font-size: 0.9rem;
+            }
+
+            .tp-container {
+                padding: 0 8px;
+                margin: 20px auto;
+            }
+
+            .sequence {
+                border-radius: 10px;
+                margin-bottom: 20px;
+            }
+
+            .sequence-header {
+                padding: 15px;
+                gap: 10px;
+            }
+
+            .sequence-number {
+                width: 36px;
+                height: 36px;
+                min-width: 36px;
+                font-size: 0.9rem;
+            }
+
+            .sequence-header h2 {
+                font-size: 1.1rem;
+            }
+
+            .sequence-header p {
+                font-size: 0.8rem;
+            }
+
+            .tp-list {
+                padding: 5px 15px 15px;
+            }
+
+            .tp-item {
+                padding: 17px 0;
+            }
+
+            .tp-info h3 {
+                font-size: 0.98rem;
+            }
+
+            .tp-info p {
+                font-size: 0.82rem;
+            }
+
+            .download-buttons {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                width: 100%;
+                gap: 6px;
+            }
+
+            .download-btn {
+                min-width: 0;
+                width: 100%;
+                padding: 9px 5px;
+                font-size: 0.72rem;
+            }
+        }
+
+        /* ==========================================================
+           TRÈS PETITS ÉCRANS
+           ========================================================== */
+
+        @media (max-width: 360px) {
+
+            .page-header h1 {
+                font-size: 1.5rem;
+            }
+
+            .download-buttons {
+                grid-template-columns: 1fr;
+            }
+
+            .download-btn {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==========================================================
+         HEADER
+         ========================================================== -->
+
+    <header class="page-header">
+
+        <h1>Téléchargement des TP</h1>
+
+        <p>
+            Retrouvez l'ensemble des travaux pratiques classés
+            par séquence et téléchargez les ressources disponibles.
+        </p>
+
+    </header>
+
+
+    <!-- ==========================================================
+         CONTENU
+         ========================================================== -->
+
+    <main class="tp-container">
+        
+
+        <!-- ======================================================
+             SÉQUENCE 2
+             ====================================================== -->
+
+        <section class="sequence">
+
+            <div class="sequence-header">
+
+                <div class="sequence-number">
+                    2
+                </div>
+
+                <div>
+                    <h2>Séquence 2 — Environnement de Travail Logiciel</h2>
+                    <p>Travaux pratiques consacrés à l'environnement Windows.</p>
+                </div>
+
+            </div>
+
+
+            <div class="tp-list">
+
+                <!-- TP -->
+
+                <article class="tp-item">
+
+                    <div class="tp-info">
+
+                        <h3>TP 1 — Découverte de l’Interface Windows</h3>
+                        <p>
+                        Découverte de l’environnement Windows, utilisation du bureau et du menu Démarrer, gestion des fenêtres et utilisation des principales fonctionnalités du système.
+                        </p>
+
+                        <span class="file-badge">
+                            PDF
+                        </span>
+
+                    </div>
+
+                    <div class="download-buttons">
+
+                        <a href="ressources/cours_tps/2-4 TP-decouverte de linterface de windows.pdf"
+                           class="download-btn pdf"
+                           download>
+                            📄 PDF
+                        </a>
+
+                    </div>
+
+                </article>
+
+                <article class="tp-item">
+
+                    <div class="tp-info">
+
+                        <h3>TP 2 — Gestion des dossiers et des fichiers</h3>
+                        <p>
+                        Création, organisation, déplacement, copie, renommage et suppression des fichiers et des dossiers, ainsi que recherche et gestion des propriétés des fichiers.
+                        </p>
+
+                        <span class="file-badge">
+                            PDF
+                        </span>
+
+                    </div>
+
+                    <div class="download-buttons">
+
+                        <a href="ressources/cours_tps/2-5 TP-Gestion-Dossiers-Fichiers.pdf"
+                           class="download-btn pdf"
+                           download>
+                            📄 PDF
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================================
+             SÉQUENCE 5
+             ====================================================== -->
+
+        <section class="sequence">
+
+            <div class="sequence-header">
+
+                <div class="sequence-number">
+                    5
+                </div>
+
+                <div>
+                    <h2>Séquence 5 — Microsoft Word</h2>
+                    <p>Travail pratique consacré au traitement de texte.</p>
+                </div>
+
+            </div>
+
+
+            <div class="tp-list">
+
+
+                <!-- TP -->
+
+                <article class="tp-item">
+
+                    <div class="tp-info">
+
+                        <h3>TP — Les fondements de Microsoft Word</h3>
+
+                        <p>
+                        Création, saisie et modification d’un document, mise en forme du texte et des paragraphes, mise en page, insertion d’éléments, utilisation des fonctionnalités de base et enregistrement du document.
+                        </p>
+
+                        <span class="file-badge">
+                            PDF
+                        </span>
+
+                    </div>
+
+                    <div class="download-buttons">
+
+                        <a href="ressources/cours_tps/TP Word.pdf"
+                           class="download-btn pdf"
+                           download>
+                            📄 PDF
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ======================================================
+             SÉQUENCE 6
+             ====================================================== -->
+
+        <section class="sequence">
+
+            <div class="sequence-header">
+
+                <div class="sequence-number">
+                    6
+                </div>
+
+                <div>
+                    <h2>Séquence 6 — Microsoft Excel</h2>
+                    <p>Travail pratique consacré au tableur.</p>
+                </div>
+
+            </div>
+
+
+            <div class="tp-list">
+
+
+                <!-- TP -->
+
+                <article class="tp-item">
+
+                    <div class="tp-info">
+
+                        <h3>TP — Les bases d'Excel</h3>
+
+                        <p>
+                        Saisie et organisation des données, création et mise en forme d’un tableau, utilisation des formules et fonctions de base, et réalisation de calculs simples.
+                        </p>
+
+                        <span class="file-badge">
+                            PDF
+                        </span>
+
+                    </div>
+
+                    <div class="download-buttons">
+
+                        <a href="ressources/cours_tps/TP Excel.pdf"
+                           class="download-btn pdf"
+                           download>
+                            📄 PDF
+                        </a>
+
+                    </div>
+
+                </article>
+                
+            </div>
+
+        </section>
+
+
+        <!-- ======================================================
+             SÉQUENCE 7
+             ====================================================== -->
+
+        <section class="sequence">
+
+            <div class="sequence-header">
+
+                <div class="sequence-number">
+                    7
+                </div>
+
+                <div>
+                    <h2>Séquence 7 — Microsoft PowerPoint</h2>
+                    <p>Travail pratique consacré aux présentations.</p>
+                </div>
+
+            </div>
+
+            <div class="tp-list">
+
+
+                <!-- TP -->
+
+                <article class="tp-item">
+
+                    <div class="tp-info">
+
+                        <h3>TP — Création d'une présentation</h3>
+
+                        <p>
+                        Création, structuration et mise en forme d’une présentation, insertion et organisation de textes, images et objets, application de thèmes et de transitions, et présentation du diaporama.
+                        </p>
+
+                        <span class="file-badge">
+                            ZIP
+                        </span>
+
+                    </div>
+
+                    <div class="download-buttons">
+
+                        <a href="ressources/cours_tps/TP PowerPoint - La création d'une présentation professionnelle.rar"
+                           class="download-btn zip"
+                           download>
+                            📦 ZIP
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- ==========================================================
+         FOOTER
+         ========================================================== -->
+
+    <footer>
+
+        <p>
+            Travaux pratiques — Ressources pédagogiques
+        </p>
+
+    </footer>
+
+</body>
+</html>
