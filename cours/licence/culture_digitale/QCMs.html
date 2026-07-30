@@ -493,34 +493,63 @@
                     font-size: 1rem;
                 }
         
-                /* Navigation des questions */
+                /* ======================================================
+                   PIED DU QCM SUR MOBILE
+                   
+                   Ligne 1 : Vérifier la réponse
+                   Ligne 2 : Précédent       Suivant
+                   ====================================================== */
+        
                 .quiz-footer {
                     display: grid;
                     grid-template-columns: 1fr 1fr;
                     gap: 8px;
+                    align-items: center;
                 }
         
+                /* Progression */
                 .progress-bar {
                     grid-column: 1 / -1;
                     order: -1;
                     width: 100%;
+                    text-align: center;
                     margin-bottom: 5px;
                 }
         
-                .btn-nav {
-                    width: 100%;
-                    padding: 10px;
-                    font-size: 0.85rem;
-                }
-        
+                /* Vérifier la réponse */
                 .btn-check,
                 .btn-retry {
                     grid-column: 1 / -1;
+                    order: 1;
                     width: 100%;
+                    max-width: 100%;
                     padding: 11px;
                     font-size: 0.9rem;
                 }
         
+                /* Précédent : à gauche */
+                .btn-prev {
+                    grid-column: 1;
+                    order: 2;
+                    justify-self: start;
+                    width: auto;
+                    min-width: 110px;
+                    padding: 10px 18px;
+                    font-size: 0.85rem;
+                }
+        
+                /* Suivant : à droite */
+                .btn-next {
+                    grid-column: 2;
+                    order: 3;
+                    justify-self: end;
+                    width: auto;
+                    min-width: 110px;
+                    padding: 10px 18px;
+                    font-size: 0.85rem;
+                }
+        
+                /* Retour au cours */
                 .back-home-zone {
                     padding: 15px 10px;
                 }
@@ -573,6 +602,20 @@
                     height: 17px;
                     min-width: 17px;
                     margin-right: 8px;
+                }
+        
+                /* Navigation */
+                .btn-prev,
+                .btn-next {
+                    min-width: 100px;
+                    padding: 9px 12px;
+                    font-size: 0.8rem;
+                }
+        
+                .btn-check,
+                .btn-retry {
+                    padding: 10px;
+                    font-size: 0.85rem;
                 }
             }
         </style>
