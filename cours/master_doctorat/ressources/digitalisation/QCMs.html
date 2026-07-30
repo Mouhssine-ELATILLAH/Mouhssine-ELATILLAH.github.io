@@ -1,0 +1,2234 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interface QCM Interactive - Haute Qualité</title>
+        <style>
+            :root {
+                --primary: #2c3e50;
+                --secondary: #34495e;
+                --success: #27ae60;
+                --error: #e74c3c;
+                --accent: #3498db;
+                --bg: #f4f7f6;
+                --warning: #f39c12;
+            }
+        
+            * {
+                box-sizing: border-box;
+            }
+        
+            html {
+                width: 100%;
+                overflow-x: hidden;
+            }
+        
+            body {
+                width: 100%;
+                max-width: 100%;
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background: var(--bg);
+                color: var(--primary);
+                margin: 0;
+                padding: 20px;
+                overflow-x: hidden;
+            }
+        
+            /* ==========================================================
+               CONTENEUR PRINCIPAL
+               ========================================================== */
+        
+            .qcm-container {
+                width: 100%;
+                max-width: 1000px;
+                margin: auto;
+                background: white;
+                border-radius: 12px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+                overflow: hidden;
+            }
+        
+            /* ==========================================================
+               HEADER
+               ========================================================== */
+        
+            .qcm-header {
+                background: var(--primary);
+                color: white;
+                padding: 25px;
+                text-align: center;
+            }
+        
+            .qcm-header h1,
+            .qcm-header h2,
+            .qcm-header h3 {
+                max-width: 100%;
+                overflow-wrap: break-word;
+            }
+        
+            /* ==========================================================
+               NAVIGATION DES SECTIONS
+               ========================================================== */
+        
+            .section-nav {
+                background: #ecf0f1;
+                padding: 15px;
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                flex-wrap: wrap;
+                border-bottom: 2px solid #ddd;
+            }
+        
+            .btn-section {
+                padding: 10px 20px;
+                border: 1px solid #ccc;
+                background: white;
+                color: var(--primary);
+                border-radius: 20px;
+                cursor: pointer;
+                font-weight: 600;
+                transition: all 0.3s;
+                max-width: 100%;
+                white-space: normal;
+            }
+        
+            .btn-section.active {
+                background: var(--accent);
+                color: white;
+                border-color: var(--accent);
+                transform: translateY(-2px);
+            }
+        
+            /* ==========================================================
+               ZONE DU QUIZ
+               ========================================================== */
+        
+            .quiz-frame {
+                width: 100%;
+                padding: 30px;
+                min-height: 400px;
+                overflow-wrap: break-word;
+            }
+        
+            .question-card {
+                display: none;
+                animation: fadeIn 0.5s ease;
+                max-width: 100%;
+            }
+        
+            .question-card.active {
+                display: block;
+            }
+        
+            .question-text {
+                font-size: 1.25rem;
+                margin-bottom: 20px;
+                font-weight: bold;
+                color: var(--secondary);
+                line-height: 1.5;
+                overflow-wrap: break-word;
+            }
+        
+            /* ==========================================================
+               OPTIONS
+               ========================================================== */
+        
+            .options-grid {
+                display: grid;
+                gap: 12px;
+                margin-bottom: 25px;
+                width: 100%;
+            }
+        
+            .option {
+                width: 100%;
+                min-width: 0;
+                padding: 15px;
+                border: 2px solid #edeff0;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: all 0.2s;
+                display: flex;
+                align-items: center;
+                position: relative;
+                overflow-wrap: break-word;
+                word-break: normal;
+            }
+        
+            .option:hover {
+                background: #f8f9fa;
+                border-color: var(--accent);
+            }
+        
+            /* ==========================================================
+               CASE À COCHER
+               ========================================================== */
+        
+            .checkbox {
+                width: 20px;
+                height: 20px;
+                min-width: 20px;
+                border: 2px solid #bdc3c7;
+                margin-right: 15px;
+                border-radius: 4px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: bold;
+                font-size: 0.8em;
+                color: transparent;
+                transition: all 0.2s;
+                background: white;
+                flex-shrink: 0;
+            }
+        
+            /* ==========================================================
+               ÉTAT SÉLECTIONNÉ
+               ========================================================== */
+        
+            .option.selected {
+                border-color: var(--accent);
+                background: #ebf5fb;
+            }
+        
+            .option.selected .checkbox {
+                border-color: var(--accent);
+                color: var(--accent);
+            }
+        
+            /* ==========================================================
+               CORRECTION
+               ========================================================== */
+        
+            .option.correct {
+                background: #d4edda !important;
+                border-color: var(--success) !important;
+                animation: successPop 0.4s ease;
+                cursor: default;
+            }
+        
+            .option.correct .checkbox {
+                border-color: var(--success) !important;
+                color: var(--success) !important;
+            }
+        
+            .option.wrong {
+                background: #f8d7da !important;
+                border-color: var(--error) !important;
+                animation: shake 0.4s ease;
+            }
+        
+            .option.wrong .checkbox {
+                border-color: var(--error) !important;
+                color: var(--error) !important;
+            }
+        
+            .feedback-icon {
+                margin-left: auto;
+                font-size: 1.2em;
+                font-weight: bold;
+                flex-shrink: 0;
+            }
+        
+            /* ==========================================================
+               NAVIGATION ENTRE QUESTIONS
+               ========================================================== */
+        
+            .quiz-footer {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-top: 20px;
+                border-top: 1px solid #eee;
+                gap: 10px;
+                flex-wrap: wrap;
+            }
+        
+            .btn-nav {
+                padding: 12px 25px;
+                border-radius: 5px;
+                border: none;
+                cursor: pointer;
+                font-weight: bold;
+                transition: 0.3s;
+            }
+        
+            .btn-prev {
+                background: #95a5a6;
+                color: white;
+            }
+        
+            .btn-next {
+                background: var(--accent);
+                color: white;
+            }
+        
+            .btn-check {
+                background: var(--primary);
+                color: white;
+                padding: 12px 30px;
+                font-size: 1rem;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-weight: bold;
+                flex-grow: 2;
+                transition: 0.3s;
+            }
+        
+            .btn-retry {
+                background: var(--warning);
+                color: white;
+                padding: 12px 30px;
+                font-size: 1rem;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-weight: bold;
+                flex-grow: 2;
+                display: none;
+                transition: 0.3s;
+            }
+        
+            .progress-bar {
+                font-size: 0.9rem;
+                color: #7f8c8d;
+                text-align: center;
+            }
+        
+            /* ==========================================================
+               RETOUR AU COURS
+               ========================================================== */
+        
+            .back-home-zone {
+                text-align: center;
+                padding: 20px;
+                background: #fafbfc;
+                border-top: 1px solid #eee;
+            }
+        
+            .btn-back-home {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                padding: 10px 25px;
+                background-color: var(--primary);
+                color: white;
+                text-decoration: none;
+                border-radius: 6px;
+                font-weight: 600;
+                font-size: 0.95rem;
+                transition: background 0.2s;
+                max-width: 100%;
+            }
+        
+            .btn-back-home:hover {
+                background-color: #1a252f;
+            }
+        
+            /* ==========================================================
+               ANIMATIONS
+               ========================================================== */
+        
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                    transform: translateY(10px);
+                }
+        
+                to {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        
+            @keyframes successPop {
+                0% {
+                    transform: scale(1);
+                }
+        
+                50% {
+                    transform: scale(1.02);
+                }
+        
+                100% {
+                    transform: scale(1);
+                }
+            }
+        
+            @keyframes shake {
+                0%, 100% {
+                    transform: translateX(0);
+                }
+        
+                25% {
+                    transform: translateX(-5px);
+                }
+        
+                75% {
+                    transform: translateX(5px);
+                }
+            }
+        
+            /* ==========================================================
+               TABLETTES
+               ========================================================== */
+        
+            @media (max-width: 768px) {
+        
+                body {
+                    padding: 10px;
+                }
+        
+                .qcm-container {
+                    width: 100%;
+                    border-radius: 10px;
+                }
+        
+                .qcm-header {
+                    padding: 20px 15px;
+                }
+        
+                .section-nav {
+                    padding: 12px 10px;
+                    gap: 8px;
+                }
+        
+                .btn-section {
+                    padding: 9px 15px;
+                    font-size: 0.9rem;
+                }
+        
+                .quiz-frame {
+                    padding: 20px;
+                    min-height: 350px;
+                }
+        
+                .question-text {
+                    font-size: 1.1rem;
+                    line-height: 1.5;
+                }
+        
+                .option {
+                    padding: 13px;
+                }
+        
+                .checkbox {
+                    margin-right: 12px;
+                }
+        
+                .quiz-footer {
+                    gap: 8px;
+                }
+        
+                .btn-nav,
+                .btn-check,
+                .btn-retry {
+                    padding: 11px 18px;
+                    font-size: 0.9rem;
+                }
+            }
+        
+            /* ==========================================================
+               TÉLÉPHONES
+               ========================================================== */
+        
+            @media (max-width: 480px) {
+        
+                body {
+                    padding: 5px;
+                }
+        
+                .qcm-container {
+                    border-radius: 8px;
+                }
+        
+                .qcm-header {
+                    padding: 18px 12px;
+                }
+        
+                .section-nav {
+                    padding: 10px 8px;
+                    gap: 6px;
+                }
+        
+                .btn-section {
+                    padding: 8px 12px;
+                    font-size: 0.8rem;
+                    border-radius: 16px;
+                }
+        
+                .quiz-frame {
+                    padding: 15px;
+                    min-height: 300px;
+                }
+        
+                .question-text {
+                    font-size: 1rem;
+                    line-height: 1.5;
+                    margin-bottom: 16px;
+                }
+        
+                .options-grid {
+                    gap: 9px;
+                }
+        
+                .option {
+                    padding: 11px;
+                    font-size: 0.92rem;
+                    line-height: 1.45;
+                }
+        
+                .checkbox {
+                    width: 18px;
+                    height: 18px;
+                    min-width: 18px;
+                    margin-right: 10px;
+                }
+        
+                .feedback-icon {
+                    font-size: 1rem;
+                }
+        
+                /* ======================================================
+                   PIED DU QCM SUR MOBILE
+                   
+                   Ligne 1 : Vérifier la réponse
+                   Ligne 2 : Précédent       Suivant
+                   ====================================================== */
+        
+                .quiz-footer {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 8px;
+                    align-items: center;
+                }
+        
+                /* Progression */
+                .progress-bar {
+                    grid-column: 1 / -1;
+                    order: -1;
+                    width: 100%;
+                    text-align: center;
+                    margin-bottom: 5px;
+                }
+        
+                /* Vérifier la réponse */
+                .btn-check,
+                .btn-retry {
+                    grid-column: 1 / -1;
+                    order: 1;
+                    width: 100%;
+                    max-width: 100%;
+                    padding: 11px;
+                    font-size: 0.9rem;
+                }
+        
+                /* Précédent : à gauche */
+                .btn-prev {
+                    grid-column: 1;
+                    order: 2;
+                    justify-self: start;
+                    width: auto;
+                    min-width: 110px;
+                    padding: 10px 18px;
+                    font-size: 0.85rem;
+                }
+        
+                /* Suivant : à droite */
+                .btn-next {
+                    grid-column: 2;
+                    order: 3;
+                    justify-self: end;
+                    width: auto;
+                    min-width: 110px;
+                    padding: 10px 18px;
+                    font-size: 0.85rem;
+                }
+        
+                /* Retour au cours */
+                .back-home-zone {
+                    padding: 15px 10px;
+                }
+        
+                .btn-back-home {
+                    width: 100%;
+                    padding: 10px 15px;
+                    font-size: 0.85rem;
+                }
+            }
+        
+            /* ==========================================================
+               TRÈS PETITS ÉCRANS
+               ========================================================== */
+        
+            @media (max-width: 360px) {
+        
+                body {
+                    padding: 2px;
+                }
+        
+                .qcm-header {
+                    padding: 15px 10px;
+                }
+        
+                .section-nav {
+                    padding: 8px 5px;
+                }
+        
+                .btn-section {
+                    padding: 7px 9px;
+                    font-size: 0.75rem;
+                }
+        
+                .quiz-frame {
+                    padding: 12px;
+                }
+        
+                .question-text {
+                    font-size: 0.95rem;
+                }
+        
+                .option {
+                    padding: 10px;
+                    font-size: 0.88rem;
+                }
+        
+                .checkbox {
+                    width: 17px;
+                    height: 17px;
+                    min-width: 17px;
+                    margin-right: 8px;
+                }
+        
+                /* Navigation */
+                .btn-prev,
+                .btn-next {
+                    min-width: 100px;
+                    padding: 9px 12px;
+                    font-size: 0.8rem;
+                }
+        
+                .btn-check,
+                .btn-retry {
+                    padding: 10px;
+                    font-size: 0.85rem;
+                }
+            }
+        </style>
+</head>
+<body>
+
+<div class="qcm-container">
+    <div class="qcm-header">
+        <h1 style="margin:0;">Auto-Évaluation Interactive</h1>
+        <p style="opacity: 0.8; margin: 5px 0 0 0;">Sélectionnez une section pour commencer</p>
+    </div>
+
+    <!-- Sélecteur de Section -->
+    <div class="section-nav">
+        <button class="btn-section active" onclick="loadSection(1)">Séquence 1</button>
+   <!-- <button class="btn-section" onclick="loadSection(2)">Séquence 2</button>
+        <button class="btn-section" onclick="loadSection(3)">Séquence 3</button>
+        <button class="btn-section" onclick="loadSection(4)">Séquence 4</button>
+        <button class="btn-section" onclick="loadSection(5)">Séquence 5</button>
+        <button class="btn-section" onclick="loadSection(6)">Séquence 6</button> -->
+    </div>
+
+    <!-- Frame des Questions -->
+    <div class="quiz-frame" id="quiz-content">
+        <div id="question-container">
+            <!-- Injecté par JS -->
+        </div>
+
+        <div class="quiz-footer">
+            <button class="btn-nav btn-prev" onclick="changeQuestion(-1)">Précédent</button>
+            <button id="check-btn" class="btn-check" onclick="validateAnswer()">Vérifier la réponse</button>
+            <button id="retry-btn" class="btn-retry" onclick="resetCurrentQuestion()">Réessayer</button>
+            <button class="btn-nav btn-next" onclick="changeQuestion(1)">Suivant</button>
+        </div>
+        
+        <div style="text-align: center; margin-top: 15px;" class="progress-bar" id="progress-text">
+            Question 1 sur 20
+        </div>
+    </div>
+
+    <!-- NOUVEAU : Bouton de retour en bas de page pour casser la page morte -->
+    <div class="back-home-zone">
+        <a href="culture_digitale.html" class="btn-back-home">
+            <span>🏠</span> Retour à la page du Cours principale
+        </a>
+    </div>
+</div>
+
+<script>
+    const quizData = {
+    1: [
+          {
+            "q": "Quel logiciel de la suite Microsoft Office est principalement destiné au traitement de texte ?",
+            "options": [
+              "Microsoft Word",
+              "Microsoft Excel",
+              "Microsoft PowerPoint",
+              "Microsoft Access"
+            ],
+            "correct": [
+              0
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "Microsoft Word permet notamment de :",
+            "options": [
+              "Créer et mettre en forme des documents textuels",
+              "Créer uniquement des bases de données",
+              "Créer uniquement des présentations",
+              "Programmer des applications"
+            ],
+            "correct": [
+              0
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "Dans Word, quel onglet permet généralement d'insérer un tableau ?",
+            "options": [
+              "Accueil",
+              "Insertion",
+              "Révision",
+              "Affichage"
+            ],
+            "correct": [
+              1
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "Dans Word, que signifie le terme WYSIWYG ?",
+            "options": [
+              "Ce que vous voyez correspond globalement au résultat obtenu",
+              "Un format de fichier audio",
+              "Un langage de programmation",
+              "Un système de compression"
+            ],
+            "correct": [
+              0
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "Dans Word, le mode Insertion :",
+            "options": [
+              "Ajoute les caractères saisis sans supprimer le texte existant",
+              "Efface systématiquement le texte situé après le curseur",
+              "Transforme le texte en image",
+              "Enregistre automatiquement le document"
+            ],
+            "correct": [
+              0
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "Dans Word, le mode Refrappe :",
+            "options": [
+              "Insère toujours les caractères entre deux caractères",
+              "Remplace le texte existant au niveau du curseur",
+              "Crée une nouvelle page",
+              "Met le texte en gras"
+            ],
+            "correct": [
+              1
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "Pour sélectionner rapidement un mot dans Word, on peut :",
+            "options": [
+              "Double-cliquer sur le mot",
+              "Triple-cliquer dans la marge",
+              "Appuyer uniquement sur F1",
+              "Cliquer sur l'onglet Insertion"
+            ],
+            "correct": [
+              0
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "Quel raccourci permet de rechercher un texte dans Word ?",
+            "options": [
+              "Ctrl+F",
+              "Ctrl+H",
+              "Ctrl+P",
+              "Ctrl+S"
+            ],
+            "correct": [
+              0
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "Quel raccourci permet d'utiliser la fonction Remplacer dans Word ?",
+            "options": [
+              "Ctrl+F",
+              "Ctrl+H",
+              "Ctrl+C",
+              "Ctrl+V"
+            ],
+            "correct": [
+              1
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "Dans Word, Ctrl+C puis Ctrl+V permet principalement de :",
+            "options": [
+              "Copier puis coller",
+              "Couper puis supprimer",
+              "Rechercher puis remplacer",
+              "Enregistrer puis imprimer"
+            ],
+            "correct": [
+              0
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "Dans Word, les mots mal orthographiés sont généralement signalés :",
+            "options": [
+              "Par un soulignement rouge",
+              "Par un fond jaune",
+              "Par une bordure bleue",
+              "Par une suppression automatique"
+            ],
+            "correct": [
+              0
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "Pour ajouter une image dans Word, on utilise principalement :",
+            "options": [
+              "Insertion",
+              "Références",
+              "Publipostage",
+              "Révision"
+            ],
+            "correct": [
+              0
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "Pour créer une liste à puces dans Word, on peut utiliser :",
+            "options": [
+              "Puces",
+              "Numérotation",
+              "Table des matières",
+              "Publipostage"
+            ],
+            "correct": [
+              0
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "Pour insérer un en-tête ou un pied de page dans Word, on utilise principalement :",
+            "options": [
+              "Insertion",
+              "Accueil",
+              "Révision",
+              "Données"
+            ],
+            "correct": [
+              0
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "Pour enregistrer directement un document Word sous forme PDF, on peut passer par :",
+            "options": [
+              "Fichier > Enregistrer sous",
+              "Accueil > Police",
+              "Révision > Commentaires",
+              "Insertion > Formes"
+            ],
+            "correct": [
+              0
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "Pour imprimer un document Word, on utilise principalement :",
+            "options": [
+              "Fichier > Imprimer",
+              "Insertion > Imprimer",
+              "Références > Imprimer",
+              "Accueil > Imprimer"
+            ],
+            "correct": [
+              0
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "Une section Word permet notamment de :",
+            "options": [
+              "Modifier l'orientation de certaines pages",
+              "Créer uniquement des images",
+              "Changer le système d'exploitation",
+              "Remplacer Excel"
+            ],
+            "correct": [
+              0
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "Une table des matières automatique Word s'appuie notamment sur :",
+            "options": [
+              "Les styles appliqués aux titres",
+              "Les couleurs des images",
+              "Le nom du fichier",
+              "La taille du disque dur"
+            ],
+            "correct": [
+              0
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "Pour créer une table des illustrations dans Word, les images doivent notamment avoir :",
+            "options": [
+              "Des légendes",
+              "Des animations",
+              "Des transitions",
+              "Des formules"
+            ],
+            "correct": [
+              0
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "Le publipostage Word sert principalement à :",
+            "options": [
+              "Créer plusieurs documents personnalisés à partir d'un modèle et de données",
+              "Créer des graphiques scientifiques",
+              "Calculer des moyennes",
+              "Modifier le système"
+            ],
+            "correct": [
+              0
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "PowerPoint est principalement destiné à créer :",
+            "options": [
+              "Des présentations sous forme de diapositives",
+              "Des bases de données relationnelles",
+              "Des systèmes d'exploitation",
+              "Des fichiers exécutables"
+            ],
+            "correct": [
+              0
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "Pour ajouter une nouvelle diapositive dans PowerPoint, on utilise notamment :",
+            "options": [
+              "Accueil > Nouvelle diapositive",
+              "Références > Nouvelle diapositive",
+              "Données > Nouvelle diapositive",
+              "Publipostage > Nouvelle diapositive"
+            ],
+            "correct": [
+              0
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "Dans PowerPoint, les transitions concernent principalement :",
+            "options": [
+              "Le passage d'une diapositive à une autre",
+              "Le calcul des cellules",
+              "La correction orthographique",
+              "Les données d'une base"
+            ],
+            "correct": [
+              0
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "Dans PowerPoint, les animations peuvent être appliquées à :",
+            "options": [
+              "Du texte",
+              "Des images",
+              "Des formes",
+              "Tous les éléments précédents"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "Dans PowerPoint, l'onglet Conception permet notamment de :",
+            "options": [
+              "Choisir un thème",
+              "Calculer une somme",
+              "Créer une table des matières Word",
+              "Filtrer une base Excel"
+            ],
+            "correct": [
+              0
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "Les notes du présentateur PowerPoint sont :",
+            "options": [
+              "Destinées à aider le présentateur et peuvent ne pas être visibles du public",
+              "Toujours projetées en grand au public",
+              "Des cellules Excel",
+              "Des transitions"
+            ],
+            "correct": [
+              0
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "Un tableur sert notamment à :",
+            "options": [
+              "Manipuler des tableaux de données",
+              "Effectuer des calculs",
+              "Créer des graphiques",
+              "Toutes les réponses précédentes"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "Dans Excel, une cellule est :",
+            "options": [
+              "L'intersection d'une ligne et d'une colonne",
+              "Un classeur complet",
+              "Une feuille entière",
+              "Un graphique"
+            ],
+            "correct": [
+              0
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "Dans Excel, une ligne est identifiée principalement par :",
+            "options": [
+              "Un numéro",
+              "Une lettre",
+              "Une couleur",
+              "Un symbole monétaire"
+            ],
+            "correct": [
+              0
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "Dans Excel, une colonne est identifiée principalement par :",
+            "options": [
+              "Une lettre ou plusieurs lettres",
+              "Un numéro uniquement",
+              "Une date uniquement",
+              "Une couleur"
+            ],
+            "correct": [
+              0
+            ],
+            "difficulty": "Facile"
+          },
+          {
+            "q": "Quelles règles de saisie sont conformes au cours Word ?",
+            "options": [
+              "Un seul espace entre les mots",
+              "Le point et la virgule sont collés au mot précédent",
+              "Les deux-points et le point-virgule sont précédés et suivis d'un espace",
+              "Appuyer sur Entrée à la fin d'un paragraphe"
+            ],
+            "correct": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Dans Word, quelles méthodes peuvent servir à déplacer un texte ?",
+            "options": [
+              "Glisser-déposer le texte sélectionné",
+              "Ctrl+X puis Ctrl+V",
+              "Modifier le texte caractère par caractère",
+              "Couper puis coller via le menu contextuel"
+            ],
+            "correct": [
+              0,
+              1,
+              3
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Dans Word, quelles actions sont associées à la correction orthographique ?",
+            "options": [
+              "Faire un clic droit sur un mot souligné pour voir des suggestions",
+              "Ajouter certains termes au dictionnaire",
+              "Le vérificateur peut signaler à tort un nom propre",
+              "Tous les mots soulignés en rouge sont nécessairement faux"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Pour créer une table des matières automatique dans Word, il faut notamment :",
+            "options": [
+              "Appliquer correctement les styles aux titres",
+              "Placer le curseur à l'endroit souhaité",
+              "Passer par Références > Table des matières",
+              "Saisir manuellement tous les numéros de pages"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Pourquoi faut-il mettre à jour une table des matières Word après des modifications ?",
+            "options": [
+              "Les pages et les titres peuvent avoir changé",
+              "De nouveaux titres peuvent avoir été ajoutés",
+              "Les numéros de page peuvent être modifiés",
+              "Pour transformer automatiquement le document en PDF"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Pour supprimer correctement un saut de section dans Word, quelles actions sont pertinentes ?",
+            "options": [
+              "Afficher les caractères non imprimables",
+              "Repérer le saut de section",
+              "Sélectionner le saut concerné",
+              "Appuyer sur Suppr"
+            ],
+            "correct": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Le publipostage repose principalement sur quels éléments ?",
+            "options": [
+              "Un document principal",
+              "Une source de données",
+              "Un document fusionné",
+              "Une transition PowerPoint"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Dans un publipostage, une source de données peut être :",
+            "options": [
+              "Une nouvelle liste",
+              "Une liste existante",
+              "Des contacts Outlook",
+              "Une transition de diapositive"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Dans le publipostage, le filtrage des destinataires permet de :",
+            "options": [
+              "Exclure certains enregistrements",
+              "Inclure uniquement certains destinataires",
+              "Utiliser des critères de sélection",
+              "Modifier automatiquement la police du document principal"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Dans Word, le champ « Si...Alors...Sinon » peut servir à :",
+            "options": [
+              "Adapter une formule de politesse selon une condition",
+              "Produire un résultat différent selon les données",
+              "Personnaliser les lettres fusionnées",
+              "Créer une animation PowerPoint"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Dans PowerPoint, quelles opérations peuvent être réalisées sur une diapositive ?",
+            "options": [
+              "La sélectionner",
+              "La dupliquer",
+              "La déplacer",
+              "La supprimer"
+            ],
+            "correct": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Dans PowerPoint, quelles affirmations sur les transitions sont correctes ?",
+            "options": [
+              "Elles concernent le passage entre diapositives",
+              "On peut prévisualiser une transition",
+              "On peut choisir certaines options d'effet",
+              "Une transition est identique à une animation d'objet"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Dans PowerPoint, quelles affirmations sur les animations sont correctes ?",
+            "options": [
+              "Elles peuvent faire apparaître un objet",
+              "Elles peuvent faire disparaître un objet",
+              "Elles peuvent modifier la taille ou la couleur d'un objet",
+              "Elles ne peuvent être appliquées qu'aux titres"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Dans PowerPoint, l'ordre des animations peut être modifié en :",
+            "options": [
+              "Déplaçant une animation antérieurement",
+              "Déplaçant une animation ultérieurement",
+              "Supprimant obligatoirement toutes les autres animations",
+              "Changeant l'ordre des diapositives"
+            ],
+            "correct": [
+              0,
+              1
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Dans PowerPoint, le mode Présentateur permet notamment de :",
+            "options": [
+              "Afficher les notes au présentateur",
+              "Aider à gérer la présentation",
+              "Présenter au public des éléments qui peuvent rester dans les notes",
+              "Remplacer le mode Diaporama"
+            ],
+            "correct": [
+              0,
+              1
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Dans Excel, quelles affirmations sur un classeur sont correctes ?",
+            "options": [
+              "Un classeur peut contenir plusieurs feuilles",
+              "On peut ajouter une feuille",
+              "On peut supprimer une feuille",
+              "Un classeur ne peut contenir qu'une seule feuille"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Dans Excel, quelles affirmations sur les données saisies sont correctes ?",
+            "options": [
+              "Le texte est généralement aligné à gauche par défaut",
+              "Les nombres sont généralement alignés à droite",
+              "Les dates sont généralement alignées à droite",
+              "Une donnée alphanumérique est considérée comme texte"
+            ],
+            "correct": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Dans Excel, quelles méthodes permettent de modifier le contenu d'une cellule ?",
+            "options": [
+              "Utiliser la barre de formule",
+              "Double-cliquer sur la cellule",
+              "Changer obligatoirement de feuille",
+              "Sélectionner la cellule avant modification"
+            ],
+            "correct": [
+              0,
+              1,
+              3
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Une formule Excel :",
+            "options": [
+              "Commence généralement par =",
+              "Peut utiliser des références de cellules",
+              "Peut utiliser des fonctions",
+              "Doit toujours être saisie sans signe ="
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "La référence relative dans Excel :",
+            "options": [
+              "S'adapte lors de la recopie d'une formule",
+              "Peut changer de ligne",
+              "Peut changer de colonne",
+              "Est toujours écrite avec des signes $"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "La référence absolue $A$1 :",
+            "options": [
+              "Fixe la colonne A",
+              "Fixe la ligne 1",
+              "Utilise le symbole $",
+              "Peut être utilisée pour éviter un déplacement de référence lors d'une recopie"
+            ],
+            "correct": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "La fonction SOMME dans Excel :",
+            "options": [
+              "Effectue une addition",
+              "Peut remplacer une longue addition de cellules",
+              "Peut s'écrire =SOMME(B3:B6)",
+              "Calcule nécessairement une moyenne"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Les fonctions Excel sont :",
+            "options": [
+              "Des formules prédéfinies",
+              "Utilisées pour réaliser certaines opérations",
+              "Présentes dans plusieurs catégories",
+              "Uniquement destinées aux graphiques"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Dans Excel, un graphique sert principalement à :",
+            "options": [
+              "Représenter graphiquement des données",
+              "Faciliter l'interprétation visuelle des données",
+              "Remplacer toutes les formules",
+              "Transformer une feuille en document Word"
+            ],
+            "correct": [
+              0,
+              1
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Les noms de plages dans Excel peuvent :",
+            "options": [
+              "Rendre les formules plus lisibles",
+              "Faciliter l'utilisation d'une plage de données",
+              "Permettre une formule comme =SOMME(Notes)",
+              "Supprimer les données de la plage"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Dans Excel, le tri simple permet :",
+            "options": [
+              "De classer selon un seul critère",
+              "De trier dans un ordre croissant",
+              "De trier dans un ordre décroissant",
+              "De modifier les valeurs originales"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Pour effectuer un tri sur plusieurs critères dans Excel, on peut :",
+            "options": [
+              "Utiliser la commande Trier",
+              "Ajouter un niveau de tri",
+              "Définir un premier critère puis un second",
+              "Utiliser uniquement Trier de A à Z"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Le filtrage Excel permet :",
+            "options": [
+              "De n'afficher que les données répondant à un critère",
+              "D'utiliser des critères numériques",
+              "D'utiliser des critères textuels",
+              "De supprimer automatiquement les lignes non affichées"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Quels types de filtres sont présentés dans le cours Excel ?",
+            "options": [
+              "Numérique",
+              "Textuel",
+              "Chronologique",
+              "Personnalisé"
+            ],
+            "correct": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Dans un filtre personnalisé Excel, l'opérateur ET signifie que :",
+            "options": [
+              "Les deux sous-critères doivent être vérifiés",
+              "Tous les critères concernés doivent être satisfaits",
+              "Un seul critère suffit toujours",
+              "Il permet de combiner plusieurs conditions"
+            ],
+            "correct": [
+              0,
+              1,
+              3
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Dans un filtre personnalisé Excel, l'opérateur OU signifie que :",
+            "options": [
+              "Au moins l'un des critères doit être vérifié",
+              "Deux critères peuvent être proposés comme alternatives",
+              "Tous les critères doivent être vrais simultanément",
+              "Il permet de sélectionner par exemple HP ou Toshiba"
+            ],
+            "correct": [
+              0,
+              1,
+              3
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "La mise en forme conditionnelle Excel permet :",
+            "options": [
+              "D'appliquer une mise en forme selon une condition",
+              "De mettre en évidence des informations importantes",
+              "D'utiliser des règles prédéfinies",
+              "De modifier obligatoirement la valeur des cellules"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Quelles formes de mise en forme conditionnelle sont présentées dans le cours ?",
+            "options": [
+              "Règles de mise en surbrillance",
+              "Barres de données",
+              "Nuances de couleurs",
+              "Jeux d'icônes"
+            ],
+            "correct": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Dans Excel, un style de cellule :",
+            "options": [
+              "Est une mise en forme prédéfinie",
+              "Peut être appliqué à plusieurs cellules",
+              "Peut être personnalisé",
+              "Est une formule de calcul"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "La fonction SI d'Excel :",
+            "options": [
+              "Teste une condition",
+              "Retourne une valeur si la condition est vraie",
+              "Retourne une autre valeur si la condition est fausse",
+              "Ne peut contenir aucune autre fonction"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "La fonction NBVAL sert à :",
+            "options": [
+              "Compter les cellules non vides",
+              "Compter des cellules contenant du texte",
+              "Compter des cellules contenant des nombres",
+              "Compter uniquement les cellules vides"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "La fonction NB.SI permet de :",
+            "options": [
+              "Compter les cellules répondant à un critère",
+              "Utiliser une plage et un critère",
+              "Compter les occurrences d'une valeur",
+              "Calculer directement une somme"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "La fonction SOMME.SI permet de :",
+            "options": [
+              "Additionner des valeurs selon un critère",
+              "Utiliser une plage de critères",
+              "Utiliser éventuellement une plage de somme différente",
+              "Compter uniquement les cellules non vides"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "RECHERCHEV effectue une recherche :",
+            "options": [
+              "Dans la première colonne d'un tableau",
+              "Pour retourner une valeur d'une même ligne",
+              "Verticalement",
+              "Uniquement dans la dernière colonne"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "RECHERCHEH effectue une recherche :",
+            "options": [
+              "Dans la première ligne d'un tableau",
+              "Pour retourner une valeur de la même colonne",
+              "Horizontalement",
+              "Uniquement dans la première colonne"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Moyen"
+          },
+          {
+            "q": "Un document Word doit avoir une page en portrait puis une page en paysage sans modifier toute la mise en page. Quelle solution est la plus adaptée ?",
+            "options": [
+              "Créer un saut de section entre les deux parties",
+              "Insérer uniquement un saut de page",
+              "Modifier l'orientation de tout le document",
+              "Utiliser un saut de section puis modifier l'orientation de la section concernée"
+            ],
+            "correct": [
+              0,
+              3
+            ],
+            "difficulty": "Difficile"
+          },
+          {
+            "q": "Vous avez ajouté plusieurs titres dans un document Word et la table des matières ne les affiche pas. Quelles causes sont cohérentes avec le cours ?",
+            "options": [
+              "Les titres n'utilisent pas correctement les styles Word",
+              "La table n'a pas été mise à jour",
+              "Les titres peuvent être hors des niveaux affichés",
+              "Le document doit obligatoirement être exporté en PDF avant mise à jour"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Difficile"
+          },
+          {
+            "q": "Dans un publipostage, certaines personnes doivent recevoir la lettre et d'autres non. Quelles solutions sont cohérentes ?",
+            "options": [
+              "Filtrer les destinataires",
+              "Désactiver les cases des destinataires à exclure",
+              "Utiliser une condition appropriée",
+              "Supprimer le document principal"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Difficile"
+          },
+          {
+            "q": "Dans un publipostage, les colonnes du fichier de données ne correspondent pas aux champs d'adresse de Word. Quelle action est adaptée ?",
+            "options": [
+              "Faire correspondre les champs",
+              "Associer chaque élément d'adresse à la colonne appropriée",
+              "Modifier la présentation du document principal uniquement",
+              "Utiliser la fonction Faire correspondre les champs"
+            ],
+            "correct": [
+              0,
+              1,
+              3
+            ],
+            "difficulty": "Difficile"
+          },
+          {
+            "q": "Un enseignant veut produire une lettre différente selon le sexe indiqué dans la source de données. Quelles fonctionnalités peuvent convenir ?",
+            "options": [
+              "Le champ Si...Alors...Sinon",
+              "Un champ de fusion correspondant à la donnée",
+              "Une condition sur la source de données",
+              "Une transition PowerPoint"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Difficile"
+          },
+          {
+            "q": "Dans PowerPoint, un objet doit apparaître avant un autre objet animé. Quelles actions sont pertinentes ?",
+            "options": [
+              "Modifier l'ordre des animations",
+              "Déplacer l'animation antérieurement",
+              "Utiliser le volet ou les marqueurs d'animation pour réorganiser l'ordre",
+              "Changer obligatoirement le thème"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Difficile"
+          },
+          {
+            "q": "Vous souhaitez animer un groupe de formes dans PowerPoint. Quelles étapes sont cohérentes avec le cours ?",
+            "options": [
+              "Sélectionner les objets avec Ctrl",
+              "Grouper les objets",
+              "Choisir une animation",
+              "Supprimer les objets avant de les grouper"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Difficile"
+          },
+          {
+            "q": "Un étudiant confond transition et animation dans PowerPoint. Quelles affirmations permettent de les distinguer ?",
+            "options": [
+              "Une transition concerne le passage entre diapositives",
+              "Une animation concerne un objet ou un texte sur une diapositive",
+              "Une transition est appliquée depuis l'onglet Transitions",
+              "Une animation et une transition désignent exactement la même chose"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Difficile"
+          },
+          {
+            "q": "Dans Excel, la formule =A2*$B$2 est recopiée vers le bas. Quelles affirmations sont correctes ?",
+            "options": [
+              "A2 est une référence relative",
+              "$B$2 est une référence absolue",
+              "A2 peut devenir A3 lors de la recopie verticale",
+              "$B$2 reste fixe"
+            ],
+            "correct": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "difficulty": "Difficile"
+          },
+          {
+            "q": "Pourquoi utiliser $A$1 plutôt que A1 dans une formule Excel recopiée ?",
+            "options": [
+              "Pour fixer la colonne",
+              "Pour fixer la ligne",
+              "Pour empêcher le déplacement de la référence",
+              "Pour obtenir une référence absolue"
+            ],
+            "correct": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "difficulty": "Difficile"
+          },
+          {
+            "q": "Une formule Excel doit calculer le total de B3 à B6. Quelles écritures sont cohérentes avec le cours ?",
+            "options": [
+              "=B3+B4+B5+B6",
+              "=SOMME(B3:B6)",
+              "=SOMME(B3;B4;B5;B6)",
+              "=MOYENNE(B3:B6)"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Difficile"
+          },
+          {
+            "q": "Vous devez calculer une remise si un client est loyal ET si son montant est supérieur à 4000. Quelles fonctions logiques sont adaptées ?",
+            "options": [
+              "ET",
+              "SI",
+              "OU uniquement",
+              "Une combinaison SI(ET(...))"
+            ],
+            "correct": [
+              0,
+              1,
+              3
+            ],
+            "difficulty": "Difficile"
+          },
+          {
+            "q": "Pour qu'une condition OU soit vraie dans Excel, il suffit que :",
+            "options": [
+              "Au moins un test soit vrai",
+              "Tous les tests soient vrais",
+              "Un seul des critères soit satisfait",
+              "Aucun test ne soit vrai"
+            ],
+            "correct": [
+              0,
+              2
+            ],
+            "difficulty": "Difficile"
+          },
+          {
+            "q": "Pour qu'une condition ET soit vraie dans Excel :",
+            "options": [
+              "Toutes les conditions doivent être satisfaites",
+              "Une seule condition suffit",
+              "Le résultat est FAUX si au moins une condition n'est pas respectée",
+              "On peut combiner plusieurs tests logiques"
+            ],
+            "correct": [
+              0,
+              2,
+              3
+            ],
+            "difficulty": "Difficile"
+          },
+          {
+            "q": "Une note E4 vaut 13. Avec la formule =SI(E4<10;\"Redouble\";SI(E4<12;\"Passable\";SI(E4<14;\"Assez Bien\";SI(E4<16;\"Bien\";\"Très Bien\")))), quel résultat obtient-on ?",
+            "options": [
+              "Redouble",
+              "Passable",
+              "Assez Bien",
+              "Bien"
+            ],
+            "correct": [
+              2
+            ],
+            "difficulty": "Difficile"
+          },
+          {
+            "q": "Avec les seuils du cours, une note de 16 doit être classée :",
+            "options": [
+              "Redouble",
+              "Bien",
+              "Très Bien",
+              "Assez Bien"
+            ],
+            "correct": [
+              2
+            ],
+            "difficulty": "Difficile"
+          },
+          {
+            "q": "Quelle différence importante entre SI imbriqué et SI.CONDITIONS est présentée dans le cours ?",
+            "options": [
+              "SI imbriqué gère plusieurs conditions en les imbriquant",
+              "SI.CONDITIONS rend les tests multiples plus lisibles",
+              "SI.CONDITIONS est indiqué comme nécessitant Excel 2019 ou Office 365 dans le cours",
+              "Les deux fonctions sont strictement identiques dans leur écriture"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Difficile"
+          },
+          {
+            "q": "Pour afficher les ordinateurs des sociétés HP ou Toshiba dans un filtre personnalisé, quel opérateur logique est adapté ?",
+            "options": [
+              "OU",
+              "ET",
+              "NON",
+              "OU car un enregistrement peut satisfaire l'un ou l'autre critère"
+            ],
+            "correct": [
+              0,
+              3
+            ],
+            "difficulty": "Difficile"
+          },
+          {
+            "q": "Un tableau Excel contient les années 2000 à 2020. Vous voulez afficher uniquement les années supérieures à 2010. Quel mécanisme est directement adapté ?",
+            "options": [
+              "Un filtre numérique",
+              "Un filtre sur la colonne Année",
+              "Une mise en forme conditionnelle uniquement",
+              "Un critère numérique de type supérieur à"
+            ],
+            "correct": [
+              0,
+              1,
+              3
+            ],
+            "difficulty": "Difficile"
+          },
+          {
+            "q": "Vous voulez classer des ordinateurs d'abord par couleur, puis par société à l'intérieur de chaque couleur. Quelle méthode est adaptée ?",
+            "options": [
+              "Un tri sur plusieurs critères",
+              "Ajouter un deuxième niveau de tri",
+              "Utiliser la commande Trier",
+              "Utiliser uniquement le bouton A à Z sur la colonne Couleur"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Difficile"
+          },
+          {
+            "q": "Une mise en forme conditionnelle doit s'appliquer uniquement lorsque le résultat d'une formule est VRAI. Quelle possibilité est prévue par Excel ?",
+            "options": [
+              "Utiliser une formule pour déterminer les cellules à mettre en forme",
+              "Créer une règle personnalisée",
+              "Utiliser une règle basée sur une condition",
+              "Utiliser obligatoirement une transition"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Difficile"
+          },
+          {
+            "q": "Vous souhaitez mettre en évidence les cinq plus grandes valeurs d'une plage. Quelle fonctionnalité est adaptée ?",
+            "options": [
+              "Une règle de valeurs plus/moins élevées",
+              "Une mise en forme conditionnelle prédéfinie",
+              "Une règle des premières valeurs",
+              "Une fonction RECHERCHEV obligatoirement"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Difficile"
+          },
+          {
+            "q": "Une barre de données dans Excel :",
+            "options": [
+              "Associe une barre à chaque cellule",
+              "Représente visuellement la valeur contenue dans la cellule",
+              "Permet une comparaison visuelle des valeurs",
+              "Remplace nécessairement les données numériques"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Difficile"
+          },
+          {
+            "q": "La validation des données peut être utilisée pour :",
+            "options": [
+              "Limiter une saisie à des nombres entre 0 et 100",
+              "Créer une liste déroulante",
+              "Limiter une saisie à une plage de dates",
+              "Limiter la longueur d'un texte"
+            ],
+            "correct": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "difficulty": "Difficile"
+          },
+          {
+            "q": "Pour créer une liste déroulante à partir d'une plage nommée « Contrats », quelle source est cohérente avec le cours ?",
+            "options": [
+              "=Contrats",
+              "Une plage nommée contenant les valeurs",
+              "Une liste de valeurs prédéfinies",
+              "Une formule de transition PowerPoint"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Difficile"
+          },
+          {
+            "q": "Dans une liste déroulante imbriquée, la formule =INDIRECT($A$2) sert, selon le cours, à :",
+            "options": [
+              "Récupérer la liste correspondant au choix effectué",
+              "Utiliser le contenu de A2 pour déterminer une plage nommée",
+              "Permettre une deuxième liste dépendante de la première",
+              "Calculer la moyenne de A2"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Difficile"
+          },
+          {
+            "q": "Une validation de données personnalisée peut utiliser une formule telle que =A1>MOYENNE(B1:B10). Cette règle permet de :",
+            "options": [
+              "Définir une condition personnalisée",
+              "Limiter la saisie selon le résultat d'une formule",
+              "Comparer A1 à la moyenne d'une plage",
+              "Créer automatiquement un graphique"
+            ],
+            "correct": [
+              0,
+              1,
+              2
+            ],
+            "difficulty": "Difficile"
+          },
+          {
+            "q": "Pour rechercher exactement « Client 3 » avec RECHERCHEV, quelles affirmations sont correctes pour =RECHERCHEV(B5;B3:D6;3;FAUX) ?",
+            "options": [
+              "B5 contient la valeur recherchée",
+              "B3:D6 est le tableau de recherche",
+              "3 indique la colonne à retourner dans le tableau",
+              "FAUX demande une correspondance exacte"
+            ],
+            "correct": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "difficulty": "Difficile"
+          },
+          {
+            "q": "Pour RECHERCHEV, où doit se trouver la valeur recherchée ?",
+            "options": [
+              "Dans la première colonne du tableau de recherche",
+              "Dans la dernière colonne obligatoirement",
+              "Dans la première colonne",
+              "Dans une colonne située avant la colonne de résultat"
+            ],
+            "correct": [
+              0,
+              2,
+              3
+            ],
+            "difficulty": "Difficile"
+          },
+          {
+            "q": "Pour RECHERCHEH, quelles affirmations sont correctes ?",
+            "options": [
+              "La valeur recherchée se trouve dans la première ligne du tableau",
+              "La fonction effectue une recherche horizontale",
+              "Le troisième argument indique la ligne à retourner",
+              "FAUX peut demander une correspondance exacte"
+            ],
+            "correct": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "difficulty": "Difficile"
+          }
+        ]
+    };
+
+    let currentSection = 1;
+    let currentQuestionIdx = 0;
+    let isLocked = false;
+
+function loadSection(id) {
+    currentSection = id;
+    currentQuestionIdx = 0;
+    
+    // On récupère tous les boutons de section
+    const buttons = document.querySelectorAll('.btn-section');
+    
+    // 1. On retire d'abord la classe 'active' de TOUS les boutons
+    buttons.forEach(btn => btn.classList.remove('active'));
+    
+    // 2. On active le bon bouton en se basant sur l'id (ex: id = 1 correspond au bouton 0)
+    // Le (id - 1) permet de lier la Section 1 à l'index 0, la Section 2 à l'index 1, etc.
+    if (buttons[id - 1]) {
+        buttons[id - 1].classList.add('active');
+    }
+
+    renderQuestion();
+}
+
+    function renderQuestion() {
+        isLocked = false;
+        document.getElementById('retry-btn').style.display = 'none';
+        document.getElementById('check-btn').style.display = 'block';
+
+        const container = document.getElementById('question-container');
+        const data = quizData[currentSection][currentQuestionIdx];
+        
+        if(!data) {
+            container.innerHTML = "<h3 style='text-align:center; color:var(--success);'>Bravo ! Vous avez validé toutes les questions de cette section.</h3>";
+            document.getElementById('check-btn').style.display = 'none';
+            return;
+        }
+
+        let html = `
+            <div class="question-card active">
+                <div class="question-text">${data.q}</div>
+                <div class="options-grid">
+                    ${data.options.map((opt, i) => `
+                        <div class="option" onclick="toggleOption(this, ${i})">
+                            <div class="checkbox">✕</div>
+                            <span>${opt}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+        
+        container.innerHTML = html;
+        document.getElementById('progress-text').innerText = `Question ${currentQuestionIdx + 1} sur ${quizData[currentSection].length}`;
+    }
+
+    function toggleOption(el, idx) {
+        if(isLocked) return;
+        el.classList.toggle('selected');
+    }
+
+    function validateAnswer() {
+        if(isLocked) return;
+        
+        const data = quizData[currentSection][currentQuestionIdx];
+        const options = document.querySelectorAll('.option');
+        let allCorrect = true;
+        let selectedAny = false;
+
+        options.forEach((opt, i) => {
+            const isSelected = opt.classList.contains('selected');
+            const isCorrect = data.correct.includes(i);
+
+            if (isSelected) selectedAny = true;
+
+            if (isCorrect) {
+                opt.classList.add('correct');
+                opt.classList.remove('selected');
+                opt.innerHTML += '<span class="feedback-icon" style="color:var(--success);">✔</span>';
+            } else if (isSelected && !isCorrect) {
+                opt.classList.add('wrong');
+                opt.innerHTML += '<span class="feedback-icon" style="color:var(--error);">✕</span>';
+                allCorrect = false;
+            } else if (!isSelected && isCorrect) {
+                allCorrect = false; 
+            }
+        });
+
+        if (!selectedAny) {
+            alert("Veuillez cocher au moins une case avant de vérifier.");
+            return;
+        }
+
+        isLocked = true;
+        document.getElementById('check-btn').style.display = 'none';
+        
+        if (!allCorrect) {
+            document.getElementById('retry-btn').style.display = 'block';
+        }
+    }
+
+    function resetCurrentQuestion() {
+        renderQuestion();
+    }
+
+    function changeQuestion(step) {
+        currentQuestionIdx += step;
+        if(currentQuestionIdx < 0) currentQuestionIdx = 0;
+        if(currentQuestionIdx >= quizData[currentSection].length) currentQuestionIdx = quizData[currentSection].length - 1;
+        renderQuestion();
+    }
+
+    renderQuestion();
+</script>
+
+</body>
+</html>
