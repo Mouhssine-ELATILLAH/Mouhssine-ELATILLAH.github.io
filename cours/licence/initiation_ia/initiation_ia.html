@@ -5,802 +5,259 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Initiation à l'IA | Prof. Mouhssine EL ATILLAH</title>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;600;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-		<style>
-		    :root {
-		        --dark: #020617;
-		        --surface: #ffffff;
-		        --accent: #f59e0b;
-		        --primary: #6366f1;
-		        --text-main: #0f172a;
-		        --text-muted: #64748b;
-		    }
-		
-		    * {
-		        box-sizing: border-box;
-		        margin: 0;
-		        padding: 0;
-		    }
-		
-		    html {
-		        width: 100%;
-		        overflow-x: hidden;
-		    }
-		
-		    body {
-		        width: 100%;
-		        max-width: 100%;
-		        font-family: 'Inter', sans-serif;
-		        background-color: #fcfcfd;
-		        color: var(--text-main);
-		        line-height: 1.7;
-		        overflow-x: hidden;
-		    }
-		
-		    img {
-		        max-width: 100%;
-		        height: auto;
-		    }
-		
-		    /* ==========================================================
-		       NAVIGATION
-		       ========================================================== */
-		
-		    nav {
-		        background: rgba(2, 6, 23, 0.98);
-		        backdrop-filter: blur(15px);
-		        height: 90px;
-		        display: flex;
-		        align-items: center;
-		        justify-content: space-between;
-		        padding: 0 5%;
-		        position: fixed;
-		        top: 0;
-		        left: 0;
-		        width: 100%;
-		        z-index: 1000;
-		        border-bottom: 1px solid rgba(255,255,255,0.1);
-		    }
-		
-		    .nav-logo {
-		        font-family: 'Lexend', sans-serif;
-		        font-weight: 800;
-		        font-size: 1.8rem;
-		        color: #fff;
-		        letter-spacing: -1.5px;
-		        text-decoration: none;
-		        white-space: nowrap;
-		    }
-		
-		    .nav-logo span {
-		        color: var(--accent);
-		    }
-		
-		    .nav-links {
-		        display: flex;
-		        align-items: center;
-		        flex-wrap: wrap;
-		    }
-		
-		    .nav-links a {
-		        text-decoration: none;
-		        color: rgba(255,255,255,0.7);
-		        font-weight: 600;
-		        font-size: 0.85rem;
-		        text-transform: uppercase;
-		        letter-spacing: 1px;
-		        transition: 0.3s;
-		        display: inline-block;
-		        vertical-align: middle;
-		    }
-		
-		    .nav-links a:not(:last-child) {
-		        margin-right: 15px;
-		    }
-		
-		    .nav-links a:hover {
-		        color: var(--accent);
-		    }
-		
-		    /* ==========================================================
-		       HEADER
-		       ========================================================== */
-		
-		    .course-header {
-		        background: var(--dark);
-		        color: white;
-		        padding: 160px 5% 60px;
-		    }
-		
-		    .breadcrumb {
-		        font-size: 0.85rem;
-		        color: var(--accent);
-		        margin-bottom: 15px;
-		        text-transform: uppercase;
-		    }
-		
-		    .breadcrumb a {
-		        color: #94a3b8;
-		        text-decoration: none;
-		    }
-		
-		    .course-header h1 {
-		        font-family: 'Lexend', sans-serif;
-		        font-size: clamp(1.8rem, 5vw, 2.8rem);
-		        font-weight: 800;
-		        line-height: 1.2;
-		    }
-		
-		    /* ==========================================================
-		       STRUCTURE PRINCIPALE
-		       Sommaire = 120px
-		       Cours = espace disponible
-		       Ressources = 200px
-		       ========================================================== */
-		
-		    .course-container {
-		        width: 100%;
-		        max-width: 1500px;
-		        margin: 40px auto;
-		        padding: 0 2%;
-		        display: grid;
-		        grid-template-columns: 120px minmax(0, 1fr) 200px;
-		        gap: 30px;
-		    }
-		
-		    /* ==========================================================
-		       SOMMAIRE
-		       ========================================================== */
-		
-		    .course-nav {
-		        position: sticky;
-		        top: 120px;
-		        height: fit-content;
-		        min-width: 0;
-		    }
-		
-		    .course-nav h3 {
-		        font-family: 'Lexend', sans-serif;
-		        font-size: 0.9rem;
-		        text-transform: uppercase;
-		        color: var(--text-main);
-		        margin-bottom: 15px;
-		        letter-spacing: 0.5px;
-		    }
-		
-		    .course-nav ul {
-		        list-style: none;
-		        border-left: 1px solid #e2e8f0;
-		    }
-		
-		    .course-nav li a {
-		        display: block;
-		        padding: 6px 10px;
-		        text-decoration: none;
-		        color: var(--text-muted);
-		        font-size: 0.85rem;
-		        line-height: 1.3;
-		        transition: 0.2s;
-		        overflow-wrap: break-word;
-		    }
-		
-		    .course-nav li a:hover {
-		        color: var(--accent);
-		        border-left: 2px solid var(--accent);
-		        margin-left: -1px;
-		    }
-		
-		    /* ==========================================================
-		       CONTENU DU COURS
-		       ========================================================== */
-		
-		    .course-content {
-		        width: 100%;
-		        min-width: 0;
-		        background: white;
-		        padding: clamp(20px, 3vw, 40px);
-		        border-radius: 12px;
-		        border: 1px solid #edf2f7;
-		        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-		        overflow-wrap: break-word;
-		    }
-		
-		    .course-content h2 {
-		        font-family: 'Lexend', sans-serif;
-		        margin-bottom: 20px;
-		        color: var(--dark);
-		        border-bottom: 2px solid #f1f5f9;
-		        padding-bottom: 10px;
-		        line-height: 1.3;
-		    }
-		
-		    .course-content p {
-		        margin-bottom: 20px;
-		        color: #334155;
-		    }
-		
-		    .course-content img {
-		        max-width: 100%;
-		        height: auto;
-		    }
-		
-		    /* ==========================================================
-		       RESSOURCES
-		       ========================================================== */
-		
-		    .course-sidebar {
-		        position: sticky;
-		        top: 120px;
-		        height: fit-content;
-		        min-width: 0;
-		        display: flex;
-		        flex-direction: column;
-		        gap: 20px;
-		    }
-		
-		    .resource-box {
-		        background: #f8fafc;
-		        border: 1px solid #e2e8f0;
-		        padding: 12px;
-		        border-radius: 10px;
-		        min-width: 0;
-		    }
-		
-		    .resource-box.dark {
-		        background: var(--dark);
-		        color: white;
-		        border: none;
-		    }
-		
-		    .resource-box h4 {
-		        font-family: 'Lexend', sans-serif;
-		        font-size: 0.9rem;
-		        text-transform: uppercase;
-		        margin-bottom: 15px;
-		        color: var(--accent);
-		    }
-		
-		    .btn-action {
-		        display: flex;
-		        align-items: center;
-		        justify-content: center;
-		        padding: 8px 5px;
-		        border-radius: 6px;
-		        text-decoration: none;
-		        font-size: 0.8rem;
-		        font-weight: 600;
-		        margin-bottom: 8px;
-		        transition: 0.3s;
-		        min-width: 0;
-		        overflow-wrap: break-word;
-		    }
-		
-		    .btn-pdf {
-		        background: var(--accent);
-		        color: var(--dark);
-		    }
-		
-		    .btn-tp {
-		        background: white;
-		        color: var(--dark);
-		        border: 1px solid #e2e8f0;
-		    }
-		
-		    .btn-action:hover {
-		        transform: translateY(-2px);
-		        filter: brightness(1.1);
-		    }
-		
-		    /* ==========================================================
-		       FOOTER
-		       ========================================================== */
-		
-		    footer {
-		        background: var(--dark);
-		        color: white;
-		        padding: 60px 5%;
-		        text-align: center;
-		        margin-top: 80px;
-		    }
-		
-		    /* ==========================================================
-		       TABLETTES ET ÉCRANS MOYENS
-		       ========================================================== */
-		
-		    @media (max-width: 1200px) {
-		
-		        /* Navigation */
-		        nav {
-		            height: auto;
-		            min-height: 75px;
-		            padding: 15px 4%;
-		            flex-wrap: wrap;
-		        }
-		
-		        .nav-logo {
-		            font-size: 1.5rem;
-		        }
-		
-		        .nav-right {
-		            width: 100%;
-		        }
-		
-		        .nav-links {
-		            width: 100%;
-		            justify-content: center;
-		            align-items: center;
-		            flex-wrap: wrap;
-		            gap: 8px;
-		        }
-		
-		        .nav-links a {
-		            font-size: 0.78rem;
-		        }
-		
-		        .nav-links a:not(:last-child) {
-		            margin-right: 5px;
-		        }
-		
-		        /* Menu déroulant */
-		        .dropdown {
-		            position: static;
-		            margin-right: 5px;
-		        }
-		
-		        .dropdown-menu {
-		            position: absolute;
-		            top: 100%;
-		            left: 0;
-		            transform: none !important;
-		            width: 100%;
-		            max-width: 100vw;
-		            min-width: 100%;
-		            flex-direction: column;
-		            gap: 20px;
-		            background: #090f24;
-		            padding: 20px;
-		            border-radius: 0 0 8px 8px;
-		            box-sizing: border-box;
-		        }
-		
-		        .dropdown:hover .dropdown-menu {
-		            transform: none;
-		        }
-		
-		        .dropdown-column {
-		            width: 100%;
-		        }
-		
-		        /* Passage en une seule colonne */
-		        .course-container {
-		            grid-template-columns: 1fr;
-		            width: 100%;
-		            max-width: 1100px;
-		            padding: 0 4%;
-		            margin: 25px auto;
-		            gap: 25px;
-		        }
-		
-		        /* Suppression du sticky */
-		        .course-nav,
-		        .course-sidebar {
-		            position: static;
-		            width: 100%;
-		        }
-		
-		        /* Sommaire horizontal */
-		        .course-nav ul {
-		            display: flex;
-		            flex-wrap: wrap;
-		            gap: 8px;
-		            border-left: none;
-		            padding: 10px;
-		            background: #f1f5f9;
-		            border-radius: 8px;
-		        }
-		
-		        .course-nav li {
-		            flex: 0 1 auto;
-		        }
-		
-		        .course-nav li a {
-		            display: block;
-		            padding: 8px 12px;
-		            background: white;
-		            border: 1px solid #cbd5e1;
-		            border-radius: 6px;
-		            font-size: 0.82rem;
-		        }
-		
-		        .course-nav li a:hover {
-		            border-left: 1px solid #cbd5e1;
-		            margin-left: 0;
-		            background: var(--accent);
-		            color: var(--dark);
-		        }
-		
-		        /* Ressources */
-		        .course-sidebar {
-		            display: grid;
-		            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-		            gap: 15px;
-		            margin-top: 10px;
-		        }
-		
-		        /* Header */
-		        .course-header {
-		            padding: 130px 5% 45px;
-		        }
-		
-		        .course-header h1 {
-		            font-size: clamp(1.8rem, 5vw, 2.5rem);
-		        }
-		
-		        /* Contenu */
-		        .course-content {
-		            padding: clamp(20px, 3vw, 40px);
-		        }
-		
-		        /* Éléments flexibles */
-		        .course-content [style*="min-width"] {
-		            min-width: 0 !important;
-		            max-width: 100% !important;
-		        }
-		
-		        .course-content [style*="width:"] {
-		            max-width: 100% !important;
-		        }
-		
-		        /* Images */
-		        figure {
-		            max-width: 100%;
-		            overflow: hidden;
-		        }
-		
-		        figure img {
-		            max-width: 100% !important;
-		            height: auto !important;
-		        }
-		
-		        /* Code */
-		        pre,
-		        code {
-		            max-width: 100%;
-		            overflow-x: auto;
-		        }
-		    }
-		
-		    /* ==========================================================
-		       TÉLÉPHONES
-		       ========================================================== */
-		
-		    @media (max-width: 768px) {
-		
-		        nav {
-		            padding: 12px 4%;
-		        }
-		
-		        .nav-logo {
-		            font-size: 1.35rem;
-		        }
-		
-		        .nav-links {
-		            gap: 5px;
-		        }
-		
-		        .nav-links a {
-		            font-size: 0.72rem;
-		            letter-spacing: 0.3px;
-		        }
-		
-		        .nav-links a:not(:last-child) {
-		            margin-right: 5px;
-		        }
-		
-		        /* Header */
-		        .course-header {
-		            padding: 115px 5% 35px;
-		        }
-		
-		        .breadcrumb {
-		            font-size: 0.72rem;
-		            line-height: 1.5;
-		        }
-		
-		        .course-header h1 {
-		            font-size: clamp(1.6rem, 7vw, 2rem);
-		            line-height: 1.2;
-		        }
-		
-		        /* Conteneur */
-		        .course-container {
-		            width: 100%;
-		            padding: 0 3%;
-		            margin: 15px auto;
-		            gap: 20px;
-		        }
-		
-		        /* Contenu */
-		        .course-content {
-		            width: 100%;
-		            padding: 18px;
-		            border-radius: 8px;
-		        }
-		
-		        .course-content h2 {
-		            font-size: 1.35rem;
-		            line-height: 1.3;
-		        }
-		
-		        .course-content p {
-		            font-size: 0.95rem;
-		            line-height: 1.7;
-		        }
-		
-		        /* Sommaire */
-		        .course-nav ul {
-		            padding: 8px;
-		            gap: 6px;
-		        }
-		
-		        .course-nav li a {
-		            font-size: 0.78rem;
-		            padding: 7px 9px;
-		        }
-		
-		        /* Ressources */
-		        .course-sidebar {
-		            grid-template-columns: 1fr;
-		        }
-		
-		        /* Tous les éléments avec largeur fixe */
-		        .course-content [style*="width:"] {
-		            width: 100% !important;
-		            max-width: 100% !important;
-		        }
-		
-		        /* Éléments avec min-width */
-		        .course-content [style*="min-width"] {
-		            min-width: 0 !important;
-		        }
-		
-		        /* Colonnes CSS */
-		        .course-content [style*="columns:2"] {
-		            columns: 1 !important;
-		        }
-		
-		        /* Flex */
-		        .course-content [style*="display:flex"] {
-		            flex-wrap: wrap !important;
-		        }
-		
-		        /* Images */
-		        .course-content img {
-		            max-width: 100% !important;
-		            height: auto !important;
-		        }
-		
-		        /* Tableaux */
-		        .course-content table {
-		            display: block;
-		            max-width: 100%;
-		            overflow-x: auto;
-		        }
-		
-		        /* Code */
-		        pre {
-		            max-width: 100%;
-		            overflow-x: auto;
-		            white-space: pre-wrap;
-		            overflow-wrap: break-word;
-		        }
-		
-		        code {
-		            overflow-wrap: anywhere;
-		            word-break: break-word;
-		        }
-		
-		        /* Footer */
-		        footer {
-		            padding: 40px 5%;
-		        }
-		    }
-		
-		    /* ==========================================================
-		       TRÈS PETITS TÉLÉPHONES
-		       ========================================================== */
-		
-		    @media (max-width: 480px) {
-		
-		        nav {
-		            padding: 10px 3%;
-		        }
-		
-		        .nav-logo {
-		            font-size: 1.2rem;
-		        }
-		
-		        .nav-links {
-		            width: 100%;
-		            justify-content: center;
-		        }
-		
-		        .nav-links a {
-		            font-size: 0.68rem;
-		            letter-spacing: 0;
-		        }
-		
-		        .nav-links a:not(:last-child) {
-		            margin-right: 3px;
-		        }
-		
-		        .course-header {
-		            padding: 105px 4% 30px;
-		        }
-		
-		        .breadcrumb {
-		            font-size: 0.65rem;
-		        }
-		
-		        .course-header h1 {
-		            font-size: 1.45rem;
-		        }
-		
-		        .course-container {
-		            padding: 0 2%;
-		            margin: 12px auto;
-		        }
-		
-		        .course-content {
-		            padding: 14px;
-		        }
-		
-		        .course-content h2 {
-		            font-size: 1.2rem;
-		        }
-		
-		        .course-content p,
-		        .course-content li {
-		            font-size: 0.9rem;
-		        }
-		
-		        .course-nav li a {
-		            font-size: 0.72rem;
-		            padding: 6px 8px;
-		        }
-		
-		        .resource-box {
-		            padding: 10px;
-		        }
-		
-		        .btn-action {
-		            width: 100%;
-		            min-width: 0;
-		        }
-		    }
-		
-		    /* ==========================================================
-		       MENU DÉROULANT "COURS"
-		       ========================================================== */
-		
-		    .dropdown {
-		        position: relative;
-		        display: inline-block;
-		        vertical-align: middle;
-		        margin-right: 15px;
-		    }
-		
-		    .dropdown-trigger {
-		        cursor: pointer;
-		    }
-		
-		    .dropdown .arrow {
-		        font-size: 0.65rem;
-		        margin-left: 4px;
-		        transition: transform 0.3s ease;
-		        display: inline-block;
-		    }
-		
-		    .dropdown-menu {
-		        position: absolute;
-		        top: 100%;
-		        left: 50%;
-		        transform: translateX(-50%) translateY(15px);
-		        background: var(--dark);
-		        border: 1px solid rgba(255, 255, 255, 0.1);
-		        border-radius: 8px;
-		        padding: 20px;
-		        display: flex;
-		        gap: 35px;
-		        visibility: hidden;
-		        opacity: 0;
-		        transition: all 0.3s ease;
-		        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
-		        z-index: 2000;
-		        min-width: 460px;
-		        max-width: 95vw;
-		        box-sizing: border-box;
-		    }
-		
-		    .dropdown:hover .dropdown-menu {
-		        visibility: visible;
-		        opacity: 1;
-		        transform: translateX(-50%) translateY(5px);
-		    }
-		
-		    .dropdown:hover .arrow {
-		        transform: rotate(180deg);
-		        color: var(--accent);
-		    }
-		
-		    .dropdown-column {
-		        display: flex;
-		        flex-direction: column;
-		        width: 200px;
-		        min-width: 0;
-		    }
-		
-		    .column-title {
-		        font-family: 'Lexend', sans-serif;
-		        font-size: 0.8rem;
-		        color: var(--accent);
-		        text-transform: uppercase;
-		        letter-spacing: 0.5px;
-		        font-weight: 800;
-		        margin-bottom: 12px;
-		        padding-bottom: 6px;
-		        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-		    }
-		
-		    .dropdown-column a {
-		        margin-right: 0 !important;
-		        padding: 6px 0 !important;
-		        color: rgba(255, 255, 255, 0.75) !important;
-		        font-size: 0.82rem !important;
-		        text-transform: none !important;
-		        font-weight: 400 !important;
-		        letter-spacing: 0px !important;
-		        transition: all 0.2s ease;
-		    }
-		
-		    .dropdown-column a:hover {
-		        color: #ffffff !important;
-		        padding-left: 6px !important;
-		    }
-		
-		    /* ==========================================================
-		       MENU DÉROULANT SUR PETITS ÉCRANS
-		       ========================================================== */
-		
-		    @media (max-width: 1200px) {
-		
-		        .dropdown {
-		            position: static;
-		        }
-		
-		        .dropdown-menu {
-		            position: absolute;
-		            top: 100%;
-		            left: 0;
-		            transform: none !important;
-		            width: 100%;
-		            min-width: 100%;
-		            max-width: 100vw;
-		            flex-direction: column;
-		            gap: 20px;
-		            background: #090f24;
-		            padding: 20px;
-		            border-radius: 0 0 8px 8px;
-		        }
-		
-		        .dropdown:hover .dropdown-menu {
-		            transform: none !important;
-		        }
-		
-		        .dropdown-column {
-		            width: 100%;
-		        }
-		    }
-		</style>
+    <style>
+        :root {
+            --dark: #020617;
+            --surface: #ffffff;
+            --accent: #f59e0b; 
+            --primary: #6366f1; 
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fcfcfd;
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            background: rgba(2, 6, 23, 0.98);
+            backdrop-filter: blur(15px);
+            height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            position: fixed;
+            top: 0; width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-logo { font-family: 'Lexend', sans-serif; font-weight: 800; font-size: 1.8rem; color: #fff; letter-spacing: -1.5px; text-decoration: none; }
+        .nav-logo span { color: var(--accent); }
+
+		.nav-links a { 
+		    text-decoration: none; 
+		    color: rgba(255,255,255,0.7); 
+		    font-weight: 600; 
+		    font-size: 0.85rem;
+		    text-transform: uppercase;
+		    letter-spacing: 1px;
+		    transition: 0.3s;
+		    /* AJOUTEZ CES DEUX LIGNES */
+		    display: inline-block;
+		    vertical-align: middle;
+		}
+		
+        .nav-links a:not(:last-child) {margin-right: 15px;}
+        .nav-links a:hover { color: var(--accent); }
+
+        /* --- Header --- */
+        .course-header {
+            background: var(--dark);
+            color: white;
+            padding: 160px 5% 60px;
+        }
+
+        .breadcrumb { font-size: 0.85rem; color: var(--accent); margin-bottom: 15px; text-transform: uppercase; }
+        .breadcrumb a { color: #94a3b8; text-decoration: none; }
+        .course-header h1 { font-family: 'Lexend', sans-serif; font-size: 2.8rem; font-weight: 800; }
+
+        /* --- Layout --- */
+        .course-container {
+            max-width: 1500px;
+            margin: 40px auto;
+            padding: 0 2%;
+            display: grid;
+            grid-template-columns: 120px 1fr 200px; 
+            gap: 30px;
+        }
+
+        /* Colonne Sommaire (Gauche) */
+        .course-nav { position: sticky; top: 120px; height: fit-content; }
+        .course-nav h3 { 
+            font-family: 'Lexend', sans-serif; 
+            font-size: 0.9rem; 
+            text-transform: uppercase; 
+            color: var(--text-main); 
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+        .course-nav ul { list-style: none; border-left: 1px solid #e2e8f0; }
+        .course-nav li a { 
+            display: block; 
+            padding: 6px 10px; 
+            text-decoration: none; 
+            color: var(--text-muted); 
+            font-size: 0.85rem; 
+            line-height: 1.3;
+            transition: 0.2s; 
+        }
+        .course-nav li a:hover { color: var(--accent); border-left: 2px solid var(--accent); margin-left: -1px; }
+
+        /* Colonne Contenu (Centre) */
+        .course-content { 
+            background: white; 
+            padding: 40px; 
+            border-radius: 12px; 
+            border: 1px solid #edf2f7;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        .course-content h2 { font-family: 'Lexend', sans-serif; margin-bottom: 20px; color: var(--dark); border-bottom: 2px solid #f1f5f9; padding-bottom: 10px; }
+        .course-content p { margin-bottom: 20px; color: #334155; }
+
+        /* Colonne Ressources (Droite) */
+        .course-sidebar { position: sticky; top: 120px; height: fit-content; display: flex; flex-direction: column; gap: 20px; }
+        
+        .resource-box {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 12px; 
+            border-radius: 10px;
+        }
+        .resource-box.dark { background: var(--dark); color: white; border: none; }
+        
+        .resource-box h4 { font-family: 'Lexend', sans-serif; font-size: 0.9rem; text-transform: uppercase; margin-bottom: 15px; color: var(--accent); }
+        
+        .btn-action {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 5px; 
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.8rem; 
+            font-weight: 600;
+            margin-bottom: 8px;
+            transition: 0.3s;
+        }
+        .btn-pdf { background: var(--accent); color: var(--dark); }
+        .btn-tp { background: white; color: var(--dark); border: 1px solid #e2e8f0; }
+        .btn-action:hover { transform: translateY(-2px); filter: brightness(1.1); }
+
+        footer { background: var(--dark); color: white; padding: 60px 5%; text-align: center; margin-top: 80px; }
+
+        /* ==========================================================================
+           --- SOLUTIONS ET CORRECTIONS POUR TÉLÉPHONES ET TABLETTES ---
+           ========================================================================== */
+        @media (max-width: 1200px) {
+            /* 1. On casse la grille 3 colonnes pour tout empiler verticalement */
+            .course-container { 
+                grid-template-columns: 1fr; 
+                padding: 0 4%;
+                margin: 20px auto;
+            }
+            
+            /* 2. On libère le mode "sticky" pour que le contenu défile normalement */
+            .course-nav, .course-sidebar { 
+                position: static; 
+                width: 100%; 
+            }
+
+            /* 3. Le sommaire de gauche se transforme en boutons horizontaux */
+            .course-nav ul {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 8px;
+                border-left: none;
+                background: #f1f5f9;
+                padding: 12px;
+                border-radius: 8px;
+            }
+            .course-nav li a {
+                background: white;
+                border: 1px solid #cbd5e1;
+                border-radius: 6px;
+                padding: 8px 12px;
+            }
+            .course-nav li a:hover {
+                border-left: none;
+                margin-left: 0;
+                background: var(--accent);
+                color: var(--dark);
+            }
+
+            /* 4. Les blocs de téléchargement se mettent côte à côte en bas */
+            .course-sidebar {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 15px;
+                margin-top: 30px;
+            }
+
+            /* 5. Réduction des tailles de texte globales pour écran mobile */
+            .course-header { padding: 130px 5% 40px; }
+            .course-header h1 { font-size: 2rem; }
+            .course-content { padding: 20px; }
+        }
+
+        /* Ajustement spécial pour les très petits écrans (téléphones < 480px) */
+        @media (max-width: 480px) {
+            nav { height: 75px; padding: 0 4%; }
+            .nav-logo { font-size: 1.4rem; }
+            .nav-right { gap: 15px !important; }
+            .nav-links a { font-size: 0.75rem; }
+            .nav-links a:not(:last-child) { margin-right: 10px; }
+            .course-header h1 { font-size: 1.6rem; }
+        }
+/* --- Menu Déroulant "Cours" --- */
+        .dropdown { position: relative; display: inline-block; vertical-align: middle; margin-right: 15px;}
+        .dropdown-trigger { cursor: pointer; }
+        .dropdown .arrow { font-size: 0.65rem; margin-left: 4px; transition: transform 0.3s ease; display: inline-block; }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%; left: 50%;
+            transform: translateX(-50%) translateY(15px);
+            background: var(--dark);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 20px;
+            display: flex;
+            gap: 35px;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+            z-index: 2000;
+            min-width: 460px;
+        }
+
+        .dropdown:hover .dropdown-menu { visibility: visible; opacity: 1; transform: translateX(-50%) translateY(5px); }
+        .dropdown:hover .arrow { transform: rotate(180deg); color: var(--accent); }
+
+        .dropdown-column { display: flex; flex-direction: column; width: 200px; }
+        .column-title { font-family: 'Lexend', sans-serif; font-size: 0.8rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px; font-weight: 800; margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        
+        .dropdown-column a { margin-right: 0 !important; padding: 6px 0 !important; color: rgba(255, 255, 255, 0.75) !important; font-size: 0.82rem !important; text-transform: none !important; font-weight: 400 !important; letter-spacing: 0px !important; transition: all 0.2s ease; }
+        .dropdown-column a:hover { color: #ffffff !important; padding-left: 6px !important; }
+
+        /* --- Adaptation Responsive Mobiles --- */
+        @media (max-width: 1200px) {
+            nav { height: auto; padding: 20px 5%; flex-direction: column; gap: 15px; }
+            .nav-right { flex-direction: column; gap: 15px; width: 100%; }
+            .nav-links { justify-content: center; width: 100%; }
+            .dropdown { position: static; }
+            .dropdown-menu {
+                position: absolute;
+                top: 100%; left: 0;
+                transform: none !important;
+                width: 100%; min-width: 100%;
+                flex-direction: column; gap: 20px;
+                background: #090f24; padding: 20px;
+                border-radius: 0 0 8px 8px;
+            }
+            .dropdown:hover .dropdown-menu { transform: none; }
+            .dropdown-column { width: 100%; }
+        }
+		
+    </style>
 </head>
 <body>
 <nav>
